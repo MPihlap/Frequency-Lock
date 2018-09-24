@@ -1,51 +1,121 @@
-
-# Put your stlink folder here so make burn will work.
-STLINK=~/stlink
-
-# Put your source files here (or *.c, etc)
-SRCS=main.c system_stm32f4xx.c 
-
-# Binaries will be generated with this name (.elf, .bin, .hex, etc)
+# Name of the binaries.
 PROJ_NAME=ToneLock
 
-# Put your STM32F4 library code directory here
-STM_COMMON=../../Tone-Lock
+######################################################################
+#                         SETUP SOURCES                              #
+######################################################################
 
-# Normally you shouldn't need to change anything below this line!
-#######################################################################################
 
-CC=arm-none-eabi-gcc
-OBJCOPY=arm-none-eabi-objcopy
+# This is the directory containing the firmware package,
+# the unzipped folder downloaded from here:
+# http://www.st.com/web/en/catalog/tools/PF257904
+STM_DIR=../
 
-CFLAGS  = -g -O2 -Wall -Tstm32_flash.ld 
+# This is where the source files are located,
+# which are not in the current directory
+# (the sources of the standard peripheral library, which we use)
+# see also "info:/make/Selective Search" in Konqueror
+STM_SRC = $(STM_DIR)/Libraries/STM32F4xx_StdPeriph_Driver/src
+
+# Tell make to look in that folder if it cannot find a source
+# in the current directory
+vpath %.c $(STM_SRC)
+
+# My source file
+SRCS   = main.c
+
+# Contains initialisation code and must be compiled into
+# our project. This file is in the current directory and
+# was writen by ST.
+SRCS  += system_stm32f4xx.c
+
+# These source files implement the functions we use.
+# make finds them by searching the vpath defined above.
+SRCS  += stm32f4xx_rcc.c 
+SRCS  += stm32f4xx_gpio.c
+SRCS  += stm32f4xx_usart.c
+
+# Startup file written by ST
+# The assembly code in this file is the first one to be
+# executed. Normally you do not change this file.
+SRCS += $(STM_DIR)/Libraries/CMSIS/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f4xx.s
+
+# The header files we use are located here
+INC_DIRS  = $(STM_DIR)/Utilities/STM32F4-Discovery
+INC_DIRS += $(STM_DIR)/Libraries/CMSIS/Include
+INC_DIRS += $(STM_DIR)/Libraries/CMSIS/ST/STM32F4xx/Include
+INC_DIRS += $(STM_DIR)/Libraries/STM32F4xx_StdPeriph_Driver/inc
+INC_DIRS += .
+
+# in case we have to many sources and don't want 
+# to compile all sources every time
+# OBJS = $(SRCS:.c=.o)
+
+######################################################################
+#                         SETUP TOOLS                                #
+######################################################################
+
+# This is the path to ST-LINK
+STLINK_DIR = ~/stlink/build/Release
+
+# This is the path to the toolchain
+# (we don't put our toolchain on $PATH to keep the system clean)
+TOOLS_DIR = /usr/bin
+
+# The tool we use
+CC      = $(TOOLS_DIR)/arm-none-eabi-gcc
+OBJCOPY = $(TOOLS_DIR)/arm-none-eabi-objcopy
+GDB     = $(TOOLS_DIR)/arm-none-eabi-gdb
+
+## Preprocessor options
+
+# directories to be searched for header files
+INCLUDE = $(addprefix -I,$(INC_DIRS))
+
+# #defines needed when working with the STM library
+DEFS    = -DUSE_STDPERIPH_DRIVER
+# if you use the following option, you must implement the function 
+#    assert_failed(uint8_t* file, uint32_t line)
+# because it is conditionally used in the library
+# DEFS   += -DUSE_FULL_ASSERT
+
+## Compiler options
+CFLAGS  = -ggdb
+# please do not optimize anything because we are debugging
+CFLAGS += -O0 
+CFLAGS += -Wall -Wextra -Warray-bounds
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
-CFLAGS += -I.
 
-# Include files from STM libraries
-CFLAGS += -I$(STM_COMMON)/Utilities/STM32F4-Discovery
-CFLAGS += -I$(STM_COMMON)/Libraries/CMSIS/Include -I$(STM_COMMON)/Libraries/CMSIS/ST/STM32F4xx/Include
-CFLAGS += -I$(STM_COMMON)/Libraries/STM32F4xx_StdPeriph_Driver/inc
-
-# add startup file to build
-SRCS += $(STM_COMMON)/Libraries/CMSIS/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f4xx.s 
-OBJS = $(SRCS:.c=.o)
+## Linker options
+# tell ld which linker file to use
+# (this file is in the current directory)
+LFLAGS  = -Tstm32_flash.ld
 
 
-.PHONY: proj
+######################################################################
+#                         SETUP TARGETS                              #
+######################################################################
 
-all: proj
+TARGET=../bin/$(PROJ_NAME)
 
-proj: $(PROJ_NAME).elf
-
-$(PROJ_NAME).elf: $(SRCS)
-	$(CC) $(CFLAGS) $^ -o $@ 
-	$(OBJCOPY) -O ihex $(PROJ_NAME).elf $(PROJ_NAME).hex
-	$(OBJCOPY) -O binary $(PROJ_NAME).elf $(PROJ_NAME).bin
+.PHONY: $(TARGET)
+$(TARGET): $(TARGET).elf
+$(TARGET).elf: $(SRCS)
+	@echo $(TARGET)
+	$(CC) $(INCLUDE) $(DEFS) $(CFLAGS) $(LFLAGS) $^ -o $@ 
+	$(OBJCOPY) -O ihex $(TARGET).elf   $(TARGET).hex
+	$(OBJCOPY) -O binary $(TARGET).elf $(TARGET).bin
+	
 
 clean:
-	rm -f *.o $(PROJ_NAME).elf $(PROJ_NAME).hex $(PROJ_NAME).bin
+	rm -f *.o $(TARGET).elf $(TARGET).hex $(TARGET).bin
 
 # Flash the STM32F4
-burn: proj
-	$(STLINK)/build/Release/st-flash write $(PROJ_NAME).bin 0x8000000
+flash: 
+	$(STLINK_DIR)/st-flash write $(TARGET).bin 0x8000000
+
+.PHONY: debug
+debug:
+# before you start gdb, you must start st-util
+	$(GDB) $(TARGET).elf
