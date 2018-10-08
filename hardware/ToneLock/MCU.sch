@@ -8679,28 +8679,28 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="86.36" y="73.66"/>
 </segment>
 </net>
-<net name="UART4_TX" class="0">
+<net name="USART2_RX" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="PA0"/>
-<wire x1="-5.08" y1="83.82" x2="-7.62" y2="83.82" width="0.1524" layer="91"/>
-<label x="-7.62" y="83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="JP1" gate="G$1" pin="1"/>
+<wire x1="-71.12" y1="83.82" x2="-66.04" y2="83.82" width="0.1524" layer="91"/>
+<label x="-66.04" y="83.82" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="PA3"/>
+<wire x1="-5.08" y1="76.2" x2="-7.62" y2="76.2" width="0.1524" layer="91"/>
+<label x="-7.62" y="76.2" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="USART2_TX" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="-71.12" y1="86.36" x2="-66.04" y2="86.36" width="0.1524" layer="91"/>
 <label x="-66.04" y="86.36" size="1.27" layer="95" xref="yes"/>
 </segment>
-</net>
-<net name="UART4_RX" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="PA1"/>
-<wire x1="-5.08" y1="81.28" x2="-7.62" y2="81.28" width="0.1524" layer="91"/>
-<label x="-7.62" y="81.28" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="1"/>
-<wire x1="-71.12" y1="83.82" x2="-66.04" y2="83.82" width="0.1524" layer="91"/>
-<label x="-66.04" y="83.82" size="1.27" layer="95" xref="yes"/>
+<pinref part="U$1" gate="G$1" pin="PA2"/>
+<wire x1="-5.08" y1="78.74" x2="-7.62" y2="78.74" width="0.1524" layer="91"/>
+<label x="-7.62" y="78.74" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>
