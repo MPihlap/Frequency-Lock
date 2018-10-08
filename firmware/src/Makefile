@@ -34,6 +34,8 @@ SRCS  += system_stm32f4xx.c
 SRCS  += stm32f4xx_rcc.c 
 SRCS  += stm32f4xx_gpio.c
 SRCS  += stm32f4xx_usart.c
+SRCS  += stm32f4xx_it.c
+SRCS  += misc.c
 
 # Startup file written by ST
 # The assembly code in this file is the first one to be
@@ -45,6 +47,7 @@ INC_DIRS  = $(STM_DIR)/Utilities/STM32F4-Discovery
 INC_DIRS += $(STM_DIR)/Libraries/CMSIS/Include
 INC_DIRS += $(STM_DIR)/Libraries/CMSIS/ST/STM32F4xx/Include
 INC_DIRS += $(STM_DIR)/Libraries/STM32F4xx_StdPeriph_Driver/inc
+INC_DIRS += ../inc
 INC_DIRS += .
 
 # in case we have to many sources and don't want 
