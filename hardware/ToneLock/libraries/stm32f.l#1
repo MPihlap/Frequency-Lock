@@ -515,7 +515,7 @@
 <pin name="PC0(ADC/USB)" x="50.8" y="147.32" length="middle" rot="R180"/>
 <pin name="PC1(ADC)" x="50.8" y="144.78" length="middle" rot="R180"/>
 <pin name="PC2(ADC/SPI2MISO)" x="50.8" y="142.24" length="middle" rot="R180"/>
-<pin name="PC3(ADC/MIC/SPI2_MOSI)" x="50.8" y="139.7" length="middle" rot="R180"/>
+<pin name="PC3" x="50.8" y="139.7" length="middle" rot="R180"/>
 <pin name="VDD1" x="-5.08" y="129.54" length="middle"/>
 <pin name="VSSA" x="-5.08" y="111.76" length="middle"/>
 <pin name="VREF+" x="-5.08" y="88.9" length="middle"/>
@@ -530,8 +530,8 @@
 <pin name="PA5" x="-5.08" y="71.12" length="middle"/>
 <pin name="PA6" x="-5.08" y="68.58" length="middle"/>
 <pin name="PA7" x="-5.08" y="66.04" length="middle"/>
-<pin name="PC4(ADC)" x="50.8" y="137.16" length="middle" rot="R180"/>
-<pin name="PC5(ADC)" x="50.8" y="134.62" length="middle" rot="R180"/>
+<pin name="PC4" x="50.8" y="137.16" length="middle" rot="R180"/>
+<pin name="PC5" x="50.8" y="134.62" length="middle" rot="R180"/>
 <pin name="PB0" x="-5.08" y="40.64" length="middle"/>
 <pin name="PB1" x="-5.08" y="38.1" length="middle"/>
 <pin name="PB2" x="-5.08" y="35.56" length="middle"/>
@@ -560,10 +560,10 @@
 <pin name="PD13" x="50.8" y="66.04" length="middle" rot="R180"/>
 <pin name="PD14" x="50.8" y="63.5" length="middle" rot="R180"/>
 <pin name="PD15" x="50.8" y="60.96" length="middle" rot="R180"/>
-<pin name="PC6(PWM/USART6_TX)" x="50.8" y="132.08" length="middle" rot="R180"/>
-<pin name="PC7(AUDIO/PWM/USART6_RX)" x="50.8" y="129.54" length="middle" rot="R180"/>
-<pin name="PC8(PWM)" x="50.8" y="127" length="middle" rot="R180"/>
-<pin name="PC9(I2C3SDA/PWM)" x="50.8" y="124.46" length="middle" rot="R180"/>
+<pin name="PC6" x="50.8" y="132.08" length="middle" rot="R180"/>
+<pin name="PC7" x="50.8" y="129.54" length="middle" rot="R180"/>
+<pin name="PC8" x="50.8" y="127" length="middle" rot="R180"/>
+<pin name="PC9" x="50.8" y="124.46" length="middle" rot="R180"/>
 <pin name="PA8" x="-5.08" y="63.5" length="middle"/>
 <pin name="PA9" x="-5.08" y="60.96" length="middle"/>
 <pin name="PA10" x="-5.08" y="58.42" length="middle"/>
@@ -575,7 +575,7 @@
 <pin name="VDD4" x="-5.08" y="121.92" length="middle"/>
 <pin name="PA14" x="-5.08" y="48.26" length="middle"/>
 <pin name="PA15" x="-5.08" y="45.72" length="middle"/>
-<pin name="PC10(USART3_TX)" x="50.8" y="121.92" length="middle" rot="R180"/>
+<pin name="PC10" x="50.8" y="121.92" length="middle" rot="R180"/>
 <pin name="PC11" x="50.8" y="119.38" length="middle" rot="R180"/>
 <pin name="PC12" x="50.8" y="116.84" length="middle" rot="R180"/>
 <pin name="PD0" x="50.8" y="99.06" length="middle" rot="R180"/>
@@ -866,20 +866,20 @@ supports IEEE 1588v2 hardware, MII/RMII
 <connect gate="G$1" pin="PB9" pad="96"/>
 <connect gate="G$1" pin="PC0(ADC/USB)" pad="15"/>
 <connect gate="G$1" pin="PC1(ADC)" pad="16"/>
-<connect gate="G$1" pin="PC10(USART3_TX)" pad="78"/>
+<connect gate="G$1" pin="PC10" pad="78"/>
 <connect gate="G$1" pin="PC11" pad="79"/>
 <connect gate="G$1" pin="PC12" pad="80"/>
 <connect gate="G$1" pin="PC13" pad="7"/>
 <connect gate="G$1" pin="PC14" pad="8"/>
 <connect gate="G$1" pin="PC15" pad="9"/>
 <connect gate="G$1" pin="PC2(ADC/SPI2MISO)" pad="17"/>
-<connect gate="G$1" pin="PC3(ADC/MIC/SPI2_MOSI)" pad="18"/>
-<connect gate="G$1" pin="PC4(ADC)" pad="33"/>
-<connect gate="G$1" pin="PC5(ADC)" pad="34"/>
-<connect gate="G$1" pin="PC6(PWM/USART6_TX)" pad="63"/>
-<connect gate="G$1" pin="PC7(AUDIO/PWM/USART6_RX)" pad="64"/>
-<connect gate="G$1" pin="PC8(PWM)" pad="65"/>
-<connect gate="G$1" pin="PC9(I2C3SDA/PWM)" pad="66"/>
+<connect gate="G$1" pin="PC3" pad="18"/>
+<connect gate="G$1" pin="PC4" pad="33"/>
+<connect gate="G$1" pin="PC5" pad="34"/>
+<connect gate="G$1" pin="PC6" pad="63"/>
+<connect gate="G$1" pin="PC7" pad="64"/>
+<connect gate="G$1" pin="PC8" pad="65"/>
+<connect gate="G$1" pin="PC9" pad="66"/>
 <connect gate="G$1" pin="PD0" pad="81"/>
 <connect gate="G$1" pin="PD1" pad="82"/>
 <connect gate="G$1" pin="PD10" pad="57"/>
@@ -1050,20 +1050,20 @@ supports IEEE 1588v2 hardware, MII/RMII
 <connect gate="G$1" pin="PB9" pad="96"/>
 <connect gate="G$1" pin="PC0(ADC/USB)" pad="15"/>
 <connect gate="G$1" pin="PC1(ADC)" pad="16"/>
-<connect gate="G$1" pin="PC10(USART3_TX)" pad="78"/>
+<connect gate="G$1" pin="PC10" pad="78"/>
 <connect gate="G$1" pin="PC11" pad="79"/>
 <connect gate="G$1" pin="PC12" pad="80"/>
 <connect gate="G$1" pin="PC13" pad="7"/>
 <connect gate="G$1" pin="PC14" pad="8"/>
 <connect gate="G$1" pin="PC15" pad="9"/>
 <connect gate="G$1" pin="PC2(ADC/SPI2MISO)" pad="17"/>
-<connect gate="G$1" pin="PC3(ADC/MIC/SPI2_MOSI)" pad="18"/>
-<connect gate="G$1" pin="PC4(ADC)" pad="33"/>
-<connect gate="G$1" pin="PC5(ADC)" pad="34"/>
-<connect gate="G$1" pin="PC6(PWM/USART6_TX)" pad="63"/>
-<connect gate="G$1" pin="PC7(AUDIO/PWM/USART6_RX)" pad="64"/>
-<connect gate="G$1" pin="PC8(PWM)" pad="65"/>
-<connect gate="G$1" pin="PC9(I2C3SDA/PWM)" pad="66"/>
+<connect gate="G$1" pin="PC3" pad="18"/>
+<connect gate="G$1" pin="PC4" pad="33"/>
+<connect gate="G$1" pin="PC5" pad="34"/>
+<connect gate="G$1" pin="PC6" pad="63"/>
+<connect gate="G$1" pin="PC7" pad="64"/>
+<connect gate="G$1" pin="PC8" pad="65"/>
+<connect gate="G$1" pin="PC9" pad="66"/>
 <connect gate="G$1" pin="PD0" pad="81"/>
 <connect gate="G$1" pin="PD1" pad="82"/>
 <connect gate="G$1" pin="PD10" pad="57"/>
