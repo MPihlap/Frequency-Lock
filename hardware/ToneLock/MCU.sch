@@ -7602,12 +7602,12 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <wire x1="1.9" y1="-2.3" x2="1.9" y2="2.3" width="0.127" layer="21"/>
 <circle x="-1.5" y="3" radius="0.360553125" width="0.127" layer="21"/>
 <text x="0" y="-2.60411875" size="1.272009375" layer="25" rot="R180" align="bottom-center">&gt;NAME</text>
-<smd name="6" x="1.1" y="1.5" dx="1" dy="1.4" layer="1" roundness="100" rot="R135"/>
-<smd name="2" x="-1.2" y="0" dx="1" dy="1" layer="1" roundness="100"/>
-<smd name="3" x="-1.2" y="-1.6" dx="1" dy="1" layer="1" roundness="100"/>
-<smd name="4" x="1.2" y="-1.6" dx="1" dy="1" layer="1" roundness="100" rot="R270"/>
-<smd name="5" x="1.2" y="0" dx="1" dy="1" layer="1" roundness="100"/>
-<smd name="1" x="-1.2" y="1.6" dx="1" dy="1" layer="1" roundness="100" rot="R90"/>
+<smd name="6" x="1.373" y="1.948" dx="2.54" dy="1.27" layer="1" roundness="100" rot="R45"/>
+<smd name="2" x="-1.708" y="0" dx="2.54" dy="1.27" layer="1" roundness="100"/>
+<smd name="3" x="-1.708" y="-1.727" dx="2.54" dy="1.27" layer="1" roundness="100"/>
+<smd name="4" x="1.727" y="-1.721" dx="2.54" dy="1.27" layer="1" roundness="100"/>
+<smd name="5" x="1.708" y="0" dx="2.54" dy="1.27" layer="1" roundness="100"/>
+<smd name="1" x="-1.727" y="1.721" dx="2.54" dy="1.27" layer="1" roundness="100" rot="R180"/>
 </package>
 </packages>
 <symbols>
@@ -12130,7 +12130,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+12V" device=""/>
 <part name="C17" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF"/>
-<part name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="TPB1,27"/>
+<part name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1" value="TPB2,54"/>
+<part name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1"/>
+<part name="TP3" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -12250,7 +12252,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="VALUE" x="101.6" y="-2.54" size="1.778" layer="96"/>
 </instance>
 <instance part="C17" gate="G$1" x="-68.58" y="134.62"/>
-<instance part="TP1" gate="G$1" x="144.78" y="96.52" rot="R270"/>
+<instance part="TP1" gate="G$1" x="149.86" y="104.14" rot="R270"/>
+<instance part="TP2" gate="G$1" x="149.86" y="99.06" rot="R270"/>
+<instance part="TP3" gate="G$1" x="149.86" y="93.98" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -12531,6 +12535,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="93.98" y1="132.08" x2="91.44" y2="132.08" width="0.1524" layer="91"/>
 <label x="91.44" y="132.08" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="TP3" gate="G$1" pin="TP"/>
+<wire x1="147.32" y1="93.98" x2="144.78" y2="93.98" width="0.1524" layer="91"/>
+<label x="144.78" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="MEMS_MOSI" class="0">
 <segment>
@@ -12593,8 +12602,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </segment>
 <segment>
 <pinref part="TP1" gate="G$1" pin="TP"/>
-<wire x1="142.24" y1="96.52" x2="139.7" y2="96.52" width="0.1524" layer="91"/>
-<label x="139.7" y="96.52" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="147.32" y1="104.14" x2="144.78" y2="104.14" width="0.1524" layer="91"/>
+<label x="144.78" y="104.14" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MIC_CLK" class="0">
@@ -12607,6 +12616,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U2" gate="G$1" pin="CLK"/>
 <wire x1="119.38" y1="83.82" x2="121.92" y2="83.82" width="0.1524" layer="91"/>
 <label x="121.92" y="83.82" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="TP2" gate="G$1" pin="TP"/>
+<wire x1="147.32" y1="99.06" x2="144.78" y2="99.06" width="0.1524" layer="91"/>
+<label x="144.78" y="99.06" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$3" class="0">
