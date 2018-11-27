@@ -34,8 +34,8 @@
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
@@ -78,7 +78,8 @@
 <wire x1="62.5" y1="6" x2="62.5" y2="50" width="0" layer="20"/>
 <wire x1="62.5" y1="50" x2="7.5" y2="50" width="0" layer="20"/>
 <wire x1="7.5" y1="50" x2="7.5" y2="6" width="0" layer="20"/>
-<text x="24.5" y="19" size="2" layer="21" font="vector">TX</text>
+<text x="31.5" y="19.5" size="1" layer="21" font="vector">Tx</text>
+<text x="31.5" y="12.5" size="1" layer="21" font="vector">Rx</text>
 </plain>
 <libraries>
 <library name="resistor" urn="urn:adsk.eagle:library:348">
@@ -2335,7 +2336,7 @@ design rules under a new name.</description>
 <via x="20.5" y="25.5" extent="1-16" drill="0.3"/>
 <via x="19.5" y="25.5" extent="1-16" drill="0.3"/>
 <via x="18.5" y="25.5" extent="1-16" drill="0.3"/>
-<via x="19" y="23.5" extent="1-16" drill="0.3"/>
+<via x="19.1" y="23.5" extent="1-16" drill="0.3"/>
 <via x="26" y="26.5" extent="1-16" drill="0.3"/>
 <via x="27" y="26.5" extent="1-16" drill="0.3"/>
 <via x="28" y="26.5" extent="1-16" drill="0.3"/>
@@ -2402,7 +2403,7 @@ design rules under a new name.</description>
 <via x="30.5" y="43.5" extent="1-16" drill="0.3"/>
 <via x="51.8" y="15.8" extent="1-16" drill="0.3"/>
 <via x="51.2" y="15.2" extent="1-16" drill="0.3"/>
-<via x="52" y="37" extent="1-16" drill="0.3"/>
+<via x="52.1" y="36.8" extent="1-16" drill="0.3"/>
 <via x="52" y="36" extent="1-16" drill="0.3"/>
 <via x="51.5" y="34.5" extent="1-16" drill="0.3"/>
 <via x="51" y="28" extent="1-16" drill="0.3"/>
@@ -2699,11 +2700,12 @@ design rules under a new name.</description>
 <via x="36.014915625" y="21.485084375" extent="1-16" drill="0.35"/>
 <wire x1="36.014915625" y1="21.485084375" x2="36" y2="21.47016875" width="0.3" layer="16"/>
 <wire x1="36" y1="17.5" x2="36" y2="21.47016875" width="0.3" layer="16"/>
-<wire x1="33.73" y1="15.23" x2="33" y2="15.23" width="0.3" layer="1"/>
 <wire x1="40" y1="24.4" x2="38.92983125" y2="24.4" width="0.3" layer="1"/>
 <wire x1="38.92983125" y1="24.4" x2="36.014915625" y2="21.485084375" width="0.3" layer="1"/>
+<wire x1="33.73" y1="15.23" x2="33.75" y2="15.25" width="0.3" layer="16"/>
+<wire x1="33.75" y1="15.25" x2="36" y2="17.5" width="0.3" layer="16"/>
 <wire x1="33" y1="15.23" x2="33.73" y2="15.23" width="0.3" layer="16"/>
-<wire x1="33.73" y1="15.23" x2="36" y2="17.5" width="0.3" layer="16"/>
+<wire x1="33.73" y1="15.23" x2="33.75" y2="15.25" width="0.3" layer="16"/>
 </signal>
 <signal name="USART2_TX">
 <contactref element="JP1" pad="2"/>
@@ -2715,7 +2717,6 @@ design rules under a new name.</description>
 <wire x1="38.4" y1="24.9" x2="35" y2="21.5" width="0.3" layer="1"/>
 <via x="35" y="21.5" extent="1-16" drill="0.35"/>
 <wire x1="35" y1="19.5" x2="35" y2="21.5" width="0.3" layer="16"/>
-<wire x1="33.27" y1="17.77" x2="33" y2="17.77" width="0.3" layer="1"/>
 <wire x1="33" y1="17.77" x2="33.27" y2="17.77" width="0.3" layer="16"/>
 <wire x1="33.27" y1="17.77" x2="35" y2="19.5" width="0.3" layer="16"/>
 </signal>
@@ -2811,11 +2812,9 @@ design rules under a new name.</description>
 <signal name="DBG_LED2">
 <contactref element="U$1" pad="60"/>
 <contactref element="DBG_LED2" pad="A"/>
-<wire x1="56" y1="29.25" x2="56.25" y2="29" width="0.3" layer="1"/>
-<wire x1="56.25" y1="29" x2="55.25" y2="30" width="0.3" layer="1"/>
-<wire x1="55.25" y1="30" x2="55.25" y2="30.0020875" width="0.3" layer="1"/>
-<wire x1="55.25" y1="30.0020875" x2="54.7520875" y2="30.5" width="0.3" layer="1"/>
+<wire x1="56.25" y1="29.0020875" x2="54.7520875" y2="30.5" width="0.3" layer="1"/>
 <wire x1="54.7520875" y1="30.5" x2="53.6" y2="30.5" width="0.3" layer="1"/>
+<wire x1="56.25" y1="29" x2="56.25" y2="29.0020875" width="0.3" layer="1"/>
 </signal>
 <signal name="DBG_LED3">
 <contactref element="U$1" pad="61"/>

@@ -11188,7 +11188,7 @@ Source: &lt;a href="http://www.fairchildsemi.com/datasheets/BS/BSS138.pdf"&gt;ht
 <instance part="GND11" gate="1" x="-50.8" y="116.84" rot="R90"/>
 <instance part="POWER_LED" gate="G$1" x="96.52" y="27.94" rot="R90"/>
 <instance part="VDD5" gate="G$1" x="88.9" y="27.94" rot="R90"/>
-<instance part="GND12" gate="1" x="114.3" y="27.94" rot="R90"/>
+<instance part="GND12" gate="1" x="111.76" y="25.4"/>
 <instance part="U$1" gate="G$1" x="0" y="0"/>
 <instance part="SV2" gate="G$1" x="-68.58" y="43.18"/>
 <instance part="GND13" gate="1" x="-7.62" y="147.32" rot="R270"/>
@@ -11199,13 +11199,13 @@ Source: &lt;a href="http://www.fairchildsemi.com/datasheets/BS/BSS138.pdf"&gt;ht
 </instance>
 <instance part="P+5" gate="1" x="99.06" y="5.08" rot="R90"/>
 <instance part="DBG_LED1" gate="G$1" x="137.16" y="73.66" rot="R90"/>
-<instance part="GND15" gate="1" x="154.94" y="73.66" rot="R90"/>
+<instance part="GND15" gate="1" x="152.4" y="71.12"/>
 <instance part="DBG_LED2" gate="G$1" x="137.16" y="66.04" rot="R90"/>
 <instance part="DBG_LED3" gate="G$1" x="137.16" y="58.42" rot="R90"/>
 <instance part="DBG_LED4" gate="G$1" x="137.16" y="50.8" rot="R90"/>
-<instance part="GND16" gate="1" x="154.94" y="66.04" rot="R90"/>
-<instance part="GND17" gate="1" x="154.94" y="58.42" rot="R90"/>
-<instance part="GND18" gate="1" x="154.94" y="50.8" rot="R90"/>
+<instance part="GND16" gate="1" x="152.4" y="63.5"/>
+<instance part="GND17" gate="1" x="152.4" y="55.88"/>
+<instance part="GND18" gate="1" x="152.4" y="48.26"/>
 <instance part="GND19" gate="1" x="111.76" y="-15.24"/>
 <instance part="D1" gate="G$1" x="-73.66" y="73.66" rot="R270"/>
 <instance part="D2" gate="G$1" x="121.92" y="5.08" smashed="yes" rot="R270">

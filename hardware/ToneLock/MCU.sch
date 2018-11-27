@@ -12556,40 +12556,28 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="91.44" y="129.54" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="MEMS_CS" class="0">
-<segment>
-<wire x1="93.98" y1="147.32" x2="91.44" y2="147.32" width="0.1524" layer="91"/>
-<label x="91.44" y="147.32" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U3" gate="G$1" pin="CS"/>
-</segment>
-<segment>
-<wire x1="50.8" y1="43.18" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
-<label x="53.34" y="43.18" size="1.27" layer="95" xref="yes"/>
-<pinref part="U$1" gate="G$1" pin="PE3"/>
-</segment>
-</net>
 <net name="MEMS_INT1" class="0">
-<segment>
-<wire x1="50.8" y1="50.8" x2="53.34" y2="50.8" width="0.1524" layer="91"/>
-<label x="53.34" y="50.8" size="1.27" layer="95" xref="yes"/>
-<pinref part="U$1" gate="G$1" pin="PE0"/>
-</segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="INT1"/>
 <wire x1="93.98" y1="139.7" x2="91.44" y2="139.7" width="0.1524" layer="91"/>
 <label x="91.44" y="139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="PE10"/>
+<wire x1="50.8" y1="25.4" x2="53.34" y2="25.4" width="0.1524" layer="91"/>
+<label x="53.34" y="25.4" size="1.27" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="MEMS_INT2" class="0">
-<segment>
-<wire x1="50.8" y1="48.26" x2="53.34" y2="48.26" width="0.1524" layer="91"/>
-<label x="53.34" y="48.26" size="1.27" layer="95" xref="yes"/>
-<pinref part="U$1" gate="G$1" pin="PE1"/>
-</segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="INT2"/>
 <wire x1="93.98" y1="137.16" x2="91.44" y2="137.16" width="0.1524" layer="91"/>
 <label x="91.44" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="PE11"/>
+<wire x1="50.8" y1="22.86" x2="53.34" y2="22.86" width="0.1524" layer="91"/>
+<label x="53.34" y="22.86" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="MIC_PDM" class="0">
@@ -12858,6 +12846,18 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="Q1" gate="G$1" pin="D"/>
 <wire x1="99.06" y1="5.08" x2="104.14" y2="5.08" width="0.1524" layer="91"/>
 <junction x="99.06" y="5.08"/>
+</segment>
+</net>
+<net name="MEMS_NCS" class="0">
+<segment>
+<wire x1="93.98" y1="147.32" x2="91.44" y2="147.32" width="0.1524" layer="91"/>
+<label x="91.44" y="147.32" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="U3" gate="G$1" pin="CS"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="PE8"/>
+<wire x1="50.8" y1="30.48" x2="53.34" y2="30.48" width="0.1524" layer="91"/>
+<label x="53.34" y="30.48" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
