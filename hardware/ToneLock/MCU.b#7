@@ -80,6 +80,8 @@
 <wire x1="1.5" y1="44" x2="1.5" y2="0" width="0" layer="20"/>
 <text x="22.5" y="16.5" size="1" layer="21" font="vector">Tx</text>
 <text x="23" y="11" size="1" layer="21" font="vector">Rx</text>
+<text x="44" y="9" size="1" layer="21" font="vector">MEMS_CLK</text>
+<text x="44" y="1" size="1" layer="21" font="vector">MIC_CLK</text>
 </plain>
 <libraries>
 <library name="resistor" urn="urn:adsk.eagle:library:348">
@@ -1917,15 +1919,6 @@ Cream on SMD OFF.&lt;br&gt;
 new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="B1,27" urn="urn:adsk.eagle:footprint:27900/1" library_version="1">
-<description>&lt;b&gt;TEST PAD&lt;/b&gt;</description>
-<wire x1="-0.635" y1="0" x2="0.635" y2="0" width="0.0024" layer="37"/>
-<wire x1="0" y1="0.635" x2="0" y2="-0.635" width="0.0024" layer="37"/>
-<smd name="TP" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
-<text x="-0.635" y="1.016" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-0.635" y="-0.762" size="0.0254" layer="27">&gt;VALUE</text>
-<text x="-0.635" y="-1.905" size="1" layer="37">&gt;TP_SIGNAL_NAME</text>
-</package>
 <package name="B2,54" urn="urn:adsk.eagle:footprint:27901/1" library_version="1">
 <description>&lt;b&gt;TEST PAD&lt;/b&gt;</description>
 <wire x1="-0.635" y1="0" x2="0.635" y2="0" width="0.0024" layer="37"/>
@@ -1938,12 +1931,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </package>
 </packages>
 <packages3d>
-<package3d name="B1,27" urn="urn:adsk.eagle:package:27944/1" type="box" library_version="1">
-<description>TEST PAD</description>
-<packageinstances>
-<packageinstance name="B1,27"/>
-</packageinstances>
-</package3d>
 <package3d name="B2,54" urn="urn:adsk.eagle:package:27948/1" type="box" library_version="1">
 <description>TEST PAD</description>
 <packageinstances>
@@ -2308,14 +2295,14 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="20.6" y="13.65" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="C17" library="resistor" library_urn="urn:adsk.eagle:library:348" package="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF" x="29.9" y="16" rot="R180"/>
-<element name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" package="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="TPB1,27" x="23.5" y="5">
+<element name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" package="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1" value="TPB2,54" x="23.5" y="5">
 <attribute name="TP_SIGNAL_NAME" value="" x="23.5" y="5" size="1" layer="27" font="vector" display="off"/>
 </element>
-<element name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" package="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1" value="TPB2,54" x="-2.5" y="-4">
-<attribute name="TP_SIGNAL_NAME" value="" x="-2.5" y="-4" size="1.778" layer="27" display="off"/>
+<element name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" package="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1" value="TPB2,54" x="46.5" y="4">
+<attribute name="TP_SIGNAL_NAME" value="" x="46.5" y="4" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP3" library="testpad" library_urn="urn:adsk.eagle:library:385" package="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1" value="TPB2,54" x="-2.5" y="-9.5">
-<attribute name="TP_SIGNAL_NAME" value="" x="-2.5" y="-9.5" size="1.778" layer="27" display="off"/>
+<element name="TP3" library="testpad" library_urn="urn:adsk.eagle:library:385" package="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1" value="TPB2,54" x="46.5" y="7.5">
+<attribute name="TP_SIGNAL_NAME" value="" x="46.5" y="7.5" size="1.778" layer="27" display="off"/>
 </element>
 </elements>
 <signals>
@@ -2454,7 +2441,7 @@ design rules under a new name.</description>
 <via x="35" y="23.5" extent="1-16" drill="0.3"/>
 <via x="34" y="29" extent="1-16" drill="0.3"/>
 <via x="38" y="31.5" extent="1-16" drill="0.3"/>
-<via x="42.3" y="12.3" extent="1-16" drill="0.3"/>
+<via x="41.3" y="12.8" extent="1-16" drill="0.3"/>
 <via x="38.5" y="35.5" extent="1-16" drill="0.3"/>
 <wire x1="30.5" y1="35.15" x2="30.85" y2="35.5" width="0.3" layer="1"/>
 <wire x1="30.5" y1="33.6" x2="30.5" y2="34.479709375" width="0.3" layer="1"/>
@@ -2653,7 +2640,12 @@ design rules under a new name.</description>
 <wire x1="31.65" y1="16.65" x2="31.65" y2="15.35" width="0.3" layer="1"/>
 <wire x1="33.15" y1="12.26924375" x2="34.685084375" y2="10.734159375" width="0.3" layer="1"/>
 <contactref element="TP3" pad="TP"/>
-<wire x1="-2.5" y1="-9.5" x2="33.15" y2="12.26924375" width="0" layer="19" extent="1-1"/>
+<wire x1="46.5" y1="7.5" x2="44" y2="10" width="0.3" layer="1"/>
+<wire x1="44" y1="10" x2="44" y2="11.5" width="0.3" layer="1"/>
+<via x="44" y="11.5" extent="1-16" drill="0.35"/>
+<wire x1="44" y1="11.5" x2="42.275" y2="11.5" width="0.3" layer="16"/>
+<via x="42.275" y="11.5" extent="1-16" drill="0.35"/>
+<wire x1="42.275" y1="11.5" x2="40" y2="11.5" width="0.3" layer="1"/>
 </signal>
 <signal name="MEMS_MOSI">
 <contactref element="U3" pad="6"/>
@@ -2718,7 +2710,7 @@ design rules under a new name.</description>
 <wire x1="29" y1="5" x2="26.5" y2="5" width="0.3" layer="16"/>
 <via x="26.5" y="5" extent="1-16" drill="0.3"/>
 <contactref element="TP1" pad="TP"/>
-<wire x1="23.5" y1="5" x2="26.5" y2="5" width="0" layer="19" extent="1-16"/>
+<wire x1="23.5" y1="5" x2="26.5" y2="5" width="0.3" layer="1"/>
 </signal>
 <signal name="MIC_CLK">
 <contactref element="U2" pad="4"/>
@@ -2728,12 +2720,14 @@ design rules under a new name.</description>
 <wire x1="34.5032" y1="5.2968" x2="35.3" y2="4.5" width="0.3" layer="1"/>
 <wire x1="41.844475" y1="13.75" x2="40.855025" y2="13.75" width="0.3" layer="1"/>
 <wire x1="43.0032" y1="12.591275" x2="41.844475" y2="13.75" width="0.3" layer="1"/>
-<wire x1="41.494475" y1="4.5" x2="43.0032" y2="6.008725" width="0.3" layer="1"/>
+<wire x1="41.494475" y1="4.5" x2="42.2472375" y2="5.2527625" width="0.3" layer="1"/>
+<wire x1="42.2472375" y1="5.2527625" x2="43.0032" y2="6.008725" width="0.3" layer="1"/>
 <wire x1="43.0032" y1="6.008725" x2="43.0032" y2="12.591275" width="0.3" layer="1"/>
 <wire x1="40.5" y1="14.105025" x2="40.855025" y2="13.75" width="0.3" layer="1"/>
 <wire x1="40.5" y1="18.4" x2="40.5" y2="14.105025" width="0.3" layer="1"/>
 <contactref element="TP2" pad="TP"/>
-<wire x1="-2.5" y1="-4" x2="32.1" y2="7.7" width="0" layer="19" extent="1-1"/>
+<wire x1="46.5" y1="4" x2="43.5" y2="4" width="0.3" layer="1"/>
+<wire x1="43.5" y1="4" x2="42.2472375" y2="5.2527625" width="0.3" layer="1"/>
 </signal>
 <signal name="N$3">
 <contactref element="U2" pad="2"/>

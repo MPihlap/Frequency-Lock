@@ -1,0 +1,59 @@
+Partlist
+
+Exported from MCU.brd at 27.11.18 11:26
+
+EAGLE Version 9.1.3 Copyright (c) 1988-2018 Autodesk, Inc.
+
+Assembly variant: 
+
+Part      Value              Package                   Library               Position (mm)         Orientation
+
+C1        2.2uF              C0603                     resistor              (40 15.5)             R270
+C2        10uF               C0805                     resistor              (28.5 12.5)           R180
+C3        100nF              C0603                     resistor              (28.5 10.5)           R180
+C4        100nF              C0603                     resistor              (35.3 8.3)            R270
+C5        10uF               C0805                     resistor              (37.8 8.3)            R270
+C6        100nF              C0603                     resistor              (23.5 29.5)           R180
+C7        100nF              C0603                     resistor              (24.6 27.1)           R90
+C8        100nF              C0603                     resistor              (24 24)               R180
+C9        100nF              C0603                     resistor              (24 21.4)             R180
+C10       100nF              C0603                     resistor              (24 19.4)             R180
+C11       100nF              C0603                     resistor              (28.5 35.5)           R0
+C12       100nF              C0603                     resistor              (43.5 33.5)           R0
+C13       100nF              C0603                     resistor              (42.5 17)             R270
+C14       2.2uF              C0603                     resistor              (45.5 31.5)           R0
+C15       10uF               C0805                     resistor              (23.5 31.5)           R180
+C16       10uF               C0805                     resistor              (13 20.5)             R180
+C17       100nF              C0603                     resistor              (28.4 16)             R180
+D1        BAT54C             SOT23                     diode                 (13.5 32.5)           R270
+D2        BAT54C             SOT23                     diode                 (11.5 10)             R180
+DBG_LED1                     CHIP-LED0603              led                   (44.8 20.5)           R270
+DBG_LED2                     CHIP-LED0603              led                   (44.8 23)             R270
+DBG_LED3                     CHIP-LED0603              led                   (44.8 26.5)           R270
+DBG_LED4                     CHIP-LED0603              led                   (44.8 29)             R270
+JP1                          1X02                      pinhead               (23.5 14.5)           R90
+POWER_LED                    CHIP-LED0603              led                   (19 34)               R0
+Q1        IRLML6346          SOT23                     bss138_10             (11.5 15.5)           R90
+R1        0                  R0603                     resistor              (31 2.5)              R180
+R2        0                  R0603                     resistor              (27 2.5)              R180
+R3        330                R0603                     resistor              (20 13)               R0
+R4        330                R0603                     resistor              (20 16)               R0
+R5        330                R0603                     resistor              (47.4 29)             R0
+R6        330                R0603                     resistor              (47.5 26.5)           R0
+R7        330                R0603                     resistor              (47.5 23)             R0
+R8        330                R0603                     resistor              (47.5 20.5)           R0
+R9        10k                R0603                     resistor              (14.5 15.5)           R270
+R11       330                R0603                     resistor              (19 37.5)             R90
+RX_LED                       CHIP-LED0603              led                   (17 13)               R270
+SV2                          MA05-1                    con-lstb              (35 40.5)             R0
+TP1       TPB2,54            B2,54                     testpad               (22 5)                R0
+TP2       TPB2,54            B2,54                     testpad               (45 4)                R0
+TP3       TPB2,54            B2,54                     testpad               (45 7.5)              R0
+TX_LED                       CHIP-LED0603              led                   (17 16)               R270
+U$1       STM32F407STM32D40X LQFP100                   stm32f                (34.5 26)             R0
+U1        LD1117S33TR        SOT230P700X180-4N         LD1117S33TR           (14 26)               R90
+U2        MP45DT02           ST_HLGA6                  MP45DT02              (29 6.5)              R90
+U3        LIS3DSHTR          LGA16R50P5X3_300X300X100N LIS3DSHTR             (36 12)               R180
+X1                           W237-102                  con-wago-500          (4 26)                R90
+X2                           W237-102                  con-wago-500          (4 13)                R90
+X3        MINI-USB-32005-201 32005-201                 con-cypressindustries (5.5 37.5)            R0

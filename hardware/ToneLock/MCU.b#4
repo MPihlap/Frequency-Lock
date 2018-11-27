@@ -81,7 +81,8 @@
 <text x="22.5" y="16.5" size="1" layer="21" font="vector">Tx</text>
 <text x="23" y="11" size="1" layer="21" font="vector">Rx</text>
 <text x="44" y="9" size="1" layer="21" font="vector">MEMS_CLK</text>
-<text x="44" y="1" size="1" layer="21" font="vector">MIC_CLK</text>
+<text x="44" y="1.5" size="1" layer="21" font="vector">MIC_CLK</text>
+<text x="20.5" y="2.5" size="1" layer="21" font="vector">MIC_PDM</text>
 </plain>
 <libraries>
 <library name="resistor" urn="urn:adsk.eagle:library:348">
