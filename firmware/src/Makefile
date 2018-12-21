@@ -16,6 +16,8 @@ STM_DIR=../
 # (the sources of the standard peripheral library, which we use)
 # see also "info:/make/Selective Search" in Konqueror
 STM_SRC = $(STM_DIR)/Libraries/STM32F4xx_StdPeriph_Driver/src
+STM_SRC += $(STM_DIR)/Libraries/CMSIS/DSP_Lib/Source/TransformFunctions
+STM_SRC += $(STM_DIR)/Libraries/CMSIS/DSP_Lib/Source/CommonTables
 
 # Tell make to look in that folder if it cannot find a source
 # in the current directory
@@ -36,6 +38,13 @@ SRCS  += stm32f4xx_gpio.c
 SRCS  += stm32f4xx_usart.c
 SRCS  += stm32f4xx_it.c
 SRCS  += misc.c
+SRCS  += ../Libraries/pdm_filter.a
+SRCS  += stm32f4xx_spi.c
+SRCS  += arm_rfft_f32.c
+SRCS  += arm_rfft_init_f32.c
+SRCS  += arm_cfft_radix4_f32.c
+SRCS  += arm_cfft_radix4_init_f32.c
+SRCS  += arm_common_tables.c
 
 # Startup file written by ST
 # The assembly code in this file is the first one to be
@@ -45,6 +54,7 @@ SRCS += $(STM_DIR)/Libraries/CMSIS/ST/STM32F4xx/Source/Templates/TrueSTUDIO/star
 # The header files we use are located here
 INC_DIRS  = $(STM_DIR)/Utilities/STM32F4-Discovery
 INC_DIRS += $(STM_DIR)/Libraries/CMSIS/Include
+INC_DIRS += $(STM_DIR)/Libraries/CMSIS/DSP_Lib/Include
 INC_DIRS += $(STM_DIR)/Libraries/CMSIS/ST/STM32F4xx/Include
 INC_DIRS += $(STM_DIR)/Libraries/STM32F4xx_StdPeriph_Driver/inc
 INC_DIRS += ../inc

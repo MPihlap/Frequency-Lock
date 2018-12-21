@@ -1,5 +1,12 @@
 #include "stm32f4xx_it.h"
 #include "stm32f4xx_conf.h"
+#include "main.h"
+#include "pdm2pcm_glo.h"
+
+uint32_t InternalBufferSize = 0;
+uint32_t Data_Status = 0;
+int x = 0;
+int y = 0;
 
 /**
   * @brief   This function handles NMI exception.
@@ -127,6 +134,36 @@ void USART2_IRQHandler(void){
 }
 
 
+
+void SPI2_IRQHandler(void){
+  extern PDM_Filter_Handler_t Filter;
+  extern uint16_t* AudioRecBuf;
+  extern uint16_t* WriteBuf;
+  extern uint16_t  PDM_Input_Buffer[];
+  extern uint16_t PCM_Output_Buffer[];
+
+  u16 volume;
+  u16 app;
+
+  // Check if new data are available in SPI data register
+  if (SPI_GetITStatus(SPI2, SPI_I2S_IT_RXNE) != RESET){
+    // Read received data and save it in internal table
+    app = SPI_I2S_ReceiveData(SPI2);
+    PDM_Input_Buffer[InternalBufferSize++] = (uint8_t)app;
+    //PDM_Input_Buffer[InternalBufferSize++] = /*(uint8_t)*/HTONS(app);
+
+    // Check to prevent overflow condition
+    if (InternalBufferSize >= PDM_Input_Buffer_SIZE){
+      InternalBufferSize = 0;
+
+      volume = 50;
+
+      PDM_Filter((uint8_t *)PDM_Input_Buffer, (uint16_t *)AudioRecBuf/*PCM_Output_Buffer*/, &Filter);
+
+      Data_Status = 1;
+    }
+  }
+}
 
 
 
