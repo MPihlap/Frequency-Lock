@@ -1,0 +1,240 @@
+ARM GAS  /tmp/cceBRapm.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"pdm2pcm.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MX_PDM2PCM_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	MX_PDM2PCM_Init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	MX_PDM2PCM_Init:
+  26              	.LFB0:
+  27              		.file 1 "Src/pdm2pcm.c"
+   1:Src/pdm2pcm.c **** /**
+   2:Src/pdm2pcm.c ****  ******************************************************************************
+   3:Src/pdm2pcm.c ****   * File Name          : pdm2pcm.c
+   4:Src/pdm2pcm.c ****   * Description        : This file provides code for the configuration
+   5:Src/pdm2pcm.c ****   *                      of the pdm2pcm instances.
+   6:Src/pdm2pcm.c ****   ******************************************************************************
+   7:Src/pdm2pcm.c ****   * This notice applies to any and all portions of this file
+   8:Src/pdm2pcm.c ****   * that are not between comment pairs USER CODE BEGIN and
+   9:Src/pdm2pcm.c ****   * USER CODE END. Other portions of this file, whether 
+  10:Src/pdm2pcm.c ****   * inserted by the user or by software development tools
+  11:Src/pdm2pcm.c ****   * are owned by their respective copyright owners.
+  12:Src/pdm2pcm.c ****   *
+  13:Src/pdm2pcm.c ****   * Copyright (c) 2019 STMicroelectronics International N.V. 
+  14:Src/pdm2pcm.c ****   * All rights reserved.
+  15:Src/pdm2pcm.c ****   *
+  16:Src/pdm2pcm.c ****   * Redistribution and use in source and binary forms, with or without 
+  17:Src/pdm2pcm.c ****   * modification, are permitted, provided that the following conditions are met:
+  18:Src/pdm2pcm.c ****   *
+  19:Src/pdm2pcm.c ****   * 1. Redistribution of source code must retain the above copyright notice, 
+  20:Src/pdm2pcm.c ****   *    this list of conditions and the following disclaimer.
+  21:Src/pdm2pcm.c ****   * 2. Redistributions in binary form must reproduce the above copyright notice,
+  22:Src/pdm2pcm.c ****   *    this list of conditions and the following disclaimer in the documentation
+  23:Src/pdm2pcm.c ****   *    and/or other materials provided with the distribution.
+  24:Src/pdm2pcm.c ****   * 3. Neither the name of STMicroelectronics nor the names of other 
+  25:Src/pdm2pcm.c ****   *    contributors to this software may be used to endorse or promote products 
+  26:Src/pdm2pcm.c ****   *    derived from this software without specific written permission.
+  27:Src/pdm2pcm.c ****   * 4. This software, including modifications and/or derivative works of this 
+  28:Src/pdm2pcm.c ****   *    software, must execute solely and exclusively on microcontroller or
+  29:Src/pdm2pcm.c ****   *    microprocessor devices manufactured by or for STMicroelectronics.
+  30:Src/pdm2pcm.c ****   * 5. Redistribution and use of this software other than as permitted under 
+  31:Src/pdm2pcm.c ****   *    this license is void and will automatically terminate your rights under 
+ARM GAS  /tmp/cceBRapm.s 			page 2
+
+
+  32:Src/pdm2pcm.c ****   *    this license. 
+  33:Src/pdm2pcm.c ****   *
+  34:Src/pdm2pcm.c ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  35:Src/pdm2pcm.c ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  36:Src/pdm2pcm.c ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  37:Src/pdm2pcm.c ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  38:Src/pdm2pcm.c ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  39:Src/pdm2pcm.c ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  40:Src/pdm2pcm.c ****   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  41:Src/pdm2pcm.c ****   * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  42:Src/pdm2pcm.c ****   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  43:Src/pdm2pcm.c ****   * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  44:Src/pdm2pcm.c ****   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  45:Src/pdm2pcm.c ****   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  46:Src/pdm2pcm.c ****   *
+  47:Src/pdm2pcm.c ****   ******************************************************************************
+  48:Src/pdm2pcm.c ****   */
+  49:Src/pdm2pcm.c **** 
+  50:Src/pdm2pcm.c **** /* Includes ------------------------------------------------------------------*/
+  51:Src/pdm2pcm.c **** #include "pdm2pcm.h"
+  52:Src/pdm2pcm.c **** 
+  53:Src/pdm2pcm.c **** /* USER CODE BEGIN 0 */
+  54:Src/pdm2pcm.c **** /* USER CODE END 0 */
+  55:Src/pdm2pcm.c **** 
+  56:Src/pdm2pcm.c **** /* Global variables ---------------------------------------------------------*/
+  57:Src/pdm2pcm.c **** PDM_Filter_Handler_t PDM1_filter_handler;
+  58:Src/pdm2pcm.c **** PDM_Filter_Config_t PDM1_filter_config;
+  59:Src/pdm2pcm.c **** 
+  60:Src/pdm2pcm.c **** /* USER CODE BEGIN 1 */
+  61:Src/pdm2pcm.c **** /* USER CODE END 1 */
+  62:Src/pdm2pcm.c **** 
+  63:Src/pdm2pcm.c **** /* PDM2PCM init function */
+  64:Src/pdm2pcm.c **** void MX_PDM2PCM_Init(void)
+  65:Src/pdm2pcm.c **** {
+  28              		.loc 1 65 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  66:Src/pdm2pcm.c ****   /* USER CODE BEGIN 2 */
+  67:Src/pdm2pcm.c ****   /* USER CODE END 2 */
+  68:Src/pdm2pcm.c **** 
+  69:Src/pdm2pcm.c ****    /** 
+  70:Src/pdm2pcm.c ****   */
+  71:Src/pdm2pcm.c ****   PDM1_filter_handler.bit_order = PDM_FILTER_BIT_ORDER_LSB;
+  39              		.loc 1 71 0
+  40 0002 0B4C     		ldr	r4, .L3
+  41 0004 0026     		movs	r6, #0
+  42 0006 2680     		strh	r6, [r4]	@ movhi
+  72:Src/pdm2pcm.c ****   PDM1_filter_handler.endianness = PDM_FILTER_ENDIANNESS_BE;
+  43              		.loc 1 72 0
+ARM GAS  /tmp/cceBRapm.s 			page 3
+
+
+  44 0008 0123     		movs	r3, #1
+  45 000a 6380     		strh	r3, [r4, #2]	@ movhi
+  73:Src/pdm2pcm.c ****   PDM1_filter_handler.high_pass_tap = 2104533974;
+  46              		.loc 1 73 0
+  47 000c 094B     		ldr	r3, .L3+4
+  48 000e 6360     		str	r3, [r4, #4]
+  74:Src/pdm2pcm.c ****   PDM1_filter_handler.in_ptr_channels = 2;
+  49              		.loc 1 74 0
+  50 0010 0225     		movs	r5, #2
+  51 0012 2581     		strh	r5, [r4, #8]	@ movhi
+  75:Src/pdm2pcm.c ****   PDM1_filter_handler.out_ptr_channels = 2; 
+  52              		.loc 1 75 0
+  53 0014 6581     		strh	r5, [r4, #10]	@ movhi
+  76:Src/pdm2pcm.c ****   PDM_Filter_Init(&PDM1_filter_handler);
+  54              		.loc 1 76 0
+  55 0016 2046     		mov	r0, r4
+  56 0018 FFF7FEFF 		bl	PDM_Filter_Init
+  57              	.LVL0:
+  77:Src/pdm2pcm.c **** 
+  78:Src/pdm2pcm.c ****   PDM1_filter_config.decimation_factor = PDM_FILTER_DEC_FACTOR_64;
+  58              		.loc 1 78 0
+  59 001c 0649     		ldr	r1, .L3+8
+  60 001e 0D80     		strh	r5, [r1]	@ movhi
+  79:Src/pdm2pcm.c ****   PDM1_filter_config.output_samples_number = 16;
+  61              		.loc 1 79 0
+  62 0020 1023     		movs	r3, #16
+  63 0022 4B80     		strh	r3, [r1, #2]	@ movhi
+  80:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 0; 
+  64              		.loc 1 80 0
+  65 0024 8E80     		strh	r6, [r1, #4]	@ movhi
+  81:Src/pdm2pcm.c ****   PDM_Filter_setConfig(&PDM1_filter_handler, &PDM1_filter_config);
+  66              		.loc 1 81 0
+  67 0026 2046     		mov	r0, r4
+  68 0028 FFF7FEFF 		bl	PDM_Filter_setConfig
+  69              	.LVL1:
+  82:Src/pdm2pcm.c **** 
+  83:Src/pdm2pcm.c ****   /* USER CODE BEGIN 3 */
+  84:Src/pdm2pcm.c ****   /* USER CODE END 3 */
+  85:Src/pdm2pcm.c **** 
+  86:Src/pdm2pcm.c **** }
+  70              		.loc 1 86 0
+  71 002c 70BD     		pop	{r4, r5, r6, pc}
+  72              	.L4:
+  73 002e 00BF     		.align	2
+  74              	.L3:
+  75 0030 00000000 		.word	PDM1_filter_handler
+  76 0034 D6A3707D 		.word	2104533974
+  77 0038 00000000 		.word	PDM1_filter_config
+  78              		.cfi_endproc
+  79              	.LFE0:
+  81              		.section	.text.MX_PDM2PCM_Process,"ax",%progbits
+  82              		.align	1
+  83              		.global	MX_PDM2PCM_Process
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  87              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/cceBRapm.s 			page 4
+
+
+  89              	MX_PDM2PCM_Process:
+  90              	.LFB1:
+  87:Src/pdm2pcm.c **** 
+  88:Src/pdm2pcm.c **** /* USER CODE BEGIN 4 */
+  89:Src/pdm2pcm.c **** 
+  90:Src/pdm2pcm.c **** /*  process function */
+  91:Src/pdm2pcm.c **** uint8_t MX_PDM2PCM_Process(uint16_t *PDMBuf, uint16_t *PCMBuf)
+  92:Src/pdm2pcm.c **** {
+  91              		.loc 1 92 0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		@ link register save eliminated.
+  96              	.LVL2:
+  93:Src/pdm2pcm.c ****   /*
+  94:Src/pdm2pcm.c ****   uint8_t BSP_AUDIO_IN_PDMToPCM(uint16_t * PDMBuf, uint16_t * PCMBuf)
+  95:Src/pdm2pcm.c **** 
+  96:Src/pdm2pcm.c ****   Converts audio format from PDM to PCM.
+  97:Src/pdm2pcm.c ****   Parameters:
+  98:Src/pdm2pcm.c ****     PDMBuf : Pointer to PDM buffer data
+  99:Src/pdm2pcm.c ****     PCMBuf : Pointer to PCM buffer data
+ 100:Src/pdm2pcm.c ****   Return values:
+ 101:Src/pdm2pcm.c ****     AUDIO_OK in case of success, AUDIO_ERROR otherwise
+ 102:Src/pdm2pcm.c ****   */
+ 103:Src/pdm2pcm.c ****   /* this example return the default status AUDIO_ERROR */
+ 104:Src/pdm2pcm.c ****   return (uint8_t) 1;
+ 105:Src/pdm2pcm.c **** }
+  97              		.loc 1 105 0
+  98 0000 0120     		movs	r0, #1
+  99              	.LVL3:
+ 100 0002 7047     		bx	lr
+ 101              		.cfi_endproc
+ 102              	.LFE1:
+ 104              		.comm	PDM1_filter_config,6,4
+ 105              		.comm	PDM1_filter_handler,76,4
+ 106              		.text
+ 107              	.Letext0:
+ 108              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 109              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 110              		.file 4 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
+ 111              		.file 5 "Inc/pdm2pcm.h"
+ARM GAS  /tmp/cceBRapm.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 pdm2pcm.c
+     /tmp/cceBRapm.s:18     .text.MX_PDM2PCM_Init:0000000000000000 $t
+     /tmp/cceBRapm.s:25     .text.MX_PDM2PCM_Init:0000000000000000 MX_PDM2PCM_Init
+     /tmp/cceBRapm.s:75     .text.MX_PDM2PCM_Init:0000000000000030 $d
+                            *COM*:000000000000004c PDM1_filter_handler
+                            *COM*:0000000000000006 PDM1_filter_config
+     /tmp/cceBRapm.s:82     .text.MX_PDM2PCM_Process:0000000000000000 $t
+     /tmp/cceBRapm.s:89     .text.MX_PDM2PCM_Process:0000000000000000 MX_PDM2PCM_Process
+
+UNDEFINED SYMBOLS
+PDM_Filter_Init
+PDM_Filter_setConfig
