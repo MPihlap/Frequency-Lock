@@ -83,8 +83,16 @@ static void MX_CRC_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-uint16_t dataBuffer[8192];
-uint16_t dataOutBuffer[8192];
+uint16_t PDM_BUF_1[PDM_BUF_SIZE]; // PDM buffer1
+uint16_t PDM_BUF_2[PDM_BUF_SIZE]; // PDM buffer2
+uint16_t PCM_BUF_1[PCM_BUF_SIZE]; // PCM buffer1
+uint16_t PCM_BUF_2[PCM_BUF_SIZE]; // PCM buffer2
+uint32_t local_pcm_pointer = 0;   // Keeps track of where we are in the PCM buffer
+uint8_t PDM_switch_flag = 0;      // The flags indicate which buffer is currently in use
+uint8_t PCM_switch_flag = 0;
+uint16_t *current_PDM_buffer;     // Pointer to array to be recorded to
+uint16_t *current_PCM_buffer;
+uint8_t RECORD_ENABLE = 0;     // Recording control flag
 /* USER CODE END 0 */
 
 /**
@@ -125,48 +133,49 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  // uint8_t dbuffer[] = "ayy lmao\n";
-  uint16_t dbuffer[] = {0xA55A, 0xB44B, 0xC33C};
-  uint8_t data_in[2];
-  char cmd;
-  
-  uint16_t testData = 0xA55A;
 
   LOCK_ENABLE();
   // SPI2_NVIC_INIT();
+  HAL_Delay(2000);
   HAL_GPIO_WritePin(GPIOE, SPI1_NCS_PIN, GPIO_PIN_SET);
-  // HAL_I2S_Receive_IT(&hi2s2, dataBuffer, 1024);
+  RECORD_ENABLE = 1;     // Enable recursive PDM reading
+  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, PDM_BUF_SIZE);
   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
+  uint8_t PCM_switch_prev = 0;
+  uint8_t PDM_switch_prev = 0;
+  
   while (1)
   {
-    // HAL_UART_Receive(&huart2, &cmd, 1, 100);
-    //HAL_UART_Transmit(&huart2, &dbuffer, 9, 1000);
-    HAL_Delay(1000);
-    HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
-    // HAL_GPIO_Wri~/E, SPI1_~/NCS_PIN, GPIO_PIN_RESET); 
-    // HAL_SPI_Tran~/1, 0x0F,~/ 1, 100);
-    // HAL_SPI_Rece~/, &data_in, 2, 100);
-    // HAL_GPIO_Wri~/E, SPI1_NCS_PIN, GPIO_PIN_SET);
-
-    uint32_t in_addr = &dataBuffer;
-    uint32_t out_addr = &dataOutBuffer;
-    HAL_I2S_Receive(&hi2s2, &dataBuffer, 8192, 100);
-    for ( uint8_t i = 0; i < 8192/64; i++) {
-
-      PDM_Filter(in_addr + i*64, out_addr + i, &PDM1_filter_handler);
-
-    }
-    // HAL_UART_Transmit(&huart2, &dataOutBuffer, 8192*2, 100);
-    HAL_UART_Transmit(&huart2, &dataOutBuffer, 128, 100);
     
+    if (PDM_switch_flag != PDM_switch_prev) {
+      PDM_switch_prev = PDM_switch_flag;
+      if (RECORD_ENABLE == 1) {
+        HAL_I2S_Receive_IT(&hi2s2, getPDMPointer(PDM_switch_flag), PDM_BUF_SIZE); // Instantly start reading new batch of raw data
+      }
+      for ( uint8_t i = 0; i < PDM_BUF_SIZE/DECIMATION_FACTOR; i++) {           // Loop until we have converted all PDM data
+        PDM_Filter(getPDMPointer(~PDM_switch_flag) + i*DECIMATION_FACTOR,       // Invert flag to select read buffer
+                    getPCMPointer(PCM_switch_flag) + i + local_pcm_pointer, 
+                      &PDM1_filter_handler);
+      }
+      local_pcm_pointer = local_pcm_pointer + PCM_BUF_SIZE/DECIMATION_FACTOR;   // Save the relative address where we left off
+      if (local_pcm_pointer == PCM_BUF_SIZE) {                                  // If buffer is full, switch buffers 
+        local_pcm_pointer = 0;
+        PCM_switch_flag ^= 1;
+      }
+    }
+    
+    if (PCM_switch_flag != PCM_switch_prev) { 
+      RECORD_ENABLE = 0;     // Disable recording
+      HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE*2, 100);
+    }
 
-    //HAL_GPIO_Togg~/GPIO_Port, GPIO_PIN_15);
-    //  HAL_GPIO_To~/3_GPIO_Port, LD3_Pin);
-    //  HAL_GPIO_TogglePin(LD5_GPIO_Port, LD5_Pin);
-    // if (result == HAL_OK) {
-      // dataBuffer[0] = 0xA55A;
-      // 
-    // }
+    if (RECORD_ENABLE == 0) {
+      HAL_Delay(200);
+      HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
+    }
+    // HAL_UART_Transmit(&huart2, &PCM_BUF_1, PCM_BUF_SIZE*2, 100);
+    // HAL_UART_Transmit(&huart2, &PCM_BUF_1, 128, 100);
+    
     
 
   /* USER CODE END WHILE */
@@ -397,22 +406,32 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-// static void SPI2_NVIC_INIT(void) {
-//   NVIC_InitTypeDef NVIC_InitStructure;
-
-//   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_3); 
-//   /* Configure the SPI interrupt priority */
-//   NVIC_InitStructure.NVIC_IRQChannel = SPI2_IRQn;
-//   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-//   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-//   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-//   NVIC_Init(&NVIC_InitStructure);
-// }
-void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi) {
-  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
+inline uint16_t * getPDMPointer(uint8_t PDM_switch_flag) {
+  if (PDM_switch_flag == 1) {
+    return PDM_BUF_2;
+  }
+  else {
+    return PDM_BUF_1;
+  }
 }
 
+inline uint16_t * getPCMPointer(uint8_t PCM_switch_flag) {
+  if (PCM_switch_flag == 1) {
+    return PCM_BUF_2;
+  }
+  else {
+    return PCM_BUF_1;
+  }
+}
+
+void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
+  PDM_switch_flag ^= 1; // Switch PDM buffers 
+  
+  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
+
+  
+}
 
 /* USER CODE END 4 */
 

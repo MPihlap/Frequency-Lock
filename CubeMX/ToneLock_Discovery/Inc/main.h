@@ -120,6 +120,10 @@
 #define LED3_PIN GPIO_PIN_14
 #define LED4_PIN GPIO_PIN_15
 
+#define PCM_BUF_SIZE 8192
+#define PDM_BUF_SIZE 8192
+#define DECIMATION_FACTOR 64
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
