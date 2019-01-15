@@ -83,8 +83,8 @@ static void MX_CRC_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-uint16_t dataBuffer[1024];
-uint16_t dataOutBuffer[1024];
+uint16_t dataBuffer[8192];
+uint16_t dataOutBuffer[8192];
 /* USER CODE END 0 */
 
 /**
@@ -125,9 +125,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t dbuffer[] = "ayy lmao\n";
-  //uint8_t dbuffer[] = {0xA5, 0x5A};
+  // uint8_t dbuffer[] = "ayy lmao\n";
+  uint16_t dbuffer[] = {0xA55A, 0xB44B, 0xC33C};
   uint8_t data_in[2];
+  char cmd;
   
   uint16_t testData = 0xA55A;
 
@@ -138,16 +139,27 @@ int main(void)
   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
   while (1)
   {
+    // HAL_UART_Receive(&huart2, &cmd, 1, 100);
     //HAL_UART_Transmit(&huart2, &dbuffer, 9, 1000);
-    HAL_Delay(100);
+    HAL_Delay(1000);
     HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
     // HAL_GPIO_Wri~/E, SPI1_~/NCS_PIN, GPIO_PIN_RESET); 
     // HAL_SPI_Tran~/1, 0x0F,~/ 1, 100);
     // HAL_SPI_Rece~/, &data_in, 2, 100);
     // HAL_GPIO_Wri~/E, SPI1_NCS_PIN, GPIO_PIN_SET);
 
-    HAL_I2S_Receive(&hi2s2, &dataBuffer, 1024, 100);
-    PDM_Filter(&dataBuffer, &dataOutBuffer, &PDM1_filter_handler);
+    uint32_t in_addr = &dataBuffer;
+    uint32_t out_addr = &dataOutBuffer;
+    HAL_I2S_Receive(&hi2s2, &dataBuffer, 8192, 100);
+    for ( uint8_t i = 0; i < 8192/64; i++) {
+
+      PDM_Filter(in_addr + i*64, out_addr + i, &PDM1_filter_handler);
+
+    }
+    // HAL_UART_Transmit(&huart2, &dataOutBuffer, 8192*2, 100);
+    HAL_UART_Transmit(&huart2, &dataOutBuffer, 128, 100);
+    
+
     //HAL_GPIO_Togg~/GPIO_Port, GPIO_PIN_15);
     //  HAL_GPIO_To~/3_GPIO_Port, LD3_Pin);
     //  HAL_GPIO_TogglePin(LD5_GPIO_Port, LD5_Pin);
@@ -253,8 +265,8 @@ static void MX_I2S2_Init(void)
 
   hi2s2.Instance = SPI2;
   hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
-  hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
-  hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B;
+  hi2s2.Init.Standard = I2S_STANDARD_LSB;
+  hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B; 
   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
   hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_32K;
   hi2s2.Init.CPOL = I2S_CPOL_LOW;
