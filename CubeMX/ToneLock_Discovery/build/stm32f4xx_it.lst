@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc3mg3v3.s 			page 1
+ARM GAS  /tmp/ccDBQGoP.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
   29:Src/stm32f4xx_it.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   30:Src/stm32f4xx_it.c ****   *
   31:Src/stm32f4xx_it.c ****   ******************************************************************************
-ARM GAS  /tmp/cc3mg3v3.s 			page 2
+ARM GAS  /tmp/ccDBQGoP.s 			page 2
 
 
   32:Src/stm32f4xx_it.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
   48              		.loc 1 67 0
   49              		.cfi_startproc
   50              		@ Volatile: function does not return.
-ARM GAS  /tmp/cc3mg3v3.s 			page 3
+ARM GAS  /tmp/ccDBQGoP.s 			page 3
 
 
   51              		@ args = 0, pretend = 0, frame = 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
   85:Src/stm32f4xx_it.c **** */
   86:Src/stm32f4xx_it.c **** void MemManage_Handler(void)
   87:Src/stm32f4xx_it.c **** {
-ARM GAS  /tmp/cc3mg3v3.s 			page 4
+ARM GAS  /tmp/ccDBQGoP.s 			page 4
 
 
   90              		.loc 1 87 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
  130              	UsageFault_Handler:
  131              	.LFB130:
  106:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
-ARM GAS  /tmp/cc3mg3v3.s 			page 5
+ARM GAS  /tmp/ccDBQGoP.s 			page 5
 
 
  107:Src/stm32f4xx_it.c **** 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
  153              		.loc 1 141 0
  154              		.cfi_startproc
  155              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc3mg3v3.s 			page 6
+ARM GAS  /tmp/ccDBQGoP.s 			page 6
 
 
  156              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
  163:Src/stm32f4xx_it.c **** /**
  164:Src/stm32f4xx_it.c **** * @brief This function handles Pendable request for system service.
  165:Src/stm32f4xx_it.c **** */
-ARM GAS  /tmp/cc3mg3v3.s 			page 7
+ARM GAS  /tmp/ccDBQGoP.s 			page 7
 
 
  166:Src/stm32f4xx_it.c **** void PendSV_Handler(void)
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
  187:Src/stm32f4xx_it.c **** 
  188:Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
  189:Src/stm32f4xx_it.c **** }
-ARM GAS  /tmp/cc3mg3v3.s 			page 8
+ARM GAS  /tmp/ccDBQGoP.s 			page 8
 
 
  228              		.loc 1 189 0
@@ -458,81 +458,125 @@ ARM GAS  /tmp/cc3mg3v3.s 			page 1
  250              		.cfi_offset 3, -8
  251              		.cfi_offset 14, -4
  204:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SPI2_IRQn 0 */
- 205:Src/stm32f4xx_it.c ****   // extern uint16_t dataBuffer[];
- 206:Src/stm32f4xx_it.c ****   // if (HAL_SPI_GetState(&hi2s2) == HAL_SPI_STATE_READY){
- 207:Src/stm32f4xx_it.c ****   //   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
- 208:Src/stm32f4xx_it.c ****   //   HAL_Delay(200);
- 209:Src/stm32f4xx_it.c ****   //   // HAL_I2S_Receive_IT(&hi2s2, dataBuffer, 1024);
- 210:Src/stm32f4xx_it.c ****   // }
- 211:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 0 */
- 212:Src/stm32f4xx_it.c ****   HAL_I2S_IRQHandler(&hi2s2);
- 252              		.loc 1 212 0
- 253 0002 0248     		ldr	r0, .L20
+ 205:Src/stm32f4xx_it.c ****   extern uint8_t RECORD_ENABLE;
+ 206:Src/stm32f4xx_it.c ****   extern uint16_t * PDM_BUF_1;
+ 207:Src/stm32f4xx_it.c ****   extern uint8_t PDM_complete_flag;
+ 208:Src/stm32f4xx_it.c ****   // extern uint16_t dataBuffer[];
+ 209:Src/stm32f4xx_it.c ****   // if (HAL_SPI_GetState(&hi2s2) == HAL_SPI_STATE_READY){
+ 210:Src/stm32f4xx_it.c ****   //   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+ 211:Src/stm32f4xx_it.c ****   //   HAL_Delay(200);
+ 212:Src/stm32f4xx_it.c ****   //   // HAL_I2S_Receive_IT(&hi2s2, dataBuffer, 1024);
+ 213:Src/stm32f4xx_it.c ****   // }
+ 214:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 0 */
+ 215:Src/stm32f4xx_it.c ****   HAL_I2S_IRQHandler(&hi2s2);
+ 252              		.loc 1 215 0
+ 253 0002 0B48     		ldr	r0, .L22
  254 0004 FFF7FEFF 		bl	HAL_I2S_IRQHandler
  255              	.LVL4:
- 213:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SPI2_IRQn 1 */
- 214:Src/stm32f4xx_it.c ****   
- 215:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 1 */
- 216:Src/stm32f4xx_it.c **** }
- 256              		.loc 1 216 0
- 257 0008 08BD     		pop	{r3, pc}
- 258              	.L21:
- 259 000a 00BF     		.align	2
-ARM GAS  /tmp/cc3mg3v3.s 			page 9
+ 216:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SPI2_IRQn 1 */
+ 217:Src/stm32f4xx_it.c ****   if ((RECORD_ENABLE == 1) && (PDM_complete_flag == 1)) {
+ 256              		.loc 1 217 0
+ 257 0008 0A4B     		ldr	r3, .L22+4
+ 258 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ARM GAS  /tmp/ccDBQGoP.s 			page 9
 
 
- 260              	.L20:
- 261 000c 00000000 		.word	hi2s2
- 262              		.cfi_endproc
- 263              	.LFE135:
- 265              		.text
- 266              	.Letext0:
- 267              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 268              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 269              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 270              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 271              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 272              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
- 273              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
- 274              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
- 275              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
- 276              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 277              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 278              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 279              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
- 280              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 281              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /tmp/cc3mg3v3.s 			page 10
+ 259 000c 012B     		cmp	r3, #1
+ 260 000e 00D0     		beq	.L21
+ 261              	.L18:
+ 218:Src/stm32f4xx_it.c ****     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
+ 219:Src/stm32f4xx_it.c ****     PDM_complete_flag = 0;
+ 220:Src/stm32f4xx_it.c ****   }
+ 221:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 1 */
+ 222:Src/stm32f4xx_it.c **** }
+ 262              		.loc 1 222 0
+ 263 0010 08BD     		pop	{r3, pc}
+ 264              	.L21:
+ 217:Src/stm32f4xx_it.c ****     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
+ 265              		.loc 1 217 0 discriminator 1
+ 266 0012 094B     		ldr	r3, .L22+8
+ 267 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 268 0016 012B     		cmp	r3, #1
+ 269 0018 FAD1     		bne	.L18
+ 218:Src/stm32f4xx_it.c ****     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
+ 270              		.loc 1 218 0
+ 271 001a 4022     		movs	r2, #64
+ 272 001c 074B     		ldr	r3, .L22+12
+ 273 001e 1968     		ldr	r1, [r3]
+ 274 0020 0348     		ldr	r0, .L22
+ 275 0022 FFF7FEFF 		bl	HAL_I2S_Receive_IT
+ 276              	.LVL5:
+ 219:Src/stm32f4xx_it.c ****   }
+ 277              		.loc 1 219 0
+ 278 0026 044B     		ldr	r3, .L22+8
+ 279 0028 0022     		movs	r2, #0
+ 280 002a 1A70     		strb	r2, [r3]
+ 281              		.loc 1 222 0
+ 282 002c F0E7     		b	.L18
+ 283              	.L23:
+ 284 002e 00BF     		.align	2
+ 285              	.L22:
+ 286 0030 00000000 		.word	hi2s2
+ 287 0034 00000000 		.word	RECORD_ENABLE
+ 288 0038 00000000 		.word	PDM_complete_flag
+ 289 003c 00000000 		.word	PDM_BUF_1
+ 290              		.cfi_endproc
+ 291              	.LFE135:
+ 293              		.text
+ 294              	.Letext0:
+ 295              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 296              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 297              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 298              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 299              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 300              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 301              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 302              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
+ 303              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 304              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 305              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 306              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 307              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
+ 308              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  /tmp/ccDBQGoP.s 			page 10
+
+
+ 309              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  /tmp/ccDBQGoP.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_it.c
-     /tmp/cc3mg3v3.s:18     .text.NMI_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/cc3mg3v3.s:39     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:46     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/cc3mg3v3.s:76     .text.HardFault_Handler:0000000000000020 $d
-     /tmp/cc3mg3v3.s:81     .text.MemManage_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:88     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-     /tmp/cc3mg3v3.s:102    .text.BusFault_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:109    .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/cc3mg3v3.s:123    .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:130    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/cc3mg3v3.s:144    .text.SVC_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:151    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/cc3mg3v3.s:164    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:171    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/cc3mg3v3.s:184    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:191    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-     /tmp/cc3mg3v3.s:204    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:211    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-     /tmp/cc3mg3v3.s:234    .text.SPI2_IRQHandler:0000000000000000 $t
-     /tmp/cc3mg3v3.s:241    .text.SPI2_IRQHandler:0000000000000000 SPI2_IRQHandler
-     /tmp/cc3mg3v3.s:261    .text.SPI2_IRQHandler:000000000000000c $d
+     /tmp/ccDBQGoP.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/ccDBQGoP.s:39     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:46     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccDBQGoP.s:76     .text.HardFault_Handler:0000000000000020 $d
+     /tmp/ccDBQGoP.s:81     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:88     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/ccDBQGoP.s:102    .text.BusFault_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:109    .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/ccDBQGoP.s:123    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:130    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/ccDBQGoP.s:144    .text.SVC_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:151    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/ccDBQGoP.s:164    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:171    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/ccDBQGoP.s:184    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:191    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/ccDBQGoP.s:204    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:211    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccDBQGoP.s:234    .text.SPI2_IRQHandler:0000000000000000 $t
+     /tmp/ccDBQGoP.s:241    .text.SPI2_IRQHandler:0000000000000000 SPI2_IRQHandler
+     /tmp/ccDBQGoP.s:286    .text.SPI2_IRQHandler:0000000000000030 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
 HAL_IncTick
 HAL_SYSTICK_IRQHandler
 HAL_I2S_IRQHandler
+HAL_I2S_Receive_IT
 hi2s2
+RECORD_ENABLE
+PDM_complete_flag
+PDM_BUF_1

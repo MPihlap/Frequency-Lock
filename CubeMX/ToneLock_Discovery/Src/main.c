@@ -83,16 +83,28 @@ static void MX_CRC_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-uint16_t PDM_BUF_1[PDM_BUF_SIZE]; // PDM buffer1
+uint16_t PDM_BUF_1[64]; // PDM buffer1
 uint16_t PDM_BUF_2[PDM_BUF_SIZE]; // PDM buffer2
 uint16_t PCM_BUF_1[PCM_BUF_SIZE]; // PCM buffer1
 uint16_t PCM_BUF_2[PCM_BUF_SIZE]; // PCM buffer2
 uint32_t local_pcm_pointer = 0;   // Keeps track of where we are in the PCM buffer
-uint8_t PDM_switch_flag = 0;      // The flags indicate which buffer is currently in use
+uint8_t PDM_complete_flag = 0;      // The flags indicate which buffer is currently in use
 uint8_t PCM_switch_flag = 0;
 uint16_t *current_PDM_buffer;     // Pointer to array to be recorded to
 uint16_t *current_PCM_buffer;
 uint8_t RECORD_ENABLE = 0;     // Recording control flag
+
+
+inline uint16_t * getPDMPointer(uint8_t PDM_complete_flag) {
+  if (PDM_complete_flag == 1) {
+    return PDM_BUF_2;
+  }
+  else {
+    return PDM_BUF_1;
+  }
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -136,36 +148,17 @@ int main(void)
 
   LOCK_ENABLE();
   // SPI2_NVIC_INIT();
-  HAL_Delay(2000);
   HAL_GPIO_WritePin(GPIOE, SPI1_NCS_PIN, GPIO_PIN_SET);
-  RECORD_ENABLE = 1;     // Enable recursive PDM reading
-  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, PDM_BUF_SIZE);
+  RECORD_ENABLE = 1;     // Enable I2S reading
   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
-  uint8_t PCM_switch_prev = 0;
-  uint8_t PDM_switch_prev = 0;
+  uint8_t PCM_switch_prev = PCM_switch_flag;
+  uint8_t PDM_switch_prev = PDM_complete_flag;
+  current_PCM_buffer = PCM_BUF_1;
+  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
   
   while (1)
   {
-    
-    if (PDM_switch_flag != PDM_switch_prev) {
-      PDM_switch_prev = PDM_switch_flag;
-      if (RECORD_ENABLE == 1) {
-        HAL_I2S_Receive_IT(&hi2s2, getPDMPointer(PDM_switch_flag), PDM_BUF_SIZE); // Instantly start reading new batch of raw data
-      }
-      for ( uint8_t i = 0; i < PDM_BUF_SIZE/DECIMATION_FACTOR; i++) {           // Loop until we have converted all PDM data
-        PDM_Filter(getPDMPointer(~PDM_switch_flag) + i*DECIMATION_FACTOR,       // Invert flag to select read buffer
-                    getPCMPointer(PCM_switch_flag) + i + local_pcm_pointer, 
-                      &PDM1_filter_handler);
-      }
-      local_pcm_pointer = local_pcm_pointer + PCM_BUF_SIZE/DECIMATION_FACTOR;   // Save the relative address where we left off
-      if (local_pcm_pointer == PCM_BUF_SIZE) {                                  // If buffer is full, switch buffers 
-        local_pcm_pointer = 0;
-        PCM_switch_flag ^= 1;
-      }
-    }
-    
     if (PCM_switch_flag != PCM_switch_prev) { 
-      RECORD_ENABLE = 0;     // Disable recording
       HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE*2, 100);
     }
 
@@ -173,10 +166,6 @@ int main(void)
       HAL_Delay(200);
       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
     }
-    // HAL_UART_Transmit(&huart2, &PCM_BUF_1, PCM_BUF_SIZE*2, 100);
-    // HAL_UART_Transmit(&huart2, &PCM_BUF_1, 128, 100);
-    
-    
 
   /* USER CODE END WHILE */
 
@@ -406,15 +395,6 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-inline uint16_t * getPDMPointer(uint8_t PDM_switch_flag) {
-  if (PDM_switch_flag == 1) {
-    return PDM_BUF_2;
-  }
-  else {
-    return PDM_BUF_1;
-  }
-}
-
 inline uint16_t * getPCMPointer(uint8_t PCM_switch_flag) {
   if (PCM_switch_flag == 1) {
     return PCM_BUF_2;
@@ -425,8 +405,15 @@ inline uint16_t * getPCMPointer(uint8_t PCM_switch_flag) {
 }
 
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
-  PDM_switch_flag ^= 1; // Switch PDM buffers 
-  
+  PDM_complete_flag = 1; // Signal completion to start new receive
+  PDM_Filter(PDM_BUF_1, current_PCM_buffer + local_pcm_pointer, &PDM1_filter_handler);
+  local_pcm_pointer++;
+  if (local_pcm_pointer == PCM_BUF_SIZE) {
+    local_pcm_pointer = 0;
+    PCM_switch_flag ^= 1;
+    RECORD_ENABLE = 0;
+  }
+
   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
 
