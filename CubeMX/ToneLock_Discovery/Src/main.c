@@ -152,17 +152,27 @@ int main(void)
   RECORD_ENABLE = 1;     // Enable I2S reading
   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
   uint8_t PCM_switch_prev = PCM_switch_flag;
-  uint8_t PDM_switch_prev = PDM_complete_flag;
+  // uint8_t PDM_switch_prev = PDM_complete_flag;
   current_PCM_buffer = PCM_BUF_1;
-  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+  // HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+  hi2s2.State = HAL_I2S_STATE_BUSY_RX;
+  hi2s2.ErrorCode = HAL_I2S_ERROR_NONE;
+  // hi2s2->State     = HAL_I2S_STATE_BUSY_RX;
+  // hi2s2->ErrorCode = HAL_I2S_ERROR_NONE;
+  __HAL_I2S_ENABLE_IT(&hi2s2, (I2S_IT_RXNE | I2S_IT_ERR));
+  __HAL_I2S_ENABLE(&hi2s2);
   
   while (1)
   {
     if (PCM_switch_flag != PCM_switch_prev) { 
+      PCM_switch_prev = PCM_switch_flag;
       HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE*2, 100);
     }
 
     if (RECORD_ENABLE == 0) {
+      if (__HAL_I2S_GET_IT_SOURCE(&hi2s2, I2S_IT_RXNE) == SET) {
+        __HAL_I2S_DISABLE_IT(&hi2s2, I2S_IT_RXNE);
+      }
       HAL_Delay(200);
       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
     }
@@ -404,21 +414,21 @@ inline uint16_t * getPCMPointer(uint8_t PCM_switch_flag) {
   }
 }
 
-void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
-  PDM_complete_flag = 1; // Signal completion to start new receive
-  PDM_Filter(PDM_BUF_1, current_PCM_buffer + local_pcm_pointer, &PDM1_filter_handler);
-  local_pcm_pointer++;
-  if (local_pcm_pointer == PCM_BUF_SIZE) {
-    local_pcm_pointer = 0;
-    PCM_switch_flag ^= 1;
-    RECORD_ENABLE = 0;
-  }
+// void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
+//   PDM_complete_flag = 1; // Signal completion to start new receive
+//   PDM_Filter(PDM_BUF_1, current_PCM_buffer + local_pcm_pointer, &PDM1_filter_handler);
+//   local_pcm_pointer++;
+//   if (local_pcm_pointer == PCM_BUF_SIZE) {
+//     local_pcm_pointer = 0;
+//     PCM_switch_flag ^= 1;
+//     RECORD_ENABLE = 0;
+//   }
 
-  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
+//   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+//   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
 
   
-}
+// }
 
 /* USER CODE END 4 */
 
