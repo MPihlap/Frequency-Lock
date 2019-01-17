@@ -214,10 +214,6 @@ void SPI2_IRQHandler(void)
   /* USER CODE END SPI2_IRQn 0 */
   HAL_I2S_IRQHandler(&hi2s2);
   /* USER CODE BEGIN SPI2_IRQn 1 */
-  if ((RECORD_ENABLE == 1) && (PDM_complete_flag == 1)) {
-    HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
-    PDM_complete_flag = 0;
-  }
   /* USER CODE END SPI2_IRQn 1 */
 }
 

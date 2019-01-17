@@ -412,10 +412,23 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
     local_pcm_pointer = 0;
     PCM_switch_flag ^= 1;
     RECORD_ENABLE = 0;
+    if (PCM_switch_flag == 1) {
+      current_PCM_buffer = PCM_BUF_2;
+    }
+    else {
+      current_PCM_buffer = PCM_BUF_1;
+    }
   }
+  
+  for(size_t i = 0; i < count; i++)
+  {
+    /* code */
+  }
+  
+  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
 
-  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
+  // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+  // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
 
   
 }
