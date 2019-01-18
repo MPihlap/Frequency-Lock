@@ -152,9 +152,15 @@ int main(void)
   RECORD_ENABLE = 1;     // Enable I2S reading
   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
   uint8_t PCM_switch_prev = PCM_switch_flag;
-  uint8_t PDM_switch_prev = PDM_complete_flag;
+  // uint8_t PDM_switch_prev = PDM_complete_flag;
   current_PCM_buffer = PCM_BUF_1;
-  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+  // HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+  hi2s2.State = HAL_I2S_STATE_BUSY_RX;
+  hi2s2.ErrorCode = HAL_I2S_ERROR_NONE;
+  // hi2s2->State     = HAL_I2S_STATE_BUSY_RX;
+  // hi2s2->ErrorCode = HAL_I2S_ERROR_NONE;
+  __HAL_I2S_ENABLE_IT(&hi2s2, (I2S_IT_RXNE | I2S_IT_ERR));
+  __HAL_I2S_ENABLE(&hi2s2);
   
   while (1)
   {
@@ -164,6 +170,9 @@ int main(void)
     }
 
     if (RECORD_ENABLE == 0) {
+      if (__HAL_I2S_GET_IT_SOURCE(&hi2s2, I2S_IT_RXNE) == SET) {
+        __HAL_I2S_DISABLE_IT(&hi2s2, I2S_IT_RXNE);
+      }
       HAL_Delay(200);
       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
     }
@@ -431,7 +440,7 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
 
   
-}
+// }
 
 /* USER CODE END 4 */
 
