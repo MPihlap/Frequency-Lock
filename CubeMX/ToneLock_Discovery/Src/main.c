@@ -47,9 +47,11 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
+// #include <math.h>
 #include "main.h"
 #include "stm32f4xx_hal.h"
 #include "pdm2pcm.h"
+#include "arm_math.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -87,23 +89,16 @@ uint16_t PDM_BUF_1[64]; // PDM buffer1
 uint16_t PDM_BUF_2[PDM_BUF_SIZE]; // PDM buffer2
 uint16_t PCM_BUF_1[PCM_BUF_SIZE]; // PCM buffer1
 uint16_t PCM_BUF_2[PCM_BUF_SIZE]; // PCM buffer2
+float32_t fft_buffer[PCM_BUF_SIZE*2];
+float32_t fft_mag_buffer[PCM_BUF_SIZE*2];
 uint32_t local_pcm_pointer = 0;   // Keeps track of where we are in the PCM buffer
 uint8_t PDM_complete_flag = 0;      // The flags indicate which buffer is currently in use
 uint8_t PCM_switch_flag = 0;
 uint16_t *current_PDM_buffer;     // Pointer to array to be recorded to
 uint16_t *current_PCM_buffer;
 uint8_t RECORD_ENABLE = 0;     // Recording control flag
-
-
-inline uint16_t * getPDMPointer(uint8_t PDM_complete_flag) {
-  if (PDM_complete_flag == 1) {
-    return PDM_BUF_2;
-  }
-  else {
-    return PDM_BUF_1;
-  }
-}
-
+arm_rfft_instance_f32 S;
+arm_cfft_radix4_instance_f32 S_CFFT;
 
 /* USER CODE END 0 */
 
@@ -140,6 +135,7 @@ int main(void)
   MX_I2S2_Init();
   MX_CRC_Init();
   MX_PDM2PCM_Init();
+  arm_rfft_init_f32(&S, &S_CFFT, 8192*2, 0, 1);
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
@@ -167,6 +163,11 @@ int main(void)
     if (PCM_switch_flag != PCM_switch_prev) { 
       PCM_switch_prev = PCM_switch_flag;
       HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE*2, 5000);
+      arm_rfft_f32(&S, PCM_BUF_1, fft_buffer);
+      arm_cmplx_mag_f32(fft_buffer, fft_mag_buffer, 8192*2);
+      volatile float32_t maxmag;
+      volatile uint32_t index;
+      arm_max_f32(&(fft_mag_buffer[1]), 8192*2, &maxmag, &index);
     }
 
     if (RECORD_ENABLE == 0) {
@@ -417,7 +418,7 @@ inline uint16_t * getPCMPointer(uint8_t PCM_switch_flag) {
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
   PDM_complete_flag = 1; // Signal completion to start new receive
   PDM_Filter(PDM_BUF_1, current_PCM_buffer + local_pcm_pointer, &PDM1_filter_handler);
-  local_pcm_pointer++;
+  local_pcm_pointer = local_pcm_pointer + 16;
   if (local_pcm_pointer == PCM_BUF_SIZE) {
     local_pcm_pointer = 0;
     PCM_switch_flag ^= 1;

@@ -26,7 +26,8 @@ build/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/pdm2pcm.h \
- Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h
+ Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h \
+ Drivers/CMSIS/Include/arm_math.h Drivers/CMSIS/Include/core_cm4.h
 
 Inc/main.h:
 
@@ -93,3 +94,7 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 Inc/pdm2pcm.h:
 
 Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h:
+
+Drivers/CMSIS/Include/arm_math.h:
+
+Drivers/CMSIS/Include/core_cm4.h:
