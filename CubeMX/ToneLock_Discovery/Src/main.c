@@ -159,7 +159,8 @@ int main(void)
   while (1)
   {
     if (PCM_switch_flag != PCM_switch_prev) { 
-      HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE*2, 100);
+      PCM_switch_prev = PCM_switch_flag;
+      HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE*2, 5000);
     }
 
     if (RECORD_ENABLE == 0) {
@@ -419,14 +420,13 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
       current_PCM_buffer = PCM_BUF_1;
     }
   }
-  
-  for(size_t i = 0; i < count; i++)
-  {
-    /* code */
+  volatile uint32_t DHD;
+  DHD = hi2s2.Instance->DR;
+  __HAL_I2S_CLEAR_OVRFLAG(hi2s);
+  if (RECORD_ENABLE == 1) {
+    volatile uint8_t ovrflag =  __HAL_I2S_GET_FLAG(&hi2s2, I2S_FLAG_OVR);
+    HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
   }
-  
-  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
-
   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
 
