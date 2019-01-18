@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccOctytx.s 			page 1
+ARM GAS  /tmp/ccas5ZhY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccOctytx.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"pdm2pcm.c"
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccOctytx.s 			page 1
   29:Src/pdm2pcm.c ****   *    microprocessor devices manufactured by or for STMicroelectronics.
   30:Src/pdm2pcm.c ****   * 5. Redistribution and use of this software other than as permitted under 
   31:Src/pdm2pcm.c ****   *    this license is void and will automatically terminate your rights under 
-ARM GAS  /tmp/ccOctytx.s 			page 2
+ARM GAS  /tmp/ccas5ZhY.s 			page 2
 
 
   32:Src/pdm2pcm.c ****   *    this license. 
@@ -97,144 +97,154 @@ ARM GAS  /tmp/ccOctytx.s 			page 1
   65:Src/pdm2pcm.c **** {
   28              		.loc 1 65 0
   29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
+  30              		@ args = 0, pretend = 0, frame = 8
   31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32 0000 38B5     		push	{r3, r4, r5, lr}
+  32 0000 13B5     		push	{r0, r1, r4, lr}
   33              	.LCFI0:
   34              		.cfi_def_cfa_offset 16
-  35              		.cfi_offset 3, -16
-  36              		.cfi_offset 4, -12
-  37              		.cfi_offset 5, -8
-  38              		.cfi_offset 14, -4
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
   66:Src/pdm2pcm.c ****   /* USER CODE BEGIN 2 */
   67:Src/pdm2pcm.c ****   /* USER CODE END 2 */
   68:Src/pdm2pcm.c **** 
   69:Src/pdm2pcm.c ****    /** 
   70:Src/pdm2pcm.c ****   */
   71:Src/pdm2pcm.c ****   PDM1_filter_handler.bit_order = PDM_FILTER_BIT_ORDER_LSB;
-  39              		.loc 1 71 0
-  40 0002 0B4C     		ldr	r4, .L3
-  41 0004 0025     		movs	r5, #0
-  42 0006 2580     		strh	r5, [r4]	@ movhi
   72:Src/pdm2pcm.c ****   PDM1_filter_handler.endianness = PDM_FILTER_ENDIANNESS_BE;
-  43              		.loc 1 72 0
-ARM GAS  /tmp/ccOctytx.s 			page 3
+  37              		.loc 1 72 0
+  38 0002 0D4B     		ldr	r3, .L2
+  71:Src/pdm2pcm.c ****   PDM1_filter_handler.endianness = PDM_FILTER_ENDIANNESS_BE;
+  39              		.loc 1 71 0
+  40 0004 0D4C     		ldr	r4, .L2+4
+  41              		.loc 1 72 0
+  42 0006 4FF48032 		mov	r2, #65536
+ARM GAS  /tmp/ccas5ZhY.s 			page 3
 
 
-  44 0008 0123     		movs	r3, #1
-  45 000a 6380     		strh	r3, [r4, #2]	@ movhi
+  43 000a C4E90023 		strd	r2, r3, [r4]
+  73:Src/pdm2pcm.c ****   PDM1_filter_handler.high_pass_tap = 2104533974;
+  74:Src/pdm2pcm.c ****   PDM1_filter_handler.in_ptr_channels = 1;
+  75:Src/pdm2pcm.c ****   PDM1_filter_handler.out_ptr_channels = 1; 
+  76:Src/pdm2pcm.c ****   volatile uint32_t result;
+  77:Src/pdm2pcm.c ****   result = PDM_Filter_Init(&PDM1_filter_handler);
+  44              		.loc 1 77 0
+  45 000e 2046     		mov	r0, r4
   73:Src/pdm2pcm.c ****   PDM1_filter_handler.high_pass_tap = 2104533974;
   46              		.loc 1 73 0
-  47 000c 094A     		ldr	r2, .L3+4
-  48 000e 6260     		str	r2, [r4, #4]
-  74:Src/pdm2pcm.c ****   PDM1_filter_handler.in_ptr_channels = 1;
-  49              		.loc 1 74 0
-  50 0010 2381     		strh	r3, [r4, #8]	@ movhi
-  75:Src/pdm2pcm.c ****   PDM1_filter_handler.out_ptr_channels = 1; 
-  51              		.loc 1 75 0
-  52 0012 6381     		strh	r3, [r4, #10]	@ movhi
-  76:Src/pdm2pcm.c ****   PDM_Filter_Init(&PDM1_filter_handler);
-  53              		.loc 1 76 0
-  54 0014 2046     		mov	r0, r4
-  55 0016 FFF7FEFF 		bl	PDM_Filter_Init
-  56              	.LVL0:
+  47 0010 4FF00113 		mov	r3, #65537
+  48 0014 A360     		str	r3, [r4, #8]
+  49              		.loc 1 77 0
+  50 0016 FFF7FEFF 		bl	PDM_Filter_Init
+  51              	.LVL0:
+  78:Src/pdm2pcm.c **** 
+  79:Src/pdm2pcm.c ****   PDM1_filter_config.decimation_factor = PDM_FILTER_DEC_FACTOR_64;
+  52              		.loc 1 79 0
+  53 001a 0949     		ldr	r1, .L2+8
   77:Src/pdm2pcm.c **** 
-  78:Src/pdm2pcm.c ****   PDM1_filter_config.decimation_factor = PDM_FILTER_DEC_FACTOR_64;
-  57              		.loc 1 78 0
-  58 001a 0749     		ldr	r1, .L3+8
-  59 001c 0223     		movs	r3, #2
-  60 001e 0B80     		strh	r3, [r1]	@ movhi
-  79:Src/pdm2pcm.c ****   PDM1_filter_config.output_samples_number = 1024;
-  61              		.loc 1 79 0
-  62 0020 4FF48063 		mov	r3, #1024
-  63 0024 4B80     		strh	r3, [r1, #2]	@ movhi
-  80:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 0; 
-  64              		.loc 1 80 0
-  65 0026 8D80     		strh	r5, [r1, #4]	@ movhi
-  81:Src/pdm2pcm.c ****   PDM_Filter_setConfig(&PDM1_filter_handler, &PDM1_filter_config);
-  66              		.loc 1 81 0
-  67 0028 2046     		mov	r0, r4
-  68 002a FFF7FEFF 		bl	PDM_Filter_setConfig
+  54              		.loc 1 77 0
+  55 001c 0190     		str	r0, [sp, #4]
+  56              		.loc 1 79 0
+  57 001e 0223     		movs	r3, #2
+  58 0020 0B80     		strh	r3, [r1]	@ movhi
+  80:Src/pdm2pcm.c ****   PDM1_filter_config.output_samples_number = 16;
+  59              		.loc 1 80 0
+  60 0022 1023     		movs	r3, #16
+  61 0024 4B80     		strh	r3, [r1, #2]	@ movhi
+  81:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 24; 
+  82:Src/pdm2pcm.c ****   result = PDM_Filter_setConfig(&PDM1_filter_handler, &PDM1_filter_config);
+  62              		.loc 1 82 0
+  63 0026 2046     		mov	r0, r4
+  81:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 24; 
+  64              		.loc 1 81 0
+  65 0028 1823     		movs	r3, #24
+  66 002a 8B80     		strh	r3, [r1, #4]	@ movhi
+  67              		.loc 1 82 0
+  68 002c FFF7FEFF 		bl	PDM_Filter_setConfig
   69              	.LVL1:
-  82:Src/pdm2pcm.c **** 
-  83:Src/pdm2pcm.c ****   /* USER CODE BEGIN 3 */
-  84:Src/pdm2pcm.c ****   /* USER CODE END 3 */
-  85:Src/pdm2pcm.c **** 
-  86:Src/pdm2pcm.c **** }
-  70              		.loc 1 86 0
-  71 002e 38BD     		pop	{r3, r4, r5, pc}
-  72              	.L4:
-  73              		.align	2
-  74              	.L3:
-  75 0030 00000000 		.word	PDM1_filter_handler
-  76 0034 D6A3707D 		.word	2104533974
-  77 0038 00000000 		.word	PDM1_filter_config
-  78              		.cfi_endproc
-  79              	.LFE0:
-  81              		.section	.text.MX_PDM2PCM_Process,"ax",%progbits
-  82              		.align	1
-  83              		.global	MX_PDM2PCM_Process
-  84              		.syntax unified
-  85              		.thumb
-  86              		.thumb_func
-  87              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccOctytx.s 			page 4
+  70 0030 0190     		str	r0, [sp, #4]
+  83:Src/pdm2pcm.c **** 
+  84:Src/pdm2pcm.c ****   /* USER CODE BEGIN 3 */
+  85:Src/pdm2pcm.c ****   /* USER CODE END 3 */
+  86:Src/pdm2pcm.c **** 
+  87:Src/pdm2pcm.c **** }
+  71              		.loc 1 87 0
+  72 0032 02B0     		add	sp, sp, #8
+  73              	.LCFI1:
+  74              		.cfi_def_cfa_offset 8
+  75              		@ sp needed
+  76 0034 10BD     		pop	{r4, pc}
+  77              	.L3:
+  78 0036 00BF     		.align	2
+  79              	.L2:
+  80 0038 D6A3707D 		.word	2104533974
+  81 003c 00000000 		.word	PDM1_filter_handler
+ARM GAS  /tmp/ccas5ZhY.s 			page 4
 
 
-  89              	MX_PDM2PCM_Process:
-  90              	.LFB1:
-  87:Src/pdm2pcm.c **** 
-  88:Src/pdm2pcm.c **** /* USER CODE BEGIN 4 */
-  89:Src/pdm2pcm.c **** 
-  90:Src/pdm2pcm.c **** /*  process function */
-  91:Src/pdm2pcm.c **** uint8_t MX_PDM2PCM_Process(uint16_t *PDMBuf, uint16_t *PCMBuf)
-  92:Src/pdm2pcm.c **** {
-  91              		.loc 1 92 0
-  92              		.cfi_startproc
-  93              		@ args = 0, pretend = 0, frame = 0
-  94              		@ frame_needed = 0, uses_anonymous_args = 0
-  95              		@ link register save eliminated.
-  96              	.LVL2:
-  93:Src/pdm2pcm.c ****   /*
-  94:Src/pdm2pcm.c ****   uint8_t BSP_AUDIO_IN_PDMToPCM(uint16_t * PDMBuf, uint16_t * PCMBuf)
-  95:Src/pdm2pcm.c **** 
-  96:Src/pdm2pcm.c ****   Converts audio format from PDM to PCM.
-  97:Src/pdm2pcm.c ****   Parameters:
-  98:Src/pdm2pcm.c ****     PDMBuf : Pointer to PDM buffer data
-  99:Src/pdm2pcm.c ****     PCMBuf : Pointer to PCM buffer data
- 100:Src/pdm2pcm.c ****   Return values:
- 101:Src/pdm2pcm.c ****     AUDIO_OK in case of success, AUDIO_ERROR otherwise
- 102:Src/pdm2pcm.c ****   */
- 103:Src/pdm2pcm.c ****   /* this example return the default status AUDIO_ERROR */
- 104:Src/pdm2pcm.c ****   // PDM_Filter(PDMBuf, PCMBuf, PDM1_filter_handler);
- 105:Src/pdm2pcm.c ****   return (uint8_t) 1;
- 106:Src/pdm2pcm.c **** }
-  97              		.loc 1 106 0
-  98 0000 0120     		movs	r0, #1
-  99              	.LVL3:
- 100 0002 7047     		bx	lr
- 101              		.cfi_endproc
- 102              	.LFE1:
- 104              		.comm	PDM1_filter_config,6,4
- 105              		.comm	PDM1_filter_handler,76,4
- 106              		.text
- 107              	.Letext0:
- 108              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 109              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 110              		.file 4 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
- 111              		.file 5 "Inc/pdm2pcm.h"
-ARM GAS  /tmp/ccOctytx.s 			page 5
+  82 0040 00000000 		.word	PDM1_filter_config
+  83              		.cfi_endproc
+  84              	.LFE0:
+  86              		.section	.text.MX_PDM2PCM_Process,"ax",%progbits
+  87              		.align	1
+  88              		.global	MX_PDM2PCM_Process
+  89              		.syntax unified
+  90              		.thumb
+  91              		.thumb_func
+  92              		.fpu fpv4-sp-d16
+  94              	MX_PDM2PCM_Process:
+  95              	.LFB1:
+  88:Src/pdm2pcm.c **** 
+  89:Src/pdm2pcm.c **** /* USER CODE BEGIN 4 */
+  90:Src/pdm2pcm.c **** 
+  91:Src/pdm2pcm.c **** /*  process function */
+  92:Src/pdm2pcm.c **** uint8_t MX_PDM2PCM_Process(uint16_t *PDMBuf, uint16_t *PCMBuf)
+  93:Src/pdm2pcm.c **** {
+  96              		.loc 1 93 0
+  97              		.cfi_startproc
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100              		@ link register save eliminated.
+ 101              	.LVL2:
+  94:Src/pdm2pcm.c ****   /*
+  95:Src/pdm2pcm.c ****   uint8_t BSP_AUDIO_IN_PDMToPCM(uint16_t * PDMBuf, uint16_t * PCMBuf)
+  96:Src/pdm2pcm.c **** 
+  97:Src/pdm2pcm.c ****   Converts audio format from PDM to PCM.
+  98:Src/pdm2pcm.c ****   Parameters:
+  99:Src/pdm2pcm.c ****     PDMBuf : Pointer to PDM buffer data
+ 100:Src/pdm2pcm.c ****     PCMBuf : Pointer to PCM buffer data
+ 101:Src/pdm2pcm.c ****   Return values:
+ 102:Src/pdm2pcm.c ****     AUDIO_OK in case of success, AUDIO_ERROR otherwise
+ 103:Src/pdm2pcm.c ****   */
+ 104:Src/pdm2pcm.c ****   /* this example return the default status AUDIO_ERROR */
+ 105:Src/pdm2pcm.c ****   // PDM_Filter(PDMBuf, PCMBuf, PDM1_filter_handler);
+ 106:Src/pdm2pcm.c ****   return (uint8_t) 1;
+ 107:Src/pdm2pcm.c **** }
+ 102              		.loc 1 107 0
+ 103 0000 0120     		movs	r0, #1
+ 104              	.LVL3:
+ 105 0002 7047     		bx	lr
+ 106              		.cfi_endproc
+ 107              	.LFE1:
+ 109              		.comm	PDM1_filter_config,6,2
+ 110              		.comm	PDM1_filter_handler,76,4
+ 111              		.text
+ 112              	.Letext0:
+ 113              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 114              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 115              		.file 4 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
+ 116              		.file 5 "Inc/pdm2pcm.h"
+ARM GAS  /tmp/ccas5ZhY.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 pdm2pcm.c
-     /tmp/ccOctytx.s:18     .text.MX_PDM2PCM_Init:0000000000000000 $t
-     /tmp/ccOctytx.s:25     .text.MX_PDM2PCM_Init:0000000000000000 MX_PDM2PCM_Init
-     /tmp/ccOctytx.s:75     .text.MX_PDM2PCM_Init:0000000000000030 $d
+     /tmp/ccas5ZhY.s:18     .text.MX_PDM2PCM_Init:0000000000000000 $t
+     /tmp/ccas5ZhY.s:25     .text.MX_PDM2PCM_Init:0000000000000000 MX_PDM2PCM_Init
+     /tmp/ccas5ZhY.s:80     .text.MX_PDM2PCM_Init:0000000000000038 $d
                             *COM*:000000000000004c PDM1_filter_handler
                             *COM*:0000000000000006 PDM1_filter_config
-     /tmp/ccOctytx.s:82     .text.MX_PDM2PCM_Process:0000000000000000 $t
-     /tmp/ccOctytx.s:89     .text.MX_PDM2PCM_Process:0000000000000000 MX_PDM2PCM_Process
+     /tmp/ccas5ZhY.s:87     .text.MX_PDM2PCM_Process:0000000000000000 $t
+     /tmp/ccas5ZhY.s:94     .text.MX_PDM2PCM_Process:0000000000000000 MX_PDM2PCM_Process
 
 UNDEFINED SYMBOLS
 PDM_Filter_Init

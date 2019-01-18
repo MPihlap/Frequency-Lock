@@ -22,7 +22,7 @@ TARGET = ToneLock_Discovery
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -Og
+OPT = -Os
 
 
 #######################################
@@ -61,6 +61,10 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 Src/system_stm32f4xx.c \
 Src/pdm2pcm.c \
+# Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c \
+# Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c \
+# Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c\
+# Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_f32.c\
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.c
 # Src/libPDMFilter_CM4_GCC.a
 # Src/libPDMFilter_CM4_GCC.a# Src/libPDMFilter_CM4_GCC.a
@@ -124,7 +128,7 @@ C_INCLUDES =  \
 -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
 -IDrivers/CMSIS/Include \
--IMiddlewares/ST/STM32_Audio/Addons/PDM/Inc
+-IMiddlewares/ST/STM32_Audio/Addons/PDM/Inc\
 
 
 # compile gcc flags
@@ -148,8 +152,8 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 LDSCRIPT = STM32F407VGTx_FLASH.ld
 
 # libraries
-LIBS = -lPDMFilter_CM4_GCC -lc -lm -lnosys 
-LIBDIR = -LMiddlewares/ST/STM32_Audio/Addons/PDM/Lib
+LIBS = -larm_cortexM4lf_math -lPDMFilter_CM4_GCC  -lc -lm -lnosys 
+LIBDIR = -LDrivers/CMSIS/Lib/GCC -LMiddlewares/ST/STM32_Audio/Addons/PDM/Lib 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
 # default action: build all

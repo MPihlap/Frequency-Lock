@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJsaPxW.s 			page 1
+ARM GAS  /tmp/cce96fwy.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"stm32f4xx_it.c"
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
   29:Src/stm32f4xx_it.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   30:Src/stm32f4xx_it.c ****   *
   31:Src/stm32f4xx_it.c ****   ******************************************************************************
-ARM GAS  /tmp/ccJsaPxW.s 			page 2
+ARM GAS  /tmp/cce96fwy.s 			page 2
 
 
   32:Src/stm32f4xx_it.c ****   */
@@ -118,49 +118,51 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
   48              		.loc 1 67 0
   49              		.cfi_startproc
   50              		@ Volatile: function does not return.
-ARM GAS  /tmp/ccJsaPxW.s 			page 3
+ARM GAS  /tmp/cce96fwy.s 			page 3
 
 
   51              		@ args = 0, pretend = 0, frame = 0
   52              		@ frame_needed = 0, uses_anonymous_args = 0
-  53 0000 08B5     		push	{r3, lr}
-  54              	.LCFI0:
-  55              		.cfi_def_cfa_offset 8
-  56              		.cfi_offset 3, -8
-  57              		.cfi_offset 14, -4
   68:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
   69:Src/stm32f4xx_it.c ****   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13, GPIO_PIN_SET);
-  58              		.loc 1 69 0
-  59 0002 074C     		ldr	r4, .L5
-  60 0004 0122     		movs	r2, #1
-  61 0006 4FF40051 		mov	r1, #8192
-  62 000a 2046     		mov	r0, r4
-  63 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
-  64              	.LVL0:
+  53              		.loc 1 69 0
+  54 0000 0122     		movs	r2, #1
+  55 0002 4FF40051 		mov	r1, #8192
+  56 0006 0548     		ldr	r0, .L4
+  67:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
+  57              		.loc 1 67 0
+  58 0008 08B5     		push	{r3, lr}
+  59              	.LCFI0:
+  60              		.cfi_def_cfa_offset 8
+  61              		.cfi_offset 3, -8
+  62              		.cfi_offset 14, -4
+  63              		.loc 1 69 0
+  64 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  65              	.LVL0:
   70:Src/stm32f4xx_it.c ****   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
-  65              		.loc 1 70 0
-  66 0010 0122     		movs	r2, #1
-  67 0012 4FF48041 		mov	r1, #16384
-  68 0016 2046     		mov	r0, r4
-  69 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  70              	.LVL1:
-  71              	.L3:
-  72 001c FEE7     		b	.L3
-  73              	.L6:
-  74 001e 00BF     		.align	2
-  75              	.L5:
-  76 0020 000C0240 		.word	1073875968
-  77              		.cfi_endproc
-  78              	.LFE127:
-  80              		.section	.text.MemManage_Handler,"ax",%progbits
-  81              		.align	1
-  82              		.global	MemManage_Handler
-  83              		.syntax unified
-  84              		.thumb
-  85              		.thumb_func
-  86              		.fpu fpv4-sp-d16
-  88              	MemManage_Handler:
-  89              	.LFB128:
+  66              		.loc 1 70 0
+  67 000e 0122     		movs	r2, #1
+  68 0010 4FF48041 		mov	r1, #16384
+  69 0014 0148     		ldr	r0, .L4
+  70 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  71              	.LVL1:
+  72              	.L3:
+  73 001a FEE7     		b	.L3
+  74              	.L5:
+  75              		.align	2
+  76              	.L4:
+  77 001c 000C0240 		.word	1073875968
+  78              		.cfi_endproc
+  79              	.LFE127:
+  81              		.section	.text.MemManage_Handler,"ax",%progbits
+  82              		.align	1
+  83              		.global	MemManage_Handler
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  87              		.fpu fpv4-sp-d16
+  89              	MemManage_Handler:
+  90              	.LFB128:
   71:Src/stm32f4xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
   72:Src/stm32f4xx_it.c ****   while (1)
   73:Src/stm32f4xx_it.c ****   {
@@ -176,30 +178,30 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
   83:Src/stm32f4xx_it.c **** /**
   84:Src/stm32f4xx_it.c **** * @brief This function handles Memory management fault.
   85:Src/stm32f4xx_it.c **** */
+ARM GAS  /tmp/cce96fwy.s 			page 4
+
+
   86:Src/stm32f4xx_it.c **** void MemManage_Handler(void)
   87:Src/stm32f4xx_it.c **** {
-ARM GAS  /tmp/ccJsaPxW.s 			page 4
-
-
-  90              		.loc 1 87 0
-  91              		.cfi_startproc
-  92              		@ Volatile: function does not return.
-  93              		@ args = 0, pretend = 0, frame = 0
-  94              		@ frame_needed = 0, uses_anonymous_args = 0
-  95              		@ link register save eliminated.
-  96              	.L8:
-  97 0000 FEE7     		b	.L8
-  98              		.cfi_endproc
-  99              	.LFE128:
- 101              		.section	.text.BusFault_Handler,"ax",%progbits
- 102              		.align	1
- 103              		.global	BusFault_Handler
- 104              		.syntax unified
- 105              		.thumb
- 106              		.thumb_func
- 107              		.fpu fpv4-sp-d16
- 109              	BusFault_Handler:
- 110              	.LFB129:
+  91              		.loc 1 87 0
+  92              		.cfi_startproc
+  93              		@ Volatile: function does not return.
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              		@ link register save eliminated.
+  97              	.L7:
+  98 0000 FEE7     		b	.L7
+  99              		.cfi_endproc
+ 100              	.LFE128:
+ 102              		.section	.text.BusFault_Handler,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	BusFault_Handler
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.fpu fpv4-sp-d16
+ 110              	BusFault_Handler:
+ 111              	.LFB129:
   88:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
   89:Src/stm32f4xx_it.c **** 
   90:Src/stm32f4xx_it.c ****   /* USER CODE END MemoryManagement_IRQn 0 */
@@ -218,29 +220,29 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  103:Src/stm32f4xx_it.c **** */
  104:Src/stm32f4xx_it.c **** void BusFault_Handler(void)
  105:Src/stm32f4xx_it.c **** {
- 111              		.loc 1 105 0
- 112              		.cfi_startproc
- 113              		@ Volatile: function does not return.
- 114              		@ args = 0, pretend = 0, frame = 0
- 115              		@ frame_needed = 0, uses_anonymous_args = 0
- 116              		@ link register save eliminated.
- 117              	.L10:
- 118 0000 FEE7     		b	.L10
- 119              		.cfi_endproc
- 120              	.LFE129:
- 122              		.section	.text.UsageFault_Handler,"ax",%progbits
- 123              		.align	1
- 124              		.global	UsageFault_Handler
- 125              		.syntax unified
- 126              		.thumb
- 127              		.thumb_func
- 128              		.fpu fpv4-sp-d16
- 130              	UsageFault_Handler:
- 131              	.LFB130:
+ 112              		.loc 1 105 0
+ 113              		.cfi_startproc
+ 114              		@ Volatile: function does not return.
+ 115              		@ args = 0, pretend = 0, frame = 0
+ 116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 117              		@ link register save eliminated.
+ 118              	.L9:
+ 119 0000 FEE7     		b	.L9
+ 120              		.cfi_endproc
+ 121              	.LFE129:
+ 123              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 124              		.align	1
+ 125              		.global	UsageFault_Handler
+ 126              		.syntax unified
+ 127              		.thumb
+ 128              		.thumb_func
+ 129              		.fpu fpv4-sp-d16
+ 131              	UsageFault_Handler:
+ARM GAS  /tmp/cce96fwy.s 			page 5
+
+
+ 132              	.LFB130:
  106:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
-ARM GAS  /tmp/ccJsaPxW.s 			page 5
-
-
  107:Src/stm32f4xx_it.c **** 
  108:Src/stm32f4xx_it.c ****   /* USER CODE END BusFault_IRQn 0 */
  109:Src/stm32f4xx_it.c ****   while (1)
@@ -258,25 +260,76 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  121:Src/stm32f4xx_it.c **** */
  122:Src/stm32f4xx_it.c **** void UsageFault_Handler(void)
  123:Src/stm32f4xx_it.c **** {
- 132              		.loc 1 123 0
- 133              		.cfi_startproc
- 134              		@ Volatile: function does not return.
- 135              		@ args = 0, pretend = 0, frame = 0
- 136              		@ frame_needed = 0, uses_anonymous_args = 0
- 137              		@ link register save eliminated.
- 138              	.L12:
- 139 0000 FEE7     		b	.L12
- 140              		.cfi_endproc
- 141              	.LFE130:
- 143              		.section	.text.SVC_Handler,"ax",%progbits
- 144              		.align	1
- 145              		.global	SVC_Handler
- 146              		.syntax unified
- 147              		.thumb
- 148              		.thumb_func
- 149              		.fpu fpv4-sp-d16
- 151              	SVC_Handler:
- 152              	.LFB131:
+ 133              		.loc 1 123 0
+ 134              		.cfi_startproc
+ 135              		@ Volatile: function does not return.
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		@ link register save eliminated.
+ 139              	.L11:
+ 140 0000 FEE7     		b	.L11
+ 141              		.cfi_endproc
+ 142              	.LFE130:
+ 144              		.section	.text.SVC_Handler,"ax",%progbits
+ 145              		.align	1
+ 146              		.global	SVC_Handler
+ 147              		.syntax unified
+ 148              		.thumb
+ 149              		.thumb_func
+ 150              		.fpu fpv4-sp-d16
+ 152              	SVC_Handler:
+ 153              	.LFB137:
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157              		@ link register save eliminated.
+ 158 0000 7047     		bx	lr
+ 159              		.cfi_endproc
+ 160              	.LFE137:
+ 162              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 163              		.align	1
+ 164              		.global	DebugMon_Handler
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 168              		.fpu fpv4-sp-d16
+ 170              	DebugMon_Handler:
+ 171              	.LFB139:
+ 172              		.cfi_startproc
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/cce96fwy.s 			page 6
+
+
+ 175              		@ link register save eliminated.
+ 176 0000 7047     		bx	lr
+ 177              		.cfi_endproc
+ 178              	.LFE139:
+ 180              		.section	.text.PendSV_Handler,"ax",%progbits
+ 181              		.align	1
+ 182              		.global	PendSV_Handler
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 186              		.fpu fpv4-sp-d16
+ 188              	PendSV_Handler:
+ 189              	.LFB141:
+ 190              		.cfi_startproc
+ 191              		@ args = 0, pretend = 0, frame = 0
+ 192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 193              		@ link register save eliminated.
+ 194 0000 7047     		bx	lr
+ 195              		.cfi_endproc
+ 196              	.LFE141:
+ 198              		.section	.text.SysTick_Handler,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	SysTick_Handler
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.fpu fpv4-sp-d16
+ 206              	SysTick_Handler:
+ 207              	.LFB134:
  124:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN UsageFault_IRQn 0 */
  125:Src/stm32f4xx_it.c **** 
  126:Src/stm32f4xx_it.c ****   /* USER CODE END UsageFault_IRQn 0 */
@@ -295,14 +348,6 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  139:Src/stm32f4xx_it.c **** */
  140:Src/stm32f4xx_it.c **** void SVC_Handler(void)
  141:Src/stm32f4xx_it.c **** {
- 153              		.loc 1 141 0
- 154              		.cfi_startproc
- 155              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccJsaPxW.s 			page 6
-
-
- 156              		@ frame_needed = 0, uses_anonymous_args = 0
- 157              		@ link register save eliminated.
  142:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 0 */
  143:Src/stm32f4xx_it.c **** 
  144:Src/stm32f4xx_it.c ****   /* USER CODE END SVCall_IRQn 0 */
@@ -310,30 +355,15 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  146:Src/stm32f4xx_it.c **** 
  147:Src/stm32f4xx_it.c ****   /* USER CODE END SVCall_IRQn 1 */
  148:Src/stm32f4xx_it.c **** }
- 158              		.loc 1 148 0
- 159 0000 7047     		bx	lr
- 160              		.cfi_endproc
- 161              	.LFE131:
- 163              		.section	.text.DebugMon_Handler,"ax",%progbits
- 164              		.align	1
- 165              		.global	DebugMon_Handler
- 166              		.syntax unified
- 167              		.thumb
- 168              		.thumb_func
- 169              		.fpu fpv4-sp-d16
- 171              	DebugMon_Handler:
- 172              	.LFB132:
  149:Src/stm32f4xx_it.c **** 
  150:Src/stm32f4xx_it.c **** /**
  151:Src/stm32f4xx_it.c **** * @brief This function handles Debug monitor.
+ARM GAS  /tmp/cce96fwy.s 			page 7
+
+
  152:Src/stm32f4xx_it.c **** */
  153:Src/stm32f4xx_it.c **** void DebugMon_Handler(void)
  154:Src/stm32f4xx_it.c **** {
- 173              		.loc 1 154 0
- 174              		.cfi_startproc
- 175              		@ args = 0, pretend = 0, frame = 0
- 176              		@ frame_needed = 0, uses_anonymous_args = 0
- 177              		@ link register save eliminated.
  155:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
  156:Src/stm32f4xx_it.c **** 
  157:Src/stm32f4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
@@ -341,33 +371,12 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  159:Src/stm32f4xx_it.c **** 
  160:Src/stm32f4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 1 */
  161:Src/stm32f4xx_it.c **** }
- 178              		.loc 1 161 0
- 179 0000 7047     		bx	lr
- 180              		.cfi_endproc
- 181              	.LFE132:
- 183              		.section	.text.PendSV_Handler,"ax",%progbits
- 184              		.align	1
- 185              		.global	PendSV_Handler
- 186              		.syntax unified
- 187              		.thumb
- 188              		.thumb_func
- 189              		.fpu fpv4-sp-d16
- 191              	PendSV_Handler:
- 192              	.LFB133:
  162:Src/stm32f4xx_it.c **** 
  163:Src/stm32f4xx_it.c **** /**
  164:Src/stm32f4xx_it.c **** * @brief This function handles Pendable request for system service.
  165:Src/stm32f4xx_it.c **** */
-ARM GAS  /tmp/ccJsaPxW.s 			page 7
-
-
  166:Src/stm32f4xx_it.c **** void PendSV_Handler(void)
  167:Src/stm32f4xx_it.c **** {
- 193              		.loc 1 167 0
- 194              		.cfi_startproc
- 195              		@ args = 0, pretend = 0, frame = 0
- 196              		@ frame_needed = 0, uses_anonymous_args = 0
- 197              		@ link register save eliminated.
  168:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
  169:Src/stm32f4xx_it.c **** 
  170:Src/stm32f4xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
@@ -375,54 +384,47 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  172:Src/stm32f4xx_it.c **** 
  173:Src/stm32f4xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
  174:Src/stm32f4xx_it.c **** }
- 198              		.loc 1 174 0
- 199 0000 7047     		bx	lr
- 200              		.cfi_endproc
- 201              	.LFE133:
- 203              		.section	.text.SysTick_Handler,"ax",%progbits
- 204              		.align	1
- 205              		.global	SysTick_Handler
- 206              		.syntax unified
- 207              		.thumb
- 208              		.thumb_func
- 209              		.fpu fpv4-sp-d16
- 211              	SysTick_Handler:
- 212              	.LFB134:
  175:Src/stm32f4xx_it.c **** 
  176:Src/stm32f4xx_it.c **** /**
  177:Src/stm32f4xx_it.c **** * @brief This function handles System tick timer.
  178:Src/stm32f4xx_it.c **** */
  179:Src/stm32f4xx_it.c **** void SysTick_Handler(void)
  180:Src/stm32f4xx_it.c **** {
- 213              		.loc 1 180 0
- 214              		.cfi_startproc
- 215              		@ args = 0, pretend = 0, frame = 0
- 216              		@ frame_needed = 0, uses_anonymous_args = 0
- 217 0000 08B5     		push	{r3, lr}
- 218              	.LCFI1:
- 219              		.cfi_def_cfa_offset 8
- 220              		.cfi_offset 3, -8
- 221              		.cfi_offset 14, -4
+ 208              		.loc 1 180 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		.loc 1 180 0
+ 213 0000 08B5     		push	{r3, lr}
+ 214              	.LCFI1:
+ 215              		.cfi_def_cfa_offset 8
+ 216              		.cfi_offset 3, -8
+ 217              		.cfi_offset 14, -4
  181:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
  182:Src/stm32f4xx_it.c **** 
  183:Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
  184:Src/stm32f4xx_it.c ****   HAL_IncTick();
- 222              		.loc 1 184 0
- 223 0002 FFF7FEFF 		bl	HAL_IncTick
- 224              	.LVL2:
+ 218              		.loc 1 184 0
+ 219 0002 FFF7FEFF 		bl	HAL_IncTick
+ 220              	.LVL2:
  185:Src/stm32f4xx_it.c ****   HAL_SYSTICK_IRQHandler();
- 225              		.loc 1 185 0
- 226 0006 FFF7FEFF 		bl	HAL_SYSTICK_IRQHandler
- 227              	.LVL3:
  186:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
  187:Src/stm32f4xx_it.c **** 
  188:Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
  189:Src/stm32f4xx_it.c **** }
-ARM GAS  /tmp/ccJsaPxW.s 			page 8
+ 221              		.loc 1 189 0
+ 222 0006 BDE80840 		pop	{r3, lr}
+ 223              	.LCFI2:
+ 224              		.cfi_restore 14
+ 225              		.cfi_restore 3
+ 226              		.cfi_def_cfa_offset 0
+ARM GAS  /tmp/cce96fwy.s 			page 8
 
 
- 228              		.loc 1 189 0
- 229 000a 08BD     		pop	{r3, pc}
+ 185:Src/stm32f4xx_it.c ****   HAL_SYSTICK_IRQHandler();
+ 227              		.loc 1 185 0
+ 228 000a FFF7FEBF 		b	HAL_SYSTICK_IRQHandler
+ 229              	.LVL3:
  230              		.cfi_endproc
  231              	.LFE134:
  233              		.section	.text.SPI2_IRQHandler,"ax",%progbits
@@ -452,11 +454,7 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  244              		.cfi_startproc
  245              		@ args = 0, pretend = 0, frame = 0
  246              		@ frame_needed = 0, uses_anonymous_args = 0
- 247 0000 08B5     		push	{r3, lr}
- 248              	.LCFI2:
- 249              		.cfi_def_cfa_offset 8
- 250              		.cfi_offset 3, -8
- 251              		.cfi_offset 14, -4
+ 247              		@ link register save eliminated.
  204:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SPI2_IRQn 0 */
  205:Src/stm32f4xx_it.c ****   extern uint8_t RECORD_ENABLE;
  206:Src/stm32f4xx_it.c ****   extern uint16_t * PDM_BUF_1;
@@ -469,68 +467,63 @@ ARM GAS  /tmp/ccJsaPxW.s 			page 1
  213:Src/stm32f4xx_it.c ****   // }
  214:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 0 */
  215:Src/stm32f4xx_it.c ****   HAL_I2S_IRQHandler(&hi2s2);
- 252              		.loc 1 215 0
- 253 0002 0248     		ldr	r0, .L20
- 254 0004 FFF7FEFF 		bl	HAL_I2S_IRQHandler
- 255              	.LVL4:
- 216:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SPI2_IRQn 1 */
- 217:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 1 */
- 218:Src/stm32f4xx_it.c **** }
- 256              		.loc 1 218 0
- 257 0008 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccJsaPxW.s 			page 9
+ 248              		.loc 1 215 0
+ 249 0000 0148     		ldr	r0, .L17
+ 250 0002 FFF7FEBF 		b	HAL_I2S_IRQHandler
+ 251              	.LVL4:
+ 252              	.L18:
+ 253 0006 00BF     		.align	2
+ 254              	.L17:
+ 255 0008 00000000 		.word	hi2s2
+ 256              		.cfi_endproc
+ 257              	.LFE135:
+ 259              		.text
+ARM GAS  /tmp/cce96fwy.s 			page 9
 
 
- 258              	.L21:
- 259 000a 00BF     		.align	2
- 260              	.L20:
- 261 000c 00000000 		.word	hi2s2
- 262              		.cfi_endproc
- 263              	.LFE135:
- 265              		.text
- 266              	.Letext0:
- 267              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 268              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 269              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 270              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 271              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 272              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
- 273              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
- 274              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
- 275              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
- 276              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 277              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 278              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 279              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
- 280              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 281              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /tmp/ccJsaPxW.s 			page 10
+ 260              	.Letext0:
+ 261              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 262              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 263              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 264              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 265              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 266              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 267              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 268              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
+ 269              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 270              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 271              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 272              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 273              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
+ 274              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 275              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  /tmp/cce96fwy.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_it.c
-     /tmp/ccJsaPxW.s:18     .text.NMI_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/ccJsaPxW.s:39     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:46     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccJsaPxW.s:76     .text.HardFault_Handler:0000000000000020 $d
-     /tmp/ccJsaPxW.s:81     .text.MemManage_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:88     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-     /tmp/ccJsaPxW.s:102    .text.BusFault_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:109    .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/ccJsaPxW.s:123    .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:130    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/ccJsaPxW.s:144    .text.SVC_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:151    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/ccJsaPxW.s:164    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:171    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/ccJsaPxW.s:184    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:191    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-     /tmp/ccJsaPxW.s:204    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:211    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-     /tmp/ccJsaPxW.s:234    .text.SPI2_IRQHandler:0000000000000000 $t
-     /tmp/ccJsaPxW.s:241    .text.SPI2_IRQHandler:0000000000000000 SPI2_IRQHandler
-     /tmp/ccJsaPxW.s:261    .text.SPI2_IRQHandler:000000000000000c $d
+     /tmp/cce96fwy.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/cce96fwy.s:39     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:46     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/cce96fwy.s:77     .text.HardFault_Handler:000000000000001c $d
+     /tmp/cce96fwy.s:82     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:89     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/cce96fwy.s:103    .text.BusFault_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:110    .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/cce96fwy.s:124    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:131    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/cce96fwy.s:145    .text.SVC_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:152    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/cce96fwy.s:163    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:170    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/cce96fwy.s:181    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:188    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/cce96fwy.s:199    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/cce96fwy.s:206    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/cce96fwy.s:234    .text.SPI2_IRQHandler:0000000000000000 $t
+     /tmp/cce96fwy.s:241    .text.SPI2_IRQHandler:0000000000000000 SPI2_IRQHandler
+     /tmp/cce96fwy.s:255    .text.SPI2_IRQHandler:0000000000000008 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

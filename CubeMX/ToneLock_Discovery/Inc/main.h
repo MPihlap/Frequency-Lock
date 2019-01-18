@@ -108,7 +108,6 @@
 /* #define USE_FULL_ASSERT    1U */
 
 /* USER CODE BEGIN Private defines */
-#define _FPU_PRESENT
 #define LOCK_PIN GPIO_PIN_2
 #define LOCK_ENABLE() HAL_GPIO_WritePin(GPIOE, LOCK_PIN, GPIO_PIN_SET)
 #define LOCK_DISABLE() HAL_GPIO_WritePin(GPIOE, LOCK_PIN, GPIO_PIN_RESET)
@@ -120,10 +119,11 @@
 #define LED3_PIN GPIO_PIN_14
 #define LED4_PIN GPIO_PIN_15
 
-#define PCM_BUF_SIZE 8192
-#define PDM_BUF_SIZE 8192
+#define PCM_BUF_SIZE 2048
+#define PDM_BUF_SIZE 64
 #define DECIMATION_FACTOR 64
 
+#define ARM_MATH_CM4
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
