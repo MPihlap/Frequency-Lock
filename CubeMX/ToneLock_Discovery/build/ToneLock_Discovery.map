@@ -1,21 +1,5 @@
 Archive member included to satisfy reference by file (symbol)
 
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
-                              build/main.o (arm_max_f32)
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
-                              build/main.o (arm_rfft_init_f32)
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
-                              build/main.o (arm_rfft_f32)
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
-                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o) (arm_cfft_radix4_init_f32)
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
-                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o) (arm_radix4_butterfly_f32)
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
-                              build/main.o (arm_cmplx_mag_f32)
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
-                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o) (twiddleCoef_4096)
-Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
-                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o) (arm_bitreversal_f32)
 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
                               build/pdm2pcm.o (PDM_Filter_Init)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
@@ -30,12 +14,10 @@ Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
                               Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o) (round)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
                               Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o) (powf)
-/usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
-                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o) (sqrtf)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
                               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o) (__ieee754_powf)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
-                              /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o) (__ieee754_sqrtf)
+                              /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o) (__ieee754_sqrtf)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
                               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o) (__fdlib_version)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
@@ -54,10 +36,24 @@ Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
                               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o) (copysignf)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
                               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o) (_exit)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+                              build/main.o (arm_max_f32)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+                              build/main.o (arm_rfft_init_f32)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+                              build/main.o (arm_rfft_f32)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o) (arm_cfft_radix4_init_f32)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o) (arm_radix4_butterfly_f32)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+                              build/main.o (arm_cmplx_mag_f32)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o) (twiddleCoef_4096)
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o) (arm_bitreversal_f32)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_addsubdf3.o)
                               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o) (__aeabi_dadd)
-/usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
-                              /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o) (__aeabi_ddiv)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
                               Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o) (__aeabi_d2uiz)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
@@ -72,6 +68,10 @@ Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
                               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-errno.o)
                               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o) (__errno)
+/usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+                              Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o) (sqrtf)
+/usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
+                              /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o) (__aeabi_ddiv)
 
 Allocating common symbols
 Common symbol       size              file
@@ -121,8 +121,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/stm32f4xx_hal_msp.o
  .data          0x0000000000000000        0x0 build/stm32f4xx_hal_msp.o
  .bss           0x0000000000000000        0x0 build/stm32f4xx_hal_msp.o
- .text.HAL_CRC_MspInit
-                0x0000000000000000       0x30 build/stm32f4xx_hal_msp.o
  .text.HAL_CRC_MspDeInit
                 0x0000000000000000       0x1c build/stm32f4xx_hal_msp.o
  .text.HAL_I2S_MspDeInit
@@ -771,6 +769,21 @@ Discarded input sections
                 0x0000000000000000        0xc build/stm32f4xx_hal.o
  .text.HAL_GetUID
                 0x0000000000000000       0x20 build/stm32f4xx_hal.o
+ .text          0x0000000000000000        0x0 build/stm32f4xx_hal_crc.o
+ .data          0x0000000000000000        0x0 build/stm32f4xx_hal_crc.o
+ .bss           0x0000000000000000        0x0 build/stm32f4xx_hal_crc.o
+ .text.HAL_CRC_MspInit
+                0x0000000000000000        0x2 build/stm32f4xx_hal_crc.o
+ .text.HAL_CRC_MspDeInit
+                0x0000000000000000        0x2 build/stm32f4xx_hal_crc.o
+ .text.HAL_CRC_DeInit
+                0x0000000000000000       0x1a build/stm32f4xx_hal_crc.o
+ .text.HAL_CRC_Accumulate
+                0x0000000000000000       0x34 build/stm32f4xx_hal_crc.o
+ .text.HAL_CRC_Calculate
+                0x0000000000000000       0x3c build/stm32f4xx_hal_crc.o
+ .text.HAL_CRC_GetState
+                0x0000000000000000        0x4 build/stm32f4xx_hal_crc.o
  .text          0x0000000000000000        0x0 build/system_stm32f4xx.o
  .data          0x0000000000000000        0x0 build/system_stm32f4xx.o
  .bss           0x0000000000000000        0x0 build/system_stm32f4xx.o
@@ -784,6 +797,70 @@ Discarded input sections
  .text          0x0000000000000000       0x14 build/startup_stm32f407xx.o
  .data          0x0000000000000000        0x0 build/startup_stm32f407xx.o
  .bss           0x0000000000000000        0x0 build/startup_stm32f407xx.o
+ .text          0x0000000000000000        0x0 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+ .text.PDM_Filter_getConfig
+                0x0000000000000000       0x28 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
+ .text.exit     0x0000000000000000       0x28 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000000       0x28 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000000000000000       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x0000000000000000        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .text._exit    0x0000000000000000        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .debug_frame   0x0000000000000000       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .ARM.attributes
+                0x0000000000000000       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
  .text          0x0000000000000000        0x0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
  .data          0x0000000000000000        0x0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
  .bss           0x0000000000000000        0x0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
@@ -930,77 +1007,8 @@ Discarded input sections
                 0x0000000000000000       0xa8 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
  .text.arm_bitreversal_q15
                 0x0000000000000000       0x64 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
- .text          0x0000000000000000        0x0 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
- .text.PDM_Filter_getConfig
-                0x0000000000000000       0x28 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
- .text.exit     0x0000000000000000       0x28 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
- .debug_frame   0x0000000000000000       0x28 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
- .ARM.attributes
-                0x0000000000000000       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-exit.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
- .rodata._global_impure_ptr
-                0x0000000000000000        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
- .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
- .text._exit    0x0000000000000000        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
- .debug_frame   0x0000000000000000       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
- .ARM.attributes
-                0x0000000000000000       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
  .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_addsubdf3.o)
  .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_addsubdf3.o)
- .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
- .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
  .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
  .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
  .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
@@ -1030,6 +1038,17 @@ Discarded input sections
  .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ .text          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+ .debug_frame   0x0000000000000000       0x50 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+ .ARM.attributes
+                0x0000000000000000       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+ .data          0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
+ .bss           0x0000000000000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x0000000000000000       0x50 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x0000000000000000       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
 
 Memory Configuration
 
@@ -1065,14 +1084,15 @@ LOAD build/stm32f4xx_hal_pwr.o
 LOAD build/stm32f4xx_hal_pwr_ex.o
 LOAD build/stm32f4xx_hal_cortex.o
 LOAD build/stm32f4xx_hal.o
+LOAD build/stm32f4xx_hal_crc.o
 LOAD build/system_stm32f4xx.o
 LOAD build/pdm2pcm.o
 LOAD build/startup_stm32f407xx.o
-LOAD Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a
 LOAD Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a
+LOAD Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a
 START GROUP
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a
@@ -1094,7 +1114,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x0000000008000000                g_pfnVectors
                 0x0000000008000188                . = ALIGN (0x4)
 
-.text           0x0000000008000188     0x5e94
+.text           0x0000000008000188     0x5ee8
                 0x0000000008000188                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000008000188       0x40 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
@@ -1114,24 +1134,24 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x00000000080004d4                __floatundidf
                 0x00000000080004e4                __floatdidf
                 0x00000000080004e4                __aeabi_l2d
- .text          0x0000000008000540      0x424 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
-                0x0000000008000540                __aeabi_dmul
-                0x0000000008000540                __muldf3
-                0x0000000008000794                __aeabi_ddiv
-                0x0000000008000794                __divdf3
- .text          0x0000000008000964       0x40 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
-                0x0000000008000964                __fixunsdfsi
-                0x0000000008000964                __aeabi_d2uiz
- .text          0x00000000080009a4       0xa0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
-                0x00000000080009a4                __aeabi_d2f
-                0x00000000080009a4                __truncdfsf2
- .text          0x0000000008000a44       0x30 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
-                0x0000000008000a44                __aeabi_uldivmod
- .text          0x0000000008000a74      0x2cc /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
-                0x0000000008000a74                __udivmoddi4
- .text          0x0000000008000d40        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_dvmd_tls.o)
-                0x0000000008000d40                __aeabi_ldiv0
-                0x0000000008000d40                __aeabi_idiv0
+ .text          0x0000000008000540       0x40 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
+                0x0000000008000540                __fixunsdfsi
+                0x0000000008000540                __aeabi_d2uiz
+ .text          0x0000000008000580       0xa0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
+                0x0000000008000580                __aeabi_d2f
+                0x0000000008000580                __truncdfsf2
+ .text          0x0000000008000620       0x30 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000008000620                __aeabi_uldivmod
+ .text          0x0000000008000650      0x2cc /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000008000650                __udivmoddi4
+ .text          0x000000000800091c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_dvmd_tls.o)
+                0x000000000800091c                __aeabi_ldiv0
+                0x000000000800091c                __aeabi_idiv0
+ .text          0x0000000008000920      0x424 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
+                0x0000000008000920                __aeabi_dmul
+                0x0000000008000920                __muldf3
+                0x0000000008000b74                __aeabi_ddiv
+                0x0000000008000b74                __divdf3
  *(.text*)
  .text.SystemClock_Config
                 0x0000000008000d44       0xbc build/main.o
@@ -1177,405 +1197,411 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .text.HAL_MspInit
                 0x0000000008001280       0x94 build/stm32f4xx_hal_msp.o
                 0x0000000008001280                HAL_MspInit
+ .text.HAL_CRC_MspInit
+                0x0000000008001314       0x30 build/stm32f4xx_hal_msp.o
+                0x0000000008001314                HAL_CRC_MspInit
  .text.HAL_I2S_MspInit
-                0x0000000008001314       0x74 build/stm32f4xx_hal_msp.o
-                0x0000000008001314                HAL_I2S_MspInit
+                0x0000000008001344       0x74 build/stm32f4xx_hal_msp.o
+                0x0000000008001344                HAL_I2S_MspInit
  .text.HAL_SPI_MspInit
-                0x0000000008001388       0x4c build/stm32f4xx_hal_msp.o
-                0x0000000008001388                HAL_SPI_MspInit
+                0x00000000080013b8       0x4c build/stm32f4xx_hal_msp.o
+                0x00000000080013b8                HAL_SPI_MspInit
  .text.HAL_UART_MspInit
-                0x00000000080013d4       0x50 build/stm32f4xx_hal_msp.o
-                0x00000000080013d4                HAL_UART_MspInit
+                0x0000000008001404       0x50 build/stm32f4xx_hal_msp.o
+                0x0000000008001404                HAL_UART_MspInit
  .text.HAL_I2S_Receive_IT
-                0x0000000008001424       0x66 build/stm32f4xx_hal_i2s.o
-                0x0000000008001424                HAL_I2S_Receive_IT
+                0x0000000008001454       0x66 build/stm32f4xx_hal_i2s.o
+                0x0000000008001454                HAL_I2S_Receive_IT
  .text.HAL_I2S_TxCpltCallback
-                0x000000000800148a        0x2 build/stm32f4xx_hal_i2s.o
-                0x000000000800148a                HAL_I2S_TxCpltCallback
+                0x00000000080014ba        0x2 build/stm32f4xx_hal_i2s.o
+                0x00000000080014ba                HAL_I2S_TxCpltCallback
  .text.HAL_I2S_ErrorCallback
-                0x000000000800148c        0x2 build/stm32f4xx_hal_i2s.o
-                0x000000000800148c                HAL_I2S_ErrorCallback
- *fill*         0x000000000800148e        0x2 
+                0x00000000080014bc        0x2 build/stm32f4xx_hal_i2s.o
+                0x00000000080014bc                HAL_I2S_ErrorCallback
+ *fill*         0x00000000080014be        0x2 
  .text.HAL_I2S_Init
-                0x0000000008001490      0x120 build/stm32f4xx_hal_i2s.o
-                0x0000000008001490                HAL_I2S_Init
+                0x00000000080014c0      0x120 build/stm32f4xx_hal_i2s.o
+                0x00000000080014c0                HAL_I2S_Init
  .text.I2S_IRQHandler
-                0x00000000080015b0      0x10c build/stm32f4xx_hal_i2s.o
+                0x00000000080015e0      0x10c build/stm32f4xx_hal_i2s.o
  .text.HAL_I2SEx_TxRxCpltCallback
-                0x00000000080016bc        0x2 build/stm32f4xx_hal_i2s_ex.o
-                0x00000000080016bc                HAL_I2SEx_TxRxCpltCallback
- *fill*         0x00000000080016be        0x2 
+                0x00000000080016ec        0x2 build/stm32f4xx_hal_i2s_ex.o
+                0x00000000080016ec                HAL_I2SEx_TxRxCpltCallback
+ *fill*         0x00000000080016ee        0x2 
  .text.HAL_I2SEx_FullDuplex_IRQHandler
-                0x00000000080016c0      0x264 build/stm32f4xx_hal_i2s_ex.o
-                0x00000000080016c0                HAL_I2SEx_FullDuplex_IRQHandler
+                0x00000000080016f0      0x264 build/stm32f4xx_hal_i2s_ex.o
+                0x00000000080016f0                HAL_I2SEx_FullDuplex_IRQHandler
  .text.HAL_SPI_Init
-                0x0000000008001924       0x7a build/stm32f4xx_hal_spi.o
-                0x0000000008001924                HAL_SPI_Init
- *fill*         0x000000000800199e        0x2 
+                0x0000000008001954       0x7a build/stm32f4xx_hal_spi.o
+                0x0000000008001954                HAL_SPI_Init
+ *fill*         0x00000000080019ce        0x2 
  .text.UART_SetConfig
-                0x00000000080019a0      0x234 build/stm32f4xx_hal_uart.o
+                0x00000000080019d0      0x234 build/stm32f4xx_hal_uart.o
  .text.UART_WaitOnFlagUntilTimeout.constprop.3
-                0x0000000008001bd4       0x50 build/stm32f4xx_hal_uart.o
+                0x0000000008001c04       0x50 build/stm32f4xx_hal_uart.o
  .text.HAL_UART_Init
-                0x0000000008001c24       0x5c build/stm32f4xx_hal_uart.o
-                0x0000000008001c24                HAL_UART_Init
+                0x0000000008001c54       0x5c build/stm32f4xx_hal_uart.o
+                0x0000000008001c54                HAL_UART_Init
  .text.HAL_UART_Transmit
-                0x0000000008001c80       0xb4 build/stm32f4xx_hal_uart.o
-                0x0000000008001c80                HAL_UART_Transmit
+                0x0000000008001cb0       0xb4 build/stm32f4xx_hal_uart.o
+                0x0000000008001cb0                HAL_UART_Transmit
  .text.HAL_RCC_OscConfig
-                0x0000000008001d34      0x304 build/stm32f4xx_hal_rcc.o
-                0x0000000008001d34                HAL_RCC_OscConfig
+                0x0000000008001d64      0x304 build/stm32f4xx_hal_rcc.o
+                0x0000000008001d64                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x0000000008002038       0x5c build/stm32f4xx_hal_rcc.o
-                0x0000000008002038                HAL_RCC_GetSysClockFreq
+                0x0000000008002068       0x5c build/stm32f4xx_hal_rcc.o
+                0x0000000008002068                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x0000000008002094      0x130 build/stm32f4xx_hal_rcc.o
-                0x0000000008002094                HAL_RCC_ClockConfig
+                0x00000000080020c4      0x130 build/stm32f4xx_hal_rcc.o
+                0x00000000080020c4                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetHCLKFreq
-                0x00000000080021c4        0xc build/stm32f4xx_hal_rcc.o
-                0x00000000080021c4                HAL_RCC_GetHCLKFreq
+                0x00000000080021f4        0xc build/stm32f4xx_hal_rcc.o
+                0x00000000080021f4                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x00000000080021d0       0x20 build/stm32f4xx_hal_rcc.o
-                0x00000000080021d0                HAL_RCC_GetPCLK1Freq
+                0x0000000008002200       0x20 build/stm32f4xx_hal_rcc.o
+                0x0000000008002200                HAL_RCC_GetPCLK1Freq
  .text.HAL_RCC_GetPCLK2Freq
-                0x00000000080021f0       0x20 build/stm32f4xx_hal_rcc.o
-                0x00000000080021f0                HAL_RCC_GetPCLK2Freq
+                0x0000000008002220       0x20 build/stm32f4xx_hal_rcc.o
+                0x0000000008002220                HAL_RCC_GetPCLK2Freq
  .text.HAL_RCCEx_PeriphCLKConfig
-                0x0000000008002210      0x130 build/stm32f4xx_hal_rcc_ex.o
-                0x0000000008002210                HAL_RCCEx_PeriphCLKConfig
+                0x0000000008002240      0x130 build/stm32f4xx_hal_rcc_ex.o
+                0x0000000008002240                HAL_RCCEx_PeriphCLKConfig
  .text.HAL_RCCEx_GetPeriphCLKFreq
-                0x0000000008002340       0x5c build/stm32f4xx_hal_rcc_ex.o
-                0x0000000008002340                HAL_RCCEx_GetPeriphCLKFreq
+                0x0000000008002370       0x5c build/stm32f4xx_hal_rcc_ex.o
+                0x0000000008002370                HAL_RCCEx_GetPeriphCLKFreq
  .text.HAL_GPIO_Init
-                0x000000000800239c      0x1c0 build/stm32f4xx_hal_gpio.o
-                0x000000000800239c                HAL_GPIO_Init
+                0x00000000080023cc      0x1c0 build/stm32f4xx_hal_gpio.o
+                0x00000000080023cc                HAL_GPIO_Init
  .text.HAL_GPIO_WritePin
-                0x000000000800255c        0xa build/stm32f4xx_hal_gpio.o
-                0x000000000800255c                HAL_GPIO_WritePin
+                0x000000000800258c        0xa build/stm32f4xx_hal_gpio.o
+                0x000000000800258c                HAL_GPIO_WritePin
  .text.HAL_GPIO_TogglePin
-                0x0000000008002566        0x8 build/stm32f4xx_hal_gpio.o
-                0x0000000008002566                HAL_GPIO_TogglePin
- *fill*         0x000000000800256e        0x2 
+                0x0000000008002596        0x8 build/stm32f4xx_hal_gpio.o
+                0x0000000008002596                HAL_GPIO_TogglePin
+ *fill*         0x000000000800259e        0x2 
  .text.HAL_NVIC_SetPriorityGrouping
-                0x0000000008002570       0x24 build/stm32f4xx_hal_cortex.o
-                0x0000000008002570                HAL_NVIC_SetPriorityGrouping
+                0x00000000080025a0       0x24 build/stm32f4xx_hal_cortex.o
+                0x00000000080025a0                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x0000000008002594       0x68 build/stm32f4xx_hal_cortex.o
-                0x0000000008002594                HAL_NVIC_SetPriority
+                0x00000000080025c4       0x68 build/stm32f4xx_hal_cortex.o
+                0x00000000080025c4                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x00000000080025fc       0x18 build/stm32f4xx_hal_cortex.o
-                0x00000000080025fc                HAL_NVIC_EnableIRQ
+                0x000000000800262c       0x18 build/stm32f4xx_hal_cortex.o
+                0x000000000800262c                HAL_NVIC_EnableIRQ
  .text.HAL_SYSTICK_Config
-                0x0000000008002614       0x2c build/stm32f4xx_hal_cortex.o
-                0x0000000008002614                HAL_SYSTICK_Config
+                0x0000000008002644       0x2c build/stm32f4xx_hal_cortex.o
+                0x0000000008002644                HAL_SYSTICK_Config
  .text.HAL_SYSTICK_CLKSourceConfig
-                0x0000000008002640       0x18 build/stm32f4xx_hal_cortex.o
-                0x0000000008002640                HAL_SYSTICK_CLKSourceConfig
+                0x0000000008002670       0x18 build/stm32f4xx_hal_cortex.o
+                0x0000000008002670                HAL_SYSTICK_CLKSourceConfig
  .text.HAL_SYSTICK_Callback
-                0x0000000008002658        0x2 build/stm32f4xx_hal_cortex.o
-                0x0000000008002658                HAL_SYSTICK_Callback
+                0x0000000008002688        0x2 build/stm32f4xx_hal_cortex.o
+                0x0000000008002688                HAL_SYSTICK_Callback
  .text.HAL_SYSTICK_IRQHandler
-                0x000000000800265a        0x8 build/stm32f4xx_hal_cortex.o
-                0x000000000800265a                HAL_SYSTICK_IRQHandler
- *fill*         0x0000000008002662        0x2 
+                0x000000000800268a        0x8 build/stm32f4xx_hal_cortex.o
+                0x000000000800268a                HAL_SYSTICK_IRQHandler
+ *fill*         0x0000000008002692        0x2 
  .text.HAL_InitTick
-                0x0000000008002664       0x48 build/stm32f4xx_hal.o
-                0x0000000008002664                HAL_InitTick
+                0x0000000008002694       0x48 build/stm32f4xx_hal.o
+                0x0000000008002694                HAL_InitTick
  .text.HAL_Init
-                0x00000000080026ac       0x34 build/stm32f4xx_hal.o
-                0x00000000080026ac                HAL_Init
+                0x00000000080026dc       0x34 build/stm32f4xx_hal.o
+                0x00000000080026dc                HAL_Init
  .text.HAL_IncTick
-                0x00000000080026e0       0x18 build/stm32f4xx_hal.o
-                0x00000000080026e0                HAL_IncTick
+                0x0000000008002710       0x18 build/stm32f4xx_hal.o
+                0x0000000008002710                HAL_IncTick
  .text.HAL_GetTick
-                0x00000000080026f8        0xc build/stm32f4xx_hal.o
-                0x00000000080026f8                HAL_GetTick
+                0x0000000008002728        0xc build/stm32f4xx_hal.o
+                0x0000000008002728                HAL_GetTick
  .text.HAL_Delay
-                0x0000000008002704       0x28 build/stm32f4xx_hal.o
-                0x0000000008002704                HAL_Delay
+                0x0000000008002734       0x28 build/stm32f4xx_hal.o
+                0x0000000008002734                HAL_Delay
+ .text.HAL_CRC_Init
+                0x000000000800275c       0x24 build/stm32f4xx_hal_crc.o
+                0x000000000800275c                HAL_CRC_Init
  .text.SystemInit
-                0x000000000800272c       0x4c build/system_stm32f4xx.o
-                0x000000000800272c                SystemInit
+                0x0000000008002780       0x4c build/system_stm32f4xx.o
+                0x0000000008002780                SystemInit
  .text.MX_PDM2PCM_Init
-                0x0000000008002778       0x44 build/pdm2pcm.o
-                0x0000000008002778                MX_PDM2PCM_Init
+                0x00000000080027cc       0x44 build/pdm2pcm.o
+                0x00000000080027cc                MX_PDM2PCM_Init
  .text.Reset_Handler
-                0x00000000080027bc       0x50 build/startup_stm32f407xx.o
-                0x00000000080027bc                Reset_Handler
+                0x0000000008002810       0x50 build/startup_stm32f407xx.o
+                0x0000000008002810                Reset_Handler
  .text.Default_Handler
-                0x000000000800280c        0x2 build/startup_stm32f407xx.o
-                0x000000000800280c                RTC_Alarm_IRQHandler
-                0x000000000800280c                HASH_RNG_IRQHandler
-                0x000000000800280c                EXTI2_IRQHandler
-                0x000000000800280c                TIM8_CC_IRQHandler
-                0x000000000800280c                TIM1_CC_IRQHandler
-                0x000000000800280c                DMA2_Stream5_IRQHandler
-                0x000000000800280c                DMA1_Stream5_IRQHandler
-                0x000000000800280c                PVD_IRQHandler
-                0x000000000800280c                SDIO_IRQHandler
-                0x000000000800280c                TAMP_STAMP_IRQHandler
-                0x000000000800280c                CAN2_RX1_IRQHandler
-                0x000000000800280c                EXTI3_IRQHandler
-                0x000000000800280c                TIM8_TRG_COM_TIM14_IRQHandler
-                0x000000000800280c                TIM1_UP_TIM10_IRQHandler
-                0x000000000800280c                TIM8_UP_TIM13_IRQHandler
-                0x000000000800280c                I2C3_ER_IRQHandler
-                0x000000000800280c                EXTI0_IRQHandler
-                0x000000000800280c                I2C2_EV_IRQHandler
-                0x000000000800280c                DMA1_Stream2_IRQHandler
-                0x000000000800280c                CAN1_RX0_IRQHandler
-                0x000000000800280c                FPU_IRQHandler
-                0x000000000800280c                OTG_HS_WKUP_IRQHandler
-                0x000000000800280c                CAN2_SCE_IRQHandler
-                0x000000000800280c                DMA2_Stream2_IRQHandler
-                0x000000000800280c                SPI1_IRQHandler
-                0x000000000800280c                TIM6_DAC_IRQHandler
-                0x000000000800280c                TIM1_BRK_TIM9_IRQHandler
-                0x000000000800280c                DCMI_IRQHandler
-                0x000000000800280c                CAN2_RX0_IRQHandler
-                0x000000000800280c                DMA2_Stream3_IRQHandler
-                0x000000000800280c                USART6_IRQHandler
-                0x000000000800280c                USART3_IRQHandler
-                0x000000000800280c                CAN1_RX1_IRQHandler
-                0x000000000800280c                UART5_IRQHandler
-                0x000000000800280c                DMA2_Stream0_IRQHandler
-                0x000000000800280c                TIM4_IRQHandler
-                0x000000000800280c                I2C1_EV_IRQHandler
-                0x000000000800280c                DMA1_Stream6_IRQHandler
-                0x000000000800280c                DMA1_Stream1_IRQHandler
-                0x000000000800280c                UART4_IRQHandler
-                0x000000000800280c                TIM3_IRQHandler
-                0x000000000800280c                RCC_IRQHandler
-                0x000000000800280c                TIM8_BRK_TIM12_IRQHandler
-                0x000000000800280c                Default_Handler
-                0x000000000800280c                EXTI15_10_IRQHandler
-                0x000000000800280c                ADC_IRQHandler
-                0x000000000800280c                DMA1_Stream7_IRQHandler
-                0x000000000800280c                TIM7_IRQHandler
-                0x000000000800280c                CAN2_TX_IRQHandler
-                0x000000000800280c                TIM5_IRQHandler
-                0x000000000800280c                DMA2_Stream7_IRQHandler
-                0x000000000800280c                I2C3_EV_IRQHandler
-                0x000000000800280c                EXTI9_5_IRQHandler
-                0x000000000800280c                RTC_WKUP_IRQHandler
-                0x000000000800280c                ETH_WKUP_IRQHandler
-                0x000000000800280c                OTG_HS_EP1_IN_IRQHandler
-                0x000000000800280c                DMA1_Stream0_IRQHandler
-                0x000000000800280c                CAN1_TX_IRQHandler
-                0x000000000800280c                EXTI4_IRQHandler
-                0x000000000800280c                FSMC_IRQHandler
-                0x000000000800280c                ETH_IRQHandler
-                0x000000000800280c                OTG_HS_EP1_OUT_IRQHandler
-                0x000000000800280c                WWDG_IRQHandler
-                0x000000000800280c                TIM2_IRQHandler
-                0x000000000800280c                OTG_FS_WKUP_IRQHandler
-                0x000000000800280c                TIM1_TRG_COM_TIM11_IRQHandler
-                0x000000000800280c                OTG_HS_IRQHandler
-                0x000000000800280c                EXTI1_IRQHandler
-                0x000000000800280c                USART2_IRQHandler
-                0x000000000800280c                I2C2_ER_IRQHandler
-                0x000000000800280c                DMA2_Stream1_IRQHandler
-                0x000000000800280c                CAN1_SCE_IRQHandler
-                0x000000000800280c                FLASH_IRQHandler
-                0x000000000800280c                DMA2_Stream4_IRQHandler
-                0x000000000800280c                USART1_IRQHandler
-                0x000000000800280c                OTG_FS_IRQHandler
-                0x000000000800280c                SPI3_IRQHandler
-                0x000000000800280c                DMA1_Stream4_IRQHandler
-                0x000000000800280c                I2C1_ER_IRQHandler
-                0x000000000800280c                DMA2_Stream6_IRQHandler
-                0x000000000800280c                DMA1_Stream3_IRQHandler
- *fill*         0x000000000800280e        0x2 
- .text.arm_max_f32
-                0x0000000008002810       0xd0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
-                0x0000000008002810                arm_max_f32
- .text.arm_rfft_init_f32
-                0x00000000080028e0       0x84 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
-                0x00000000080028e0                arm_rfft_init_f32
- .text.arm_split_rfft_f32
-                0x0000000008002964       0xd8 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
-                0x0000000008002964                arm_split_rfft_f32
- .text.arm_rfft_f32
-                0x0000000008002a3c       0xfc Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
-                0x0000000008002a3c                arm_rfft_f32
- .text.arm_cfft_radix4_init_f32
-                0x0000000008002b38       0xcc Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
-                0x0000000008002b38                arm_cfft_radix4_init_f32
- .text.arm_radix4_butterfly_f32
-                0x0000000008002c04      0x394 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
-                0x0000000008002c04                arm_radix4_butterfly_f32
- .text.arm_radix4_butterfly_inverse_f32
-                0x0000000008002f98      0x3b0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
-                0x0000000008002f98                arm_radix4_butterfly_inverse_f32
- .text.arm_cmplx_mag_f32
-                0x0000000008003348      0x1d0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
-                0x0000000008003348                arm_cmplx_mag_f32
- .text.arm_bitreversal_f32
-                0x0000000008003518       0xe0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
-                0x0000000008003518                arm_bitreversal_f32
+                0x0000000008002860        0x2 build/startup_stm32f407xx.o
+                0x0000000008002860                RTC_Alarm_IRQHandler
+                0x0000000008002860                HASH_RNG_IRQHandler
+                0x0000000008002860                EXTI2_IRQHandler
+                0x0000000008002860                TIM8_CC_IRQHandler
+                0x0000000008002860                TIM1_CC_IRQHandler
+                0x0000000008002860                DMA2_Stream5_IRQHandler
+                0x0000000008002860                DMA1_Stream5_IRQHandler
+                0x0000000008002860                PVD_IRQHandler
+                0x0000000008002860                SDIO_IRQHandler
+                0x0000000008002860                TAMP_STAMP_IRQHandler
+                0x0000000008002860                CAN2_RX1_IRQHandler
+                0x0000000008002860                EXTI3_IRQHandler
+                0x0000000008002860                TIM8_TRG_COM_TIM14_IRQHandler
+                0x0000000008002860                TIM1_UP_TIM10_IRQHandler
+                0x0000000008002860                TIM8_UP_TIM13_IRQHandler
+                0x0000000008002860                I2C3_ER_IRQHandler
+                0x0000000008002860                EXTI0_IRQHandler
+                0x0000000008002860                I2C2_EV_IRQHandler
+                0x0000000008002860                DMA1_Stream2_IRQHandler
+                0x0000000008002860                CAN1_RX0_IRQHandler
+                0x0000000008002860                FPU_IRQHandler
+                0x0000000008002860                OTG_HS_WKUP_IRQHandler
+                0x0000000008002860                CAN2_SCE_IRQHandler
+                0x0000000008002860                DMA2_Stream2_IRQHandler
+                0x0000000008002860                SPI1_IRQHandler
+                0x0000000008002860                TIM6_DAC_IRQHandler
+                0x0000000008002860                TIM1_BRK_TIM9_IRQHandler
+                0x0000000008002860                DCMI_IRQHandler
+                0x0000000008002860                CAN2_RX0_IRQHandler
+                0x0000000008002860                DMA2_Stream3_IRQHandler
+                0x0000000008002860                USART6_IRQHandler
+                0x0000000008002860                USART3_IRQHandler
+                0x0000000008002860                CAN1_RX1_IRQHandler
+                0x0000000008002860                UART5_IRQHandler
+                0x0000000008002860                DMA2_Stream0_IRQHandler
+                0x0000000008002860                TIM4_IRQHandler
+                0x0000000008002860                I2C1_EV_IRQHandler
+                0x0000000008002860                DMA1_Stream6_IRQHandler
+                0x0000000008002860                DMA1_Stream1_IRQHandler
+                0x0000000008002860                UART4_IRQHandler
+                0x0000000008002860                TIM3_IRQHandler
+                0x0000000008002860                RCC_IRQHandler
+                0x0000000008002860                TIM8_BRK_TIM12_IRQHandler
+                0x0000000008002860                Default_Handler
+                0x0000000008002860                EXTI15_10_IRQHandler
+                0x0000000008002860                ADC_IRQHandler
+                0x0000000008002860                DMA1_Stream7_IRQHandler
+                0x0000000008002860                TIM7_IRQHandler
+                0x0000000008002860                CAN2_TX_IRQHandler
+                0x0000000008002860                TIM5_IRQHandler
+                0x0000000008002860                DMA2_Stream7_IRQHandler
+                0x0000000008002860                I2C3_EV_IRQHandler
+                0x0000000008002860                EXTI9_5_IRQHandler
+                0x0000000008002860                RTC_WKUP_IRQHandler
+                0x0000000008002860                ETH_WKUP_IRQHandler
+                0x0000000008002860                OTG_HS_EP1_IN_IRQHandler
+                0x0000000008002860                DMA1_Stream0_IRQHandler
+                0x0000000008002860                CAN1_TX_IRQHandler
+                0x0000000008002860                EXTI4_IRQHandler
+                0x0000000008002860                FSMC_IRQHandler
+                0x0000000008002860                ETH_IRQHandler
+                0x0000000008002860                OTG_HS_EP1_OUT_IRQHandler
+                0x0000000008002860                WWDG_IRQHandler
+                0x0000000008002860                TIM2_IRQHandler
+                0x0000000008002860                OTG_FS_WKUP_IRQHandler
+                0x0000000008002860                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0000000008002860                OTG_HS_IRQHandler
+                0x0000000008002860                EXTI1_IRQHandler
+                0x0000000008002860                USART2_IRQHandler
+                0x0000000008002860                I2C2_ER_IRQHandler
+                0x0000000008002860                DMA2_Stream1_IRQHandler
+                0x0000000008002860                CAN1_SCE_IRQHandler
+                0x0000000008002860                FLASH_IRQHandler
+                0x0000000008002860                DMA2_Stream4_IRQHandler
+                0x0000000008002860                USART1_IRQHandler
+                0x0000000008002860                OTG_FS_IRQHandler
+                0x0000000008002860                SPI3_IRQHandler
+                0x0000000008002860                DMA1_Stream4_IRQHandler
+                0x0000000008002860                I2C1_ER_IRQHandler
+                0x0000000008002860                DMA2_Stream6_IRQHandler
+                0x0000000008002860                DMA1_Stream3_IRQHandler
+ *fill*         0x0000000008002862        0x2 
  .text.D16_GENERIC
-                0x00000000080035f8      0x110 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008002864      0x110 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D24_GENERIC
-                0x0000000008003708      0x188 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008002974      0x188 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D32_GENERIC
-                0x0000000008003890      0x184 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008002afc      0x184 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D48_GENERIC
-                0x0000000008003a14      0x1e4 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008002c80      0x1e4 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D64_GENERIC
-                0x0000000008003bf8      0x21c Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008002e64      0x21c Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D80_GENERIC
-                0x0000000008003e14      0x29c Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008003080      0x29c Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D128_GENERIC
-                0x00000000080040b0      0x3e8 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x000000000800331c      0x3e8 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D16_1CH_HTONS_VOL_HP
-                0x0000000008004498       0xd4 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008003704       0xd4 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D24_1CH_HTONS_VOL_HP
-                0x000000000800456c      0x134 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x00000000080037d8      0x134 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D32_1CH_HTONS_VOL_HP
-                0x00000000080046a0      0x130 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x000000000800390c      0x130 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D48_1CH_HTONS_VOL_HP
-                0x00000000080047d0      0x164 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008003a3c      0x164 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D64_1CH_HTONS_VOL_HP
-                0x0000000008004934      0x1a8 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008003ba0      0x1a8 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D80_1CH_HTONS_VOL_HP
-                0x0000000008004adc      0x208 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008003d48      0x208 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.D128_1CH_HTONS_VOL_HP
-                0x0000000008004ce4      0x320 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008003f50      0x320 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .text.PDM_Filter_Init
-                0x0000000008005004      0x134 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
-                0x0000000008005004                PDM_Filter_Init
+                0x0000000008004270      0x134 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008004270                PDM_Filter_Init
  .text.PDM_Filter_setConfig
-                0x0000000008005138      0x1f4 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
-                0x0000000008005138                PDM_Filter_setConfig
+                0x00000000080043a4      0x1f4 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x00000000080043a4                PDM_Filter_setConfig
  .text.PDM_Filter
-                0x000000000800532c       0x38 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
-                0x000000000800532c                PDM_Filter
+                0x0000000008004598       0x38 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x0000000008004598                PDM_Filter
  .text.__libc_init_array
-                0x0000000008005364       0x48 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
-                0x0000000008005364                __libc_init_array
- .text.memset   0x00000000080053ac       0x10 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
-                0x00000000080053ac                memset
- .text.round    0x00000000080053bc       0xa4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
-                0x00000000080053bc                round
- .text.powf     0x0000000008005460      0x324 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
-                0x0000000008005460                powf
- .text.sqrtf    0x0000000008005784       0xac /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
-                0x0000000008005784                sqrtf
+                0x00000000080045d0       0x48 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+                0x00000000080045d0                __libc_init_array
+ .text.memset   0x0000000008004618       0x10 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+                0x0000000008004618                memset
+ .text.round    0x0000000008004628       0xa4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
+                0x0000000008004628                round
+ .text.powf     0x00000000080046cc      0x324 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
+                0x00000000080046cc                powf
  .text.__ieee754_powf
-                0x0000000008005830      0x5e4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
-                0x0000000008005830                __ieee754_powf
+                0x00000000080049f0      0x5e4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
+                0x00000000080049f0                __ieee754_powf
  .text.__ieee754_sqrtf
-                0x0000000008005e14        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
-                0x0000000008005e14                __ieee754_sqrtf
- .text.matherr  0x0000000008005e1c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
-                0x0000000008005e1c                matherr
- .text.fabsf    0x0000000008005e20       0x10 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
-                0x0000000008005e20                fabsf
- .text.finitef  0x0000000008005e30       0x14 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
-                0x0000000008005e30                finitef
- .text.nanf     0x0000000008005e44        0xc /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
-                0x0000000008005e44                nanf
- .text.rintf    0x0000000008005e50       0xc0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
-                0x0000000008005e50                rintf
- .text.scalbnf  0x0000000008005f10       0xd0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
-                0x0000000008005f10                scalbnf
+                0x0000000008004fd4        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
+                0x0000000008004fd4                __ieee754_sqrtf
+ .text.matherr  0x0000000008004fdc        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
+                0x0000000008004fdc                matherr
+ .text.fabsf    0x0000000008004fe0       0x10 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
+                0x0000000008004fe0                fabsf
+ .text.finitef  0x0000000008004ff0       0x14 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
+                0x0000000008004ff0                finitef
+ .text.nanf     0x0000000008005004        0xc /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
+                0x0000000008005004                nanf
+ .text.rintf    0x0000000008005010       0xc0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
+                0x0000000008005010                rintf
+ .text.scalbnf  0x00000000080050d0       0xd0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
+                0x00000000080050d0                scalbnf
  .text.copysignf
-                0x0000000008005fe0       0x18 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
-                0x0000000008005fe0                copysignf
- .text.__errno  0x0000000008005ff8        0xc /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-errno.o)
-                0x0000000008005ff8                __errno
+                0x00000000080051a0       0x18 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
+                0x00000000080051a0                copysignf
+ .text.arm_max_f32
+                0x00000000080051b8       0xd0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+                0x00000000080051b8                arm_max_f32
+ .text.arm_rfft_init_f32
+                0x0000000008005288       0x84 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+                0x0000000008005288                arm_rfft_init_f32
+ .text.arm_split_rfft_f32
+                0x000000000800530c       0xd8 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+                0x000000000800530c                arm_split_rfft_f32
+ .text.arm_rfft_f32
+                0x00000000080053e4       0xfc Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+                0x00000000080053e4                arm_rfft_f32
+ .text.arm_cfft_radix4_init_f32
+                0x00000000080054e0       0xcc Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+                0x00000000080054e0                arm_cfft_radix4_init_f32
+ .text.arm_radix4_butterfly_f32
+                0x00000000080055ac      0x394 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+                0x00000000080055ac                arm_radix4_butterfly_f32
+ .text.arm_radix4_butterfly_inverse_f32
+                0x0000000008005940      0x3b0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+                0x0000000008005940                arm_radix4_butterfly_inverse_f32
+ .text.arm_cmplx_mag_f32
+                0x0000000008005cf0      0x1d0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+                0x0000000008005cf0                arm_cmplx_mag_f32
+ .text.arm_bitreversal_f32
+                0x0000000008005ec0       0xe0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+                0x0000000008005ec0                arm_bitreversal_f32
+ .text.__errno  0x0000000008005fa0        0xc /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-errno.o)
+                0x0000000008005fa0                __errno
+ .text.sqrtf    0x0000000008005fac       0xac /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+                0x0000000008005fac                sqrtf
  *(.glue_7)
- .glue_7        0x0000000008006004        0x0 linker stubs
+ .glue_7        0x0000000008006058        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008006004        0x0 linker stubs
+ .glue_7t       0x0000000008006058        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000008006004        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .eh_frame      0x0000000008006058        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  *(.init)
- .init          0x0000000008006004        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x0000000008006004                _init
- .init          0x0000000008006008        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ .init          0x0000000008006058        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000008006058                _init
+ .init          0x000000000800605c        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  *(.fini)
- .fini          0x0000000008006010        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x0000000008006010                _fini
- .fini          0x0000000008006014        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
-                0x000000000800601c                . = ALIGN (0x4)
-                0x000000000800601c                _etext = .
+ .fini          0x0000000008006064        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000008006064                _fini
+ .fini          0x0000000008006068        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+                0x0000000008006070                . = ALIGN (0x4)
+                0x0000000008006070                _etext = .
 
-.vfp11_veneer   0x000000000800601c        0x0
- .vfp11_veneer  0x000000000800601c        0x0 linker stubs
+.vfp11_veneer   0x0000000008006070        0x0
+ .vfp11_veneer  0x0000000008006070        0x0 linker stubs
 
-.v4_bx          0x000000000800601c        0x0
- .v4_bx         0x000000000800601c        0x0 linker stubs
+.v4_bx          0x0000000008006070        0x0
+ .v4_bx         0x0000000008006070        0x0 linker stubs
 
-.iplt           0x000000000800601c        0x0
- .iplt          0x000000000800601c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.iplt           0x0000000008006070        0x0
+ .iplt          0x0000000008006070        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.rodata         0x000000000800601c    0x18868
-                0x000000000800601c                . = ALIGN (0x4)
+.rodata         0x0000000008006070    0x18868
+                0x0000000008006070                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x000000000800601c       0x38 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+ .rodata        0x0000000008006070       0x38 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  *(.rodata*)
  .rodata.AHBPrescTable
-                0x0000000008006054       0x10 build/system_stm32f4xx.o
-                0x0000000008006054                AHBPrescTable
+                0x00000000080060a8       0x10 build/system_stm32f4xx.o
+                0x00000000080060a8                AHBPrescTable
  .rodata.APBPrescTable
-                0x0000000008006064        0x8 build/system_stm32f4xx.o
-                0x0000000008006064                APBPrescTable
- .rodata.realCoefA
-                0x000000000800606c     0x8000 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .rodata.realCoefB
-                0x000000000800e06c     0x8000 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .rodata.armBitRevTable
-                0x000000000801606c      0x800 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
-                0x000000000801606c                armBitRevTable
- .rodata.twiddleCoef_4096
-                0x000000000801686c     0x8000 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
-                0x000000000801686c                twiddleCoef_4096
+                0x00000000080060b8        0x8 build/system_stm32f4xx.o
+                0x00000000080060b8                APBPrescTable
  .rodata.powf.str1.4
-                0x000000000801e86c        0x5 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
- *fill*         0x000000000801e871        0x3 
- .rodata.sqrtf.str1.4
-                0x000000000801e874        0x6 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+                0x00000000080060c0        0x5 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
  .rodata.__ieee754_powf.str1.4
-                0x000000000801e87a        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
+                0x00000000080060c5        0x5 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
                                           0x1 (size before relaxing)
- *fill*         0x000000000801e87a        0x2 
- .rodata.TWO23  0x000000000801e87c        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
-                0x000000000801e884                . = ALIGN (0x4)
+ *fill*         0x00000000080060c5        0x3 
+ .rodata.TWO23  0x00000000080060c8        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
+ .rodata.realCoefA
+                0x00000000080060d0     0x8000 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .rodata.realCoefB
+                0x000000000800e0d0     0x8000 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .rodata.armBitRevTable
+                0x00000000080160d0      0x800 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                0x00000000080160d0                armBitRevTable
+ .rodata.twiddleCoef_4096
+                0x00000000080168d0     0x8000 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                0x00000000080168d0                twiddleCoef_4096
+ .rodata.sqrtf.str1.4
+                0x000000000801e8d0        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+                                          0x6 (size before relaxing)
+                0x000000000801e8d8                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x000000000801e884        0x8
-                0x000000000801e884                __exidx_start = .
+.ARM            0x000000000801e8d8        0x8
+                0x000000000801e8d8                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x000000000801e884        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
-                0x000000000801e88c                __exidx_end = .
+ .ARM.exidx     0x000000000801e8d8        0x8 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+                0x000000000801e8e0                __exidx_end = .
 
-.rel.dyn        0x000000000801e88c        0x0
- .rel.iplt      0x000000000801e88c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.rel.dyn        0x000000000801e8e0        0x0
+ .rel.iplt      0x000000000801e8e0        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.preinit_array  0x000000000801e88c        0x0
-                0x000000000801e88c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x000000000801e8e0        0x0
+                0x000000000801e8e0                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x000000000801e88c                PROVIDE (__preinit_array_end = .)
+                0x000000000801e8e0                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x000000000801e88c        0x4
-                0x000000000801e88c                PROVIDE (__init_array_start = .)
+.init_array     0x000000000801e8e0        0x4
+                0x000000000801e8e0                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x000000000801e88c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
-                0x000000000801e890                PROVIDE (__init_array_end = .)
+ .init_array    0x000000000801e8e0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+                0x000000000801e8e4                PROVIDE (__init_array_end = .)
 
-.fini_array     0x000000000801e890        0x4
+.fini_array     0x000000000801e8e4        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x000000000801e890        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .fini_array    0x000000000801e8e4        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x000000000801e894                _sidata = LOADADDR (.data)
+                0x000000000801e8e8                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x474 load address 0x000000000801e894
+.data           0x0000000020000000      0x474 load address 0x000000000801e8e8
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -1602,12 +1628,12 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x0000000020000474                . = ALIGN (0x4)
  *fill*         0x0000000020000471        0x3 
                 0x0000000020000474                _edata = .
-                0x000000000801ed08                _siccmram = LOADADDR (.ccmram)
+                0x000000000801ed5c                _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x0000000020000474        0x0 load address 0x000000000801ed08
+.igot.plt       0x0000000020000474        0x0 load address 0x000000000801ed5c
  .igot.plt      0x0000000020000474        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.ccmram         0x0000000010000000        0x0 load address 0x000000000801ed08
+.ccmram         0x0000000010000000        0x0 load address 0x000000000801ed5c
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _sccmram = .
  *(.ccmram)
@@ -1710,82 +1736,80 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .ARM.attributes
                 0x00000000000002c9       0x39 build/stm32f4xx_hal.o
  .ARM.attributes
-                0x0000000000000302       0x39 build/system_stm32f4xx.o
+                0x0000000000000302       0x39 build/stm32f4xx_hal_crc.o
  .ARM.attributes
-                0x000000000000033b       0x39 build/pdm2pcm.o
+                0x000000000000033b       0x39 build/system_stm32f4xx.o
  .ARM.attributes
-                0x0000000000000374       0x21 build/startup_stm32f407xx.o
+                0x0000000000000374       0x39 build/pdm2pcm.o
  .ARM.attributes
-                0x0000000000000395       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+                0x00000000000003ad       0x21 build/startup_stm32f407xx.o
  .ARM.attributes
-                0x00000000000003ce       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+                0x00000000000003ce       0x39 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
  .ARM.attributes
-                0x0000000000000407       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+                0x0000000000000407       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x0000000000000440       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+                0x000000000000043b       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x0000000000000479       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+                0x000000000000046f       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000000000004b2       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+                0x00000000000004a3       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
  .ARM.attributes
-                0x00000000000004eb       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                0x00000000000004d7       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
  .ARM.attributes
-                0x0000000000000524       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+                0x000000000000050b       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
  .ARM.attributes
-                0x000000000000055d       0x39 Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+                0x000000000000053f       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
  .ARM.attributes
-                0x0000000000000596       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-impure.o)
+                0x0000000000000573       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
  .ARM.attributes
-                0x00000000000005ca       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+                0x00000000000005a7       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
  .ARM.attributes
-                0x00000000000005fe       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+                0x00000000000005db       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
  .ARM.attributes
-                0x0000000000000632       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
+                0x000000000000060f       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
  .ARM.attributes
-                0x0000000000000666       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
+                0x0000000000000643       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
  .ARM.attributes
-                0x000000000000069a       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+                0x0000000000000677       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
  .ARM.attributes
-                0x00000000000006ce       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
+                0x00000000000006ab       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
  .ARM.attributes
-                0x0000000000000702       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
+                0x00000000000006df       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
  .ARM.attributes
-                0x0000000000000736       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_lib_ver.o)
+                0x0000000000000713       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
  .ARM.attributes
-                0x000000000000076a       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
+                0x000000000000074c       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
  .ARM.attributes
-                0x000000000000079e       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
+                0x0000000000000785       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
  .ARM.attributes
-                0x00000000000007d2       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
+                0x00000000000007be       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
  .ARM.attributes
-                0x0000000000000806       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
+                0x00000000000007f7       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
  .ARM.attributes
-                0x000000000000083a       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
+                0x0000000000000830       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
  .ARM.attributes
-                0x000000000000086e       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
+                0x0000000000000869       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
  .ARM.attributes
-                0x00000000000008a2       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
+                0x00000000000008a2       0x39 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
  .ARM.attributes
-                0x00000000000008d6       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_addsubdf3.o)
+                0x00000000000008db       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000000000008f8       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
+                0x00000000000008fd       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
  .ARM.attributes
-                0x000000000000091a       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
+                0x000000000000091f       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
  .ARM.attributes
-                0x000000000000093c       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
+                0x0000000000000941       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x000000000000095e       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000000000963       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x0000000000000980       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000000000997       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00000000000009b4       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_dvmd_tls.o)
+                0x00000000000009b9       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000000000009d6       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-errno.o)
- .ARM.attributes
-                0x0000000000000a0a       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+                0x00000000000009ed       0x22 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x1695e
+.debug_info     0x0000000000000000    0x17695
  .debug_info    0x0000000000000000     0x2791 build/main.o
  .debug_info    0x0000000000002791     0x12e7 build/stm32f4xx_it.o
  .debug_info    0x0000000000003a78     0x1df9 build/stm32f4xx_hal_msp.o
@@ -1798,19 +1822,20 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .debug_info    0x000000000000f3d4     0x1114 build/stm32f4xx_hal_gpio.o
  .debug_info    0x00000000000104e8     0x1912 build/stm32f4xx_hal_cortex.o
  .debug_info    0x0000000000011dfa     0x13b5 build/stm32f4xx_hal.o
- .debug_info    0x00000000000131af      0xe83 build/system_stm32f4xx.o
- .debug_info    0x0000000000014032      0x267 build/pdm2pcm.o
- .debug_info    0x0000000000014299       0x22 build/startup_stm32f407xx.o
- .debug_info    0x00000000000142bb      0x164 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
- .debug_info    0x000000000001441f      0x365 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .debug_info    0x0000000000014784      0x67c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
- .debug_info    0x0000000000014e00      0x257 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
- .debug_info    0x0000000000015057      0x9da Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
- .debug_info    0x0000000000015a31      0x299 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
- .debug_info    0x0000000000015cca      0x99d Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .debug_info    0x0000000000016667      0x2f7 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+ .debug_info    0x00000000000131af      0xd37 build/stm32f4xx_hal_crc.o
+ .debug_info    0x0000000000013ee6      0xe83 build/system_stm32f4xx.o
+ .debug_info    0x0000000000014d69      0x267 build/pdm2pcm.o
+ .debug_info    0x0000000000014fd0       0x22 build/startup_stm32f407xx.o
+ .debug_info    0x0000000000014ff2      0x164 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+ .debug_info    0x0000000000015156      0x365 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .debug_info    0x00000000000154bb      0x67c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .debug_info    0x0000000000015b37      0x257 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .debug_info    0x0000000000015d8e      0x9da Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .debug_info    0x0000000000016768      0x299 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_info    0x0000000000016a01      0x99d Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_info    0x000000000001739e      0x2f7 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
 
-.debug_abbrev   0x0000000000000000     0x345f
+.debug_abbrev   0x0000000000000000     0x36f3
  .debug_abbrev  0x0000000000000000      0x3c1 build/main.o
  .debug_abbrev  0x00000000000003c1      0x280 build/stm32f4xx_it.o
  .debug_abbrev  0x0000000000000641      0x2b8 build/stm32f4xx_hal_msp.o
@@ -1823,19 +1848,20 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .debug_abbrev  0x0000000000001ed3      0x2bc build/stm32f4xx_hal_gpio.o
  .debug_abbrev  0x000000000000218f      0x3dc build/stm32f4xx_hal_cortex.o
  .debug_abbrev  0x000000000000256b      0x343 build/stm32f4xx_hal.o
- .debug_abbrev  0x00000000000028ae      0x1e6 build/system_stm32f4xx.o
- .debug_abbrev  0x0000000000002a94      0x12e build/pdm2pcm.o
- .debug_abbrev  0x0000000000002bc2       0x12 build/startup_stm32f407xx.o
- .debug_abbrev  0x0000000000002bd4       0xb2 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
- .debug_abbrev  0x0000000000002c86      0x13f Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .debug_abbrev  0x0000000000002dc5      0x1aa Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
- .debug_abbrev  0x0000000000002f6f      0x103 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
- .debug_abbrev  0x0000000000003072      0x182 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
- .debug_abbrev  0x00000000000031f4      0x11b Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
- .debug_abbrev  0x000000000000330f       0x84 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .debug_abbrev  0x0000000000003393       0xcc Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+ .debug_abbrev  0x00000000000028ae      0x294 build/stm32f4xx_hal_crc.o
+ .debug_abbrev  0x0000000000002b42      0x1e6 build/system_stm32f4xx.o
+ .debug_abbrev  0x0000000000002d28      0x12e build/pdm2pcm.o
+ .debug_abbrev  0x0000000000002e56       0x12 build/startup_stm32f407xx.o
+ .debug_abbrev  0x0000000000002e68       0xb2 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+ .debug_abbrev  0x0000000000002f1a      0x13f Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .debug_abbrev  0x0000000000003059      0x1aa Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .debug_abbrev  0x0000000000003203      0x103 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .debug_abbrev  0x0000000000003306      0x182 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .debug_abbrev  0x0000000000003488      0x11b Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_abbrev  0x00000000000035a3       0x84 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_abbrev  0x0000000000003627       0xcc Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
 
-.debug_loc      0x0000000000000000     0xa0a7
+.debug_loc      0x0000000000000000     0xa314
  .debug_loc     0x0000000000000000      0x119 build/main.o
  .debug_loc     0x0000000000000119       0x6c build/stm32f4xx_it.o
  .debug_loc     0x0000000000000185      0x213 build/stm32f4xx_hal_msp.o
@@ -1848,17 +1874,18 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .debug_loc     0x00000000000054a9      0x47d build/stm32f4xx_hal_gpio.o
  .debug_loc     0x0000000000005926      0x51b build/stm32f4xx_hal_cortex.o
  .debug_loc     0x0000000000005e41      0x1a2 build/stm32f4xx_hal.o
- .debug_loc     0x0000000000005fe3      0x13c build/system_stm32f4xx.o
- .debug_loc     0x000000000000611f       0x4d build/pdm2pcm.o
- .debug_loc     0x000000000000616c      0x178 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
- .debug_loc     0x00000000000062e4      0x164 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .debug_loc     0x0000000000006448      0x9d6 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
- .debug_loc     0x0000000000006e1e      0x360 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
- .debug_loc     0x000000000000717e     0x244c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
- .debug_loc     0x00000000000095ca      0x787 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
- .debug_loc     0x0000000000009d51      0x356 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+ .debug_loc     0x0000000000005fe3      0x26d build/stm32f4xx_hal_crc.o
+ .debug_loc     0x0000000000006250      0x13c build/system_stm32f4xx.o
+ .debug_loc     0x000000000000638c       0x4d build/pdm2pcm.o
+ .debug_loc     0x00000000000063d9      0x178 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+ .debug_loc     0x0000000000006551      0x164 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .debug_loc     0x00000000000066b5      0x9d6 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .debug_loc     0x000000000000708b      0x360 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .debug_loc     0x00000000000073eb     0x244c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .debug_loc     0x0000000000009837      0x787 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_loc     0x0000000000009fbe      0x356 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
 
-.debug_aranges  0x0000000000000000      0x948
+.debug_aranges  0x0000000000000000      0x990
  .debug_aranges
                 0x0000000000000000       0x38 build/main.o
  .debug_aranges
@@ -1884,29 +1911,31 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .debug_aranges
                 0x00000000000006d0       0xd8 build/stm32f4xx_hal.o
  .debug_aranges
-                0x00000000000007a8       0x28 build/system_stm32f4xx.o
+                0x00000000000007a8       0x48 build/stm32f4xx_hal_crc.o
  .debug_aranges
-                0x00000000000007d0       0x28 build/pdm2pcm.o
+                0x00000000000007f0       0x28 build/system_stm32f4xx.o
  .debug_aranges
-                0x00000000000007f8       0x28 build/startup_stm32f407xx.o
+                0x0000000000000818       0x28 build/pdm2pcm.o
  .debug_aranges
-                0x0000000000000820       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+                0x0000000000000840       0x28 build/startup_stm32f407xx.o
  .debug_aranges
-                0x0000000000000840       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+                0x0000000000000868       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
  .debug_aranges
-                0x0000000000000860       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+                0x0000000000000888       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
  .debug_aranges
-                0x0000000000000890       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+                0x00000000000008a8       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
  .debug_aranges
-                0x00000000000008b0       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+                0x00000000000008d8       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
  .debug_aranges
-                0x00000000000008e0       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+                0x00000000000008f8       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
  .debug_aranges
-                0x0000000000000900       0x18 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                0x0000000000000928       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
  .debug_aranges
-                0x0000000000000918       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+                0x0000000000000948       0x18 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_aranges
+                0x0000000000000960       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
 
-.debug_ranges   0x0000000000000000      0xbc0
+.debug_ranges   0x0000000000000000      0xbf8
  .debug_ranges  0x0000000000000000      0x118 build/main.o
  .debug_ranges  0x0000000000000118       0x40 build/stm32f4xx_it.o
  .debug_ranges  0x0000000000000158       0xb8 build/stm32f4xx_hal_msp.o
@@ -1919,18 +1948,19 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .debug_ranges  0x00000000000007a8       0x68 build/stm32f4xx_hal_gpio.o
  .debug_ranges  0x0000000000000810      0x138 build/stm32f4xx_hal_cortex.o
  .debug_ranges  0x0000000000000948       0xc8 build/stm32f4xx_hal.o
- .debug_ranges  0x0000000000000a10       0x18 build/system_stm32f4xx.o
- .debug_ranges  0x0000000000000a28       0x18 build/pdm2pcm.o
- .debug_ranges  0x0000000000000a40       0x20 build/startup_stm32f407xx.o
- .debug_ranges  0x0000000000000a60       0x10 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
- .debug_ranges  0x0000000000000a70       0x10 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .debug_ranges  0x0000000000000a80       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
- .debug_ranges  0x0000000000000aa0       0x10 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
- .debug_ranges  0x0000000000000ab0       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
- .debug_ranges  0x0000000000000ad0       0xd0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
- .debug_ranges  0x0000000000000ba0       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+ .debug_ranges  0x0000000000000a10       0x38 build/stm32f4xx_hal_crc.o
+ .debug_ranges  0x0000000000000a48       0x18 build/system_stm32f4xx.o
+ .debug_ranges  0x0000000000000a60       0x18 build/pdm2pcm.o
+ .debug_ranges  0x0000000000000a78       0x20 build/startup_stm32f407xx.o
+ .debug_ranges  0x0000000000000a98       0x10 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+ .debug_ranges  0x0000000000000aa8       0x10 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .debug_ranges  0x0000000000000ab8       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .debug_ranges  0x0000000000000ad8       0x10 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .debug_ranges  0x0000000000000ae8       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .debug_ranges  0x0000000000000b08       0xd0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_ranges  0x0000000000000bd8       0x20 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
 
-.debug_line     0x0000000000000000     0x5b34
+.debug_line     0x0000000000000000     0x5dd3
  .debug_line    0x0000000000000000      0x43a build/main.o
  .debug_line    0x000000000000043a      0x306 build/stm32f4xx_it.o
  .debug_line    0x0000000000000740      0x344 build/stm32f4xx_hal_msp.o
@@ -1943,19 +1973,20 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .debug_line    0x00000000000035d8      0x3af build/stm32f4xx_hal_gpio.o
  .debug_line    0x0000000000003987      0x441 build/stm32f4xx_hal_cortex.o
  .debug_line    0x0000000000003dc8      0x3ce build/stm32f4xx_hal.o
- .debug_line    0x0000000000004196      0x1ac build/system_stm32f4xx.o
- .debug_line    0x0000000000004342      0x10e build/pdm2pcm.o
- .debug_line    0x0000000000004450       0x74 build/startup_stm32f407xx.o
- .debug_line    0x00000000000044c4      0x16d Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
- .debug_line    0x0000000000004631      0x193 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .debug_line    0x00000000000047c4      0x22a Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
- .debug_line    0x00000000000049ee      0x1b9 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
- .debug_line    0x0000000000004ba7      0x8f8 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
- .debug_line    0x000000000000549f      0x20f Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
- .debug_line    0x00000000000056ae      0x12e Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .debug_line    0x00000000000057dc      0x358 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+ .debug_line    0x0000000000004196      0x29f build/stm32f4xx_hal_crc.o
+ .debug_line    0x0000000000004435      0x1ac build/system_stm32f4xx.o
+ .debug_line    0x00000000000045e1      0x10e build/pdm2pcm.o
+ .debug_line    0x00000000000046ef       0x74 build/startup_stm32f407xx.o
+ .debug_line    0x0000000000004763      0x16d Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+ .debug_line    0x00000000000048d0      0x193 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .debug_line    0x0000000000004a63      0x22a Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .debug_line    0x0000000000004c8d      0x1b9 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .debug_line    0x0000000000004e46      0x8f8 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .debug_line    0x000000000000573e      0x20f Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_line    0x000000000000594d      0x12e Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_line    0x0000000000005a7b      0x358 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
 
-.debug_str      0x0000000000000000     0x3ea6
+.debug_str      0x0000000000000000     0x3f35
  .debug_str     0x0000000000000000     0x19d3 build/main.o
                                        0x1ad1 (size before relaxing)
  .debug_str     0x00000000000019d3       0xe8 build/stm32f4xx_it.o
@@ -1980,27 +2011,29 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
                                        0x103e (size before relaxing)
  .debug_str     0x00000000000030ce      0x277 build/stm32f4xx_hal.o
                                         0xf67 (size before relaxing)
- .debug_str     0x0000000000003345       0x42 build/system_stm32f4xx.o
+ .debug_str     0x0000000000003345       0x8f build/stm32f4xx_hal_crc.o
+                                        0x7d2 (size before relaxing)
+ .debug_str     0x00000000000033d4       0x42 build/system_stm32f4xx.o
                                         0x778 (size before relaxing)
- .debug_str     0x0000000000003387       0x54 build/pdm2pcm.o
+ .debug_str     0x0000000000003416       0x54 build/pdm2pcm.o
                                         0x303 (size before relaxing)
- .debug_str     0x00000000000033db       0x24 build/startup_stm32f407xx.o
+ .debug_str     0x000000000000346a       0x24 build/startup_stm32f407xx.o
                                          0x5e (size before relaxing)
- .debug_str     0x00000000000033ff      0x17d Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+ .debug_str     0x000000000000348e      0x17d Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
                                         0x24f (size before relaxing)
- .debug_str     0x000000000000357c       0xf0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .debug_str     0x000000000000360b       0xf0 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
                                         0x405 (size before relaxing)
- .debug_str     0x000000000000366c       0xfd Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .debug_str     0x00000000000036fb       0xfd Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
                                         0x40b (size before relaxing)
- .debug_str     0x0000000000003769       0x51 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .debug_str     0x00000000000037f8       0x51 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
                                         0x372 (size before relaxing)
- .debug_str     0x00000000000037ba      0x129 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .debug_str     0x0000000000003849      0x129 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
                                         0x3f8 (size before relaxing)
- .debug_str     0x00000000000038e3       0x67 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_str     0x0000000000003972       0x67 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
                                         0x303 (size before relaxing)
- .debug_str     0x000000000000394a      0x4e6 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_str     0x00000000000039d9      0x4e6 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
                                         0x704 (size before relaxing)
- .debug_str     0x0000000000003e30       0x76 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+ .debug_str     0x0000000000003ebf       0x76 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
                                         0x2d8 (size before relaxing)
 
 .comment        0x0000000000000000      0x15d
@@ -2017,21 +2050,22 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .comment       0x000000000000007f       0x80 build/stm32f4xx_hal_gpio.o
  .comment       0x000000000000007f       0x80 build/stm32f4xx_hal_cortex.o
  .comment       0x000000000000007f       0x80 build/stm32f4xx_hal.o
+ .comment       0x000000000000007f       0x80 build/stm32f4xx_hal_crc.o
  .comment       0x000000000000007f       0x80 build/system_stm32f4xx.o
  .comment       0x000000000000007f       0x80 build/pdm2pcm.o
- .comment       0x000000000000007f       0x70 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
-                                         0x71 (size before relaxing)
- .comment       0x00000000000000ef       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .comment       0x00000000000000ef       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
- .comment       0x00000000000000ef       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
- .comment       0x00000000000000ef       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
- .comment       0x00000000000000ef       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
- .comment       0x00000000000000ef       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .comment       0x00000000000000ef       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
- .comment       0x00000000000000ef       0x6e Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
+ .comment       0x000000000000007f       0x6e Middlewares/ST/STM32_Audio/Addons/PDM/Lib/libPDMFilter_CM4_GCC.a(pdm_filter.o)
                                          0x6f (size before relaxing)
+ .comment       0x00000000000000ed       0x70 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+                                         0x71 (size before relaxing)
+ .comment       0x000000000000015d       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .comment       0x000000000000015d       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .comment       0x000000000000015d       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .comment       0x000000000000015d       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .comment       0x000000000000015d       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .comment       0x000000000000015d       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .comment       0x000000000000015d       0x71 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
 
-.debug_frame    0x0000000000000000     0x2040
+.debug_frame    0x0000000000000000     0x2050
  .debug_frame   0x0000000000000000       0xa8 build/main.o
  .debug_frame   0x00000000000000a8       0xe4 build/stm32f4xx_it.o
  .debug_frame   0x000000000000018c      0x100 build/stm32f4xx_hal_msp.o
@@ -2044,36 +2078,35 @@ OUTPUT(build/ToneLock_Discovery.elf elf32-littlearm)
  .debug_frame   0x00000000000013fc       0xf0 build/stm32f4xx_hal_gpio.o
  .debug_frame   0x00000000000014ec      0x168 build/stm32f4xx_hal_cortex.o
  .debug_frame   0x0000000000001654      0x1e4 build/stm32f4xx_hal.o
- .debug_frame   0x0000000000001838       0x3c build/system_stm32f4xx.o
- .debug_frame   0x0000000000001874       0x3c build/pdm2pcm.o
- .debug_frame   0x00000000000018b0       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
- .debug_frame   0x00000000000018e0       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
- .debug_frame   0x0000000000001910       0x88 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
- .debug_frame   0x0000000000001998       0x4c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
- .debug_frame   0x00000000000019e4       0xe4 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
- .debug_frame   0x0000000000001ac8       0x3c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
- .debug_frame   0x0000000000001b04       0x8c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
- .debug_frame   0x0000000000001b90       0x2c /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000000000001bbc       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
- .debug_frame   0x0000000000001bdc       0x2c /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
- .debug_frame   0x0000000000001c08       0x68 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
- .debug_frame   0x0000000000001c70       0x50 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
- .debug_frame   0x0000000000001cc0       0x80 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
- .debug_frame   0x0000000000001d40       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
- .debug_frame   0x0000000000001d60       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
- .debug_frame   0x0000000000001d80       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
- .debug_frame   0x0000000000001da0       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
- .debug_frame   0x0000000000001dc0       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
- .debug_frame   0x0000000000001de0       0x38 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
- .debug_frame   0x0000000000001e18       0x44 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
- .debug_frame   0x0000000000001e5c       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
- .debug_frame   0x0000000000001e7c       0xac /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x0000000000001f28       0x50 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x0000000000001f78       0x24 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
- .debug_frame   0x0000000000001f9c       0x24 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
- .debug_frame   0x0000000000001fc0       0x2c /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x0000000000001fec       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000000000002020       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000000000001838       0xb0 build/stm32f4xx_hal_crc.o
+ .debug_frame   0x00000000000018e8       0x3c build/system_stm32f4xx.o
+ .debug_frame   0x0000000000001924       0x3c build/pdm2pcm.o
+ .debug_frame   0x0000000000001960       0x2c /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x000000000000198c       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000000000019ac       0x2c /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_round.o)
+ .debug_frame   0x00000000000019d8       0x68 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
+ .debug_frame   0x0000000000001a40       0x80 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
+ .debug_frame   0x0000000000001ac0       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
+ .debug_frame   0x0000000000001ae0       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-s_matherr.o)
+ .debug_frame   0x0000000000001b00       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_fabs.o)
+ .debug_frame   0x0000000000001b20       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_finite.o)
+ .debug_frame   0x0000000000001b40       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_nan.o)
+ .debug_frame   0x0000000000001b60       0x38 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_rint.o)
+ .debug_frame   0x0000000000001b98       0x44 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_scalbn.o)
+ .debug_frame   0x0000000000001bdc       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_copysign.o)
+ .debug_frame   0x0000000000001bfc       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_max_f32.o)
+ .debug_frame   0x0000000000001c2c       0x30 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_init_f32.o)
+ .debug_frame   0x0000000000001c5c       0x88 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_rfft_f32.o)
+ .debug_frame   0x0000000000001ce4       0x4c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_init_f32.o)
+ .debug_frame   0x0000000000001d30       0xe4 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cfft_radix4_f32.o)
+ .debug_frame   0x0000000000001e14       0x3c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_cmplx_mag_f32.o)
+ .debug_frame   0x0000000000001e50       0x8c Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a(arm_bitreversal.o)
+ .debug_frame   0x0000000000001edc       0xac /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x0000000000001f88       0x24 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_frame   0x0000000000001fac       0x24 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x0000000000001fd0       0x2c /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000000000001ffc       0x34 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x0000000000002030       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-errno.o)
 
 Cross Reference Table
 
@@ -2129,7 +2162,12 @@ FLASH_WaitForLastOperation                        build/stm32f4xx_hal_flash.o
                                                   build/stm32f4xx_hal_flash_ex.o
 FPU_IRQHandler                                    build/startup_stm32f407xx.o
 FSMC_IRQHandler                                   build/startup_stm32f407xx.o
-HAL_CRC_Init                                      build/main.o
+HAL_CRC_Accumulate                                build/stm32f4xx_hal_crc.o
+HAL_CRC_Calculate                                 build/stm32f4xx_hal_crc.o
+HAL_CRC_DeInit                                    build/stm32f4xx_hal_crc.o
+HAL_CRC_GetState                                  build/stm32f4xx_hal_crc.o
+HAL_CRC_Init                                      build/stm32f4xx_hal_crc.o
+                                                  build/main.o
 HAL_CRC_MspDeInit                                 build/stm32f4xx_hal_msp.o
 HAL_CRC_MspInit                                   build/stm32f4xx_hal_msp.o
 HAL_DBGMCU_DisableDBGSleepMode                    build/stm32f4xx_hal.o
@@ -2546,8 +2584,8 @@ __floatunsidf                                     /usr/bin/../lib/gcc/arm-none-e
 __ieee754_powf                                    /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
                                                   /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_pow.o)
 __ieee754_sqrtf                                   /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_sqrt.o)
-                                                  /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
                                                   /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-wf_sqrt.o)
+                                                  /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-ef_pow.o)
 __init_array_end                                  /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
 __init_array_start                                /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
 __libc_fini_array                                 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o

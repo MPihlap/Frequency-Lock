@@ -59,6 +59,7 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.c \
 Src/system_stm32f4xx.c \
 Src/pdm2pcm.c \
 # Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c \
@@ -127,8 +128,8 @@ C_INCLUDES =  \
 -IDrivers/STM32F4xx_HAL_Driver/Inc \
 -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
--IDrivers/CMSIS/Include \
--IMiddlewares/ST/STM32_Audio/Addons/PDM/Inc\
+-IMiddlewares/ST/STM32_Audio/Addons/PDM/Inc \
+-IDrivers/CMSIS/Include 
 
 
 # compile gcc flags
@@ -152,9 +153,9 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 LDSCRIPT = STM32F407VGTx_FLASH.ld
 
 # libraries
-LIBS = -larm_cortexM4lf_math -lPDMFilter_CM4_GCC  -lc -lm -lnosys 
+LIBS =  -lPDMFilter_CM4_GCC  -lc -lm -lnosys -larm_cortexM4lf_math
 LIBDIR = -LMiddlewares/ST/STM32_Audio/Addons/PDM/Lib -LDrivers/CMSIS/Lib/GCC 
-LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections --verbose
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
