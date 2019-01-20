@@ -213,30 +213,6 @@ void SPI2_IRQHandler(void)
 {
   /* USER CODE BEGIN SPI2_IRQn 0 */
   
-
-  if ((__HAL_I2S_GET_FLAG(&hi2s2, I2S_FLAG_RXNE) == SET) && (__HAL_I2S_GET_IT_SOURCE(&hi2s2, I2S_IT_RXNE) == SET)) {
-    PDM_BUF_1[local_pdm_pointer++] = hi2s2.Instance->DR;
-
-    if (local_pdm_pointer >= 64) {
-      local_pdm_pointer = 0;
-      PDM_Filter(PDM_BUF_1, current_PCM_buffer + local_pcm_pointer, &PDM1_filter_handler);
-      local_pcm_pointer++;
-      if (local_pcm_pointer >= PCM_BUF_SIZE) {
-        local_pcm_pointer = 0;
-        RECORD_ENABLE = 0; // NB! RECORDING IS DISABLED AFTER FIRST BUFFER
-        __HAL_I2S_DISABLE_IT(&hi2s2, I2S_IT_RXNE);
-        hi2s2.State = HAL_I2S_STATE_READY;
-        if (PCM_switch_flag == 0) {
-          current_PCM_buffer = PCM_BUF_2;
-        }
-        else {
-          current_PCM_buffer = PCM_BUF_1;
-        }
-        PCM_switch_flag ^= 1;
-      }
-    }
-  }
-  
   // extern uint16_t dataBuffer[];
   // if (HAL_SPI_GetState(&hi2s2) == HAL_SPI_STATE_READY){
   //   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
@@ -244,7 +220,7 @@ void SPI2_IRQHandler(void)
   //   // HAL_I2S_Receive_IT(&hi2s2, dataBuffer, 1024);
   // }
   /* USER CODE END SPI2_IRQn 0 */
-  //HAL_I2S_IRQHandler(&hi2s2);
+  HAL_I2S_IRQHandler(&hi2s2);
   /* USER CODE BEGIN SPI2_IRQn 1 */
   /* USER CODE END SPI2_IRQn 1 */
 }

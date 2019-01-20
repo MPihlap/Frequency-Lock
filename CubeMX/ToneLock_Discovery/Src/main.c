@@ -89,7 +89,8 @@ uint16_t PDM_BUF_1[64]; // PDM buffer1
 uint16_t PDM_BUF_2[PDM_BUF_SIZE]; // PDM buffer2
 uint16_t PCM_BUF_1[PCM_BUF_SIZE]; // PCM buffer1
 uint16_t PCM_BUF_2[PCM_BUF_SIZE]; // PCM buffer2
-float32_t fft_buffer[PCM_BUF_SIZE*2];
+float32_t fft_output_buffer[PCM_BUF_SIZE*2];
+float32_t fft_input_buffer[PCM_BUF_SIZE];
 float32_t fft_mag_buffer[PCM_BUF_SIZE*2];
 uint32_t local_pcm_pointer = 0;   // Keeps track of where we are in the PCM buffer
 uint8_t PDM_complete_flag = 0;      // The flags indicate which buffer is currently in use
@@ -97,7 +98,7 @@ uint8_t PCM_switch_flag = 0;
 uint16_t *current_PDM_buffer;     // Pointer to array to be recorded to
 uint16_t *current_PCM_buffer;
 uint8_t RECORD_ENABLE = 0;     // Recording control flag
-arm_rfft_instance_f32 S;
+arm_rfft_fast_instance_f32 S;
 arm_cfft_radix4_instance_f32 S_CFFT;
 
 /* USER CODE END 0 */
@@ -135,7 +136,7 @@ int main(void)
   MX_I2S2_Init();
   MX_CRC_Init();
   MX_PDM2PCM_Init();
-  arm_rfft_init_f32(&S, &S_CFFT, 8192*2, 0, 1);
+  arm_rfft_fast_init_f32(&S, PCM_BUF_SIZE*2);
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
@@ -150,30 +151,27 @@ int main(void)
   uint8_t PCM_switch_prev = PCM_switch_flag;
   // uint8_t PDM_switch_prev = PDM_complete_flag;
   current_PCM_buffer = PCM_BUF_1;
-  // HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
-  hi2s2.State = HAL_I2S_STATE_BUSY_RX;
-  hi2s2.ErrorCode = HAL_I2S_ERROR_NONE;
-  // hi2s2->State     = HAL_I2S_STATE_BUSY_RX;
-  // hi2s2->ErrorCode = HAL_I2S_ERROR_NONE;
-  __HAL_I2S_ENABLE_IT(&hi2s2, (I2S_IT_RXNE | I2S_IT_ERR));
-  __HAL_I2S_ENABLE(&hi2s2);
+  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
   
   while (1)
   {
     if (PCM_switch_flag != PCM_switch_prev) { 
       PCM_switch_prev = PCM_switch_flag;
       HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE*2, 5000);
-      arm_rfft_f32(&S, PCM_BUF_1, fft_buffer);
-      arm_cmplx_mag_f32(fft_buffer, fft_mag_buffer, 8192*2);
+      
+      for(uint16_t i = 0; i < PCM_BUF_SIZE; i++)
+      {
+        fft_input_buffer[i] = (float32_t) PCM_BUF_1[i];
+      }
+      
+      arm_rfft_fast_f32(&S, fft_input_buffer, fft_output_buffer, 0);
+      arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE*2);
       volatile float32_t maxmag;
       volatile uint32_t index;
-      arm_max_f32(&(fft_mag_buffer[1]), 8192*2, &maxmag, &index);
+      arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE*2, &maxmag, &index);
     }
 
     if (RECORD_ENABLE == 0) {
-      if (__HAL_I2S_GET_IT_SOURCE(&hi2s2, I2S_IT_RXNE) == SET) {
-        __HAL_I2S_DISABLE_IT(&hi2s2, I2S_IT_RXNE);
-      }
       HAL_Delay(200);
       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
     }
@@ -430,11 +428,7 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
       current_PCM_buffer = PCM_BUF_1;
     }
   }
-  volatile uint32_t DHD;
-  DHD = hi2s2.Instance->DR;
-  __HAL_I2S_CLEAR_OVRFLAG(hi2s);
   if (RECORD_ENABLE == 1) {
-    volatile uint8_t ovrflag =  __HAL_I2S_GET_FLAG(&hi2s2, I2S_FLAG_OVR);
     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
   }
   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);

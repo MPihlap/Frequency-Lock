@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccu83S7j.s 			page 1
+ARM GAS  /tmp/ccfWCcAG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
   29:Src/stm32f4xx_it.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   30:Src/stm32f4xx_it.c ****   *
   31:Src/stm32f4xx_it.c ****   ******************************************************************************
-ARM GAS  /tmp/ccu83S7j.s 			page 2
+ARM GAS  /tmp/ccfWCcAG.s 			page 2
 
 
   32:Src/stm32f4xx_it.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
   43              		.thumb_func
   44              		.fpu fpv4-sp-d16
   46              	HardFault_Handler:
-ARM GAS  /tmp/ccu83S7j.s 			page 3
+ARM GAS  /tmp/ccfWCcAG.s 			page 3
 
 
   47              	.LFB127:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
   83:Src/stm32f4xx_it.c ****   {
   84:Src/stm32f4xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
   85:Src/stm32f4xx_it.c ****     
-ARM GAS  /tmp/ccu83S7j.s 			page 4
+ARM GAS  /tmp/ccfWCcAG.s 			page 4
 
 
   86:Src/stm32f4xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
  117              		@ link register save eliminated.
  118              	.L9:
  119 0000 FEE7     		b	.L9
-ARM GAS  /tmp/ccu83S7j.s 			page 5
+ARM GAS  /tmp/ccfWCcAG.s 			page 5
 
 
  120              		.cfi_endproc
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
  160              	.LFE137:
  162              		.section	.text.DebugMon_Handler,"ax",%progbits
  163              		.align	1
-ARM GAS  /tmp/ccu83S7j.s 			page 6
+ARM GAS  /tmp/ccfWCcAG.s 			page 6
 
 
  164              		.global	DebugMon_Handler
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
  149:Src/stm32f4xx_it.c **** */
  150:Src/stm32f4xx_it.c **** void SVC_Handler(void)
  151:Src/stm32f4xx_it.c **** {
-ARM GAS  /tmp/ccu83S7j.s 			page 7
+ARM GAS  /tmp/ccfWCcAG.s 			page 7
 
 
  152:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 0 */
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
  219 0002 FFF7FEFF 		bl	HAL_IncTick
  220              	.LVL2:
  195:Src/stm32f4xx_it.c ****   HAL_SYSTICK_IRQHandler();
-ARM GAS  /tmp/ccu83S7j.s 			page 8
+ARM GAS  /tmp/ccfWCcAG.s 			page 8
 
 
  196:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -464,236 +464,82 @@ ARM GAS  /tmp/ccu83S7j.s 			page 1
  244              		.cfi_startproc
  245              		@ args = 0, pretend = 0, frame = 0
  246              		@ frame_needed = 0, uses_anonymous_args = 0
- 247 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 248              	.LCFI3:
- 249              		.cfi_def_cfa_offset 24
- 250              		.cfi_offset 3, -24
- 251              		.cfi_offset 4, -20
- 252              		.cfi_offset 5, -16
- 253              		.cfi_offset 6, -12
- 254              		.cfi_offset 7, -8
- 255              		.cfi_offset 14, -4
+ 247              		@ link register save eliminated.
  214:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SPI2_IRQn 0 */
  215:Src/stm32f4xx_it.c ****   
- 216:Src/stm32f4xx_it.c **** 
- 217:Src/stm32f4xx_it.c ****   if ((__HAL_I2S_GET_FLAG(&hi2s2, I2S_FLAG_RXNE) == SET) && (__HAL_I2S_GET_IT_SOURCE(&hi2s2, I2S_IT
- 256              		.loc 1 217 0
-ARM GAS  /tmp/ccu83S7j.s 			page 9
+ 216:Src/stm32f4xx_it.c ****   // extern uint16_t dataBuffer[];
+ 217:Src/stm32f4xx_it.c ****   // if (HAL_SPI_GetState(&hi2s2) == HAL_SPI_STATE_READY){
+ 218:Src/stm32f4xx_it.c ****   //   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+ 219:Src/stm32f4xx_it.c ****   //   HAL_Delay(200);
+ 220:Src/stm32f4xx_it.c ****   //   // HAL_I2S_Receive_IT(&hi2s2, dataBuffer, 1024);
+ 221:Src/stm32f4xx_it.c ****   // }
+ 222:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 0 */
+ 223:Src/stm32f4xx_it.c ****   HAL_I2S_IRQHandler(&hi2s2);
+ 248              		.loc 1 223 0
+ 249 0000 0148     		ldr	r0, .L17
+ 250 0002 FFF7FEBF 		b	HAL_I2S_IRQHandler
+ARM GAS  /tmp/ccfWCcAG.s 			page 9
 
 
- 257 0002 1F4E     		ldr	r6, .L27
- 258 0004 3368     		ldr	r3, [r6]
- 259 0006 9A68     		ldr	r2, [r3, #8]
- 260 0008 D107     		lsls	r1, r2, #31
- 261 000a 1ED5     		bpl	.L16
- 262              		.loc 1 217 0 is_stmt 0 discriminator 1
- 263 000c 5A68     		ldr	r2, [r3, #4]
- 264 000e 5206     		lsls	r2, r2, #25
- 265 0010 1BD5     		bpl	.L16
- 218:Src/stm32f4xx_it.c ****     PDM_BUF_1[local_pdm_pointer++] = hi2s2.Instance->DR;
- 266              		.loc 1 218 0 is_stmt 1
- 267 0012 DC68     		ldr	r4, [r3, #12]
- 268 0014 1B4B     		ldr	r3, .L27+4
- 269 0016 1868     		ldr	r0, [r3]
- 270 0018 1B4B     		ldr	r3, .L27+8
- 271 001a 1968     		ldr	r1, [r3]
- 272 001c 4A1C     		adds	r2, r1, #1
- 219:Src/stm32f4xx_it.c **** 
- 220:Src/stm32f4xx_it.c ****     if (local_pdm_pointer >= 64) {
- 273              		.loc 1 220 0
- 274 001e 3F2A     		cmp	r2, #63
- 218:Src/stm32f4xx_it.c ****     PDM_BUF_1[local_pdm_pointer++] = hi2s2.Instance->DR;
- 275              		.loc 1 218 0
- 276 0020 1A60     		str	r2, [r3]
- 277 0022 20F81140 		strh	r4, [r0, r1, lsl #1]	@ movhi
- 278              		.loc 1 220 0
- 279 0026 10D9     		bls	.L16
- 221:Src/stm32f4xx_it.c ****       local_pdm_pointer = 0;
- 222:Src/stm32f4xx_it.c ****       PDM_Filter(PDM_BUF_1, current_PCM_buffer + local_pcm_pointer, &PDM1_filter_handler);
- 280              		.loc 1 222 0
- 281 0028 184C     		ldr	r4, .L27+12
- 282 002a 194D     		ldr	r5, .L27+16
- 283 002c 2168     		ldr	r1, [r4]
- 284 002e 194A     		ldr	r2, .L27+20
- 221:Src/stm32f4xx_it.c ****       local_pdm_pointer = 0;
- 285              		.loc 1 221 0
- 286 0030 0027     		movs	r7, #0
- 287 0032 1F60     		str	r7, [r3]
- 288              		.loc 1 222 0
- 289 0034 2B68     		ldr	r3, [r5]
- 290 0036 03EB4101 		add	r1, r3, r1, lsl #1
- 291 003a FFF7FEFF 		bl	PDM_Filter
- 292              	.LVL4:
- 223:Src/stm32f4xx_it.c ****       local_pcm_pointer++;
- 293              		.loc 1 223 0
- 294 003e 2368     		ldr	r3, [r4]
- 295 0040 0133     		adds	r3, r3, #1
- 224:Src/stm32f4xx_it.c ****       if (local_pcm_pointer >= PCM_BUF_SIZE) {
- 296              		.loc 1 224 0
- 297 0042 B3F5006F 		cmp	r3, #2048
- 298 0046 01D2     		bcs	.L20
- 223:Src/stm32f4xx_it.c ****       local_pcm_pointer++;
- 299              		.loc 1 223 0
- 300 0048 2360     		str	r3, [r4]
- 301              	.L16:
- 225:Src/stm32f4xx_it.c ****         local_pcm_pointer = 0;
- 226:Src/stm32f4xx_it.c ****         RECORD_ENABLE = 0; // NB! RECORDING IS DISABLED AFTER FIRST BUFFER
-ARM GAS  /tmp/ccu83S7j.s 			page 10
-
-
- 227:Src/stm32f4xx_it.c ****         __HAL_I2S_DISABLE_IT(&hi2s2, I2S_IT_RXNE);
- 228:Src/stm32f4xx_it.c ****         hi2s2.State = HAL_I2S_STATE_READY;
- 229:Src/stm32f4xx_it.c ****         if (PCM_switch_flag == 0) {
- 230:Src/stm32f4xx_it.c ****           current_PCM_buffer = PCM_BUF_2;
- 231:Src/stm32f4xx_it.c ****         }
- 232:Src/stm32f4xx_it.c ****         else {
- 233:Src/stm32f4xx_it.c ****           current_PCM_buffer = PCM_BUF_1;
- 234:Src/stm32f4xx_it.c ****         }
- 235:Src/stm32f4xx_it.c ****         PCM_switch_flag ^= 1;
- 236:Src/stm32f4xx_it.c ****       }
- 237:Src/stm32f4xx_it.c ****     }
- 238:Src/stm32f4xx_it.c ****   }
- 239:Src/stm32f4xx_it.c ****   
- 240:Src/stm32f4xx_it.c ****   // extern uint16_t dataBuffer[];
- 241:Src/stm32f4xx_it.c ****   // if (HAL_SPI_GetState(&hi2s2) == HAL_SPI_STATE_READY){
- 242:Src/stm32f4xx_it.c ****   //   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
- 243:Src/stm32f4xx_it.c ****   //   HAL_Delay(200);
- 244:Src/stm32f4xx_it.c ****   //   // HAL_I2S_Receive_IT(&hi2s2, dataBuffer, 1024);
- 245:Src/stm32f4xx_it.c ****   // }
- 246:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 0 */
- 247:Src/stm32f4xx_it.c ****   //HAL_I2S_IRQHandler(&hi2s2);
- 248:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SPI2_IRQn 1 */
- 249:Src/stm32f4xx_it.c ****   /* USER CODE END SPI2_IRQn 1 */
- 250:Src/stm32f4xx_it.c **** }
- 302              		.loc 1 250 0
- 303 004a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 304              	.L20:
- 227:Src/stm32f4xx_it.c ****         hi2s2.State = HAL_I2S_STATE_READY;
- 305              		.loc 1 227 0
- 306 004c 3268     		ldr	r2, [r6]
- 226:Src/stm32f4xx_it.c ****         __HAL_I2S_DISABLE_IT(&hi2s2, I2S_IT_RXNE);
- 307              		.loc 1 226 0
- 308 004e 124B     		ldr	r3, .L27+24
- 225:Src/stm32f4xx_it.c ****         local_pcm_pointer = 0;
- 309              		.loc 1 225 0
- 310 0050 2760     		str	r7, [r4]
- 226:Src/stm32f4xx_it.c ****         __HAL_I2S_DISABLE_IT(&hi2s2, I2S_IT_RXNE);
- 311              		.loc 1 226 0
- 312 0052 1F70     		strb	r7, [r3]
- 227:Src/stm32f4xx_it.c ****         hi2s2.State = HAL_I2S_STATE_READY;
- 313              		.loc 1 227 0
- 314 0054 5368     		ldr	r3, [r2, #4]
- 315 0056 23F04003 		bic	r3, r3, #64
- 316 005a 1B04     		lsls	r3, r3, #16
- 317 005c 1B0C     		lsrs	r3, r3, #16
- 318 005e 5360     		str	r3, [r2, #4]
- 228:Src/stm32f4xx_it.c ****         if (PCM_switch_flag == 0) {
- 319              		.loc 1 228 0
- 320 0060 0123     		movs	r3, #1
- 321 0062 86F84130 		strb	r3, [r6, #65]
- 229:Src/stm32f4xx_it.c ****           current_PCM_buffer = PCM_BUF_2;
- 322              		.loc 1 229 0
- 323 0066 0D4B     		ldr	r3, .L27+28
- 324 0068 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 325 006a 32B9     		cbnz	r2, .L21
- 230:Src/stm32f4xx_it.c ****         }
- 326              		.loc 1 230 0
-ARM GAS  /tmp/ccu83S7j.s 			page 11
-
-
- 327 006c 0C49     		ldr	r1, .L27+32
- 328              	.L26:
- 233:Src/stm32f4xx_it.c ****         }
- 329              		.loc 1 233 0
- 330 006e 0968     		ldr	r1, [r1]
- 331 0070 2960     		str	r1, [r5]
- 235:Src/stm32f4xx_it.c ****       }
- 332              		.loc 1 235 0
- 333 0072 82F00102 		eor	r2, r2, #1
- 334 0076 1A70     		strb	r2, [r3]
- 335              		.loc 1 250 0
- 336 0078 E7E7     		b	.L16
- 337              	.L21:
- 233:Src/stm32f4xx_it.c ****         }
- 338              		.loc 1 233 0
- 339 007a 0A49     		ldr	r1, .L27+36
- 340 007c F7E7     		b	.L26
- 341              	.L28:
- 342 007e 00BF     		.align	2
- 343              	.L27:
- 344 0080 00000000 		.word	hi2s2
- 345 0084 00000000 		.word	PDM_BUF_1
- 346 0088 00000000 		.word	local_pdm_pointer
- 347 008c 00000000 		.word	local_pcm_pointer
- 348 0090 00000000 		.word	current_PCM_buffer
- 349 0094 00000000 		.word	PDM1_filter_handler
- 350 0098 00000000 		.word	RECORD_ENABLE
- 351 009c 00000000 		.word	PCM_switch_flag
- 352 00a0 00000000 		.word	PCM_BUF_2
- 353 00a4 00000000 		.word	PCM_BUF_1
- 354              		.cfi_endproc
- 355              	.LFE135:
- 357              		.comm	local_pdm_pointer,4,4
- 358              		.text
- 359              	.Letext0:
- 360              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 361              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 362              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 363              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 364              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 365              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
- 366              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
- 367              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
- 368              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
- 369              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 370              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 371              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 372              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 373              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
- 374              		.file 16 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
- 375              		.file 17 "Inc/pdm2pcm.h"
- 376              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 377              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /tmp/ccu83S7j.s 			page 12
+ 251              	.LVL4:
+ 252              	.L18:
+ 253 0006 00BF     		.align	2
+ 254              	.L17:
+ 255 0008 00000000 		.word	hi2s2
+ 256              		.cfi_endproc
+ 257              	.LFE135:
+ 259              		.comm	local_pdm_pointer,4,4
+ 260              		.text
+ 261              	.Letext0:
+ 262              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 263              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 264              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 265              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 266              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 267              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 268              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 269              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
+ 270              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 271              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 272              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 273              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 274              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
+ 275              		.file 15 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
+ 276              		.file 16 "Inc/pdm2pcm.h"
+ 277              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 278              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  /tmp/ccfWCcAG.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_it.c
-     /tmp/ccu83S7j.s:18     .text.NMI_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/ccu83S7j.s:39     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:46     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccu83S7j.s:77     .text.HardFault_Handler:000000000000001c $d
-     /tmp/ccu83S7j.s:82     .text.MemManage_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:89     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-     /tmp/ccu83S7j.s:103    .text.BusFault_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:110    .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/ccu83S7j.s:124    .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:131    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/ccu83S7j.s:145    .text.SVC_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:152    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/ccu83S7j.s:163    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:170    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/ccu83S7j.s:181    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:188    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-     /tmp/ccu83S7j.s:199    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/ccu83S7j.s:206    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-     /tmp/ccu83S7j.s:234    .text.SPI2_IRQHandler:0000000000000000 $t
-     /tmp/ccu83S7j.s:241    .text.SPI2_IRQHandler:0000000000000000 SPI2_IRQHandler
-     /tmp/ccu83S7j.s:344    .text.SPI2_IRQHandler:0000000000000080 $d
+     /tmp/ccfWCcAG.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/ccfWCcAG.s:39     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:46     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccfWCcAG.s:77     .text.HardFault_Handler:000000000000001c $d
+     /tmp/ccfWCcAG.s:82     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:89     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/ccfWCcAG.s:103    .text.BusFault_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:110    .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/ccfWCcAG.s:124    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:131    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/ccfWCcAG.s:145    .text.SVC_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:152    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/ccfWCcAG.s:163    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:170    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/ccfWCcAG.s:181    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:188    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/ccfWCcAG.s:199    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:206    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccfWCcAG.s:234    .text.SPI2_IRQHandler:0000000000000000 $t
+     /tmp/ccfWCcAG.s:241    .text.SPI2_IRQHandler:0000000000000000 SPI2_IRQHandler
+     /tmp/ccfWCcAG.s:255    .text.SPI2_IRQHandler:0000000000000008 $d
                             *COM*:0000000000000004 local_pdm_pointer
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
 HAL_IncTick
 HAL_SYSTICK_IRQHandler
-PDM_Filter
+HAL_I2S_IRQHandler
 hi2s2
-PDM_BUF_1
-local_pcm_pointer
-current_PCM_buffer
-PDM1_filter_handler
-RECORD_ENABLE
-PCM_switch_flag
-PCM_BUF_2
-PCM_BUF_1
