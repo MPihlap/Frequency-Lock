@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc0oCQHL.s 			page 1
+ARM GAS  /tmp/ccicqDl6.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****               (+++) Enable the NVIC SPI IRQ handle
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****           (##) DMA Configuration if you need to use DMA process
   32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****               (+++) Declare a DMA_HandleTypeDef handle structure for the transmit or receive stream
-ARM GAS  /tmp/cc0oCQHL.s 			page 2
+ARM GAS  /tmp/ccicqDl6.s 			page 2
 
 
   33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****               (+++) Enable the DMAx clock
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     |    T    |     Interrupt  | Fpclk/2  | Fpclk/4  |     NA    |    NA    | Fpclk/2   | Fpclk/64 
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     |    X    |----------------|----------|----------|-----------|----------|-----------|----------
   89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     |         |       DMA      | Fpclk/2  | Fpclk/2  |     NA    |    NA    | Fpclk/2   | Fpclk/128
-ARM GAS  /tmp/cc0oCQHL.s 			page 3
+ARM GAS  /tmp/ccicqDl6.s 			page 3
 
 
   90:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     +----------------------------------------------------------------------------------------------
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
  146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-ARM GAS  /tmp/cc0oCQHL.s 			page 4
+ARM GAS  /tmp/ccicqDl6.s 			page 4
 
 
  147:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** static void SPI_RxISR_8BITCRC(struct __SPI_HandleTypeDef *hspi);
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** static void SPI_RxISR_16BITCRC(struct __SPI_HandleTypeDef *hspi);
  203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** static void SPI_2linesRxISR_8BITCRC(struct __SPI_HandleTypeDef *hspi);
-ARM GAS  /tmp/cc0oCQHL.s 			page 5
+ARM GAS  /tmp/ccicqDl6.s 			page 5
 
 
  204:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** static void SPI_2linesRxISR_16BITCRC(struct __SPI_HandleTypeDef *hspi);
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  258:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   *               the configuration information for SPI module.
  259:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @retval HAL status
  260:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   */
-ARM GAS  /tmp/cc0oCQHL.s 			page 6
+ARM GAS  /tmp/ccicqDl6.s 			page 6
 
 
  261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** HAL_StatusTypeDef HAL_SPI_Init(SPI_HandleTypeDef *hspi)
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   WRITE_REG(hspi->Instance->CR2, (((hspi->Init.NSS >> 16U) & SPI_CR2_SSOE) | hspi->Init.TIMode));
  316:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  317:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** #if (USE_SPI_CRC != 0U)
-ARM GAS  /tmp/cc0oCQHL.s 			page 7
+ARM GAS  /tmp/ccicqDl6.s 			page 7
 
 
  318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /*---------------------------- SPIx CRCPOLY Configuration ------------------*/
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @brief  Initialize the SPI MSP.
  373:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @param  hspi pointer to a SPI_HandleTypeDef structure that contains
  374:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   *               the configuration information for SPI module.
-ARM GAS  /tmp/cc0oCQHL.s 			page 8
+ARM GAS  /tmp/ccicqDl6.s 			page 8
 
 
  375:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @retval None
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  429:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****             The HAL_SPI_ErrorCallback()user callback will be executed when a communication error is
  430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  431:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     (#) APIs provided for these 2 transfer modes (Blocking mode or Non blocking mode using either I
-ARM GAS  /tmp/cc0oCQHL.s 			page 9
+ARM GAS  /tmp/ccicqDl6.s 			page 9
 
 
  432:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         exist for 1Line (simplex) and 2Lines (full duplex) modes.
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  487:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Configure communication direction : 1Line */
  488:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if(hspi->Init.Direction == SPI_DIRECTION_1LINE)
-ARM GAS  /tmp/cc0oCQHL.s 			page 10
+ARM GAS  /tmp/ccicqDl6.s 			page 10
 
 
  489:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  543:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       *((__IO uint8_t*)&hspi->Instance->DR) = (*pData);
  544:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       pData += sizeof(uint8_t);
  545:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       hspi->TxXferCount--;
-ARM GAS  /tmp/cc0oCQHL.s 			page 11
+ARM GAS  /tmp/ccicqDl6.s 			page 11
 
 
  546:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  600:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  601:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** error:
  602:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->State = HAL_SPI_STATE_READY;
-ARM GAS  /tmp/cc0oCQHL.s 			page 12
+ARM GAS  /tmp/ccicqDl6.s 			page 12
 
 
  603:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Process Unlocked */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  657:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /*Init field not used in handle to zero */
  658:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->pTxBuffPtr  = (uint8_t *)NULL;
  659:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->TxXferSize  = 0U;
-ARM GAS  /tmp/cc0oCQHL.s 			page 13
+ARM GAS  /tmp/ccicqDl6.s 			page 13
 
 
  660:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->TxXferCount = 0U;
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  714:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     /* Transfer loop */
  715:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     while(hspi->RxXferCount > 0U)
  716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
-ARM GAS  /tmp/cc0oCQHL.s 			page 14
+ARM GAS  /tmp/ccicqDl6.s 			page 14
 
 
  717:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       /* Check the RXNE flag */
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  771:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     tmpreg = hspi->Instance->DR;
  772:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     /* To avoid GCC warning */
  773:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     UNUSED(tmpreg);
-ARM GAS  /tmp/cc0oCQHL.s 			page 15
+ARM GAS  /tmp/ccicqDl6.s 			page 15
 
 
  774:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  828:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Process Locked */
  829:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   __HAL_LOCK(hspi);
  830:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 16
+ARM GAS  /tmp/ccicqDl6.s 			page 16
 
 
  831:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Init tickstart for timeout management*/
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  885:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if(hspi->Init.DataSize == SPI_DATASIZE_16BIT)
  886:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
  887:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     if((hspi->Init.Mode == SPI_MODE_SLAVE) || (hspi->TxXferCount == 0x01U))
-ARM GAS  /tmp/cc0oCQHL.s 			page 17
+ARM GAS  /tmp/ccicqDl6.s 			page 17
 
 
  888:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  942:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       {
  943:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         *(__IO uint8_t *)&hspi->Instance->DR = (*pTxData++);
  944:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         hspi->TxXferCount--;
-ARM GAS  /tmp/cc0oCQHL.s 			page 18
+ARM GAS  /tmp/ccicqDl6.s 			page 18
 
 
  945:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         /* Next Data is a reception (Rx). Tx not allowed */ 
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  999:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
 1000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** #endif /* USE_SPI_CRC */
 1001:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 19
+ARM GAS  /tmp/ccicqDl6.s 			page 19
 
 
 1002:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Wait until TXE flag */
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1056:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     goto error;
 1057:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
 1058:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 20
+ARM GAS  /tmp/ccicqDl6.s 			page 20
 
 
 1059:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Set the transaction information */
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1113:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 1114:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** error :
 1115:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   __HAL_UNLOCK(hspi);
-ARM GAS  /tmp/cc0oCQHL.s 			page 21
+ARM GAS  /tmp/ccicqDl6.s 			page 21
 
 
 1116:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   return errorcode;
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1170:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
 1171:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   else
 1172:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 22
+ARM GAS  /tmp/ccicqDl6.s 			page 22
 
 
 1173:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     hspi->RxISR = SPI_RxISR_8BIT;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1227:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Process locked */
 1228:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   __HAL_LOCK(hspi);
 1229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 23
+ARM GAS  /tmp/ccicqDl6.s 			page 23
 
 
 1230:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   tmp  = hspi->State;
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1284:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Check if the SPI is already enabled */
 1285:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if((hspi->Instance->CR1 &SPI_CR1_SPE) != SPI_CR1_SPE)
 1286:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 24
+ARM GAS  /tmp/ccicqDl6.s 			page 24
 
 
 1287:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     /* Enable SPI peripheral */
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1341:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Configure communication direction : 1Line */
 1342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if(hspi->Init.Direction == SPI_DIRECTION_1LINE)
 1343:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 25
+ARM GAS  /tmp/ccicqDl6.s 			page 25
 
 
 1344:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     SPI_1LINE_TX(hspi);
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1398:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** HAL_StatusTypeDef HAL_SPI_Receive_DMA(SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size)
 1399:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** {
 1400:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   HAL_StatusTypeDef errorcode = HAL_OK;
-ARM GAS  /tmp/cc0oCQHL.s 			page 26
+ARM GAS  /tmp/ccicqDl6.s 			page 26
 
 
 1401:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1455:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->hdmarx->XferCpltCallback = SPI_DMAReceiveCplt;
 1456:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 1457:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Set the DMA error callback */
-ARM GAS  /tmp/cc0oCQHL.s 			page 27
+ARM GAS  /tmp/ccicqDl6.s 			page 27
 
 
 1458:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->hdmarx->XferErrorCallback = SPI_DMAError;
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1512:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     goto error;
 1513:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
 1514:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 28
+ARM GAS  /tmp/ccicqDl6.s 			page 28
 
 
 1515:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if((pTxData == NULL ) || (pRxData == NULL ) || (Size == 0))
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1569:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   HAL_DMA_Start_IT(hspi->hdmarx, (uint32_t)&hspi->Instance->DR, (uint32_t)hspi->pRxBuffPtr, hspi->R
 1570:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 1571:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Enable Rx DMA Request */
-ARM GAS  /tmp/cc0oCQHL.s 			page 29
+ARM GAS  /tmp/ccicqDl6.s 			page 29
 
 
 1572:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   SET_BIT(hspi->Instance->CR2, SPI_CR2_RXDMAEN);
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1626:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 1627:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if(HAL_IS_BIT_SET(hspi->Instance->CR2, SPI_CR2_RXNEIE))
 1628:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 30
+ARM GAS  /tmp/ccicqDl6.s 			page 30
 
 
 1629:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     hspi->RxISR = SPI_AbortRx_ISR;
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1683:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 1684:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Reset errorCode */
 1685:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->ErrorCode = HAL_SPI_ERROR_NONE;
-ARM GAS  /tmp/cc0oCQHL.s 			page 31
+ARM GAS  /tmp/ccicqDl6.s 			page 31
 
 
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1740:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****        Otherwise, set it to NULL */
 1741:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     if(HAL_IS_BIT_SET(hspi->Instance->CR2, SPI_CR2_TXDMAEN))
 1742:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
-ARM GAS  /tmp/cc0oCQHL.s 			page 32
+ARM GAS  /tmp/ccicqDl6.s 			page 32
 
 
 1743:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       hspi->hdmatx->XferAbortCallback = SPI_DMATxAbortCallback;
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1797:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Disable the SPI DMA Tx or the SPI Rx request if enabled */
 1798:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if (HAL_IS_BIT_SET(hspi->Instance->CR2, SPI_CR2_TXDMAEN))
 1799:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 33
+ARM GAS  /tmp/ccicqDl6.s 			page 33
 
 
 1800:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     /* Abort the SPI DMA Tx channel */
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1854:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** /**
 1855:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @brief  Pause the DMA Transfer.
 1856:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @param  hspi pointer to a SPI_HandleTypeDef structure that contains
-ARM GAS  /tmp/cc0oCQHL.s 			page 34
+ARM GAS  /tmp/ccicqDl6.s 			page 34
 
 
 1857:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   *               the configuration information for the specified SPI module.
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1911:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     HAL_DMA_Abort(hspi->hdmatx);
 1912:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
 1913:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Abort the SPI DMA rx Stream */
-ARM GAS  /tmp/cc0oCQHL.s 			page 35
+ARM GAS  /tmp/ccicqDl6.s 			page 35
 
 
 1914:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if(hspi->hdmarx != NULL)
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1968:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 1969:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     /* SPI Mode Fault error interrupt occurred -------------------------------*/
 1970:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     if((itflag & SPI_FLAG_MODF) != RESET)
-ARM GAS  /tmp/cc0oCQHL.s 			page 36
+ARM GAS  /tmp/ccicqDl6.s 			page 36
 
 
 1971:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2025:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @retval None
 2026:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   */
 2027:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** __weak void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
-ARM GAS  /tmp/cc0oCQHL.s 			page 37
+ARM GAS  /tmp/ccicqDl6.s 			page 37
 
 
 2028:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** {
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2082:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @brief Rx Half Transfer completed callback.
 2083:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @param  hspi pointer to a SPI_HandleTypeDef structure that contains
 2084:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   *               the configuration information for SPI module.
-ARM GAS  /tmp/cc0oCQHL.s 			page 38
+ARM GAS  /tmp/ccicqDl6.s 			page 38
 
 
 2085:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @retval None
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2139:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* NOTE : This function should not be modified, when the callback is needed,
 2140:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****             the HAL_SPI_AbortCpltCallback can be implemented in the user file.
 2141:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****    */
-ARM GAS  /tmp/cc0oCQHL.s 			page 39
+ARM GAS  /tmp/ccicqDl6.s 			page 39
 
 
 2142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** }
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2196:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @brief   Private functions
 2197:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @{
 2198:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   */
-ARM GAS  /tmp/cc0oCQHL.s 			page 40
+ARM GAS  /tmp/ccicqDl6.s 			page 40
 
 
 2199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2253:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** #if (USE_SPI_CRC != 0U)
 2254:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   uint32_t tickstart = 0U;
 2255:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   __IO uint16_t tmpreg = 0U;
-ARM GAS  /tmp/cc0oCQHL.s 			page 41
+ARM GAS  /tmp/ccicqDl6.s 			page 41
 
 
 2256:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 2311:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** /**
 2312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @brief  DMA SPI transmit receive process complete callback.
-ARM GAS  /tmp/cc0oCQHL.s 			page 42
+ARM GAS  /tmp/ccicqDl6.s 			page 42
 
 
 2313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2367:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
 2368:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       HAL_SPI_ErrorCallback(hspi);
 2369:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       return;
-ARM GAS  /tmp/cc0oCQHL.s 			page 43
+ARM GAS  /tmp/ccicqDl6.s 			page 43
 
 
 2370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2424:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** /* Stop the disable DMA transfer on SPI side */
 2425:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   CLEAR_BIT(hspi->Instance->CR2, SPI_CR2_TXDMAEN | SPI_CR2_RXDMAEN);
 2426:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 44
+ARM GAS  /tmp/ccicqDl6.s 			page 44
 
 
 2427:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_DMA);
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2481:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       return;
 2482:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
 2483:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
-ARM GAS  /tmp/cc0oCQHL.s 			page 45
+ARM GAS  /tmp/ccicqDl6.s 			page 45
 
 
 2484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2538:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Clear the Error flags in the SR register */
 2539:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   __HAL_SPI_CLEAR_OVRFLAG(hspi);
 2540:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   __HAL_SPI_CLEAR_FREFLAG(hspi);  
-ARM GAS  /tmp/cc0oCQHL.s 			page 46
+ARM GAS  /tmp/ccicqDl6.s 			page 46
 
 
 2541:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2595:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 2596:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* To avoid GCC warning */
 2597:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 47
+ARM GAS  /tmp/ccicqDl6.s 			page 47
 
 
 2598:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   UNUSED(tmpreg);
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2652:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   *((uint16_t*)hspi->pRxBuffPtr) = hspi->Instance->DR;
 2653:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->pRxBuffPtr += sizeof(uint16_t);
 2654:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->RxXferCount--;
-ARM GAS  /tmp/cc0oCQHL.s 			page 48
+ARM GAS  /tmp/ccicqDl6.s 			page 48
 
 
 2655:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2709:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Transmit data in 16 Bit mode */
 2710:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->Instance->DR = *((uint16_t *)hspi->pTxBuffPtr);
 2711:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->pTxBuffPtr += sizeof(uint16_t);
-ARM GAS  /tmp/cc0oCQHL.s 			page 49
+ARM GAS  /tmp/ccicqDl6.s 			page 49
 
 
 2712:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->TxXferCount--;
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2766:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->RxXferCount--;
 2767:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 2768:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** #if (USE_SPI_CRC != 0U)
-ARM GAS  /tmp/cc0oCQHL.s 			page 50
+ARM GAS  /tmp/ccicqDl6.s 			page 50
 
 
 2769:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Enable CRC Transmission */
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2823:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->RxXferCount--;
 2824:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 2825:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** #if (USE_SPI_CRC != 0U)
-ARM GAS  /tmp/cc0oCQHL.s 			page 51
+ARM GAS  /tmp/ccicqDl6.s 			page 51
 
 
 2826:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Enable CRC Transmission */
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2880:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->pTxBuffPtr += sizeof(uint16_t);
 2881:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->TxXferCount--;
 2882:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 52
+ARM GAS  /tmp/ccicqDl6.s 			page 52
 
 
 2883:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   if(hspi->TxXferCount == 0U)
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2937:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
 2938:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         return HAL_TIMEOUT;
 2939:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       }
-ARM GAS  /tmp/cc0oCQHL.s 			page 53
+ARM GAS  /tmp/ccicqDl6.s 			page 53
 
 
 2940:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2994:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_FLAG);
 2995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
 2996:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 54
+ARM GAS  /tmp/ccicqDl6.s 			page 54
 
 
 2997:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Clear overrun flag in 2 Lines communication mode because received is not read */
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 3051:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
 3052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       /* Disable SPI peripheral */
 3053:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       __HAL_SPI_DISABLE(hspi);
-ARM GAS  /tmp/cc0oCQHL.s 			page 55
+ARM GAS  /tmp/ccicqDl6.s 			page 55
 
 
 3054:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 3108:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
 3109:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
 3110:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   while((hspi->Instance->SR & SPI_FLAG_TXE) == RESET);
-ARM GAS  /tmp/cc0oCQHL.s 			page 56
+ARM GAS  /tmp/ccicqDl6.s 			page 56
 
 
 3111:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
   40 0006 114B     		ldr	r3, .L7
   41 0008 45F6C052 		movw	r2, #24000
   42 000c 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/cc0oCQHL.s 			page 57
+ARM GAS  /tmp/ccicqDl6.s 			page 57
 
 
   43 000e B3FBF2F2 		udiv	r2, r3, r2
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
   73 0040 02B0     		add	sp, sp, #8
   74              	.LCFI1:
   75              		.cfi_remember_state
-ARM GAS  /tmp/cc0oCQHL.s 			page 58
+ARM GAS  /tmp/ccicqDl6.s 			page 58
 
 
   76              		.cfi_def_cfa_offset 0
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  117 0010 1A60     		str	r2, [r3]
 3190:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** }
  118              		.loc 1 3190 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 59
+ARM GAS  /tmp/ccicqDl6.s 			page 59
 
 
  119 0012 7047     		bx	lr
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  170              		.loc 1 2912 0
  171 0028 55BB     		cbnz	r5, .L13
  172              	.L16:
-ARM GAS  /tmp/cc0oCQHL.s 			page 60
+ARM GAS  /tmp/ccicqDl6.s 			page 60
 
 
  173              	.LVL4:
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  220              	.LBE5:
 2944:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** /**
  221              		.loc 1 2944 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 61
+ARM GAS  /tmp/ccicqDl6.s 			page 61
 
 
  222 007c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  271              		.loc 1 2959 0
  272 001a 0320     		movs	r0, #3
  273              	.L27:
-ARM GAS  /tmp/cc0oCQHL.s 			page 62
+ARM GAS  /tmp/ccicqDl6.s 			page 62
 
 
 2962:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  327 0006 36D0     		beq	.L35
  290:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** #endif /* USE_SPI_CRC */
  328              		.loc 1 290 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 63
+ARM GAS  /tmp/ccicqDl6.s 			page 63
 
 
  329 0008 0023     		movs	r3, #0
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  374 005e 1A43     		orrs	r2, r2, r3
  375 0060 4A60     		str	r2, [r1, #4]
  328:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** #endif /* USE_SPI_CRC */
-ARM GAS  /tmp/cc0oCQHL.s 			page 64
+ARM GAS  /tmp/ccicqDl6.s 			page 64
 
 
  376              		.loc 1 328 0
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  344:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   /* Check the SPI handle allocation */
  428              		.loc 1 344 0
  429              		.cfi_startproc
-ARM GAS  /tmp/cc0oCQHL.s 			page 65
+ARM GAS  /tmp/ccicqDl6.s 			page 65
 
 
  430              		@ args = 0, pretend = 0, frame = 0
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  474              		.align	1
  475              		.global	HAL_SPI_Transmit
  476              		.syntax unified
-ARM GAS  /tmp/cc0oCQHL.s 			page 66
+ARM GAS  /tmp/ccicqDl6.s 			page 66
 
 
  477              		.thumb
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  523              		.loc 1 467 0
  524 002e 002D     		cmp	r5, #0
  525 0030 4FD0     		beq	.L42
-ARM GAS  /tmp/cc0oCQHL.s 			page 67
+ARM GAS  /tmp/ccicqDl6.s 			page 67
 
 
  467:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  564 006c 1A68     		ldr	r2, [r3]
  565 006e 5206     		lsls	r2, r2, #25
  505:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
-ARM GAS  /tmp/cc0oCQHL.s 			page 68
+ARM GAS  /tmp/ccicqDl6.s 			page 68
 
 
  566              		.loc 1 505 0
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  612 00b6 FFF7FEFF 		bl	SPI_CheckFlag_BSY
  613              	.LVL29:
  614 00ba 0028     		cmp	r0, #0
-ARM GAS  /tmp/cc0oCQHL.s 			page 69
+ARM GAS  /tmp/ccicqDl6.s 			page 69
 
 
  615 00bc 38D0     		beq	.L62
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  659 00e6 D8D0     		beq	.L52
  530:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         {
  660              		.loc 1 530 0 is_stmt 0 discriminator 2
-ARM GAS  /tmp/cc0oCQHL.s 			page 70
+ARM GAS  /tmp/ccicqDl6.s 			page 70
 
 
  661 00e8 FFF7FEFF 		bl	HAL_GetTick
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  706 0128 C01B     		subs	r0, r0, r7
  707 012a B042     		cmp	r0, r6
  708 012c EED3     		bcc	.L59
-ARM GAS  /tmp/cc0oCQHL.s 			page 71
+ARM GAS  /tmp/ccicqDl6.s 			page 71
 
 
  709 012e CFE7     		b	.L51
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  757              		.cfi_startproc
  758              		@ args = 4, pretend = 0, frame = 8
  759              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 72
+ARM GAS  /tmp/ccicqDl6.s 			page 72
 
 
  760              	.LVL41:
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  832:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   
  804              		.loc 1 832 0
  805 002e 8046     		mov	r8, r0
-ARM GAS  /tmp/cc0oCQHL.s 			page 73
+ARM GAS  /tmp/ccicqDl6.s 			page 73
 
 
  806              	.LVL45:
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  847              		.loc 1 878 0
  848 0078 1A68     		ldr	r2, [r3]
  860:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->pTxBuffPtr  = (uint8_t *)pTxData;
-ARM GAS  /tmp/cc0oCQHL.s 			page 74
+ARM GAS  /tmp/ccicqDl6.s 			page 74
 
 
  849              		.loc 1 860 0
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  892              	.L95:
  893:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
  893              		.loc 1 893 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 75
+ARM GAS  /tmp/ccicqDl6.s 			page 75
 
 
  894 00b8 E38E     		ldrh	r3, [r4, #54]
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  942              	.LVL56:
  943 0106 DA60     		str	r2, [r3, #12]
  944              	.LVL57:
-ARM GAS  /tmp/cc0oCQHL.s 			page 76
+ARM GAS  /tmp/ccicqDl6.s 			page 76
 
 
  900:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         /* Next Data is a reception (Rx). Tx not allowed */ 
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  990              		.loc 1 1024 0
  991 0146 0123     		movs	r3, #1
  992 0148 84F85130 		strb	r3, [r4, #81]
-ARM GAS  /tmp/cc0oCQHL.s 			page 77
+ARM GAS  /tmp/ccicqDl6.s 			page 77
 
 
 1025:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   return errorcode;
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1040 017a E38F     		ldrh	r3, [r4, #62]
  1041 017c 9BB2     		uxth	r3, r3
  1042 017e 002B     		cmp	r3, #0
-ARM GAS  /tmp/cc0oCQHL.s 			page 78
+ARM GAS  /tmp/ccicqDl6.s 			page 78
 
 
  1043 0180 A0D0     		beq	.L111
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1089              	.LVL76:
  960:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         hspi->RxXferCount--;
  1090              		.loc 1 960 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 79
+ARM GAS  /tmp/ccicqDl6.s 			page 79
 
 
  1091 01c2 0136     		adds	r6, r6, #1
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1140              		.align	1
  1141              		.global	HAL_SPI_Receive
  1142              		.syntax unified
-ARM GAS  /tmp/cc0oCQHL.s 			page 80
+ARM GAS  /tmp/ccicqDl6.s 			page 80
 
 
  1143              		.thumb
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1189              		.loc 1 802 0
  1190 0028 02B0     		add	sp, sp, #8
  1191              	.LCFI16:
-ARM GAS  /tmp/cc0oCQHL.s 			page 81
+ARM GAS  /tmp/ccicqDl6.s 			page 81
 
 
  1192              		.cfi_remember_state
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1235 0066 2363     		str	r3, [r4, #48]
  655:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  1236              		.loc 1 655 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 82
+ARM GAS  /tmp/ccicqDl6.s 			page 82
 
 
  1237 0068 A4F83E80 		strh	r8, [r4, #62]	@ movhi
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  722:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       }
  1279              		.loc 1 722 0
  1280 00ae E38F     		ldrh	r3, [r4, #62]
-ARM GAS  /tmp/cc0oCQHL.s 			page 83
+ARM GAS  /tmp/ccicqDl6.s 			page 83
 
 
  1281 00b0 013B     		subs	r3, r3, #1
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1326 00f6 606D     		ldr	r0, [r4, #84]
  640:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     goto error;
  1327              		.loc 1 640 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 84
+ARM GAS  /tmp/ccicqDl6.s 			page 84
 
 
  1328 00f8 0030     		adds	r0, r0, #0
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1371 012e C01B     		subs	r0, r0, r7
  1372 0130 B042     		cmp	r0, r6
  1373 0132 B2D3     		bcc	.L167
-ARM GAS  /tmp/cc0oCQHL.s 			page 85
+ARM GAS  /tmp/ccicqDl6.s 			page 85
 
 
  1374 0134 E5E7     		b	.L171
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1421 0018 93F85100 		ldrb	r0, [r3, #81]	@ zero_extendqisi2
  1422 001c 0128     		cmp	r0, #1
  1423 001e 30D1     		bne	.L209
-ARM GAS  /tmp/cc0oCQHL.s 			page 86
+ARM GAS  /tmp/ccicqDl6.s 			page 86
 
 
 1060:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->ErrorCode   = HAL_SPI_ERROR_NONE;
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1462 004a 1168     		ldr	r1, [r2]
  1463 004c 41F48041 		orr	r1, r1, #16384
  1464 0050 1160     		str	r1, [r2]
-ARM GAS  /tmp/cc0oCQHL.s 			page 87
+ARM GAS  /tmp/ccicqDl6.s 			page 87
 
 
  1465              	.L204:
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1508              		.loc 1 1039 0
  1509 0086 0020     		movs	r0, #0
  1510 0088 F7E7     		b	.L200
-ARM GAS  /tmp/cc0oCQHL.s 			page 88
+ARM GAS  /tmp/ccicqDl6.s 			page 88
 
 
  1511              	.LVL109:
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1233:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     ((tmp1 == SPI_MODE_MASTER) && (hspi->Init.Direction == SPI_DIRECTION_2LINES) && (tmp == HAL_SPI
  1560              		.loc 1 1233 0 discriminator 2
  1561 0018 0128     		cmp	r0, #1
-ARM GAS  /tmp/cc0oCQHL.s 			page 89
+ARM GAS  /tmp/ccicqDl6.s 			page 89
 
 
  1562 001a 08D0     		beq	.L217
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1602              		.loc 1 1259 0
  1603 0052 E387     		strh	r3, [r4, #62]	@ movhi
 1262:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 90
+ARM GAS  /tmp/ccicqDl6.s 			page 90
 
 
  1604              		.loc 1 1262 0
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1646              		.loc 1 1269 0
  1647 0086 084B     		ldr	r3, .L234+8
  1648 0088 2364     		str	r3, [r4, #64]
-ARM GAS  /tmp/cc0oCQHL.s 			page 91
+ARM GAS  /tmp/ccicqDl6.s 			page 91
 
 
 1270:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1699              	.LVL125:
  1700 0000 1346     		mov	r3, r2
 1131:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 92
+ARM GAS  /tmp/ccicqDl6.s 			page 92
 
 
  1701              		.loc 1 1131 0
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1139:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  1746              		.loc 1 1139 0 discriminator 2
  1747 002e 0121     		movs	r1, #1
-ARM GAS  /tmp/cc0oCQHL.s 			page 93
+ARM GAS  /tmp/ccicqDl6.s 			page 93
 
 
 1141:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1785              	.L248:
 1173:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
  1786              		.loc 1 1173 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 94
+ARM GAS  /tmp/ccicqDl6.s 			page 94
 
 
  1787 005c 2364     		str	r3, [r4, #64]
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     goto error;
  1833              		.loc 1 1143 0
  1834 0094 0220     		movs	r0, #2
-ARM GAS  /tmp/cc0oCQHL.s 			page 95
+ARM GAS  /tmp/ccicqDl6.s 			page 95
 
 
  1835 0096 F6E7     		b	.L239
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1883 000c 0123     		movs	r3, #1
  1884 000e 80F85030 		strb	r3, [r0, #80]
 1315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
-ARM GAS  /tmp/cc0oCQHL.s 			page 96
+ARM GAS  /tmp/ccicqDl6.s 			page 96
 
 
  1885              		.loc 1 1315 0 is_stmt 1 discriminator 2
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1344:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
  1925              		.loc 1 1344 0
  1926 0048 02BF     		ittt	eq
-ARM GAS  /tmp/cc0oCQHL.s 			page 97
+ARM GAS  /tmp/ccicqDl6.s 			page 97
 
 
  1927 004a 1368     		ldreq	r3, [r2]
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  1970 008e 84F85030 		strb	r3, [r4, #80]
  1971              	.LVL141:
  1972              	.L252:
-ARM GAS  /tmp/cc0oCQHL.s 			page 98
+ARM GAS  /tmp/ccicqDl6.s 			page 98
 
 
 1387:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2023 000a 65D0     		beq	.L270
 1504:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  2024              		.loc 1 1504 0 is_stmt 0 discriminator 2
-ARM GAS  /tmp/cc0oCQHL.s 			page 99
+ARM GAS  /tmp/ccicqDl6.s 			page 99
 
 
  2025 000c 0120     		movs	r0, #1
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2066              		.loc 1 1528 0
  2067 004a 0020     		movs	r0, #0
  2068 004c 6065     		str	r0, [r4, #84]
-ARM GAS  /tmp/cc0oCQHL.s 			page 100
+ARM GAS  /tmp/ccicqDl6.s 			page 100
 
 
 1531:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->pRxBuffPtr  = (uint8_t*)pRxData;
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1563:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  2107              		.loc 1 1563 0
  2108 007a 1C4B     		ldr	r3, .L281+16
-ARM GAS  /tmp/cc0oCQHL.s 			page 101
+ARM GAS  /tmp/ccicqDl6.s 			page 101
 
 
  2109 007c C364     		str	r3, [r0, #76]
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2148              		.loc 1 1591 0
  2149 00b6 5A68     		ldr	r2, [r3, #4]
  2150 00b8 42F02002 		orr	r2, r2, #32
-ARM GAS  /tmp/cc0oCQHL.s 			page 102
+ARM GAS  /tmp/ccicqDl6.s 			page 102
 
 
  2151 00bc 5A60     		str	r2, [r3, #4]
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2199              		.thumb
  2200              		.thumb_func
  2201              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/cc0oCQHL.s 			page 103
+ARM GAS  /tmp/ccicqDl6.s 			page 103
 
 
  2203              	HAL_SPI_Receive_DMA:
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2248              	.LCFI28:
  2249              		.cfi_restore_state
 1410:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 104
+ARM GAS  /tmp/ccicqDl6.s 			page 104
 
 
  2250              		.loc 1 1410 0
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1438:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
  2290              		.loc 1 1438 0
  2291 005c B2F5004F 		cmp	r2, #32768
-ARM GAS  /tmp/cc0oCQHL.s 			page 105
+ARM GAS  /tmp/ccicqDl6.s 			page 105
 
 
 1440:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1477:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  2334              		.loc 1 1477 0
  2335 00a2 5A68     		ldr	r2, [r3, #4]
-ARM GAS  /tmp/cc0oCQHL.s 			page 106
+ARM GAS  /tmp/ccicqDl6.s 			page 106
 
 
  2336 00a4 42F00102 		orr	r2, r2, #1
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2386              		.cfi_def_cfa_offset 24
  2387              		.cfi_offset 4, -8
  2388              		.cfi_offset 14, -4
-ARM GAS  /tmp/cc0oCQHL.s 			page 107
+ARM GAS  /tmp/ccicqDl6.s 			page 107
 
 
 1619:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1643:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       
  2432              		.loc 1 1643 0
  2433 0044 0023     		movs	r3, #0
-ARM GAS  /tmp/cc0oCQHL.s 			page 108
+ARM GAS  /tmp/ccicqDl6.s 			page 108
 
 
  2434 0046 0365     		str	r3, [r0, #80]
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2477 0086 2368     		ldr	r3, [r4]
  2478              	.LBE16:
 1681:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->TxXferCount = 0U;
-ARM GAS  /tmp/cc0oCQHL.s 			page 109
+ARM GAS  /tmp/ccicqDl6.s 			page 109
 
 
  2479              		.loc 1 1681 0
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2526              		.cfi_endproc
  2527              	.LFE139:
  2529              		.section	.text.HAL_SPI_DMAPause,"ax",%progbits
-ARM GAS  /tmp/cc0oCQHL.s 			page 110
+ARM GAS  /tmp/ccicqDl6.s 			page 110
 
 
  2530              		.align	1
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2579              		.cfi_startproc
  2580              		@ args = 0, pretend = 0, frame = 0
  2581              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 111
+ARM GAS  /tmp/ccicqDl6.s 			page 111
 
 
  2582              		@ link register save eliminated.
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2629              		.loc 1 1909 0
  2630 0004 806C     		ldr	r0, [r0, #72]
  2631              	.LVL181:
-ARM GAS  /tmp/cc0oCQHL.s 			page 112
+ARM GAS  /tmp/ccicqDl6.s 			page 112
 
 
  2632 0006 08B1     		cbz	r0, .L328
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2684              	HAL_SPI_RxCpltCallback:
  2685              	.LFB189:
  2686              		.cfi_startproc
-ARM GAS  /tmp/cc0oCQHL.s 			page 113
+ARM GAS  /tmp/ccicqDl6.s 			page 113
 
 
  2687              		@ args = 0, pretend = 0, frame = 0
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2745 0000 08B5     		push	{r3, lr}
  2746              	.LCFI33:
  2747              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/cc0oCQHL.s 			page 114
+ARM GAS  /tmp/ccicqDl6.s 			page 114
 
 
  2748              		.cfi_offset 3, -8
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2801 0004 FFF7FEFF 		bl	HAL_SPI_RxHalfCpltCallback
  2802              	.LVL189:
 2399:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 115
+ARM GAS  /tmp/ccicqDl6.s 			page 115
 
 
  2803              		.loc 1 2399 0
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2858              		.weak	HAL_SPI_ErrorCallback
  2859              		.syntax unified
  2860              		.thumb
-ARM GAS  /tmp/cc0oCQHL.s 			page 116
+ARM GAS  /tmp/ccicqDl6.s 			page 116
 
 
  2861              		.thumb_func
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 3104:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     {
  2912              		.loc 1 3104 0
  2913 001e 0099     		ldr	r1, [sp]
-ARM GAS  /tmp/cc0oCQHL.s 			page 117
+ARM GAS  /tmp/ccicqDl6.s 			page 117
 
 
  2914 0020 481E     		subs	r0, r1, #1
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  2958              		.loc 1 3128 0
  2959 0064 3BB1     		cbz	r3, .L352
  2960              	.LVL197:
-ARM GAS  /tmp/cc0oCQHL.s 			page 118
+ARM GAS  /tmp/ccicqDl6.s 			page 118
 
 
 3130:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3010              		.loc 1 2854 0
  3011 0000 026B     		ldr	r2, [r0, #48]
  3012 0002 511C     		adds	r1, r2, #1
-ARM GAS  /tmp/cc0oCQHL.s 			page 119
+ARM GAS  /tmp/ccicqDl6.s 			page 119
 
 
  3013 0004 0163     		str	r1, [r0, #48]
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2880:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   hspi->TxXferCount--;
  3061              		.loc 1 2880 0
  3062 000c 0263     		str	r2, [r0, #48]
-ARM GAS  /tmp/cc0oCQHL.s 			page 120
+ARM GAS  /tmp/ccicqDl6.s 			page 120
 
 
 2881:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3111              	.LCFI43:
  3112              		.cfi_def_cfa_offset 16
  3113              		.cfi_offset 14, -4
-ARM GAS  /tmp/cc0oCQHL.s 			page 121
+ARM GAS  /tmp/ccicqDl6.s 			page 121
 
 
 3047:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3157 0046 03B0     		add	sp, sp, #12
  3158              	.LCFI44:
  3159              		.cfi_remember_state
-ARM GAS  /tmp/cc0oCQHL.s 			page 122
+ARM GAS  /tmp/ccicqDl6.s 			page 122
 
 
  3160              		.cfi_def_cfa_offset 4
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2787:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  3210              		.loc 1 2787 0
  3211 001c 5DF8044B 		ldr	r4, [sp], #4
-ARM GAS  /tmp/cc0oCQHL.s 			page 123
+ARM GAS  /tmp/ccicqDl6.s 			page 123
 
 
  3212              	.LCFI47:
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3261 0018 0BB9     		cbnz	r3, .L376
 2842:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   }
  3262              		.loc 1 2842 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 124
+ARM GAS  /tmp/ccicqDl6.s 			page 124
 
 
  3263 001a FFF7FEBF 		b	SPI_CloseRx_ISR
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2978:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  3311              		.loc 1 2978 0
  3312 0024 5960     		str	r1, [r3, #4]
-ARM GAS  /tmp/cc0oCQHL.s 			page 125
+ARM GAS  /tmp/ccicqDl6.s 			page 125
 
 
  3313              	.LVL217:
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3358 0068 84F85130 		strb	r3, [r4, #81]
 3020:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       }
  3359              		.loc 1 3020 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 126
+ARM GAS  /tmp/ccicqDl6.s 			page 126
 
 
  3360 006c 2046     		mov	r0, r4
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3407              		.section	.text.SPI_2linesTxISR_8BIT,"ax",%progbits
  3408              		.align	1
  3409              		.syntax unified
-ARM GAS  /tmp/cc0oCQHL.s 			page 127
+ARM GAS  /tmp/ccicqDl6.s 			page 127
 
 
  3410              		.thumb
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3457 002e 7047     		bx	lr
  3458              		.cfi_endproc
  3459              	.LFE166:
-ARM GAS  /tmp/cc0oCQHL.s 			page 128
+ARM GAS  /tmp/ccicqDl6.s 			page 128
 
 
  3461              		.section	.text.SPI_2linesRxISR_8BIT,"ax",%progbits
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2580:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  3510              		.loc 1 2580 0
  3511 002c 5DF8044B 		ldr	r4, [sp], #4
-ARM GAS  /tmp/cc0oCQHL.s 			page 129
+ARM GAS  /tmp/ccicqDl6.s 			page 129
 
 
  3512              	.LCFI54:
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3561              		.loc 1 2711 0
  3562 000c 0263     		str	r2, [r0, #48]
 2712:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
-ARM GAS  /tmp/cc0oCQHL.s 			page 130
+ARM GAS  /tmp/ccicqDl6.s 			page 130
 
 
  3563              		.loc 1 2712 0
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3612              		@ args = 0, pretend = 0, frame = 0
  3613              		@ frame_needed = 0, uses_anonymous_args = 0
  3614              		@ link register save eliminated.
-ARM GAS  /tmp/cc0oCQHL.s 			page 131
+ARM GAS  /tmp/ccicqDl6.s 			page 131
 
 
  3615              	.LVL233:
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3658              		.loc 1 2674 0
  3659 0032 5DF8044B 		ldr	r4, [sp], #4
  3660              	.LCFI64:
-ARM GAS  /tmp/cc0oCQHL.s 			page 132
+ARM GAS  /tmp/ccicqDl6.s 			page 132
 
 
  3661              		.cfi_restore 4
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3708              		.cfi_endproc
  3709              	.LFE161:
  3711              		.section	.text.SPI_DMATransmitCplt,"ax",%progbits
-ARM GAS  /tmp/cc0oCQHL.s 			page 133
+ARM GAS  /tmp/ccicqDl6.s 			page 133
 
 
  3712              		.align	1
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3758              	.LVL243:
  3759 0026 18B1     		cbz	r0, .L413
 2223:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
-ARM GAS  /tmp/cc0oCQHL.s 			page 134
+ARM GAS  /tmp/ccicqDl6.s 			page 134
 
 
  3760              		.loc 1 2223 0
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3806 005c FFF7FEFF 		bl	HAL_SPI_TxCpltCallback
  3807              	.LVL246:
  3808 0060 F9E7     		b	.L411
-ARM GAS  /tmp/cc0oCQHL.s 			page 135
+ARM GAS  /tmp/ccicqDl6.s 			page 135
 
 
  3809              		.cfi_endproc
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3857 002c 03D1     		bne	.L424
  3858              	.L425:
 2287:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****     }
-ARM GAS  /tmp/cc0oCQHL.s 			page 136
+ARM GAS  /tmp/ccicqDl6.s 			page 136
 
 
  3859              		.loc 1 2287 0 is_stmt 1
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3908              		.cfi_offset 14, -4
 2318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   SPI_HandleTypeDef* hspi = ( SPI_HandleTypeDef* )((DMA_HandleTypeDef* )hdma)->Parent;
  3909              		.loc 1 2318 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 137
+ARM GAS  /tmp/ccicqDl6.s 			page 137
 
 
  3910 0002 0546     		mov	r5, r0
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  3952 003c 636D     		ldr	r3, [r4, #84]
  3953 003e 1BB1     		cbz	r3, .L434
 2368:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       return;
-ARM GAS  /tmp/cc0oCQHL.s 			page 138
+ARM GAS  /tmp/ccicqDl6.s 			page 138
 
 
  3954              		.loc 1 2368 0
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4002 0008 02F04105 		and	r5, r2, #65
  4003 000c 012D     		cmp	r5, #1
 1932:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   uint32_t itsource = hspi->Instance->CR2;
-ARM GAS  /tmp/cc0oCQHL.s 			page 139
+ARM GAS  /tmp/ccicqDl6.s 			page 139
 
 
  4004              		.loc 1 1932 0
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4048              		.loc 1 1952 0
  4049 0030 12F4B07F 		tst	r2, #352
  4050 0034 51D0     		beq	.L443
-ARM GAS  /tmp/cc0oCQHL.s 			page 140
+ARM GAS  /tmp/ccicqDl6.s 			page 140
 
 
 1952:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4096 007c D005     		lsls	r0, r2, #23
  4097 007e 08D5     		bpl	.L452
 1979:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       __HAL_SPI_CLEAR_FREFLAG(hspi);
-ARM GAS  /tmp/cc0oCQHL.s 			page 141
+ARM GAS  /tmp/ccicqDl6.s 			page 141
 
 
  4098              		.loc 1 1979 0
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2003:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****         {
  4141              		.loc 1 2003 0
  4142 00bc A06C     		ldr	r0, [r4, #72]
-ARM GAS  /tmp/cc0oCQHL.s 			page 142
+ARM GAS  /tmp/ccicqDl6.s 			page 142
 
 
  4143 00be 60B1     		cbz	r0, .L443
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4191 00e0 FFF7FEFF 		bl	HAL_SPI_ErrorCallback
  4192              	.LVL274:
  4193 00e4 F9E7     		b	.L443
-ARM GAS  /tmp/cc0oCQHL.s 			page 143
+ARM GAS  /tmp/ccicqDl6.s 			page 143
 
 
  4194              	.L487:
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4246              		.cfi_startproc
  4247              		@ args = 0, pretend = 0, frame = 0
  4248              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 144
+ARM GAS  /tmp/ccicqDl6.s 			page 144
 
 
  4249              		@ link register save eliminated.
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 1737:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
  4296              		.loc 1 1737 0
  4297 001c 806C     		ldr	r0, [r0, #72]
-ARM GAS  /tmp/cc0oCQHL.s 			page 145
+ARM GAS  /tmp/ccicqDl6.s 			page 145
 
 
  4298              	.LVL279:
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4339 0054 0028     		cmp	r0, #0
  4340 0056 3ED0     		beq	.L507
 1774:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****       }
-ARM GAS  /tmp/cc0oCQHL.s 			page 146
+ARM GAS  /tmp/ccicqDl6.s 			page 146
 
 
  4341              		.loc 1 1774 0
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4386              	.L499:
 1815:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   {
  4387              		.loc 1 1815 0
-ARM GAS  /tmp/cc0oCQHL.s 			page 147
+ARM GAS  /tmp/ccicqDl6.s 			page 147
 
 
  4388 008e 2368     		ldr	r3, [r4]
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4431 00c2 0193     		str	r3, [sp, #4]
  4432 00c4 019B     		ldr	r3, [sp, #4]
  4433              	.LBE39:
-ARM GAS  /tmp/cc0oCQHL.s 			page 148
+ARM GAS  /tmp/ccicqDl6.s 			page 148
 
 
 1846:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4483              		.fpu fpv4-sp-d16
  4485              	SPI_DMARxAbortCallback:
  4486              	.LFB164:
-ARM GAS  /tmp/cc0oCQHL.s 			page 149
+ARM GAS  /tmp/ccicqDl6.s 			page 149
 
 
 2511:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   SPI_HandleTypeDef* hspi = ( SPI_HandleTypeDef* )((DMA_HandleTypeDef* )hdma)->Parent;
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4528              		.loc 1 2539 0
  4529 002a 0093     		str	r3, [sp]
  4530 002c D168     		ldr	r1, [r2, #12]
-ARM GAS  /tmp/cc0oCQHL.s 			page 150
+ARM GAS  /tmp/ccicqDl6.s 			page 150
 
 
  4531 002e 0091     		str	r1, [sp]
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4580 0004 806B     		ldr	r0, [r0, #56]
  4581              	.LVL299:
 2457:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c ****   SPI_HandleTypeDef* hspi = ( SPI_HandleTypeDef* )((DMA_HandleTypeDef* )hdma)->Parent;
-ARM GAS  /tmp/cc0oCQHL.s 			page 151
+ARM GAS  /tmp/ccicqDl6.s 			page 151
 
 
  4582              		.loc 1 2457 0
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4626 0048 9B68     		ldr	r3, [r3, #8]
  4627 004a 0193     		str	r3, [sp, #4]
  4628 004c 019B     		ldr	r3, [sp, #4]
-ARM GAS  /tmp/cc0oCQHL.s 			page 152
+ARM GAS  /tmp/ccicqDl6.s 			page 152
 
 
  4629              	.LBE42:
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
 2173:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c **** 
  4679              		.loc 1 2173 0
  4680 0004 7047     		bx	lr
-ARM GAS  /tmp/cc0oCQHL.s 			page 153
+ARM GAS  /tmp/ccicqDl6.s 			page 153
 
 
  4681              		.cfi_endproc
@@ -9164,138 +9164,138 @@ ARM GAS  /tmp/cc0oCQHL.s 			page 1
  4721              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  4722              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
  4723              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /tmp/cc0oCQHL.s 			page 154
+ARM GAS  /tmp/ccicqDl6.s 			page 154
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_spi.c
-     /tmp/cc0oCQHL.s:18     .text.SPI_AbortRx_ISR:0000000000000000 $t
-     /tmp/cc0oCQHL.s:24     .text.SPI_AbortRx_ISR:0000000000000000 SPI_AbortRx_ISR
-     /tmp/cc0oCQHL.s:90     .text.SPI_AbortRx_ISR:000000000000004c $d
-     /tmp/cc0oCQHL.s:95     .text.SPI_AbortTx_ISR:0000000000000000 $t
-     /tmp/cc0oCQHL.s:101    .text.SPI_AbortTx_ISR:0000000000000000 SPI_AbortTx_ISR
-     /tmp/cc0oCQHL.s:124    .text.SPI_WaitFlagStateUntilTimeout:0000000000000000 $t
-     /tmp/cc0oCQHL.s:130    .text.SPI_WaitFlagStateUntilTimeout:0000000000000000 SPI_WaitFlagStateUntilTimeout
-     /tmp/cc0oCQHL.s:236    .text.SPI_CheckFlag_BSY:0000000000000000 $t
-     /tmp/cc0oCQHL.s:242    .text.SPI_CheckFlag_BSY:0000000000000000 SPI_CheckFlag_BSY
-     /tmp/cc0oCQHL.s:284    .text.HAL_SPI_MspInit:0000000000000000 $t
-     /tmp/cc0oCQHL.s:291    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
-     /tmp/cc0oCQHL.s:305    .text.HAL_SPI_Init:0000000000000000 $t
-     /tmp/cc0oCQHL.s:312    .text.HAL_SPI_Init:0000000000000000 HAL_SPI_Init
-     /tmp/cc0oCQHL.s:401    .text.HAL_SPI_MspDeInit:0000000000000000 $t
-     /tmp/cc0oCQHL.s:408    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
-     /tmp/cc0oCQHL.s:419    .text.HAL_SPI_DeInit:0000000000000000 $t
-     /tmp/cc0oCQHL.s:426    .text.HAL_SPI_DeInit:0000000000000000 HAL_SPI_DeInit
-     /tmp/cc0oCQHL.s:474    .text.HAL_SPI_Transmit:0000000000000000 $t
-     /tmp/cc0oCQHL.s:481    .text.HAL_SPI_Transmit:0000000000000000 HAL_SPI_Transmit
-     /tmp/cc0oCQHL.s:747    .text.HAL_SPI_TransmitReceive:0000000000000000 $t
-     /tmp/cc0oCQHL.s:754    .text.HAL_SPI_TransmitReceive:0000000000000000 HAL_SPI_TransmitReceive
-     /tmp/cc0oCQHL.s:1140   .text.HAL_SPI_Receive:0000000000000000 $t
-     /tmp/cc0oCQHL.s:1147   .text.HAL_SPI_Receive:0000000000000000 HAL_SPI_Receive
-     /tmp/cc0oCQHL.s:1389   .text.HAL_SPI_Transmit_IT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:1396   .text.HAL_SPI_Transmit_IT:0000000000000000 HAL_SPI_Transmit_IT
-     /tmp/cc0oCQHL.s:1520   .text.HAL_SPI_Transmit_IT:0000000000000090 $d
-     /tmp/cc0oCQHL.s:3042   .text.SPI_TxISR_16BIT:0000000000000000 SPI_TxISR_16BIT
-     /tmp/cc0oCQHL.s:3002   .text.SPI_TxISR_8BIT:0000000000000000 SPI_TxISR_8BIT
-     /tmp/cc0oCQHL.s:1526   .text.HAL_SPI_TransmitReceive_IT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:1533   .text.HAL_SPI_TransmitReceive_IT:0000000000000000 HAL_SPI_TransmitReceive_IT
-     /tmp/cc0oCQHL.s:1677   .text.HAL_SPI_TransmitReceive_IT:00000000000000a0 $d
-     /tmp/cc0oCQHL.s:3608   .text.SPI_2linesRxISR_16BIT:0000000000000000 SPI_2linesRxISR_16BIT
-     /tmp/cc0oCQHL.s:3542   .text.SPI_2linesTxISR_16BIT:0000000000000000 SPI_2linesTxISR_16BIT
-     /tmp/cc0oCQHL.s:3468   .text.SPI_2linesRxISR_8BIT:0000000000000000 SPI_2linesRxISR_8BIT
-     /tmp/cc0oCQHL.s:3414   .text.SPI_2linesTxISR_8BIT:0000000000000000 SPI_2linesTxISR_8BIT
-     /tmp/cc0oCQHL.s:1685   .text.HAL_SPI_Receive_IT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:1692   .text.HAL_SPI_Receive_IT:0000000000000000 HAL_SPI_Receive_IT
-     /tmp/cc0oCQHL.s:1849   .text.HAL_SPI_Receive_IT:00000000000000a0 $d
-     /tmp/cc0oCQHL.s:3238   .text.SPI_RxISR_16BIT:0000000000000000 SPI_RxISR_16BIT
-     /tmp/cc0oCQHL.s:3182   .text.SPI_RxISR_8BIT:0000000000000000 SPI_RxISR_8BIT
-     /tmp/cc0oCQHL.s:1855   .text.HAL_SPI_Transmit_DMA:0000000000000000 $t
-     /tmp/cc0oCQHL.s:1862   .text.HAL_SPI_Transmit_DMA:0000000000000000 HAL_SPI_Transmit_DMA
-     /tmp/cc0oCQHL.s:1989   .text.HAL_SPI_Transmit_DMA:000000000000009c $d
-     /tmp/cc0oCQHL.s:2737   .text.SPI_DMAHalfTransmitCplt:0000000000000000 SPI_DMAHalfTransmitCplt
-     /tmp/cc0oCQHL.s:3718   .text.SPI_DMATransmitCplt:0000000000000000 SPI_DMATransmitCplt
-     /tmp/cc0oCQHL.s:3674   .text.SPI_DMAError:0000000000000000 SPI_DMAError
-     /tmp/cc0oCQHL.s:1996   .text.HAL_SPI_TransmitReceive_DMA:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2003   .text.HAL_SPI_TransmitReceive_DMA:0000000000000000 HAL_SPI_TransmitReceive_DMA
-     /tmp/cc0oCQHL.s:2187   .text.HAL_SPI_TransmitReceive_DMA:00000000000000dc $d
-     /tmp/cc0oCQHL.s:2785   .text.SPI_DMAHalfReceiveCplt:0000000000000000 SPI_DMAHalfReceiveCplt
-     /tmp/cc0oCQHL.s:2833   .text.SPI_DMAHalfTransmitReceiveCplt:0000000000000000 SPI_DMAHalfTransmitReceiveCplt
-     /tmp/cc0oCQHL.s:3819   .text.SPI_DMAReceiveCplt:0000000000000000 SPI_DMAReceiveCplt
-     /tmp/cc0oCQHL.s:3895   .text.SPI_DMATransmitReceiveCplt:0000000000000000 SPI_DMATransmitReceiveCplt
-     /tmp/cc0oCQHL.s:2196   .text.HAL_SPI_Receive_DMA:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2203   .text.HAL_SPI_Receive_DMA:0000000000000000 HAL_SPI_Receive_DMA
-ARM GAS  /tmp/cc0oCQHL.s 			page 155
+     /tmp/ccicqDl6.s:18     .text.SPI_AbortRx_ISR:0000000000000000 $t
+     /tmp/ccicqDl6.s:24     .text.SPI_AbortRx_ISR:0000000000000000 SPI_AbortRx_ISR
+     /tmp/ccicqDl6.s:90     .text.SPI_AbortRx_ISR:000000000000004c $d
+     /tmp/ccicqDl6.s:95     .text.SPI_AbortTx_ISR:0000000000000000 $t
+     /tmp/ccicqDl6.s:101    .text.SPI_AbortTx_ISR:0000000000000000 SPI_AbortTx_ISR
+     /tmp/ccicqDl6.s:124    .text.SPI_WaitFlagStateUntilTimeout:0000000000000000 $t
+     /tmp/ccicqDl6.s:130    .text.SPI_WaitFlagStateUntilTimeout:0000000000000000 SPI_WaitFlagStateUntilTimeout
+     /tmp/ccicqDl6.s:236    .text.SPI_CheckFlag_BSY:0000000000000000 $t
+     /tmp/ccicqDl6.s:242    .text.SPI_CheckFlag_BSY:0000000000000000 SPI_CheckFlag_BSY
+     /tmp/ccicqDl6.s:284    .text.HAL_SPI_MspInit:0000000000000000 $t
+     /tmp/ccicqDl6.s:291    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+     /tmp/ccicqDl6.s:305    .text.HAL_SPI_Init:0000000000000000 $t
+     /tmp/ccicqDl6.s:312    .text.HAL_SPI_Init:0000000000000000 HAL_SPI_Init
+     /tmp/ccicqDl6.s:401    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+     /tmp/ccicqDl6.s:408    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+     /tmp/ccicqDl6.s:419    .text.HAL_SPI_DeInit:0000000000000000 $t
+     /tmp/ccicqDl6.s:426    .text.HAL_SPI_DeInit:0000000000000000 HAL_SPI_DeInit
+     /tmp/ccicqDl6.s:474    .text.HAL_SPI_Transmit:0000000000000000 $t
+     /tmp/ccicqDl6.s:481    .text.HAL_SPI_Transmit:0000000000000000 HAL_SPI_Transmit
+     /tmp/ccicqDl6.s:747    .text.HAL_SPI_TransmitReceive:0000000000000000 $t
+     /tmp/ccicqDl6.s:754    .text.HAL_SPI_TransmitReceive:0000000000000000 HAL_SPI_TransmitReceive
+     /tmp/ccicqDl6.s:1140   .text.HAL_SPI_Receive:0000000000000000 $t
+     /tmp/ccicqDl6.s:1147   .text.HAL_SPI_Receive:0000000000000000 HAL_SPI_Receive
+     /tmp/ccicqDl6.s:1389   .text.HAL_SPI_Transmit_IT:0000000000000000 $t
+     /tmp/ccicqDl6.s:1396   .text.HAL_SPI_Transmit_IT:0000000000000000 HAL_SPI_Transmit_IT
+     /tmp/ccicqDl6.s:1520   .text.HAL_SPI_Transmit_IT:0000000000000090 $d
+     /tmp/ccicqDl6.s:3042   .text.SPI_TxISR_16BIT:0000000000000000 SPI_TxISR_16BIT
+     /tmp/ccicqDl6.s:3002   .text.SPI_TxISR_8BIT:0000000000000000 SPI_TxISR_8BIT
+     /tmp/ccicqDl6.s:1526   .text.HAL_SPI_TransmitReceive_IT:0000000000000000 $t
+     /tmp/ccicqDl6.s:1533   .text.HAL_SPI_TransmitReceive_IT:0000000000000000 HAL_SPI_TransmitReceive_IT
+     /tmp/ccicqDl6.s:1677   .text.HAL_SPI_TransmitReceive_IT:00000000000000a0 $d
+     /tmp/ccicqDl6.s:3608   .text.SPI_2linesRxISR_16BIT:0000000000000000 SPI_2linesRxISR_16BIT
+     /tmp/ccicqDl6.s:3542   .text.SPI_2linesTxISR_16BIT:0000000000000000 SPI_2linesTxISR_16BIT
+     /tmp/ccicqDl6.s:3468   .text.SPI_2linesRxISR_8BIT:0000000000000000 SPI_2linesRxISR_8BIT
+     /tmp/ccicqDl6.s:3414   .text.SPI_2linesTxISR_8BIT:0000000000000000 SPI_2linesTxISR_8BIT
+     /tmp/ccicqDl6.s:1685   .text.HAL_SPI_Receive_IT:0000000000000000 $t
+     /tmp/ccicqDl6.s:1692   .text.HAL_SPI_Receive_IT:0000000000000000 HAL_SPI_Receive_IT
+     /tmp/ccicqDl6.s:1849   .text.HAL_SPI_Receive_IT:00000000000000a0 $d
+     /tmp/ccicqDl6.s:3238   .text.SPI_RxISR_16BIT:0000000000000000 SPI_RxISR_16BIT
+     /tmp/ccicqDl6.s:3182   .text.SPI_RxISR_8BIT:0000000000000000 SPI_RxISR_8BIT
+     /tmp/ccicqDl6.s:1855   .text.HAL_SPI_Transmit_DMA:0000000000000000 $t
+     /tmp/ccicqDl6.s:1862   .text.HAL_SPI_Transmit_DMA:0000000000000000 HAL_SPI_Transmit_DMA
+     /tmp/ccicqDl6.s:1989   .text.HAL_SPI_Transmit_DMA:000000000000009c $d
+     /tmp/ccicqDl6.s:2737   .text.SPI_DMAHalfTransmitCplt:0000000000000000 SPI_DMAHalfTransmitCplt
+     /tmp/ccicqDl6.s:3718   .text.SPI_DMATransmitCplt:0000000000000000 SPI_DMATransmitCplt
+     /tmp/ccicqDl6.s:3674   .text.SPI_DMAError:0000000000000000 SPI_DMAError
+     /tmp/ccicqDl6.s:1996   .text.HAL_SPI_TransmitReceive_DMA:0000000000000000 $t
+     /tmp/ccicqDl6.s:2003   .text.HAL_SPI_TransmitReceive_DMA:0000000000000000 HAL_SPI_TransmitReceive_DMA
+     /tmp/ccicqDl6.s:2187   .text.HAL_SPI_TransmitReceive_DMA:00000000000000dc $d
+     /tmp/ccicqDl6.s:2785   .text.SPI_DMAHalfReceiveCplt:0000000000000000 SPI_DMAHalfReceiveCplt
+     /tmp/ccicqDl6.s:2833   .text.SPI_DMAHalfTransmitReceiveCplt:0000000000000000 SPI_DMAHalfTransmitReceiveCplt
+     /tmp/ccicqDl6.s:3819   .text.SPI_DMAReceiveCplt:0000000000000000 SPI_DMAReceiveCplt
+     /tmp/ccicqDl6.s:3895   .text.SPI_DMATransmitReceiveCplt:0000000000000000 SPI_DMATransmitReceiveCplt
+     /tmp/ccicqDl6.s:2196   .text.HAL_SPI_Receive_DMA:0000000000000000 $t
+     /tmp/ccicqDl6.s:2203   .text.HAL_SPI_Receive_DMA:0000000000000000 HAL_SPI_Receive_DMA
+ARM GAS  /tmp/ccicqDl6.s 			page 155
 
 
-     /tmp/cc0oCQHL.s:2363   .text.HAL_SPI_Receive_DMA:00000000000000bc $d
-     /tmp/cc0oCQHL.s:2370   .text.HAL_SPI_Abort:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2377   .text.HAL_SPI_Abort:0000000000000000 HAL_SPI_Abort
-     /tmp/cc0oCQHL.s:2523   .text.HAL_SPI_Abort:00000000000000b4 $d
-     /tmp/cc0oCQHL.s:2530   .text.HAL_SPI_DMAPause:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2537   .text.HAL_SPI_DMAPause:0000000000000000 HAL_SPI_DMAPause
-     /tmp/cc0oCQHL.s:2569   .text.HAL_SPI_DMAResume:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2576   .text.HAL_SPI_DMAResume:0000000000000000 HAL_SPI_DMAResume
-     /tmp/cc0oCQHL.s:2608   .text.HAL_SPI_DMAStop:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2615   .text.HAL_SPI_DMAStop:0000000000000000 HAL_SPI_DMAStop
-     /tmp/cc0oCQHL.s:2659   .text.HAL_SPI_TxCpltCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2666   .text.HAL_SPI_TxCpltCallback:0000000000000000 HAL_SPI_TxCpltCallback
-     /tmp/cc0oCQHL.s:2677   .text.HAL_SPI_RxCpltCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2684   .text.HAL_SPI_RxCpltCallback:0000000000000000 HAL_SPI_RxCpltCallback
-     /tmp/cc0oCQHL.s:2695   .text.HAL_SPI_TxRxCpltCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2702   .text.HAL_SPI_TxRxCpltCallback:0000000000000000 HAL_SPI_TxRxCpltCallback
-     /tmp/cc0oCQHL.s:2713   .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2720   .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 HAL_SPI_TxHalfCpltCallback
-     /tmp/cc0oCQHL.s:2731   .text.SPI_DMAHalfTransmitCplt:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2761   .text.HAL_SPI_RxHalfCpltCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2768   .text.HAL_SPI_RxHalfCpltCallback:0000000000000000 HAL_SPI_RxHalfCpltCallback
-     /tmp/cc0oCQHL.s:2779   .text.SPI_DMAHalfReceiveCplt:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2809   .text.HAL_SPI_TxRxHalfCpltCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2816   .text.HAL_SPI_TxRxHalfCpltCallback:0000000000000000 HAL_SPI_TxRxHalfCpltCallback
-     /tmp/cc0oCQHL.s:2827   .text.SPI_DMAHalfTransmitReceiveCplt:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2857   .text.HAL_SPI_ErrorCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2864   .text.HAL_SPI_ErrorCallback:0000000000000000 HAL_SPI_ErrorCallback
-     /tmp/cc0oCQHL.s:2875   .text.SPI_CloseTx_ISR:0000000000000000 $t
-     /tmp/cc0oCQHL.s:2881   .text.SPI_CloseTx_ISR:0000000000000000 SPI_CloseTx_ISR
-     /tmp/cc0oCQHL.s:2991   .text.SPI_CloseTx_ISR:000000000000007c $d
-     /tmp/cc0oCQHL.s:2996   .text.SPI_TxISR_8BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3036   .text.SPI_TxISR_16BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3094   .text.SPI_CloseRx_ISR:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3100   .text.SPI_CloseRx_ISR:0000000000000000 SPI_CloseRx_ISR
-     /tmp/cc0oCQHL.s:3176   .text.SPI_RxISR_8BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3232   .text.SPI_RxISR_16BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3272   .text.SPI_CloseRxTx_ISR:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3278   .text.SPI_CloseRxTx_ISR:0000000000000000 SPI_CloseRxTx_ISR
-     /tmp/cc0oCQHL.s:3403   .text.SPI_CloseRxTx_ISR:0000000000000094 $d
-     /tmp/cc0oCQHL.s:3408   .text.SPI_2linesTxISR_8BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3462   .text.SPI_2linesRxISR_8BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3536   .text.SPI_2linesTxISR_16BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3602   .text.SPI_2linesRxISR_16BIT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3668   .text.SPI_DMAError:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3712   .text.SPI_DMATransmitCplt:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3813   .text.SPI_DMAReceiveCplt:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3889   .text.SPI_DMATransmitReceiveCplt:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3972   .text.HAL_SPI_IRQHandler:0000000000000000 $t
-     /tmp/cc0oCQHL.s:3979   .text.HAL_SPI_IRQHandler:0000000000000000 HAL_SPI_IRQHandler
-     /tmp/cc0oCQHL.s:4197   .text.HAL_SPI_IRQHandler:00000000000000e8 $d
-     /tmp/cc0oCQHL.s:4208   .text.SPI_DMAAbortOnError:0000000000000000 SPI_DMAAbortOnError
-     /tmp/cc0oCQHL.s:4202   .text.SPI_DMAAbortOnError:0000000000000000 $t
-     /tmp/cc0oCQHL.s:4237   .text.HAL_SPI_AbortCpltCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:4244   .text.HAL_SPI_AbortCpltCallback:0000000000000000 HAL_SPI_AbortCpltCallback
-     /tmp/cc0oCQHL.s:4255   .text.HAL_SPI_Abort_IT:0000000000000000 $t
-     /tmp/cc0oCQHL.s:4262   .text.HAL_SPI_Abort_IT:0000000000000000 HAL_SPI_Abort_IT
-     /tmp/cc0oCQHL.s:4471   .text.HAL_SPI_Abort_IT:00000000000000e4 $d
-ARM GAS  /tmp/cc0oCQHL.s 			page 156
+     /tmp/ccicqDl6.s:2363   .text.HAL_SPI_Receive_DMA:00000000000000bc $d
+     /tmp/ccicqDl6.s:2370   .text.HAL_SPI_Abort:0000000000000000 $t
+     /tmp/ccicqDl6.s:2377   .text.HAL_SPI_Abort:0000000000000000 HAL_SPI_Abort
+     /tmp/ccicqDl6.s:2523   .text.HAL_SPI_Abort:00000000000000b4 $d
+     /tmp/ccicqDl6.s:2530   .text.HAL_SPI_DMAPause:0000000000000000 $t
+     /tmp/ccicqDl6.s:2537   .text.HAL_SPI_DMAPause:0000000000000000 HAL_SPI_DMAPause
+     /tmp/ccicqDl6.s:2569   .text.HAL_SPI_DMAResume:0000000000000000 $t
+     /tmp/ccicqDl6.s:2576   .text.HAL_SPI_DMAResume:0000000000000000 HAL_SPI_DMAResume
+     /tmp/ccicqDl6.s:2608   .text.HAL_SPI_DMAStop:0000000000000000 $t
+     /tmp/ccicqDl6.s:2615   .text.HAL_SPI_DMAStop:0000000000000000 HAL_SPI_DMAStop
+     /tmp/ccicqDl6.s:2659   .text.HAL_SPI_TxCpltCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:2666   .text.HAL_SPI_TxCpltCallback:0000000000000000 HAL_SPI_TxCpltCallback
+     /tmp/ccicqDl6.s:2677   .text.HAL_SPI_RxCpltCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:2684   .text.HAL_SPI_RxCpltCallback:0000000000000000 HAL_SPI_RxCpltCallback
+     /tmp/ccicqDl6.s:2695   .text.HAL_SPI_TxRxCpltCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:2702   .text.HAL_SPI_TxRxCpltCallback:0000000000000000 HAL_SPI_TxRxCpltCallback
+     /tmp/ccicqDl6.s:2713   .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:2720   .text.HAL_SPI_TxHalfCpltCallback:0000000000000000 HAL_SPI_TxHalfCpltCallback
+     /tmp/ccicqDl6.s:2731   .text.SPI_DMAHalfTransmitCplt:0000000000000000 $t
+     /tmp/ccicqDl6.s:2761   .text.HAL_SPI_RxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:2768   .text.HAL_SPI_RxHalfCpltCallback:0000000000000000 HAL_SPI_RxHalfCpltCallback
+     /tmp/ccicqDl6.s:2779   .text.SPI_DMAHalfReceiveCplt:0000000000000000 $t
+     /tmp/ccicqDl6.s:2809   .text.HAL_SPI_TxRxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:2816   .text.HAL_SPI_TxRxHalfCpltCallback:0000000000000000 HAL_SPI_TxRxHalfCpltCallback
+     /tmp/ccicqDl6.s:2827   .text.SPI_DMAHalfTransmitReceiveCplt:0000000000000000 $t
+     /tmp/ccicqDl6.s:2857   .text.HAL_SPI_ErrorCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:2864   .text.HAL_SPI_ErrorCallback:0000000000000000 HAL_SPI_ErrorCallback
+     /tmp/ccicqDl6.s:2875   .text.SPI_CloseTx_ISR:0000000000000000 $t
+     /tmp/ccicqDl6.s:2881   .text.SPI_CloseTx_ISR:0000000000000000 SPI_CloseTx_ISR
+     /tmp/ccicqDl6.s:2991   .text.SPI_CloseTx_ISR:000000000000007c $d
+     /tmp/ccicqDl6.s:2996   .text.SPI_TxISR_8BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3036   .text.SPI_TxISR_16BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3094   .text.SPI_CloseRx_ISR:0000000000000000 $t
+     /tmp/ccicqDl6.s:3100   .text.SPI_CloseRx_ISR:0000000000000000 SPI_CloseRx_ISR
+     /tmp/ccicqDl6.s:3176   .text.SPI_RxISR_8BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3232   .text.SPI_RxISR_16BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3272   .text.SPI_CloseRxTx_ISR:0000000000000000 $t
+     /tmp/ccicqDl6.s:3278   .text.SPI_CloseRxTx_ISR:0000000000000000 SPI_CloseRxTx_ISR
+     /tmp/ccicqDl6.s:3403   .text.SPI_CloseRxTx_ISR:0000000000000094 $d
+     /tmp/ccicqDl6.s:3408   .text.SPI_2linesTxISR_8BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3462   .text.SPI_2linesRxISR_8BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3536   .text.SPI_2linesTxISR_16BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3602   .text.SPI_2linesRxISR_16BIT:0000000000000000 $t
+     /tmp/ccicqDl6.s:3668   .text.SPI_DMAError:0000000000000000 $t
+     /tmp/ccicqDl6.s:3712   .text.SPI_DMATransmitCplt:0000000000000000 $t
+     /tmp/ccicqDl6.s:3813   .text.SPI_DMAReceiveCplt:0000000000000000 $t
+     /tmp/ccicqDl6.s:3889   .text.SPI_DMATransmitReceiveCplt:0000000000000000 $t
+     /tmp/ccicqDl6.s:3972   .text.HAL_SPI_IRQHandler:0000000000000000 $t
+     /tmp/ccicqDl6.s:3979   .text.HAL_SPI_IRQHandler:0000000000000000 HAL_SPI_IRQHandler
+     /tmp/ccicqDl6.s:4197   .text.HAL_SPI_IRQHandler:00000000000000e8 $d
+     /tmp/ccicqDl6.s:4208   .text.SPI_DMAAbortOnError:0000000000000000 SPI_DMAAbortOnError
+     /tmp/ccicqDl6.s:4202   .text.SPI_DMAAbortOnError:0000000000000000 $t
+     /tmp/ccicqDl6.s:4237   .text.HAL_SPI_AbortCpltCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:4244   .text.HAL_SPI_AbortCpltCallback:0000000000000000 HAL_SPI_AbortCpltCallback
+     /tmp/ccicqDl6.s:4255   .text.HAL_SPI_Abort_IT:0000000000000000 $t
+     /tmp/ccicqDl6.s:4262   .text.HAL_SPI_Abort_IT:0000000000000000 HAL_SPI_Abort_IT
+     /tmp/ccicqDl6.s:4471   .text.HAL_SPI_Abort_IT:00000000000000e4 $d
+ARM GAS  /tmp/ccicqDl6.s 			page 156
 
 
-     /tmp/cc0oCQHL.s:4566   .text.SPI_DMATxAbortCallback:0000000000000000 SPI_DMATxAbortCallback
-     /tmp/cc0oCQHL.s:4485   .text.SPI_DMARxAbortCallback:0000000000000000 SPI_DMARxAbortCallback
-     /tmp/cc0oCQHL.s:4479   .text.SPI_DMARxAbortCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:4560   .text.SPI_DMATxAbortCallback:0000000000000000 $t
-     /tmp/cc0oCQHL.s:4656   .text.SPI_DMATxAbortCallback:0000000000000068 $d
-     /tmp/cc0oCQHL.s:4661   .text.HAL_SPI_GetState:0000000000000000 $t
-     /tmp/cc0oCQHL.s:4668   .text.HAL_SPI_GetState:0000000000000000 HAL_SPI_GetState
-     /tmp/cc0oCQHL.s:4685   .text.HAL_SPI_GetError:0000000000000000 $t
-     /tmp/cc0oCQHL.s:4692   .text.HAL_SPI_GetError:0000000000000000 HAL_SPI_GetError
+     /tmp/ccicqDl6.s:4566   .text.SPI_DMATxAbortCallback:0000000000000000 SPI_DMATxAbortCallback
+     /tmp/ccicqDl6.s:4485   .text.SPI_DMARxAbortCallback:0000000000000000 SPI_DMARxAbortCallback
+     /tmp/ccicqDl6.s:4479   .text.SPI_DMARxAbortCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:4560   .text.SPI_DMATxAbortCallback:0000000000000000 $t
+     /tmp/ccicqDl6.s:4656   .text.SPI_DMATxAbortCallback:0000000000000068 $d
+     /tmp/ccicqDl6.s:4661   .text.HAL_SPI_GetState:0000000000000000 $t
+     /tmp/ccicqDl6.s:4668   .text.HAL_SPI_GetState:0000000000000000 HAL_SPI_GetState
+     /tmp/ccicqDl6.s:4685   .text.HAL_SPI_GetError:0000000000000000 $t
+     /tmp/ccicqDl6.s:4692   .text.HAL_SPI_GetError:0000000000000000 HAL_SPI_GetError
 
 UNDEFINED SYMBOLS
 SystemCoreClock

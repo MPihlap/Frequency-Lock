@@ -153,7 +153,7 @@ LDSCRIPT = STM32F407VGTx_FLASH.ld
 
 # libraries
 LIBS = -larm_cortexM4lf_math -lPDMFilter_CM4_GCC  -lc -lm -lnosys 
-LIBDIR = -LDrivers/CMSIS/Lib/GCC -LMiddlewares/ST/STM32_Audio/Addons/PDM/Lib 
+LIBDIR = -LMiddlewares/ST/STM32_Audio/Addons/PDM/Lib -LDrivers/CMSIS/Lib/GCC 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
 # default action: build all
