@@ -34,8 +34,6 @@
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx.h"
 #include "stm32f4xx_it.h"
-#include "main.h"
-#include "pdm2pcm.h"
 
 /* USER CODE BEGIN 0 */
 uint32_t local_pdm_pointer;
@@ -43,15 +41,6 @@ uint32_t local_pdm_pointer;
 
 /* External variables --------------------------------------------------------*/
 extern I2S_HandleTypeDef hi2s2;
-extern uint8_t RECORD_ENABLE;
-extern uint16_t * PDM_BUF_1;
-extern uint32_t local_pdm_pointer;
-extern uint32_t local_pcm_pointer;
-extern uint16_t * current_PCM_buffer;
-extern uint16_t * PCM_BUF_1;
-extern uint16_t * PCM_BUF_2;
-extern PDM_Filter_Handler_t PDM1_filter_handler;
-extern uint8_t PCM_switch_flag;
 
 /******************************************************************************/
 /*            Cortex-M4 Processor Interruption and Exception Handlers         */ 
@@ -204,7 +193,6 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
-
 
 /**
 * @brief This function handles SPI2 global interrupt.
