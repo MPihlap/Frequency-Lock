@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccfRWPKQ.s 			page 1
+ARM GAS  /tmp/ccfK243l.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
   29:Src/main.c    ****   *    microprocessor devices manufactured by or for STMicroelectronics.
   30:Src/main.c    ****   * 5. Redistribution and use of this software other than as permitted under
   31:Src/main.c    ****   *    this license is void and will automatically terminate your rights under
-ARM GAS  /tmp/ccfRWPKQ.s 			page 2
+ARM GAS  /tmp/ccfK243l.s 			page 2
 
 
   32:Src/main.c    ****   *    this license.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
   86:Src/main.c    **** uint16_t PDM_BUF_1[64];            // PDM buffer1
   87:Src/main.c    **** uint16_t PDM_BUF_2[PDM_BUF_SIZE];  // PDM buffer2
   88:Src/main.c    **** uint16_t PCM_BUF_1[PCM_BUF_SIZE];  // PCM buffer1
-ARM GAS  /tmp/ccfRWPKQ.s 			page 3
+ARM GAS  /tmp/ccfK243l.s 			page 3
 
 
   89:Src/main.c    **** uint16_t PCM_BUF_2[PCM_BUF_SIZE];  // PCM buffer2
@@ -171,58 +171,59 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  136:Src/main.c    ****   MX_PDM2PCM_Init();
  137:Src/main.c    ****   /* USER CODE BEGIN 2 */
  138:Src/main.c    ****   arm_rfft_fast_init_f32(&S, PCM_BUF_SIZE * 2);
- 139:Src/main.c    ****   /* USER CODE END 2 */
- 140:Src/main.c    **** 
- 141:Src/main.c    ****   /* Infinite loop */
- 142:Src/main.c    ****   /* USER CODE BEGIN WHILE */
- 143:Src/main.c    **** 
- 144:Src/main.c    ****   LOCK_ENABLE();
- 145:Src/main.c    ****   // SPI2_NVIC_INIT();
-ARM GAS  /tmp/ccfRWPKQ.s 			page 4
+ 139:Src/main.c    **** 
+ 140:Src/main.c    ****   LOCK_ENABLE();
+ 141:Src/main.c    ****   // SPI2_NVIC_INIT();
+ 142:Src/main.c    ****   HAL_GPIO_WritePin(GPIOE, SPI1_NCS_PIN, GPIO_PIN_SET);
+ 143:Src/main.c    ****   RECORD_ENABLE = 1;  // Enable I2S reading
+ 144:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
+ 145:Src/main.c    ****   uint8_t PCM_switch_prev = PCM_switch_flag;
+ARM GAS  /tmp/ccfK243l.s 			page 4
 
 
- 146:Src/main.c    ****   HAL_GPIO_WritePin(GPIOE, SPI1_NCS_PIN, GPIO_PIN_SET);
- 147:Src/main.c    ****   RECORD_ENABLE = 1;  // Enable I2S reading
- 148:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
- 149:Src/main.c    ****   uint8_t PCM_switch_prev = PCM_switch_flag;
- 150:Src/main.c    ****   // uint8_t PDM_switch_prev = PDM_complete_flag;
- 151:Src/main.c    ****   current_PCM_buffer = PCM_BUF_1;
- 152:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+ 146:Src/main.c    ****   // uint8_t PDM_switch_prev = PDM_complete_flag;
+ 147:Src/main.c    ****   current_PCM_buffer = PCM_BUF_1;
+ 148:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+ 149:Src/main.c    ****   /* USER CODE END 2 */
+ 150:Src/main.c    **** 
+ 151:Src/main.c    ****   /* Infinite loop */
+ 152:Src/main.c    ****   /* USER CODE BEGIN WHILE */
  153:Src/main.c    **** 
  154:Src/main.c    ****   while (1) {
  155:Src/main.c    ****     if (PCM_switch_flag != PCM_switch_prev) {
  156:Src/main.c    ****       PCM_switch_prev = PCM_switch_flag;
- 157:Src/main.c    ****       HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE * 2, 5000);
- 158:Src/main.c    **** 
- 159:Src/main.c    ****       for (uint16_t i = 0; i < PCM_BUF_SIZE; i++) {
- 160:Src/main.c    ****         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
- 161:Src/main.c    ****       }
- 162:Src/main.c    **** 
- 163:Src/main.c    ****       // arm_rfft_fast_f32(&S, fft_input_buffer, fft_output_buffer, 0);
- 164:Src/main.c    ****       // arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
- 165:Src/main.c    ****       // volatile float32_t maxmag;
- 166:Src/main.c    ****       // volatile uint32_t index;
- 167:Src/main.c    ****       // arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE * 2, &maxmag, &index);
- 168:Src/main.c    ****     }
- 169:Src/main.c    **** 
- 170:Src/main.c    ****     if (RECORD_ENABLE == 0) {
- 171:Src/main.c    ****       HAL_Delay(200);
- 172:Src/main.c    ****       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
- 173:Src/main.c    ****     }
- 174:Src/main.c    **** 
- 175:Src/main.c    ****     /* USER CODE END WHILE */
- 176:Src/main.c    **** 
- 177:Src/main.c    ****     /* USER CODE BEGIN 3 */
- 178:Src/main.c    ****   }
- 179:Src/main.c    ****   /* USER CODE END 3 */
- 180:Src/main.c    **** }
- 181:Src/main.c    **** 
- 182:Src/main.c    **** /**
- 183:Src/main.c    ****   * @brief System Clock Configuration
- 184:Src/main.c    ****   * @retval None
- 185:Src/main.c    ****   */
- 186:Src/main.c    **** void SystemClock_Config(void) {
-  28              		.loc 1 186 0
+ 157:Src/main.c    **** 
+ 158:Src/main.c    ****       for (uint16_t i = 0; i < PCM_BUF_SIZE; i++) {
+ 159:Src/main.c    ****         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
+ 160:Src/main.c    ****       }
+ 161:Src/main.c    **** 
+ 162:Src/main.c    ****       arm_rfft_fast_f32(&S, fft_input_buffer, fft_output_buffer, 0);
+ 163:Src/main.c    ****       arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
+ 164:Src/main.c    ****       volatile float32_t maxmag;
+ 165:Src/main.c    ****       volatile uint32_t index;
+ 166:Src/main.c    ****       arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE * 2, &maxmag, &index);
+ 167:Src/main.c    ****       HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE * 2, 5000);
+ 168:Src/main.c    ****       HAL_UART_Transmit(&huart2, &index, 4, 100);
+ 169:Src/main.c    ****     }
+ 170:Src/main.c    **** 
+ 171:Src/main.c    ****     if (RECORD_ENABLE == 0) {
+ 172:Src/main.c    ****       HAL_Delay(150);
+ 173:Src/main.c    ****       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
+ 174:Src/main.c    ****     }
+ 175:Src/main.c    **** 
+ 176:Src/main.c    ****     /* USER CODE END WHILE */
+ 177:Src/main.c    **** 
+ 178:Src/main.c    ****     /* USER CODE BEGIN 3 */
+ 179:Src/main.c    ****   }
+ 180:Src/main.c    ****   /* USER CODE END 3 */
+ 181:Src/main.c    **** }
+ 182:Src/main.c    **** 
+ 183:Src/main.c    **** /**
+ 184:Src/main.c    ****   * @brief System Clock Configuration
+ 185:Src/main.c    ****   * @retval None
+ 186:Src/main.c    ****   */
+ 187:Src/main.c    **** void SystemClock_Config(void) {
+  28              		.loc 1 187 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 96
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -236,17 +237,17 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
   39              	.LCFI1:
   40              		.cfi_def_cfa_offset 112
   41              	.LBB18:
- 187:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct;
- 188:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct;
-ARM GAS  /tmp/ccfRWPKQ.s 			page 5
+ 188:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct;
+ARM GAS  /tmp/ccfK243l.s 			page 5
 
 
- 189:Src/main.c    ****   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
- 190:Src/main.c    **** 
- 191:Src/main.c    ****   /**Configure the main internal regulator output voltage
- 192:Src/main.c    ****   */
- 193:Src/main.c    ****   __HAL_RCC_PWR_CLK_ENABLE();
-  42              		.loc 1 193 0
+ 189:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct;
+ 190:Src/main.c    ****   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
+ 191:Src/main.c    **** 
+ 192:Src/main.c    ****   /**Configure the main internal regulator output voltage
+ 193:Src/main.c    ****   */
+ 194:Src/main.c    ****   __HAL_RCC_PWR_CLK_ENABLE();
+  42              		.loc 1 194 0
   43 0004 0023     		movs	r3, #0
   44 0006 2B4A     		ldr	r2, .L8
   45 0008 0193     		str	r3, [sp, #4]
@@ -259,9 +260,9 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
   52 001a 019A     		ldr	r2, [sp, #4]
   53              	.LBE18:
   54              	.LBB19:
- 194:Src/main.c    **** 
- 195:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-  55              		.loc 1 195 0
+ 195:Src/main.c    **** 
+ 196:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  55              		.loc 1 196 0
   56 001c 264A     		ldr	r2, .L8+4
   57 001e 0293     		str	r3, [sp, #8]
   58 0020 1168     		ldr	r1, [r2]
@@ -269,125 +270,125 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
   60 0026 1160     		str	r1, [r2]
   61 0028 1268     		ldr	r2, [r2]
   62              	.LBE19:
- 196:Src/main.c    **** 
- 197:Src/main.c    ****   /**Initializes the CPU, AHB and APB busses clocks
- 198:Src/main.c    ****   */
- 199:Src/main.c    ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  63              		.loc 1 199 0
+ 197:Src/main.c    **** 
+ 198:Src/main.c    ****   /**Initializes the CPU, AHB and APB busses clocks
+ 199:Src/main.c    ****   */
+ 200:Src/main.c    ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  63              		.loc 1 200 0
   64 002a 0224     		movs	r4, #2
   65              	.LBB20:
- 195:Src/main.c    **** 
-  66              		.loc 1 195 0
+ 196:Src/main.c    **** 
+  66              		.loc 1 196 0
   67 002c 02F48042 		and	r2, r2, #16384
   68 0030 0292     		str	r2, [sp, #8]
   69              	.LBE20:
- 200:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 201:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
- 202:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 203:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  70              		.loc 1 203 0
+ 201:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 202:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
+ 203:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 204:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  70              		.loc 1 204 0
   71 0032 CDE91243 		strd	r4, r3, [sp, #72]
- 204:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 16;
- 205:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 336;
-  72              		.loc 1 205 0
+ 205:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 16;
+ 206:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 336;
+  72              		.loc 1 206 0
   73 0036 4FF4A873 		mov	r3, #336
   74              	.LBB21:
- 195:Src/main.c    **** 
-  75              		.loc 1 195 0
+ 196:Src/main.c    **** 
+  75              		.loc 1 196 0
   76 003a 029A     		ldr	r2, [sp, #8]
   77              	.LBE21:
- 199:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  78              		.loc 1 199 0
-ARM GAS  /tmp/ccfRWPKQ.s 			page 6
+ 200:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ARM GAS  /tmp/ccfK243l.s 			page 6
 
 
+  78              		.loc 1 200 0
   79 003c 0C94     		str	r4, [sp, #48]
- 201:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  80              		.loc 1 201 0
+ 202:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  80              		.loc 1 202 0
   81 003e 1022     		movs	r2, #16
   82 0040 0125     		movs	r5, #1
- 206:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  83              		.loc 1 206 0
+ 207:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  83              		.loc 1 207 0
   84 0042 CDE91534 		strd	r3, r4, [sp, #84]
- 207:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
- 208:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
-  85              		.loc 1 208 0
+ 208:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+ 209:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+  85              		.loc 1 209 0
   86 0046 0CA8     		add	r0, sp, #48
- 207:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
-  87              		.loc 1 207 0
+ 208:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+  87              		.loc 1 208 0
   88 0048 0723     		movs	r3, #7
- 201:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  89              		.loc 1 201 0
+ 202:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  89              		.loc 1 202 0
   90 004a CDE90F52 		strd	r5, r2, [sp, #60]
- 204:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 336;
-  91              		.loc 1 204 0
+ 205:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 336;
+  91              		.loc 1 205 0
   92 004e 1492     		str	r2, [sp, #80]
- 207:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
-  93              		.loc 1 207 0
+ 208:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+  93              		.loc 1 208 0
   94 0050 1793     		str	r3, [sp, #92]
-  95              		.loc 1 208 0
+  95              		.loc 1 209 0
   96 0052 FFF7FEFF 		bl	HAL_RCC_OscConfig
   97              	.LVL0:
   98 0056 00B1     		cbz	r0, .L2
   99              	.L3:
  100 0058 FEE7     		b	.L3
  101              	.L2:
- 209:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 210:Src/main.c    ****   }
- 211:Src/main.c    **** 
- 212:Src/main.c    ****   /**Initializes the CPU, AHB and APB busses clocks
- 213:Src/main.c    ****   */
- 214:Src/main.c    ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
- 102              		.loc 1 214 0
+ 210:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 211:Src/main.c    ****   }
+ 212:Src/main.c    **** 
+ 213:Src/main.c    ****   /**Initializes the CPU, AHB and APB busses clocks
+ 214:Src/main.c    ****   */
+ 215:Src/main.c    ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
+ 102              		.loc 1 215 0
  103 005a 0F23     		movs	r3, #15
- 215:Src/main.c    ****                                 RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
- 216:Src/main.c    ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
- 104              		.loc 1 216 0
+ 216:Src/main.c    ****                                 RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+ 217:Src/main.c    ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 104              		.loc 1 217 0
  105 005c CDE90734 		strd	r3, r4, [sp, #28]
- 217:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 106              		.loc 1 217 0
+ 218:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 106              		.loc 1 218 0
  107 0060 0990     		str	r0, [sp, #36]
- 218:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 219:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 108              		.loc 1 219 0
+ 219:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 220:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 108              		.loc 1 220 0
  109 0062 4FF4A052 		mov	r2, #5120
  110 0066 4FF48053 		mov	r3, #4096
- 220:Src/main.c    **** 
- 221:Src/main.c    ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
- 111              		.loc 1 221 0
+ 221:Src/main.c    **** 
+ 222:Src/main.c    ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
+ 111              		.loc 1 222 0
  112 006a 0521     		movs	r1, #5
  113 006c 07A8     		add	r0, sp, #28
- 219:Src/main.c    **** 
-ARM GAS  /tmp/ccfRWPKQ.s 			page 7
+ARM GAS  /tmp/ccfK243l.s 			page 7
 
 
- 114              		.loc 1 219 0
+ 220:Src/main.c    **** 
+ 114              		.loc 1 220 0
  115 006e CDE90A23 		strd	r2, r3, [sp, #40]
- 116              		.loc 1 221 0
+ 116              		.loc 1 222 0
  117 0072 FFF7FEFF 		bl	HAL_RCC_ClockConfig
  118              	.LVL1:
  119 0076 00B1     		cbz	r0, .L4
  120              	.L5:
  121 0078 FEE7     		b	.L5
  122              	.L4:
- 222:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 223:Src/main.c    ****   }
- 224:Src/main.c    **** 
- 225:Src/main.c    ****   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2S;
- 226:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
- 123              		.loc 1 226 0
+ 223:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 224:Src/main.c    ****   }
+ 225:Src/main.c    **** 
+ 226:Src/main.c    ****   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2S;
+ 227:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
+ 123              		.loc 1 227 0
  124 007a C023     		movs	r3, #192
- 227:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
- 228:Src/main.c    ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
- 125              		.loc 1 228 0
+ 228:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
+ 229:Src/main.c    ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
+ 125              		.loc 1 229 0
  126 007c 03A8     		add	r0, sp, #12
- 227:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
- 127              		.loc 1 227 0
+ 228:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
+ 127              		.loc 1 228 0
  128 007e CDE90434 		strd	r3, r4, [sp, #16]
- 225:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
- 129              		.loc 1 225 0
+ 226:Src/main.c    ****   PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
+ 129              		.loc 1 226 0
  130 0082 0395     		str	r5, [sp, #12]
- 131              		.loc 1 228 0
+ 131              		.loc 1 229 0
  132 0084 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
  133              	.LVL2:
  134 0088 0446     		mov	r4, r0
@@ -395,41 +396,41 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  136              	.L7:
  137 008c FEE7     		b	.L7
  138              	.L6:
- 229:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 230:Src/main.c    ****   }
- 231:Src/main.c    **** 
- 232:Src/main.c    ****   /**Configure the Systick interrupt time
- 233:Src/main.c    ****   */
- 234:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
- 139              		.loc 1 234 0
+ 230:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 231:Src/main.c    ****   }
+ 232:Src/main.c    **** 
+ 233:Src/main.c    ****   /**Configure the Systick interrupt time
+ 234:Src/main.c    ****   */
+ 235:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
+ 139              		.loc 1 235 0
  140 008e FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
  141              	.LVL3:
  142 0092 4FF47A73 		mov	r3, #1000
  143 0096 B0FBF3F0 		udiv	r0, r0, r3
  144 009a FFF7FEFF 		bl	HAL_SYSTICK_Config
  145              	.LVL4:
- 235:Src/main.c    **** 
- 236:Src/main.c    ****   /**Configure the Systick
- 237:Src/main.c    ****   */
- 238:Src/main.c    ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
- 146              		.loc 1 238 0
+ 236:Src/main.c    **** 
+ 237:Src/main.c    ****   /**Configure the Systick
+ 238:Src/main.c    ****   */
+ 239:Src/main.c    ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+ 146              		.loc 1 239 0
  147 009e 0420     		movs	r0, #4
  148 00a0 FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
  149              	.LVL5:
- 239:Src/main.c    **** 
- 240:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
-ARM GAS  /tmp/ccfRWPKQ.s 			page 8
+ 240:Src/main.c    **** 
+ARM GAS  /tmp/ccfK243l.s 			page 8
 
 
- 241:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
- 150              		.loc 1 241 0
+ 241:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
+ 242:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+ 150              		.loc 1 242 0
  151 00a4 2246     		mov	r2, r4
  152 00a6 2146     		mov	r1, r4
  153 00a8 4FF0FF30 		mov	r0, #-1
  154 00ac FFF7FEFF 		bl	HAL_NVIC_SetPriority
  155              	.LVL6:
- 242:Src/main.c    **** }
- 156              		.loc 1 242 0
+ 243:Src/main.c    **** }
+ 156              		.loc 1 243 0
  157 00b0 19B0     		add	sp, sp, #100
  158              	.LCFI2:
  159              		.cfi_def_cfa_offset 12
@@ -471,95 +472,95 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  196 0004 8DB0     		sub	sp, sp, #52
  197              	.LCFI4:
  198              		.cfi_def_cfa_offset 88
- 199              	.LBB39:
- 200              	.LBB40:
- 201              	.LBB41:
- 243:Src/main.c    **** 
- 244:Src/main.c    **** /* CRC init function */
- 245:Src/main.c    **** static void MX_CRC_Init(void) {
- 246:Src/main.c    ****   hcrc.Instance = CRC;
-ARM GAS  /tmp/ccfRWPKQ.s 			page 9
+ 199              	.LBB40:
+ 200              	.LBB41:
+ 201              	.LBB42:
+ 244:Src/main.c    **** 
+ 245:Src/main.c    **** /* CRC init function */
+ 246:Src/main.c    **** static void MX_CRC_Init(void) {
+ARM GAS  /tmp/ccfK243l.s 			page 9
 
 
- 247:Src/main.c    ****   if (HAL_CRC_Init(&hcrc) != HAL_OK) {
- 248:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 249:Src/main.c    ****   }
- 250:Src/main.c    **** 
- 251:Src/main.c    ****   __HAL_CRC_DR_RESET(&hcrc);
- 252:Src/main.c    **** }
- 253:Src/main.c    **** 
- 254:Src/main.c    **** /* I2S2 init function */
- 255:Src/main.c    **** static void MX_I2S2_Init(void) {
- 256:Src/main.c    ****   hi2s2.Instance = SPI2;
- 257:Src/main.c    ****   hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
- 258:Src/main.c    ****   hi2s2.Init.Standard = I2S_STANDARD_LSB;
- 259:Src/main.c    ****   hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B;
- 260:Src/main.c    ****   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
- 261:Src/main.c    ****   hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_32K;
- 262:Src/main.c    ****   hi2s2.Init.CPOL = I2S_CPOL_LOW;
- 263:Src/main.c    ****   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
- 264:Src/main.c    ****   hi2s2.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
- 265:Src/main.c    ****   if (HAL_I2S_Init(&hi2s2) != HAL_OK) {
- 266:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 267:Src/main.c    ****   }
- 268:Src/main.c    **** }
- 269:Src/main.c    **** 
- 270:Src/main.c    **** /* SPI1 init function */
- 271:Src/main.c    **** static void MX_SPI1_Init(void) {
- 272:Src/main.c    ****   /* SPI1 parameter configuration*/
- 273:Src/main.c    ****   hspi1.Instance = SPI1;
- 274:Src/main.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
- 275:Src/main.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
- 276:Src/main.c    ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
- 277:Src/main.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
- 278:Src/main.c    ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
- 279:Src/main.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
- 280:Src/main.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
- 281:Src/main.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
- 282:Src/main.c    ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
- 283:Src/main.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
- 284:Src/main.c    ****   hspi1.Init.CRCPolynomial = 10;
- 285:Src/main.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK) {
- 286:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 287:Src/main.c    ****   }
- 288:Src/main.c    **** }
- 289:Src/main.c    **** 
- 290:Src/main.c    **** /* USART2 init function */
- 291:Src/main.c    **** static void MX_USART2_UART_Init(void) {
- 292:Src/main.c    ****   huart2.Instance = USART2;
- 293:Src/main.c    ****   huart2.Init.BaudRate = 115200;
- 294:Src/main.c    ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
- 295:Src/main.c    ****   huart2.Init.StopBits = UART_STOPBITS_1;
- 296:Src/main.c    ****   huart2.Init.Parity = UART_PARITY_NONE;
- 297:Src/main.c    ****   huart2.Init.Mode = UART_MODE_TX_RX;
- 298:Src/main.c    ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
- 299:Src/main.c    ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
- 300:Src/main.c    ****   if (HAL_UART_Init(&huart2) != HAL_OK) {
- 301:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 302:Src/main.c    ****   }
- 303:Src/main.c    **** }
-ARM GAS  /tmp/ccfRWPKQ.s 			page 10
+ 247:Src/main.c    ****   hcrc.Instance = CRC;
+ 248:Src/main.c    ****   if (HAL_CRC_Init(&hcrc) != HAL_OK) {
+ 249:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 250:Src/main.c    ****   }
+ 251:Src/main.c    **** 
+ 252:Src/main.c    ****   __HAL_CRC_DR_RESET(&hcrc);
+ 253:Src/main.c    **** }
+ 254:Src/main.c    **** 
+ 255:Src/main.c    **** /* I2S2 init function */
+ 256:Src/main.c    **** static void MX_I2S2_Init(void) {
+ 257:Src/main.c    ****   hi2s2.Instance = SPI2;
+ 258:Src/main.c    ****   hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
+ 259:Src/main.c    ****   hi2s2.Init.Standard = I2S_STANDARD_LSB;
+ 260:Src/main.c    ****   hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B;
+ 261:Src/main.c    ****   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
+ 262:Src/main.c    ****   hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_32K;
+ 263:Src/main.c    ****   hi2s2.Init.CPOL = I2S_CPOL_LOW;
+ 264:Src/main.c    ****   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
+ 265:Src/main.c    ****   hi2s2.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
+ 266:Src/main.c    ****   if (HAL_I2S_Init(&hi2s2) != HAL_OK) {
+ 267:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 268:Src/main.c    ****   }
+ 269:Src/main.c    **** }
+ 270:Src/main.c    **** 
+ 271:Src/main.c    **** /* SPI1 init function */
+ 272:Src/main.c    **** static void MX_SPI1_Init(void) {
+ 273:Src/main.c    ****   /* SPI1 parameter configuration*/
+ 274:Src/main.c    ****   hspi1.Instance = SPI1;
+ 275:Src/main.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ 276:Src/main.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 277:Src/main.c    ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+ 278:Src/main.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 279:Src/main.c    ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 280:Src/main.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+ 281:Src/main.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+ 282:Src/main.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 283:Src/main.c    ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 284:Src/main.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 285:Src/main.c    ****   hspi1.Init.CRCPolynomial = 10;
+ 286:Src/main.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK) {
+ 287:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 288:Src/main.c    ****   }
+ 289:Src/main.c    **** }
+ 290:Src/main.c    **** 
+ 291:Src/main.c    **** /* USART2 init function */
+ 292:Src/main.c    **** static void MX_USART2_UART_Init(void) {
+ 293:Src/main.c    ****   huart2.Instance = USART2;
+ 294:Src/main.c    ****   huart2.Init.BaudRate = 115200;
+ 295:Src/main.c    ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 296:Src/main.c    ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 297:Src/main.c    ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 298:Src/main.c    ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 299:Src/main.c    ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 300:Src/main.c    ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 301:Src/main.c    ****   if (HAL_UART_Init(&huart2) != HAL_OK) {
+ 302:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 303:Src/main.c    ****   }
+ARM GAS  /tmp/ccfK243l.s 			page 10
 
 
- 304:Src/main.c    **** 
- 305:Src/main.c    **** /** Configure pins as
- 306:Src/main.c    ****         * Analog
- 307:Src/main.c    ****         * Input
- 308:Src/main.c    ****         * Output
- 309:Src/main.c    ****         * EVENT_OUT
- 310:Src/main.c    ****         * EXTI
- 311:Src/main.c    ****      PA4   ------> I2S3_WS
- 312:Src/main.c    **** */
- 313:Src/main.c    **** static void MX_GPIO_Init(void) {
- 314:Src/main.c    ****   GPIO_InitTypeDef GPIO_InitStruct;
- 315:Src/main.c    **** 
- 316:Src/main.c    ****   /* GPIO Ports Clock Enable */
- 317:Src/main.c    ****   __HAL_RCC_GPIOE_CLK_ENABLE();
- 202              		.loc 1 317 0
+ 304:Src/main.c    **** }
+ 305:Src/main.c    **** 
+ 306:Src/main.c    **** /** Configure pins as
+ 307:Src/main.c    ****         * Analog
+ 308:Src/main.c    ****         * Input
+ 309:Src/main.c    ****         * Output
+ 310:Src/main.c    ****         * EVENT_OUT
+ 311:Src/main.c    ****         * EXTI
+ 312:Src/main.c    ****      PA4   ------> I2S3_WS
+ 313:Src/main.c    **** */
+ 314:Src/main.c    **** static void MX_GPIO_Init(void) {
+ 315:Src/main.c    ****   GPIO_InitTypeDef GPIO_InitStruct;
+ 316:Src/main.c    **** 
+ 317:Src/main.c    ****   /* GPIO Ports Clock Enable */
+ 318:Src/main.c    ****   __HAL_RCC_GPIOE_CLK_ENABLE();
+ 202              		.loc 1 318 0
  203 0006 0024     		movs	r4, #0
- 204              	.LBE41:
- 205              	.LBE40:
- 206              	.LBE39:
+ 204              	.LBE42:
+ 205              	.LBE41:
+ 206              	.LBE40:
  118:Src/main.c    **** 
  207              		.loc 1 118 0
  208 0008 FFF7FEFF 		bl	HAL_Init
@@ -568,40 +569,40 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  210              		.loc 1 124 0
  211 000c FFF7FEFF 		bl	SystemClock_Config
  212              	.LVL8:
- 213              	.LBB51:
- 214              	.LBB50:
- 215              	.LBB42:
- 216              		.loc 1 317 0
- 217 0010 944B     		ldr	r3, .L24
+ 213              	.LBB52:
+ 214              	.LBB51:
+ 215              	.LBB43:
+ 216              		.loc 1 318 0
+ 217 0010 9F4B     		ldr	r3, .L24
  218 0012 0194     		str	r4, [sp, #4]
  219 0014 1A6B     		ldr	r2, [r3, #48]
- 220              	.LBE42:
+ 220              	.LBE43:
+ 319:Src/main.c    ****   __HAL_RCC_GPIOC_CLK_ENABLE();
+ 320:Src/main.c    ****   __HAL_RCC_GPIOH_CLK_ENABLE();
+ 321:Src/main.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+ 322:Src/main.c    ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+ 323:Src/main.c    ****   __HAL_RCC_GPIOD_CLK_ENABLE();
+ 324:Src/main.c    **** 
+ 325:Src/main.c    ****   /*Configure GPIO pin Output Level */
+ 326:Src/main.c    ****   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_2 | CS_I2C_SPI_Pin, GPIO_PIN_RESET);
+ 221              		.loc 1 326 0
+ 222 0016 9F48     		ldr	r0, .L24+4
+ 223              	.LBB44:
  318:Src/main.c    ****   __HAL_RCC_GPIOC_CLK_ENABLE();
- 319:Src/main.c    ****   __HAL_RCC_GPIOH_CLK_ENABLE();
- 320:Src/main.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
- 321:Src/main.c    ****   __HAL_RCC_GPIOB_CLK_ENABLE();
- 322:Src/main.c    ****   __HAL_RCC_GPIOD_CLK_ENABLE();
- 323:Src/main.c    **** 
- 324:Src/main.c    ****   /*Configure GPIO pin Output Level */
- 325:Src/main.c    ****   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_2 | CS_I2C_SPI_Pin, GPIO_PIN_RESET);
- 221              		.loc 1 325 0
- 222 0016 9448     		ldr	r0, .L24+4
- 223              	.LBB43:
- 317:Src/main.c    ****   __HAL_RCC_GPIOC_CLK_ENABLE();
- 224              		.loc 1 317 0
+ 224              		.loc 1 318 0
  225 0018 42F01002 		orr	r2, r2, #16
  226 001c 1A63     		str	r2, [r3, #48]
  227 001e 1A6B     		ldr	r2, [r3, #48]
  228 0020 02F01002 		and	r2, r2, #16
  229 0024 0192     		str	r2, [sp, #4]
  230 0026 019A     		ldr	r2, [sp, #4]
- 231              	.LBE43:
- 232              	.LBB44:
- 318:Src/main.c    ****   __HAL_RCC_GPIOC_CLK_ENABLE();
-ARM GAS  /tmp/ccfRWPKQ.s 			page 11
+ 231              	.LBE44:
+ 232              	.LBB45:
+ARM GAS  /tmp/ccfK243l.s 			page 11
 
 
- 233              		.loc 1 318 0
+ 319:Src/main.c    ****   __HAL_RCC_GPIOC_CLK_ENABLE();
+ 233              		.loc 1 319 0
  234 0028 0294     		str	r4, [sp, #8]
  235 002a 1A6B     		ldr	r2, [r3, #48]
  236 002c 42F00402 		orr	r2, r2, #4
@@ -610,10 +611,10 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  239 0034 02F00402 		and	r2, r2, #4
  240 0038 0292     		str	r2, [sp, #8]
  241 003a 029A     		ldr	r2, [sp, #8]
- 242              	.LBE44:
- 243              	.LBB45:
- 319:Src/main.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
- 244              		.loc 1 319 0
+ 242              	.LBE45:
+ 243              	.LBB46:
+ 320:Src/main.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+ 244              		.loc 1 320 0
  245 003c 0394     		str	r4, [sp, #12]
  246 003e 1A6B     		ldr	r2, [r3, #48]
  247 0040 42F08002 		orr	r2, r2, #128
@@ -622,10 +623,10 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  250 0048 02F08002 		and	r2, r2, #128
  251 004c 0392     		str	r2, [sp, #12]
  252 004e 039A     		ldr	r2, [sp, #12]
- 253              	.LBE45:
- 254              	.LBB46:
- 320:Src/main.c    ****   __HAL_RCC_GPIOB_CLK_ENABLE();
- 255              		.loc 1 320 0
+ 253              	.LBE46:
+ 254              	.LBB47:
+ 321:Src/main.c    ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+ 255              		.loc 1 321 0
  256 0050 0494     		str	r4, [sp, #16]
  257 0052 1A6B     		ldr	r2, [r3, #48]
  258 0054 42F00102 		orr	r2, r2, #1
@@ -634,10 +635,10 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  261 005c 02F00102 		and	r2, r2, #1
  262 0060 0492     		str	r2, [sp, #16]
  263 0062 049A     		ldr	r2, [sp, #16]
- 264              	.LBE46:
- 265              	.LBB47:
- 321:Src/main.c    ****   __HAL_RCC_GPIOD_CLK_ENABLE();
- 266              		.loc 1 321 0
+ 264              	.LBE47:
+ 265              	.LBB48:
+ 322:Src/main.c    ****   __HAL_RCC_GPIOD_CLK_ENABLE();
+ 266              		.loc 1 322 0
  267 0064 0594     		str	r4, [sp, #20]
  268 0066 1A6B     		ldr	r2, [r3, #48]
  269 0068 42F00202 		orr	r2, r2, #2
@@ -646,10 +647,10 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  272 0070 02F00202 		and	r2, r2, #2
  273 0074 0592     		str	r2, [sp, #20]
  274 0076 059A     		ldr	r2, [sp, #20]
- 275              	.LBE47:
- 276              	.LBB48:
- 322:Src/main.c    **** 
- 277              		.loc 1 322 0
+ 275              	.LBE48:
+ 276              	.LBB49:
+ 323:Src/main.c    **** 
+ 277              		.loc 1 323 0
  278 0078 0694     		str	r4, [sp, #24]
  279 007a 1A6B     		ldr	r2, [r3, #48]
  280 007c 42F00802 		orr	r2, r2, #8
@@ -657,815 +658,854 @@ ARM GAS  /tmp/ccfRWPKQ.s 			page 1
  282 0082 1B6B     		ldr	r3, [r3, #48]
  283 0084 03F00803 		and	r3, r3, #8
  284 0088 0693     		str	r3, [sp, #24]
- 285              	.LBE48:
-ARM GAS  /tmp/ccfRWPKQ.s 			page 12
+ARM GAS  /tmp/ccfK243l.s 			page 12
 
 
- 286              		.loc 1 325 0
+ 285              	.LBE49:
+ 286              		.loc 1 326 0
  287 008a 2246     		mov	r2, r4
  288 008c 0C21     		movs	r1, #12
- 289              	.LBB49:
- 322:Src/main.c    **** 
- 290              		.loc 1 322 0
+ 289              	.LBB50:
+ 323:Src/main.c    **** 
+ 290              		.loc 1 323 0
  291 008e 069B     		ldr	r3, [sp, #24]
- 292              	.LBE49:
- 293              		.loc 1 325 0
+ 292              	.LBE50:
+ 293              		.loc 1 326 0
  294 0090 FFF7FEFF 		bl	HAL_GPIO_WritePin
  295              	.LVL9:
- 326:Src/main.c    **** 
- 327:Src/main.c    ****   /*Configure GPIO pin Output Level */
- 328:Src/main.c    ****   HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin,
- 296              		.loc 1 328 0
+ 327:Src/main.c    **** 
+ 328:Src/main.c    ****   /*Configure GPIO pin Output Level */
+ 329:Src/main.c    ****   HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin,
+ 296              		.loc 1 329 0
  297 0094 0122     		movs	r2, #1
  298 0096 1146     		mov	r1, r2
- 299 0098 7448     		ldr	r0, .L24+8
+ 299 0098 7F48     		ldr	r0, .L24+8
  300 009a FFF7FEFF 		bl	HAL_GPIO_WritePin
  301              	.LVL10:
- 329:Src/main.c    ****                     GPIO_PIN_SET);
- 330:Src/main.c    **** 
- 331:Src/main.c    ****   /*Configure GPIO pin Output Level */
- 332:Src/main.c    ****   HAL_GPIO_WritePin(GPIOD, LD4_Pin | LD3_Pin | LD5_Pin | LD6_Pin,
- 302              		.loc 1 332 0
+ 330:Src/main.c    ****                     GPIO_PIN_SET);
+ 331:Src/main.c    **** 
+ 332:Src/main.c    ****   /*Configure GPIO pin Output Level */
+ 333:Src/main.c    ****   HAL_GPIO_WritePin(GPIOD, LD4_Pin | LD3_Pin | LD5_Pin | LD6_Pin,
+ 302              		.loc 1 333 0
  303 009e 2246     		mov	r2, r4
  304 00a0 4FF47041 		mov	r1, #61440
- 305 00a4 7248     		ldr	r0, .L24+12
+ 305 00a4 7D48     		ldr	r0, .L24+12
  306 00a6 FFF7FEFF 		bl	HAL_GPIO_WritePin
  307              	.LVL11:
- 333:Src/main.c    ****                     GPIO_PIN_RESET);
- 334:Src/main.c    **** 
- 335:Src/main.c    ****   /*Configure GPIO pins : PE2 CS_I2C_SPI_Pin */
- 336:Src/main.c    ****   GPIO_InitStruct.Pin = GPIO_PIN_2 | CS_I2C_SPI_Pin;
- 337:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 308              		.loc 1 337 0
- 309 00aa 0126     		movs	r6, #1
- 338:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 339:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 340:Src/main.c    ****   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
- 310              		.loc 1 340 0
+ 334:Src/main.c    ****                     GPIO_PIN_RESET);
+ 335:Src/main.c    **** 
+ 336:Src/main.c    ****   /*Configure GPIO pins : PE2 CS_I2C_SPI_Pin */
+ 337:Src/main.c    ****   GPIO_InitStruct.Pin = GPIO_PIN_2 | CS_I2C_SPI_Pin;
+ 338:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 308              		.loc 1 338 0
+ 309 00aa 0125     		movs	r5, #1
+ 339:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 340:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 341:Src/main.c    ****   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+ 310              		.loc 1 341 0
  311 00ac 07A9     		add	r1, sp, #28
- 312 00ae 6E48     		ldr	r0, .L24+4
- 337:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 313              		.loc 1 337 0
- 314 00b0 0C25     		movs	r5, #12
- 315 00b2 CDE90756 		strd	r5, r6, [sp, #28]
- 339:Src/main.c    ****   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
- 316              		.loc 1 339 0
+ 312 00ae 7948     		ldr	r0, .L24+4
+ 338:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 313              		.loc 1 338 0
+ 314 00b0 0C27     		movs	r7, #12
+ 315 00b2 CDE90775 		strd	r7, r5, [sp, #28]
+ 340:Src/main.c    ****   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+ 316              		.loc 1 340 0
  317 00b6 CDE90944 		strd	r4, r4, [sp, #36]
- 318              		.loc 1 340 0
+ 318              		.loc 1 341 0
  319 00ba FFF7FEFF 		bl	HAL_GPIO_Init
  320              	.LVL12:
- 341:Src/main.c    **** 
- 342:Src/main.c    ****   /*Configure GPIO pin : OTG_FS_PowerSwitchOn_Pin */
- 343:Src/main.c    ****   GPIO_InitStruct.Pin = OTG_FS_PowerSwitchOn_Pin;
- 344:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-ARM GAS  /tmp/ccfRWPKQ.s 			page 13
+ 342:Src/main.c    **** 
+ 343:Src/main.c    ****   /*Configure GPIO pin : OTG_FS_PowerSwitchOn_Pin */
+ 344:Src/main.c    ****   GPIO_InitStruct.Pin = OTG_FS_PowerSwitchOn_Pin;
+ARM GAS  /tmp/ccfK243l.s 			page 13
 
 
- 345:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 346:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 347:Src/main.c    ****   HAL_GPIO_Init(OTG_FS_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
- 321              		.loc 1 347 0
+ 345:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 346:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 347:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 348:Src/main.c    ****   HAL_GPIO_Init(OTG_FS_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
+ 321              		.loc 1 348 0
  322 00be 07A9     		add	r1, sp, #28
- 323 00c0 6A48     		ldr	r0, .L24+8
- 348:Src/main.c    **** 
- 349:Src/main.c    ****   /*Configure GPIO pin : I2S3_WS_Pin */
- 350:Src/main.c    ****   GPIO_InitStruct.Pin = I2S3_WS_Pin;
- 351:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
- 324              		.loc 1 351 0
+ 323 00c0 7548     		ldr	r0, .L24+8
+ 349:Src/main.c    **** 
+ 350:Src/main.c    ****   /*Configure GPIO pin : I2S3_WS_Pin */
+ 351:Src/main.c    ****   GPIO_InitStruct.Pin = I2S3_WS_Pin;
+ 352:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 324              		.loc 1 352 0
  325 00c2 4FF00208 		mov	r8, #2
- 344:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 326              		.loc 1 344 0
- 327 00c6 CDE90766 		strd	r6, r6, [sp, #28]
- 346:Src/main.c    ****   HAL_GPIO_Init(OTG_FS_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
- 328              		.loc 1 346 0
+ 345:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 326              		.loc 1 345 0
+ 327 00c6 CDE90755 		strd	r5, r5, [sp, #28]
+ 347:Src/main.c    ****   HAL_GPIO_Init(OTG_FS_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
+ 328              		.loc 1 347 0
  329 00ca CDE90944 		strd	r4, r4, [sp, #36]
- 347:Src/main.c    **** 
- 330              		.loc 1 347 0
+ 348:Src/main.c    **** 
+ 330              		.loc 1 348 0
  331 00ce FFF7FEFF 		bl	HAL_GPIO_Init
  332              	.LVL13:
- 333              		.loc 1 351 0
+ 333              		.loc 1 352 0
  334 00d2 1023     		movs	r3, #16
  335 00d4 CDE90738 		strd	r3, r8, [sp, #28]
- 352:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 353:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 354:Src/main.c    ****   GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
- 355:Src/main.c    ****   HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
- 336              		.loc 1 355 0
+ 353:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 354:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 355:Src/main.c    ****   GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+ 356:Src/main.c    ****   HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
+ 336              		.loc 1 356 0
  337 00d8 07A9     		add	r1, sp, #28
- 354:Src/main.c    ****   HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
- 338              		.loc 1 354 0
+ 355:Src/main.c    ****   HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
+ 338              		.loc 1 355 0
  339 00da 0623     		movs	r3, #6
- 340              		.loc 1 355 0
- 341 00dc 6548     		ldr	r0, .L24+16
- 354:Src/main.c    ****   HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
- 342              		.loc 1 354 0
+ 340              		.loc 1 356 0
+ 341 00dc 7048     		ldr	r0, .L24+16
+ 355:Src/main.c    ****   HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
+ 342              		.loc 1 355 0
  343 00de 0B93     		str	r3, [sp, #44]
- 353:Src/main.c    ****   GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
- 344              		.loc 1 353 0
+ 354:Src/main.c    ****   GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
+ 344              		.loc 1 354 0
  345 00e0 CDE90944 		strd	r4, r4, [sp, #36]
+ 357:Src/main.c    **** 
+ 358:Src/main.c    ****   /*Configure GPIO pin : BOOT1_Pin */
+ 359:Src/main.c    ****   GPIO_InitStruct.Pin = BOOT1_Pin;
+ 346              		.loc 1 359 0
+ 347 00e4 0426     		movs	r6, #4
  356:Src/main.c    **** 
- 357:Src/main.c    ****   /*Configure GPIO pin : BOOT1_Pin */
- 358:Src/main.c    ****   GPIO_InitStruct.Pin = BOOT1_Pin;
- 346              		.loc 1 358 0
- 347 00e4 0427     		movs	r7, #4
- 355:Src/main.c    **** 
- 348              		.loc 1 355 0
+ 348              		.loc 1 356 0
  349 00e6 FFF7FEFF 		bl	HAL_GPIO_Init
  350              	.LVL14:
- 359:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
- 360:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 361:Src/main.c    ****   HAL_GPIO_Init(BOOT1_GPIO_Port, &GPIO_InitStruct);
- 351              		.loc 1 361 0
+ 360:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 361:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 362:Src/main.c    ****   HAL_GPIO_Init(BOOT1_GPIO_Port, &GPIO_InitStruct);
+ 351              		.loc 1 362 0
  352 00ea 07A9     		add	r1, sp, #28
- 353 00ec 6248     		ldr	r0, .L24+20
-ARM GAS  /tmp/ccfRWPKQ.s 			page 14
+ARM GAS  /tmp/ccfK243l.s 			page 14
 
 
- 360:Src/main.c    ****   HAL_GPIO_Init(BOOT1_GPIO_Port, &GPIO_InitStruct);
- 354              		.loc 1 360 0
+ 353 00ec 6D48     		ldr	r0, .L24+20
+ 361:Src/main.c    ****   HAL_GPIO_Init(BOOT1_GPIO_Port, &GPIO_InitStruct);
+ 354              		.loc 1 361 0
  355 00ee 0994     		str	r4, [sp, #36]
- 359:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
- 356              		.loc 1 359 0
- 357 00f0 CDE90774 		strd	r7, r4, [sp, #28]
- 358              		.loc 1 361 0
+ 360:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 356              		.loc 1 360 0
+ 357 00f0 CDE90764 		strd	r6, r4, [sp, #28]
+ 358              		.loc 1 362 0
  359 00f4 FFF7FEFF 		bl	HAL_GPIO_Init
  360              	.LVL15:
- 362:Src/main.c    **** 
- 363:Src/main.c    ****   /*Configure GPIO pins : LD4_Pin LD3_Pin LD5_Pin LD6_Pin */
- 364:Src/main.c    ****   GPIO_InitStruct.Pin = LD4_Pin | LD3_Pin | LD5_Pin | LD6_Pin;
- 361              		.loc 1 364 0
+ 363:Src/main.c    **** 
+ 364:Src/main.c    ****   /*Configure GPIO pins : LD4_Pin LD3_Pin LD5_Pin LD6_Pin */
+ 365:Src/main.c    ****   GPIO_InitStruct.Pin = LD4_Pin | LD3_Pin | LD5_Pin | LD6_Pin;
+ 361              		.loc 1 365 0
  362 00f8 4FF47043 		mov	r3, #61440
- 365:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 366:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 367:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 368:Src/main.c    ****   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
- 363              		.loc 1 368 0
+ 366:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 367:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 368:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 369:Src/main.c    ****   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+ 363              		.loc 1 369 0
  364 00fc 07A9     		add	r1, sp, #28
- 365 00fe 5C48     		ldr	r0, .L24+12
- 365:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 366              		.loc 1 365 0
- 367 0100 CDE90736 		strd	r3, r6, [sp, #28]
- 367:Src/main.c    ****   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
- 368              		.loc 1 367 0
+ 365 00fe 6748     		ldr	r0, .L24+12
+ 366:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 366              		.loc 1 366 0
+ 367 0100 CDE90735 		strd	r3, r5, [sp, #28]
+ 368:Src/main.c    ****   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+ 368              		.loc 1 368 0
  369 0104 CDE90944 		strd	r4, r4, [sp, #36]
- 370              		.loc 1 368 0
+ 370              		.loc 1 369 0
  371 0108 FFF7FEFF 		bl	HAL_GPIO_Init
  372              	.LVL16:
- 369:Src/main.c    **** 
- 370:Src/main.c    ****   /*Configure GPIO pin : MEMS_INT2_Pin */
- 371:Src/main.c    ****   GPIO_InitStruct.Pin = MEMS_INT2_Pin;
+ 370:Src/main.c    **** 
+ 371:Src/main.c    ****   /*Configure GPIO pin : MEMS_INT2_Pin */
+ 372:Src/main.c    ****   GPIO_InitStruct.Pin = MEMS_INT2_Pin;
+ 373:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
+ 373              		.loc 1 373 0
+ 374 010c 664B     		ldr	r3, .L24+24
+ 374:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 375:Src/main.c    ****   HAL_GPIO_Init(MEMS_INT2_GPIO_Port, &GPIO_InitStruct);
+ 375              		.loc 1 375 0
+ 376 010e 6148     		ldr	r0, .L24+4
  372:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
- 373              		.loc 1 372 0
- 374 010c 5B4B     		ldr	r3, .L24+24
- 373:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 374:Src/main.c    ****   HAL_GPIO_Init(MEMS_INT2_GPIO_Port, &GPIO_InitStruct);
- 375              		.loc 1 374 0
- 376 010e 5648     		ldr	r0, .L24+4
- 371:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
- 377              		.loc 1 371 0
+ 377              		.loc 1 372 0
  378 0110 CDF81C80 		str	r8, [sp, #28]
- 379              		.loc 1 374 0
+ 379              		.loc 1 375 0
  380 0114 07A9     		add	r1, sp, #28
- 373:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
- 381              		.loc 1 373 0
+ 374:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 381              		.loc 1 374 0
  382 0116 CDE90834 		strd	r3, r4, [sp, #32]
- 383              		.loc 1 374 0
+ 383              		.loc 1 375 0
  384 011a FFF7FEFF 		bl	HAL_GPIO_Init
  385              	.LVL17:
- 386              	.LBE50:
- 387              	.LBE51:
- 388              	.LBB52:
- 389              	.LBB53:
- 273:Src/main.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
- 390              		.loc 1 273 0
-ARM GAS  /tmp/ccfRWPKQ.s 			page 15
+ 386              	.LBE51:
+ 387              	.LBE52:
+ 388              	.LBB53:
+ 389              	.LBB54:
+ 274:Src/main.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ARM GAS  /tmp/ccfK243l.s 			page 15
 
 
- 391 011e 5848     		ldr	r0, .L24+28
- 274:Src/main.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
- 392              		.loc 1 274 0
- 393 0120 DFF888C1 		ldr	ip, .L24+72
- 283:Src/main.c    ****   hspi1.Init.CRCPolynomial = 10;
- 394              		.loc 1 283 0
+ 390              		.loc 1 274 0
+ 391 011e 6348     		ldr	r0, .L24+28
+ 275:Src/main.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 392              		.loc 1 275 0
+ 393 0120 DFF8C4C1 		ldr	ip, .L24+88
+ 284:Src/main.c    ****   hspi1.Init.CRCPolynomial = 10;
+ 394              		.loc 1 284 0
  395 0124 8462     		str	r4, [r0, #40]
- 274:Src/main.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
- 396              		.loc 1 274 0
+ 275:Src/main.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 396              		.loc 1 275 0
  397 0126 4FF48273 		mov	r3, #260
  398 012a C0E900C3 		strd	ip, r3, [r0]
- 279:Src/main.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
- 399              		.loc 1 279 0
+ 280:Src/main.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+ 399              		.loc 1 280 0
  400 012e 4FF40073 		mov	r3, #512
- 280:Src/main.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
- 401              		.loc 1 280 0
+ 281:Src/main.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 401              		.loc 1 281 0
  402 0132 C0E90634 		strd	r3, r4, [r0, #24]
- 284:Src/main.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK) {
- 403              		.loc 1 284 0
+ 285:Src/main.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK) {
+ 403              		.loc 1 285 0
  404 0136 0A23     		movs	r3, #10
- 276:Src/main.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
- 405              		.loc 1 276 0
+ 277:Src/main.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 405              		.loc 1 277 0
  406 0138 C0E90244 		strd	r4, r4, [r0, #8]
- 278:Src/main.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
- 407              		.loc 1 278 0
+ 279:Src/main.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+ 407              		.loc 1 279 0
  408 013c C0E90444 		strd	r4, r4, [r0, #16]
- 282:Src/main.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
- 409              		.loc 1 282 0
+ 283:Src/main.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 409              		.loc 1 283 0
  410 0140 C0E90844 		strd	r4, r4, [r0, #32]
- 284:Src/main.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK) {
- 411              		.loc 1 284 0
+ 285:Src/main.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK) {
+ 411              		.loc 1 285 0
  412 0144 C362     		str	r3, [r0, #44]
- 285:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 413              		.loc 1 285 0
+ 286:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 413              		.loc 1 286 0
  414 0146 FFF7FEFF 		bl	HAL_SPI_Init
  415              	.LVL18:
  416 014a 00B1     		cbz	r0, .L11
  417              	.L12:
  418 014c FEE7     		b	.L12
  419              	.L11:
- 420              	.LBE53:
- 421              	.LBE52:
- 422              	.LBB54:
- 423              	.LBB55:
- 292:Src/main.c    ****   huart2.Init.BaudRate = 115200;
- 424              		.loc 1 292 0
- 425 014e 4D4C     		ldr	r4, .L24+32
- 293:Src/main.c    ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
- 426              		.loc 1 293 0
- 427 0150 4D49     		ldr	r1, .L24+36
- 428 0152 4FF4E133 		mov	r3, #115200
- 295:Src/main.c    ****   huart2.Init.Parity = UART_PARITY_NONE;
- 429              		.loc 1 295 0
- 430 0156 C4E90200 		strd	r0, r0, [r4, #8]
- 297:Src/main.c    ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
- 431              		.loc 1 297 0
- 432 015a C4E90405 		strd	r0, r5, [r4, #16]
-ARM GAS  /tmp/ccfRWPKQ.s 			page 16
+ 420              	.LBE54:
+ 421              	.LBE53:
+ 422              	.LBB55:
+ 423              	.LBB56:
+ 293:Src/main.c    ****   huart2.Init.BaudRate = 115200;
+ 424              		.loc 1 293 0
+ 425 014e 584B     		ldr	r3, .L24+32
+ 294:Src/main.c    ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 426              		.loc 1 294 0
+ 427 0150 5849     		ldr	r1, .L24+36
+ 428 0152 4FF4E132 		mov	r2, #115200
+ 296:Src/main.c    ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 429              		.loc 1 296 0
+ 430 0156 C3E90200 		strd	r0, r0, [r3, #8]
+ 298:Src/main.c    ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 431              		.loc 1 298 0
+ARM GAS  /tmp/ccfK243l.s 			page 16
 
 
- 299:Src/main.c    ****   if (HAL_UART_Init(&huart2) != HAL_OK) {
- 433              		.loc 1 299 0
- 434 015e C4E90600 		strd	r0, r0, [r4, #24]
- 300:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 435              		.loc 1 300 0
- 436 0162 2046     		mov	r0, r4
- 293:Src/main.c    ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
- 437              		.loc 1 293 0
- 438 0164 C4E90013 		strd	r1, r3, [r4]
- 300:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 439              		.loc 1 300 0
+ 432 015a C3E90407 		strd	r0, r7, [r3, #16]
+ 300:Src/main.c    ****   if (HAL_UART_Init(&huart2) != HAL_OK) {
+ 433              		.loc 1 300 0
+ 434 015e C3E90600 		strd	r0, r0, [r3, #24]
+ 301:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 435              		.loc 1 301 0
+ 436 0162 1846     		mov	r0, r3
+ 294:Src/main.c    ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 437              		.loc 1 294 0
+ 438 0164 C3E90012 		strd	r1, r2, [r3]
+ 301:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 439              		.loc 1 301 0
  440 0168 FFF7FEFF 		bl	HAL_UART_Init
  441              	.LVL19:
  442 016c 00B1     		cbz	r0, .L13
  443              	.L14:
  444 016e FEE7     		b	.L14
  445              	.L13:
- 446              	.LBE55:
- 447              	.LBE54:
- 448              	.LBB56:
- 449              	.LBB57:
- 256:Src/main.c    ****   hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
- 450              		.loc 1 256 0
- 451 0170 464D     		ldr	r5, .L24+40
- 257:Src/main.c    ****   hi2s2.Init.Standard = I2S_STANDARD_LSB;
- 452              		.loc 1 257 0
- 453 0172 474A     		ldr	r2, .L24+44
- 260:Src/main.c    ****   hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_32K;
- 454              		.loc 1 260 0
- 455 0174 2861     		str	r0, [r5, #16]
- 257:Src/main.c    ****   hi2s2.Init.Standard = I2S_STANDARD_LSB;
- 456              		.loc 1 257 0
+ 446              	.LBE56:
+ 447              	.LBE55:
+ 448              	.LBB57:
+ 449              	.LBB58:
+ 257:Src/main.c    ****   hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
+ 450              		.loc 1 257 0
+ 451 0170 514C     		ldr	r4, .L24+40
+ 258:Src/main.c    ****   hi2s2.Init.Standard = I2S_STANDARD_LSB;
+ 452              		.loc 1 258 0
+ 453 0172 524A     		ldr	r2, .L24+44
+ 261:Src/main.c    ****   hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_32K;
+ 454              		.loc 1 261 0
+ 455 0174 2061     		str	r0, [r4, #16]
+ 258:Src/main.c    ****   hi2s2.Init.Standard = I2S_STANDARD_LSB;
+ 456              		.loc 1 258 0
  457 0176 4FF44073 		mov	r3, #768
- 458 017a C5E90023 		strd	r2, r3, [r5]
- 258:Src/main.c    ****   hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B;
- 459              		.loc 1 258 0
+ 458 017a C4E90023 		strd	r2, r3, [r4]
+ 259:Src/main.c    ****   hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B;
+ 459              		.loc 1 259 0
  460 017e 2023     		movs	r3, #32
- 259:Src/main.c    ****   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
- 461              		.loc 1 259 0
- 462 0180 C5E90230 		strd	r3, r0, [r5, #8]
- 261:Src/main.c    ****   hi2s2.Init.CPOL = I2S_CPOL_LOW;
- 463              		.loc 1 261 0
+ 260:Src/main.c    ****   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
+ 461              		.loc 1 260 0
+ 462 0180 C4E90230 		strd	r3, r0, [r4, #8]
+ 262:Src/main.c    ****   hi2s2.Init.CPOL = I2S_CPOL_LOW;
+ 463              		.loc 1 262 0
  464 0184 4FF4FA43 		mov	r3, #32000
- 262:Src/main.c    ****   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
- 465              		.loc 1 262 0
- 466 0188 C5E90530 		strd	r3, r0, [r5, #20]
- 264:Src/main.c    ****   if (HAL_I2S_Init(&hi2s2) != HAL_OK) {
- 467              		.loc 1 264 0
- 468 018c C5E90700 		strd	r0, r0, [r5, #28]
- 265:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 469              		.loc 1 265 0
- 470 0190 2846     		mov	r0, r5
+ 263:Src/main.c    ****   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
+ 465              		.loc 1 263 0
+ 466 0188 C4E90530 		strd	r3, r0, [r4, #20]
+ 265:Src/main.c    ****   if (HAL_I2S_Init(&hi2s2) != HAL_OK) {
+ 467              		.loc 1 265 0
+ 468 018c C4E90700 		strd	r0, r0, [r4, #28]
+ 266:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 469              		.loc 1 266 0
+ 470 0190 2046     		mov	r0, r4
  471 0192 FFF7FEFF 		bl	HAL_I2S_Init
  472              	.LVL20:
  473 0196 00B1     		cbz	r0, .L15
  474              	.L16:
+ARM GAS  /tmp/ccfK243l.s 			page 17
+
+
  475 0198 FEE7     		b	.L16
-ARM GAS  /tmp/ccfRWPKQ.s 			page 17
-
-
  476              	.L15:
- 477              	.LBE57:
- 478              	.LBE56:
- 479              	.LBB58:
- 480              	.LBB59:
- 246:Src/main.c    ****   if (HAL_CRC_Init(&hcrc) != HAL_OK) {
- 481              		.loc 1 246 0
- 482 019a DFF81481 		ldr	r8, .L24+76
- 483 019e 3D4B     		ldr	r3, .L24+48
- 484 01a0 C8F80030 		str	r3, [r8]
- 247:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 485              		.loc 1 247 0
- 486 01a4 4046     		mov	r0, r8
- 487 01a6 FFF7FEFF 		bl	HAL_CRC_Init
+ 477              	.LBE58:
+ 478              	.LBE57:
+ 479              	.LBB59:
+ 480              	.LBB60:
+ 247:Src/main.c    ****   if (HAL_CRC_Init(&hcrc) != HAL_OK) {
+ 481              		.loc 1 247 0
+ 482 019a 494F     		ldr	r7, .L24+48
+ 483 019c 494B     		ldr	r3, .L24+52
+ 484 019e 3B60     		str	r3, [r7]
+ 248:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 485              		.loc 1 248 0
+ 486 01a0 3846     		mov	r0, r7
+ 487 01a2 FFF7FEFF 		bl	HAL_CRC_Init
  488              	.LVL21:
- 489 01aa 00B1     		cbz	r0, .L17
+ 489 01a6 00B1     		cbz	r0, .L17
  490              	.L18:
- 491 01ac FEE7     		b	.L18
+ 491 01a8 FEE7     		b	.L18
  492              	.L17:
- 251:Src/main.c    **** }
- 493              		.loc 1 251 0
- 494 01ae D8F80020 		ldr	r2, [r8]
- 495              	.LBE59:
- 496              	.LBE58:
- 147:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
- 497              		.loc 1 147 0
- 498 01b2 DFF800A1 		ldr	r10, .L24+80
- 499              	.LBB62:
- 500              	.LBB60:
- 251:Src/main.c    **** }
- 501              		.loc 1 251 0
- 502 01b6 9368     		ldr	r3, [r2, #8]
- 503              	.LBE60:
- 504              	.LBE62:
- 151:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
- 505              		.loc 1 151 0
- 506 01b8 DFF8FC90 		ldr	r9, .L24+84
- 507              	.LBB63:
- 508              	.LBB61:
- 251:Src/main.c    **** }
- 509              		.loc 1 251 0
- 510 01bc 43F00103 		orr	r3, r3, #1
- 511 01c0 9360     		str	r3, [r2, #8]
- 512              	.LBE61:
- 513              	.LBE63:
+ 252:Src/main.c    **** }
+ 493              		.loc 1 252 0
+ 494 01aa 3A68     		ldr	r2, [r7]
+ 495              	.LBE60:
+ 496              	.LBE59:
+ 143:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
+ 497              		.loc 1 143 0
+ 498 01ac DFF83C81 		ldr	r8, .L24+92
+ 499              	.LBB63:
+ 500              	.LBB61:
+ 252:Src/main.c    **** }
+ 501              		.loc 1 252 0
+ 502 01b0 9368     		ldr	r3, [r2, #8]
+ 503              	.LBE61:
+ 504              	.LBE63:
+ 505              	.LBB64:
+ 162:Src/main.c    ****       arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
+ 506              		.loc 1 162 0
+ 507 01b2 DFF828A1 		ldr	r10, .L24+76
+ 508 01b6 DFF810B1 		ldr	fp, .L24+56
+ 509              	.LBE64:
+ 510              	.LBB66:
+ 511              	.LBB62:
+ 252:Src/main.c    **** }
+ 512              		.loc 1 252 0
+ 513 01ba 43F00103 		orr	r3, r3, #1
+ 514 01be 9360     		str	r3, [r2, #8]
+ 515              	.LBE62:
+ 516              	.LBE66:
  136:Src/main.c    ****   /* USER CODE BEGIN 2 */
- 514              		.loc 1 136 0
- 515 01c2 FFF7FEFF 		bl	MX_PDM2PCM_Init
- 516              	.LVL22:
- 138:Src/main.c    ****   /* USER CODE END 2 */
- 517              		.loc 1 138 0
- 518 01c6 4FF48051 		mov	r1, #4096
- 519 01ca 3348     		ldr	r0, .L24+52
- 520 01cc FFF7FEFF 		bl	arm_rfft_fast_init_f32
- 521              	.LVL23:
- 144:Src/main.c    ****   // SPI2_NVIC_INIT();
- 522              		.loc 1 144 0
-ARM GAS  /tmp/ccfRWPKQ.s 			page 18
+ 517              		.loc 1 136 0
+ 518 01c0 FFF7FEFF 		bl	MX_PDM2PCM_Init
+ 519              	.LVL22:
+ 138:Src/main.c    **** 
+ 520              		.loc 1 138 0
+ 521 01c4 4FF48051 		mov	r1, #4096
+ 522 01c8 3F48     		ldr	r0, .L24+56
+ARM GAS  /tmp/ccfK243l.s 			page 18
 
 
- 523 01d0 3246     		mov	r2, r6
- 524 01d2 3946     		mov	r1, r7
- 525 01d4 2448     		ldr	r0, .L24+4
- 149:Src/main.c    ****   // uint8_t PDM_switch_prev = PDM_complete_flag;
- 526              		.loc 1 149 0
- 527 01d6 314F     		ldr	r7, .L24+56
- 144:Src/main.c    ****   // SPI2_NVIC_INIT();
- 528              		.loc 1 144 0
- 529 01d8 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 530              	.LVL24:
- 146:Src/main.c    ****   RECORD_ENABLE = 1;  // Enable I2S reading
- 531              		.loc 1 146 0
- 532 01dc 3246     		mov	r2, r6
- 533 01de 4FF48071 		mov	r1, #256
- 534 01e2 2148     		ldr	r0, .L24+4
- 535 01e4 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 536              	.LVL25:
- 148:Src/main.c    ****   uint8_t PCM_switch_prev = PCM_switch_flag;
- 537              		.loc 1 148 0
- 538 01e8 3246     		mov	r2, r6
- 539 01ea 4FF40051 		mov	r1, #8192
- 540 01ee 2048     		ldr	r0, .L24+12
- 147:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
- 541              		.loc 1 147 0
- 542 01f0 8AF80060 		strb	r6, [r10]
- 148:Src/main.c    ****   uint8_t PCM_switch_prev = PCM_switch_flag;
- 543              		.loc 1 148 0
- 544 01f4 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 545              	.LVL26:
- 151:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
- 546              		.loc 1 151 0
- 547 01f8 294B     		ldr	r3, .L24+60
- 152:Src/main.c    **** 
- 548              		.loc 1 152 0
- 549 01fa 2A49     		ldr	r1, .L24+64
- 149:Src/main.c    ****   // uint8_t PDM_switch_prev = PDM_complete_flag;
- 550              		.loc 1 149 0
- 551 01fc 97F80080 		ldrb	r8, [r7]	@ zero_extendqisi2
- 552              	.LVL27:
- 151:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
- 553              		.loc 1 151 0
- 554 0200 C3F80090 		str	r9, [r3]
- 152:Src/main.c    **** 
- 555              		.loc 1 152 0
- 556 0204 2846     		mov	r0, r5
- 557 0206 4022     		movs	r2, #64
- 558 0208 FFF7FEFF 		bl	HAL_I2S_Receive_IT
- 559              	.LVL28:
- 157:Src/main.c    **** 
- 560              		.loc 1 157 0
- 561 020c A346     		mov	fp, r4
- 172:Src/main.c    ****     }
- 562              		.loc 1 172 0
- 563 020e 184C     		ldr	r4, .L24+12
- 564 0210 5646     		mov	r6, r10
- 565 0212 4D46     		mov	r5, r9
- 157:Src/main.c    **** 
-ARM GAS  /tmp/ccfRWPKQ.s 			page 19
+ 523 01ca FFF7FEFF 		bl	arm_rfft_fast_init_f32
+ 524              	.LVL23:
+ 140:Src/main.c    ****   // SPI2_NVIC_INIT();
+ 525              		.loc 1 140 0
+ 526 01ce 2A46     		mov	r2, r5
+ 527 01d0 3146     		mov	r1, r6
+ 528 01d2 3048     		ldr	r0, .L24+4
+ 147:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+ 529              		.loc 1 147 0
+ 530 01d4 3D4E     		ldr	r6, .L24+60
+ 140:Src/main.c    ****   // SPI2_NVIC_INIT();
+ 531              		.loc 1 140 0
+ 532 01d6 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 533              	.LVL24:
+ 142:Src/main.c    ****   RECORD_ENABLE = 1;  // Enable I2S reading
+ 534              		.loc 1 142 0
+ 535 01da 2A46     		mov	r2, r5
+ 536 01dc 4FF48071 		mov	r1, #256
+ 537 01e0 2C48     		ldr	r0, .L24+4
+ 538 01e2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 539              	.LVL25:
+ 144:Src/main.c    ****   uint8_t PCM_switch_prev = PCM_switch_flag;
+ 540              		.loc 1 144 0
+ 541 01e6 2A46     		mov	r2, r5
+ 542 01e8 4FF40051 		mov	r1, #8192
+ 543 01ec 2B48     		ldr	r0, .L24+12
+ 143:Src/main.c    ****   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
+ 544              		.loc 1 143 0
+ 545 01ee 88F80050 		strb	r5, [r8]
+ 144:Src/main.c    ****   uint8_t PCM_switch_prev = PCM_switch_flag;
+ 546              		.loc 1 144 0
+ 547 01f2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 548              	.LVL26:
+ 145:Src/main.c    ****   // uint8_t PDM_switch_prev = PDM_complete_flag;
+ 549              		.loc 1 145 0
+ 550 01f6 364D     		ldr	r5, .L24+64
+ 147:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+ 551              		.loc 1 147 0
+ 552 01f8 364B     		ldr	r3, .L24+68
+ 148:Src/main.c    ****   /* USER CODE END 2 */
+ 553              		.loc 1 148 0
+ 554 01fa 3749     		ldr	r1, .L24+72
+ 145:Src/main.c    ****   // uint8_t PDM_switch_prev = PDM_complete_flag;
+ 555              		.loc 1 145 0
+ 556 01fc 2F78     		ldrb	r7, [r5]	@ zero_extendqisi2
+ 557              	.LVL27:
+ 147:Src/main.c    ****   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+ 558              		.loc 1 147 0
+ 559 01fe 1E60     		str	r6, [r3]
+ 148:Src/main.c    ****   /* USER CODE END 2 */
+ 560              		.loc 1 148 0
+ 561 0200 2046     		mov	r0, r4
+ 562 0202 4022     		movs	r2, #64
+ 563 0204 FFF7FEFF 		bl	HAL_I2S_Receive_IT
+ 564              	.LVL28:
+ 565 0208 4446     		mov	r4, r8
+ 566              	.LBB67:
+ARM GAS  /tmp/ccfK243l.s 			page 19
 
 
- 566              		.loc 1 157 0
- 567 0214 CA46     		mov	r10, r9
- 568              	.L19:
+ 162:Src/main.c    ****       arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
+ 567              		.loc 1 162 0
+ 568 020a DFF8E480 		ldr	r8, .L24+96
+ 569              	.L19:
+ 570              	.LBE67:
  155:Src/main.c    ****       PCM_switch_prev = PCM_switch_flag;
- 569              		.loc 1 155 0
- 570 0216 97F80090 		ldrb	r9, [r7]	@ zero_extendqisi2
- 571 021a C145     		cmp	r9, r8
- 572 021c 16D0     		beq	.L20
- 573              	.LVL29:
- 157:Src/main.c    **** 
- 574              		.loc 1 157 0
- 575 021e 41F28833 		movw	r3, #5000
- 576 0222 4FF48052 		mov	r2, #4096
- 577 0226 5146     		mov	r1, r10
- 578 0228 5846     		mov	r0, fp
- 579 022a FFF7FEFF 		bl	HAL_UART_Transmit
- 580              	.LVL30:
- 581 022e 1E4A     		ldr	r2, .L24+68
- 582 0230 0023     		movs	r3, #0
- 583              	.LVL31:
- 584              	.L21:
- 585              	.LBB64:
- 160:Src/main.c    ****       }
- 586              		.loc 1 160 0 discriminator 3
- 587 0232 35F81310 		ldrh	r1, [r5, r3, lsl #1]
- 588 0236 07EE901A 		vmov	s15, r1	@ int
- 589 023a 0133     		adds	r3, r3, #1
- 590              	.LVL32:
- 591 023c F8EE677A 		vcvt.f32.u32	s15, s15
- 159:Src/main.c    ****         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
- 592              		.loc 1 159 0 discriminator 3
- 593 0240 B3F5006F 		cmp	r3, #2048
- 160:Src/main.c    ****       }
- 594              		.loc 1 160 0 discriminator 3
- 595 0244 E2EC017A 		vstmia.32	r2!, {s15}
- 159:Src/main.c    ****         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
- 596              		.loc 1 159 0 discriminator 3
- 597 0248 F3D1     		bne	.L21
- 598 024a C846     		mov	r8, r9
- 599              	.LVL33:
- 600              	.L20:
- 601              	.LBE64:
- 170:Src/main.c    ****       HAL_Delay(200);
- 602              		.loc 1 170 0
- 603 024c 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
- 604 024e 002B     		cmp	r3, #0
- 605 0250 E1D1     		bne	.L19
- 171:Src/main.c    ****       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
- 606              		.loc 1 171 0
- 607 0252 C820     		movs	r0, #200
- 608 0254 FFF7FEFF 		bl	HAL_Delay
- 609              	.LVL34:
- 172:Src/main.c    ****     }
- 610              		.loc 1 172 0
- 611 0258 4FF40041 		mov	r1, #32768
- 612 025c 2046     		mov	r0, r4
- 613 025e FFF7FEFF 		bl	HAL_GPIO_TogglePin
-ARM GAS  /tmp/ccfRWPKQ.s 			page 20
+ 571              		.loc 1 155 0
+ 572 020e 95F80090 		ldrb	r9, [r5]	@ zero_extendqisi2
+ 573 0212 B945     		cmp	r9, r7
+ 574 0214 2FD0     		beq	.L20
+ 575 0216 314A     		ldr	r2, .L24+76
+ 576 0218 0023     		movs	r3, #0
+ 577              	.L21:
+ 578              	.LVL29:
+ 579              	.LBB68:
+ 580              	.LBB65:
+ 159:Src/main.c    ****       }
+ 581              		.loc 1 159 0 discriminator 3
+ 582 021a 36F81310 		ldrh	r1, [r6, r3, lsl #1]
+ 583 021e 07EE901A 		vmov	s15, r1	@ int
+ 584 0222 0133     		adds	r3, r3, #1
+ 585              	.LVL30:
+ 586 0224 F8EE677A 		vcvt.f32.u32	s15, s15
+ 158:Src/main.c    ****         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
+ 587              		.loc 1 158 0 discriminator 3
+ 588 0228 B3F5006F 		cmp	r3, #2048
+ 159:Src/main.c    ****       }
+ 589              		.loc 1 159 0 discriminator 3
+ 590 022c E2EC017A 		vstmia.32	r2!, {s15}
+ 158:Src/main.c    ****         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
+ 591              		.loc 1 158 0 discriminator 3
+ 592 0230 F3D1     		bne	.L21
+ 593              	.LBE65:
+ 162:Src/main.c    ****       arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
+ 594              		.loc 1 162 0
+ 595 0232 0023     		movs	r3, #0
+ 596 0234 4246     		mov	r2, r8
+ 597 0236 5146     		mov	r1, r10
+ 598 0238 5846     		mov	r0, fp
+ 599 023a FFF7FEFF 		bl	arm_rfft_fast_f32
+ 600              	.LVL31:
+ 163:Src/main.c    ****       volatile float32_t maxmag;
+ 601              		.loc 1 163 0
+ 602 023e 4FF48052 		mov	r2, #4096
+ 603 0242 2749     		ldr	r1, .L24+80
+ 604 0244 4046     		mov	r0, r8
+ 605 0246 FFF7FEFF 		bl	arm_cmplx_mag_f32
+ 606              	.LVL32:
+ 166:Src/main.c    ****       HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE * 2, 5000);
+ 607              		.loc 1 166 0
+ 608 024a 07AB     		add	r3, sp, #28
+ 609 024c 6A46     		mov	r2, sp
+ 610 024e 4FF48051 		mov	r1, #4096
+ 611 0252 2448     		ldr	r0, .L24+84
+ 612 0254 FFF7FEFF 		bl	arm_max_f32
+ 613              	.LVL33:
+ 167:Src/main.c    ****       HAL_UART_Transmit(&huart2, &index, 4, 100);
+ARM GAS  /tmp/ccfK243l.s 			page 20
 
 
- 614              	.LVL35:
- 615 0262 D8E7     		b	.L19
- 616              	.L25:
- 617              		.align	2
- 618              	.L24:
- 619 0264 00380240 		.word	1073887232
- 620 0268 00100240 		.word	1073876992
- 621 026c 00080240 		.word	1073874944
- 622 0270 000C0240 		.word	1073875968
- 623 0274 00000240 		.word	1073872896
- 624 0278 00040240 		.word	1073873920
- 625 027c 00001210 		.word	269615104
- 626 0280 00000000 		.word	hspi1
- 627 0284 00000000 		.word	huart2
- 628 0288 00440040 		.word	1073759232
- 629 028c 00000000 		.word	hi2s2
- 630 0290 00380040 		.word	1073756160
- 631 0294 00300240 		.word	1073885184
- 632 0298 00000000 		.word	S
- 633 029c 00000000 		.word	.LANCHOR1
- 634 02a0 00000000 		.word	current_PCM_buffer
- 635 02a4 00000000 		.word	PDM_BUF_1
- 636 02a8 00000000 		.word	fft_input_buffer
- 637 02ac 00300140 		.word	1073819648
- 638 02b0 00000000 		.word	hcrc
- 639 02b4 00000000 		.word	.LANCHOR0
- 640 02b8 00000000 		.word	PCM_BUF_1
- 641              		.cfi_endproc
- 642              	.LFE159:
- 644              		.section	.text.HAL_I2S_RxCpltCallback,"ax",%progbits
- 645              		.align	1
- 646              		.global	HAL_I2S_RxCpltCallback
- 647              		.syntax unified
- 648              		.thumb
- 649              		.thumb_func
- 650              		.fpu fpv4-sp-d16
- 652              	HAL_I2S_RxCpltCallback:
- 653              	.LFB167:
- 375:Src/main.c    **** }
- 376:Src/main.c    **** 
- 377:Src/main.c    **** /* USER CODE BEGIN 4 */
- 378:Src/main.c    **** 
- 379:Src/main.c    **** inline uint16_t *getPCMPointer(uint8_t PCM_switch_flag) {
- 380:Src/main.c    ****   if (PCM_switch_flag == 1) {
- 381:Src/main.c    ****     return PCM_BUF_2;
- 382:Src/main.c    ****   } else {
- 383:Src/main.c    ****     return PCM_BUF_1;
- 384:Src/main.c    ****   }
- 385:Src/main.c    **** }
- 386:Src/main.c    **** 
- 387:Src/main.c    **** void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
- 654              		.loc 1 387 0
- 655              		.cfi_startproc
- 656              		@ args = 0, pretend = 0, frame = 0
- 657              		@ frame_needed = 0, uses_anonymous_args = 0
- 658              	.LVL36:
- 659 0000 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  /tmp/ccfRWPKQ.s 			page 21
+ 614              		.loc 1 167 0
+ 615 0258 41F28833 		movw	r3, #5000
+ 616 025c 4FF48052 		mov	r2, #4096
+ 617 0260 1A49     		ldr	r1, .L24+60
+ 618 0262 1348     		ldr	r0, .L24+32
+ 619 0264 FFF7FEFF 		bl	HAL_UART_Transmit
+ 620              	.LVL34:
+ 168:Src/main.c    ****     }
+ 621              		.loc 1 168 0
+ 622 0268 6423     		movs	r3, #100
+ 623 026a 0422     		movs	r2, #4
+ 624 026c 07A9     		add	r1, sp, #28
+ 625 026e 1048     		ldr	r0, .L24+32
+ 626 0270 FFF7FEFF 		bl	HAL_UART_Transmit
+ 627              	.LVL35:
+ 628 0274 4F46     		mov	r7, r9
+ 629              	.LVL36:
+ 630              	.L20:
+ 631              	.LBE68:
+ 171:Src/main.c    ****       HAL_Delay(150);
+ 632              		.loc 1 171 0
+ 633 0276 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 634 0278 002B     		cmp	r3, #0
+ 635 027a C8D1     		bne	.L19
+ 172:Src/main.c    ****       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
+ 636              		.loc 1 172 0
+ 637 027c 9620     		movs	r0, #150
+ 638 027e FFF7FEFF 		bl	HAL_Delay
+ 639              	.LVL37:
+ 173:Src/main.c    ****     }
+ 640              		.loc 1 173 0
+ 641 0282 4FF40041 		mov	r1, #32768
+ 642 0286 0548     		ldr	r0, .L24+12
+ 643 0288 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 644              	.LVL38:
+ 645 028c BFE7     		b	.L19
+ 646              	.L25:
+ 647 028e 00BF     		.align	2
+ 648              	.L24:
+ 649 0290 00380240 		.word	1073887232
+ 650 0294 00100240 		.word	1073876992
+ 651 0298 00080240 		.word	1073874944
+ 652 029c 000C0240 		.word	1073875968
+ 653 02a0 00000240 		.word	1073872896
+ 654 02a4 00040240 		.word	1073873920
+ 655 02a8 00001210 		.word	269615104
+ 656 02ac 00000000 		.word	hspi1
+ 657 02b0 00000000 		.word	huart2
+ 658 02b4 00440040 		.word	1073759232
+ 659 02b8 00000000 		.word	hi2s2
+ 660 02bc 00380040 		.word	1073756160
+ 661 02c0 00000000 		.word	hcrc
+ 662 02c4 00300240 		.word	1073885184
+ 663 02c8 00000000 		.word	S
+ 664 02cc 00000000 		.word	PCM_BUF_1
+ 665 02d0 00000000 		.word	.LANCHOR1
+ 666 02d4 00000000 		.word	current_PCM_buffer
+ARM GAS  /tmp/ccfK243l.s 			page 21
 
 
- 660              	.LCFI5:
- 661              		.cfi_def_cfa_offset 16
- 662              		.cfi_offset 3, -16
- 663              		.cfi_offset 4, -12
- 664              		.cfi_offset 5, -8
- 665              		.cfi_offset 14, -4
- 388:Src/main.c    ****   PDM_complete_flag = 1;  // Signal completion to start new receive
- 666              		.loc 1 388 0
- 667 0002 164B     		ldr	r3, .L32
- 389:Src/main.c    ****   PDM_Filter(PDM_BUF_1, &current_PCM_buffer[local_pcm_pointer],
- 668              		.loc 1 389 0
- 669 0004 164C     		ldr	r4, .L32+4
- 670 0006 174D     		ldr	r5, .L32+8
- 671 0008 2168     		ldr	r1, [r4]
- 672 000a 1748     		ldr	r0, .L32+12
- 673              	.LVL37:
- 388:Src/main.c    ****   PDM_complete_flag = 1;  // Signal completion to start new receive
- 674              		.loc 1 388 0
- 675 000c 0122     		movs	r2, #1
- 676 000e 1A70     		strb	r2, [r3]
- 677              		.loc 1 389 0
- 678 0010 2B68     		ldr	r3, [r5]
- 679 0012 164A     		ldr	r2, .L32+16
- 680 0014 03EB4101 		add	r1, r3, r1, lsl #1
- 681 0018 FFF7FEFF 		bl	PDM_Filter
- 682              	.LVL38:
- 390:Src/main.c    ****              &PDM1_filter_handler);
- 391:Src/main.c    ****   local_pcm_pointer =
+ 667 02d8 00000000 		.word	PDM_BUF_1
+ 668 02dc 00000000 		.word	fft_input_buffer
+ 669 02e0 00000000 		.word	fft_mag_buffer
+ 670 02e4 04000000 		.word	fft_mag_buffer+4
+ 671 02e8 00300140 		.word	1073819648
+ 672 02ec 00000000 		.word	.LANCHOR0
+ 673 02f0 00000000 		.word	fft_output_buffer
+ 674              		.cfi_endproc
+ 675              	.LFE159:
+ 677              		.section	.text.HAL_I2S_RxCpltCallback,"ax",%progbits
+ 678              		.align	1
+ 679              		.global	HAL_I2S_RxCpltCallback
+ 680              		.syntax unified
+ 681              		.thumb
+ 682              		.thumb_func
+ 683              		.fpu fpv4-sp-d16
+ 685              	HAL_I2S_RxCpltCallback:
+ 686              	.LFB167:
+ 376:Src/main.c    **** }
+ 377:Src/main.c    **** 
+ 378:Src/main.c    **** /* USER CODE BEGIN 4 */
+ 379:Src/main.c    **** 
+ 380:Src/main.c    **** inline uint16_t *getPCMPointer(uint8_t PCM_switch_flag) {
+ 381:Src/main.c    ****   if (PCM_switch_flag == 1) {
+ 382:Src/main.c    ****     return PCM_BUF_2;
+ 383:Src/main.c    ****   } else {
+ 384:Src/main.c    ****     return PCM_BUF_1;
+ 385:Src/main.c    ****   }
+ 386:Src/main.c    **** }
+ 387:Src/main.c    **** 
+ 388:Src/main.c    **** void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
+ 687              		.loc 1 388 0
+ 688              		.cfi_startproc
+ 689              		@ args = 0, pretend = 0, frame = 0
+ 690              		@ frame_needed = 0, uses_anonymous_args = 0
+ 691              	.LVL39:
+ 692 0000 38B5     		push	{r3, r4, r5, lr}
+ 693              	.LCFI5:
+ 694              		.cfi_def_cfa_offset 16
+ 695              		.cfi_offset 3, -16
+ 696              		.cfi_offset 4, -12
+ 697              		.cfi_offset 5, -8
+ 698              		.cfi_offset 14, -4
+ 389:Src/main.c    ****   PDM_complete_flag = 1;  // Signal completion to start new receive
+ 699              		.loc 1 389 0
+ 700 0002 164B     		ldr	r3, .L32
+ 390:Src/main.c    ****   PDM_Filter(PDM_BUF_1, &current_PCM_buffer[local_pcm_pointer],
+ 701              		.loc 1 390 0
+ 702 0004 164C     		ldr	r4, .L32+4
+ 703 0006 174D     		ldr	r5, .L32+8
+ 704 0008 2168     		ldr	r1, [r4]
+ 705 000a 1748     		ldr	r0, .L32+12
+ 706              	.LVL40:
+ 389:Src/main.c    ****   PDM_complete_flag = 1;  // Signal completion to start new receive
+ 707              		.loc 1 389 0
+ 708 000c 0122     		movs	r2, #1
+ 709 000e 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/ccfK243l.s 			page 22
+
+
+ 710              		.loc 1 390 0
+ 711 0010 2B68     		ldr	r3, [r5]
+ 712 0012 164A     		ldr	r2, .L32+16
+ 713 0014 03EB4101 		add	r1, r3, r1, lsl #1
+ 714 0018 FFF7FEFF 		bl	PDM_Filter
+ 715              	.LVL41:
+ 391:Src/main.c    ****              &PDM1_filter_handler);
+ 392:Src/main.c    ****   local_pcm_pointer =
+ 393:Src/main.c    ****       local_pcm_pointer + 16;  // The filter returns 16 samples of 2 bytes
+ 716              		.loc 1 393 0
+ 717 001c 2368     		ldr	r3, [r4]
+ 718 001e 144A     		ldr	r2, .L32+20
+ 719 0020 1033     		adds	r3, r3, #16
+ 394:Src/main.c    ****   if (local_pcm_pointer == PCM_BUF_SIZE) {
+ 720              		.loc 1 394 0
+ 721 0022 B3F5006F 		cmp	r3, #2048
+ 722 0026 0AD0     		beq	.L27
  392:Src/main.c    ****       local_pcm_pointer + 16;  // The filter returns 16 samples of 2 bytes
- 683              		.loc 1 392 0
- 684 001c 2368     		ldr	r3, [r4]
- 685 001e 144A     		ldr	r2, .L32+20
- 686 0020 1033     		adds	r3, r3, #16
- 393:Src/main.c    ****   if (local_pcm_pointer == PCM_BUF_SIZE) {
- 687              		.loc 1 393 0
- 688 0022 B3F5006F 		cmp	r3, #2048
- 689 0026 0AD0     		beq	.L27
- 391:Src/main.c    ****       local_pcm_pointer + 16;  // The filter returns 16 samples of 2 bytes
- 690              		.loc 1 391 0
- 691 0028 2360     		str	r3, [r4]
- 692              	.L28:
- 394:Src/main.c    ****     local_pcm_pointer = 0;
- 395:Src/main.c    ****     PCM_switch_flag ^= 1;
+ 723              		.loc 1 392 0
+ 724 0028 2360     		str	r3, [r4]
+ 725              	.L28:
+ 395:Src/main.c    ****     local_pcm_pointer = 0;
+ 396:Src/main.c    ****     PCM_switch_flag ^= 1;
+ 397:Src/main.c    ****     RECORD_ENABLE = 0;
+ 398:Src/main.c    ****     if (PCM_switch_flag == 1) {
+ 399:Src/main.c    ****       current_PCM_buffer = PCM_BUF_2;
+ 400:Src/main.c    ****     } else {
+ 401:Src/main.c    ****       current_PCM_buffer = PCM_BUF_1;
+ 402:Src/main.c    ****     }
+ 403:Src/main.c    ****   }
+ 404:Src/main.c    ****   if (RECORD_ENABLE == 1) {
+ 726              		.loc 1 404 0
+ 727 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 728 002c 012B     		cmp	r3, #1
+ 729 002e 14D1     		bne	.L26
+ 405:Src/main.c    ****     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
+ 730              		.loc 1 405 0
+ 731 0030 4022     		movs	r2, #64
+ 732 0032 0D49     		ldr	r1, .L32+12
+ 733 0034 0F48     		ldr	r0, .L32+24
+ 406:Src/main.c    ****   }
+ 407:Src/main.c    ****   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+ 408:Src/main.c    ****   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
+ 409:Src/main.c    **** }
+ 734              		.loc 1 409 0
+ 735 0036 BDE83840 		pop	{r3, r4, r5, lr}
+ 736              	.LCFI6:
+ 737              		.cfi_remember_state
+ 738              		.cfi_restore 14
+ 739              		.cfi_restore 5
+ 740              		.cfi_restore 4
+ 741              		.cfi_restore 3
+ 742              		.cfi_def_cfa_offset 0
+ 405:Src/main.c    ****     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
+ 743              		.loc 1 405 0
+ 744 003a FFF7FEBF 		b	HAL_I2S_Receive_IT
+ 745              	.LVL42:
+ARM GAS  /tmp/ccfK243l.s 			page 23
+
+
+ 746              	.L27:
+ 747              	.LCFI7:
+ 748              		.cfi_restore_state
  396:Src/main.c    ****     RECORD_ENABLE = 0;
+ 749              		.loc 1 396 0
+ 750 003e 0E48     		ldr	r0, .L32+28
+ 751 0040 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 395:Src/main.c    ****     PCM_switch_flag ^= 1;
+ 752              		.loc 1 395 0
+ 753 0042 0021     		movs	r1, #0
+ 754 0044 2160     		str	r1, [r4]
+ 396:Src/main.c    ****     RECORD_ENABLE = 0;
+ 755              		.loc 1 396 0
+ 756 0046 83F00104 		eor	r4, r3, #1
+ 757 004a 0470     		strb	r4, [r0]
  397:Src/main.c    ****     if (PCM_switch_flag == 1) {
+ 758              		.loc 1 397 0
+ 759 004c 1170     		strb	r1, [r2]
  398:Src/main.c    ****       current_PCM_buffer = PCM_BUF_2;
+ 760              		.loc 1 398 0
+ 761 004e 13B9     		cbnz	r3, .L29
  399:Src/main.c    ****     } else {
- 400:Src/main.c    ****       current_PCM_buffer = PCM_BUF_1;
+ 762              		.loc 1 399 0
+ 763 0050 0A4B     		ldr	r3, .L32+32
+ 764              	.L31:
  401:Src/main.c    ****     }
- 402:Src/main.c    ****   }
- 403:Src/main.c    ****   if (RECORD_ENABLE == 1) {
- 693              		.loc 1 403 0
- 694 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 695 002c 012B     		cmp	r3, #1
- 696 002e 14D1     		bne	.L26
- 404:Src/main.c    ****     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
- 697              		.loc 1 404 0
-ARM GAS  /tmp/ccfRWPKQ.s 			page 22
+ 765              		.loc 1 401 0
+ 766 0052 2B60     		str	r3, [r5]
+ 767 0054 E9E7     		b	.L28
+ 768              	.L29:
+ 769 0056 0A4B     		ldr	r3, .L32+36
+ 770 0058 FBE7     		b	.L31
+ 771              	.L26:
+ 772              		.loc 1 409 0
+ 773 005a 38BD     		pop	{r3, r4, r5, pc}
+ 774              	.L33:
+ 775              		.align	2
+ 776              	.L32:
+ 777 005c 00000000 		.word	.LANCHOR2
+ 778 0060 00000000 		.word	.LANCHOR3
+ 779 0064 00000000 		.word	current_PCM_buffer
+ 780 0068 00000000 		.word	PDM_BUF_1
+ 781 006c 00000000 		.word	PDM1_filter_handler
+ 782 0070 00000000 		.word	.LANCHOR0
+ 783 0074 00000000 		.word	hi2s2
+ 784 0078 00000000 		.word	.LANCHOR1
+ 785 007c 00000000 		.word	PCM_BUF_2
+ 786 0080 00000000 		.word	PCM_BUF_1
+ 787              		.cfi_endproc
+ 788              	.LFE167:
+ 790              		.section	.text._Error_Handler,"ax",%progbits
+ 791              		.align	1
+ 792              		.global	_Error_Handler
+ 793              		.syntax unified
+ 794              		.thumb
+ 795              		.thumb_func
+ 796              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/ccfK243l.s 			page 24
 
 
- 698 0030 4022     		movs	r2, #64
- 699 0032 0D49     		ldr	r1, .L32+12
- 700 0034 0F48     		ldr	r0, .L32+24
- 405:Src/main.c    ****   }
- 406:Src/main.c    ****   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
- 407:Src/main.c    ****   // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
- 408:Src/main.c    **** }
- 701              		.loc 1 408 0
- 702 0036 BDE83840 		pop	{r3, r4, r5, lr}
- 703              	.LCFI6:
- 704              		.cfi_remember_state
- 705              		.cfi_restore 14
- 706              		.cfi_restore 5
- 707              		.cfi_restore 4
- 708              		.cfi_restore 3
- 709              		.cfi_def_cfa_offset 0
- 404:Src/main.c    ****     HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, DECIMATION_FACTOR);
- 710              		.loc 1 404 0
- 711 003a FFF7FEBF 		b	HAL_I2S_Receive_IT
- 712              	.LVL39:
- 713              	.L27:
- 714              	.LCFI7:
- 715              		.cfi_restore_state
- 395:Src/main.c    ****     RECORD_ENABLE = 0;
- 716              		.loc 1 395 0
- 717 003e 0E48     		ldr	r0, .L32+28
- 718 0040 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 394:Src/main.c    ****     PCM_switch_flag ^= 1;
- 719              		.loc 1 394 0
- 720 0042 0021     		movs	r1, #0
- 721 0044 2160     		str	r1, [r4]
- 395:Src/main.c    ****     RECORD_ENABLE = 0;
- 722              		.loc 1 395 0
- 723 0046 83F00104 		eor	r4, r3, #1
- 724 004a 0470     		strb	r4, [r0]
- 396:Src/main.c    ****     if (PCM_switch_flag == 1) {
- 725              		.loc 1 396 0
- 726 004c 1170     		strb	r1, [r2]
- 397:Src/main.c    ****       current_PCM_buffer = PCM_BUF_2;
- 727              		.loc 1 397 0
- 728 004e 13B9     		cbnz	r3, .L29
- 398:Src/main.c    ****     } else {
- 729              		.loc 1 398 0
- 730 0050 0A4B     		ldr	r3, .L32+32
- 731              	.L31:
- 400:Src/main.c    ****     }
- 732              		.loc 1 400 0
- 733 0052 2B60     		str	r3, [r5]
- 734 0054 E9E7     		b	.L28
- 735              	.L29:
- 736 0056 0A4B     		ldr	r3, .L32+36
- 737 0058 FBE7     		b	.L31
- 738              	.L26:
- 739              		.loc 1 408 0
- 740 005a 38BD     		pop	{r3, r4, r5, pc}
- 741              	.L33:
- 742              		.align	2
-ARM GAS  /tmp/ccfRWPKQ.s 			page 23
+ 798              	_Error_Handler:
+ 799              	.LFB168:
+ 410:Src/main.c    **** 
+ 411:Src/main.c    **** /* USER CODE END 4 */
+ 412:Src/main.c    **** 
+ 413:Src/main.c    **** /**
+ 414:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 415:Src/main.c    ****   * @param  file: The file name as string.
+ 416:Src/main.c    ****   * @param  line: The line in file as a number.
+ 417:Src/main.c    ****   * @retval None
+ 418:Src/main.c    ****   */
+ 419:Src/main.c    **** void _Error_Handler(char *file, int line) {
+ 800              		.loc 1 419 0
+ 801              		.cfi_startproc
+ 802              		@ Volatile: function does not return.
+ 803              		@ args = 0, pretend = 0, frame = 0
+ 804              		@ frame_needed = 0, uses_anonymous_args = 0
+ 805              		@ link register save eliminated.
+ 806              	.LVL43:
+ 807              	.L35:
+ 808 0000 FEE7     		b	.L35
+ 809              		.cfi_endproc
+ 810              	.LFE168:
+ 812              		.comm	S,24,4
+ 813              		.global	RECORD_ENABLE
+ 814              		.comm	current_PCM_buffer,4,4
+ 815              		.comm	current_PDM_buffer,4,4
+ 816              		.global	PCM_switch_flag
+ 817              		.global	PDM_complete_flag
+ 818              		.global	local_pcm_pointer
+ 819              		.comm	fft_mag_buffer,16384,4
+ 820              		.comm	fft_input_buffer,8192,4
+ 821              		.comm	fft_output_buffer,16384,4
+ 822              		.comm	PCM_BUF_2,4096,2
+ 823              		.comm	PCM_BUF_1,4096,2
+ 824              		.comm	PDM_BUF_2,128,2
+ 825              		.comm	PDM_BUF_1,128,2
+ 826              		.comm	huart2,64,4
+ 827              		.comm	hspi1,88,4
+ 828              		.comm	hi2s2,72,4
+ 829              		.comm	hcrc,8,4
+ 830              		.section	.bss.PCM_switch_flag,"aw",%nobits
+ 831              		.set	.LANCHOR1,. + 0
+ 834              	PCM_switch_flag:
+ 835 0000 00       		.space	1
+ 836              		.section	.bss.PDM_complete_flag,"aw",%nobits
+ 837              		.set	.LANCHOR2,. + 0
+ 840              	PDM_complete_flag:
+ 841 0000 00       		.space	1
+ 842              		.section	.bss.RECORD_ENABLE,"aw",%nobits
+ 843              		.set	.LANCHOR0,. + 0
+ 846              	RECORD_ENABLE:
+ 847 0000 00       		.space	1
+ 848              		.section	.bss.local_pcm_pointer,"aw",%nobits
+ 849              		.align	2
+ 850              		.set	.LANCHOR3,. + 0
+ 853              	local_pcm_pointer:
+ARM GAS  /tmp/ccfK243l.s 			page 25
 
 
- 743              	.L32:
- 744 005c 00000000 		.word	.LANCHOR2
- 745 0060 00000000 		.word	.LANCHOR3
- 746 0064 00000000 		.word	current_PCM_buffer
- 747 0068 00000000 		.word	PDM_BUF_1
- 748 006c 00000000 		.word	PDM1_filter_handler
- 749 0070 00000000 		.word	.LANCHOR0
- 750 0074 00000000 		.word	hi2s2
- 751 0078 00000000 		.word	.LANCHOR1
- 752 007c 00000000 		.word	PCM_BUF_2
- 753 0080 00000000 		.word	PCM_BUF_1
- 754              		.cfi_endproc
- 755              	.LFE167:
- 757              		.section	.text._Error_Handler,"ax",%progbits
- 758              		.align	1
- 759              		.global	_Error_Handler
- 760              		.syntax unified
- 761              		.thumb
- 762              		.thumb_func
- 763              		.fpu fpv4-sp-d16
- 765              	_Error_Handler:
- 766              	.LFB168:
- 409:Src/main.c    **** 
- 410:Src/main.c    **** /* USER CODE END 4 */
- 411:Src/main.c    **** 
- 412:Src/main.c    **** /**
- 413:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
- 414:Src/main.c    ****   * @param  file: The file name as string.
- 415:Src/main.c    ****   * @param  line: The line in file as a number.
- 416:Src/main.c    ****   * @retval None
- 417:Src/main.c    ****   */
- 418:Src/main.c    **** void _Error_Handler(char *file, int line) {
- 767              		.loc 1 418 0
- 768              		.cfi_startproc
- 769              		@ Volatile: function does not return.
- 770              		@ args = 0, pretend = 0, frame = 0
- 771              		@ frame_needed = 0, uses_anonymous_args = 0
- 772              		@ link register save eliminated.
- 773              	.LVL40:
- 774              	.L35:
- 775 0000 FEE7     		b	.L35
- 776              		.cfi_endproc
- 777              	.LFE168:
- 779              		.comm	S,24,4
- 780              		.global	RECORD_ENABLE
- 781              		.comm	current_PCM_buffer,4,4
- 782              		.comm	current_PDM_buffer,4,4
- 783              		.global	PCM_switch_flag
- 784              		.global	PDM_complete_flag
- 785              		.global	local_pcm_pointer
- 786              		.comm	fft_mag_buffer,16384,4
- 787              		.comm	fft_input_buffer,8192,4
- 788              		.comm	fft_output_buffer,16384,4
- 789              		.comm	PCM_BUF_2,4096,2
- 790              		.comm	PCM_BUF_1,4096,2
- 791              		.comm	PDM_BUF_2,128,2
- 792              		.comm	PDM_BUF_1,128,2
-ARM GAS  /tmp/ccfRWPKQ.s 			page 24
-
-
- 793              		.comm	huart2,64,4
- 794              		.comm	hspi1,88,4
- 795              		.comm	hi2s2,72,4
- 796              		.comm	hcrc,8,4
- 797              		.section	.bss.PCM_switch_flag,"aw",%nobits
- 798              		.set	.LANCHOR1,. + 0
- 801              	PCM_switch_flag:
- 802 0000 00       		.space	1
- 803              		.section	.bss.PDM_complete_flag,"aw",%nobits
- 804              		.set	.LANCHOR2,. + 0
- 807              	PDM_complete_flag:
- 808 0000 00       		.space	1
- 809              		.section	.bss.RECORD_ENABLE,"aw",%nobits
- 810              		.set	.LANCHOR0,. + 0
- 813              	RECORD_ENABLE:
- 814 0000 00       		.space	1
- 815              		.section	.bss.local_pcm_pointer,"aw",%nobits
- 816              		.align	2
- 817              		.set	.LANCHOR3,. + 0
- 820              	local_pcm_pointer:
- 821 0000 00000000 		.space	4
- 822              		.text
- 823              	.Letext0:
- 824              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 825              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 826              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 827              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 828              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 829              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
- 830              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
- 831              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
- 832              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
- 833              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 834              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 835              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 836              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 837              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 838              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_crc.h"
- 839              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
- 840              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 841              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 842              		.file 20 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
- 843              		.file 21 "Inc/pdm2pcm.h"
- 844              		.file 22 "/usr/arm-none-eabi/include/math.h"
- 845              		.file 23 "Drivers/CMSIS/Include/arm_math.h"
- 846              		.file 24 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
- 847              		.file 25 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /tmp/ccfRWPKQ.s 			page 25
+ 854 0000 00000000 		.space	4
+ 855              		.text
+ 856              	.Letext0:
+ 857              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 858              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 859              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 860              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 861              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 862              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+ 863              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+ 864              		.file 9 "/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h"
+ 865              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+ 866              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 867              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 868              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 869              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 870              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 871              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_crc.h"
+ 872              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
+ 873              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 874              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 875              		.file 20 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
+ 876              		.file 21 "Inc/pdm2pcm.h"
+ 877              		.file 22 "/usr/arm-none-eabi/include/math.h"
+ 878              		.file 23 "Drivers/CMSIS/Include/arm_math.h"
+ 879              		.file 24 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 880              		.file 25 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  /tmp/ccfK243l.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccfRWPKQ.s:18     .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccfRWPKQ.s:25     .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccfRWPKQ.s:165    .text.SystemClock_Config:00000000000000b4 $d
-     /tmp/ccfRWPKQ.s:171    .text.startup.main:0000000000000000 $t
-     /tmp/ccfRWPKQ.s:178    .text.startup.main:0000000000000000 main
-     /tmp/ccfRWPKQ.s:619    .text.startup.main:0000000000000264 $d
+     /tmp/ccfK243l.s:18     .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccfK243l.s:25     .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccfK243l.s:165    .text.SystemClock_Config:00000000000000b4 $d
+     /tmp/ccfK243l.s:171    .text.startup.main:0000000000000000 $t
+     /tmp/ccfK243l.s:178    .text.startup.main:0000000000000000 main
+     /tmp/ccfK243l.s:649    .text.startup.main:0000000000000290 $d
                             *COM*:0000000000000058 hspi1
                             *COM*:0000000000000040 huart2
                             *COM*:0000000000000048 hi2s2
+                            *COM*:0000000000000008 hcrc
                             *COM*:0000000000000018 S
+                            *COM*:0000000000001000 PCM_BUF_1
                             *COM*:0000000000000004 current_PCM_buffer
                             *COM*:0000000000000080 PDM_BUF_1
                             *COM*:0000000000002000 fft_input_buffer
-                            *COM*:0000000000000008 hcrc
-                            *COM*:0000000000001000 PCM_BUF_1
-     /tmp/ccfRWPKQ.s:645    .text.HAL_I2S_RxCpltCallback:0000000000000000 $t
-     /tmp/ccfRWPKQ.s:652    .text.HAL_I2S_RxCpltCallback:0000000000000000 HAL_I2S_RxCpltCallback
-     /tmp/ccfRWPKQ.s:744    .text.HAL_I2S_RxCpltCallback:000000000000005c $d
-                            *COM*:0000000000001000 PCM_BUF_2
-     /tmp/ccfRWPKQ.s:758    .text._Error_Handler:0000000000000000 $t
-     /tmp/ccfRWPKQ.s:765    .text._Error_Handler:0000000000000000 _Error_Handler
-     /tmp/ccfRWPKQ.s:813    .bss.RECORD_ENABLE:0000000000000000 RECORD_ENABLE
-                            *COM*:0000000000000004 current_PDM_buffer
-     /tmp/ccfRWPKQ.s:801    .bss.PCM_switch_flag:0000000000000000 PCM_switch_flag
-     /tmp/ccfRWPKQ.s:807    .bss.PDM_complete_flag:0000000000000000 PDM_complete_flag
-     /tmp/ccfRWPKQ.s:820    .bss.local_pcm_pointer:0000000000000000 local_pcm_pointer
                             *COM*:0000000000004000 fft_mag_buffer
                             *COM*:0000000000004000 fft_output_buffer
+     /tmp/ccfK243l.s:678    .text.HAL_I2S_RxCpltCallback:0000000000000000 $t
+     /tmp/ccfK243l.s:685    .text.HAL_I2S_RxCpltCallback:0000000000000000 HAL_I2S_RxCpltCallback
+     /tmp/ccfK243l.s:777    .text.HAL_I2S_RxCpltCallback:000000000000005c $d
+                            *COM*:0000000000001000 PCM_BUF_2
+     /tmp/ccfK243l.s:791    .text._Error_Handler:0000000000000000 $t
+     /tmp/ccfK243l.s:798    .text._Error_Handler:0000000000000000 _Error_Handler
+     /tmp/ccfK243l.s:846    .bss.RECORD_ENABLE:0000000000000000 RECORD_ENABLE
+                            *COM*:0000000000000004 current_PDM_buffer
+     /tmp/ccfK243l.s:834    .bss.PCM_switch_flag:0000000000000000 PCM_switch_flag
+     /tmp/ccfK243l.s:840    .bss.PDM_complete_flag:0000000000000000 PDM_complete_flag
+     /tmp/ccfK243l.s:853    .bss.local_pcm_pointer:0000000000000000 local_pcm_pointer
                             *COM*:0000000000000080 PDM_BUF_2
-     /tmp/ccfRWPKQ.s:802    .bss.PCM_switch_flag:0000000000000000 $d
-     /tmp/ccfRWPKQ.s:808    .bss.PDM_complete_flag:0000000000000000 $d
-     /tmp/ccfRWPKQ.s:814    .bss.RECORD_ENABLE:0000000000000000 $d
-     /tmp/ccfRWPKQ.s:816    .bss.local_pcm_pointer:0000000000000000 $d
+     /tmp/ccfK243l.s:835    .bss.PCM_switch_flag:0000000000000000 $d
+     /tmp/ccfK243l.s:841    .bss.PDM_complete_flag:0000000000000000 $d
+     /tmp/ccfK243l.s:847    .bss.RECORD_ENABLE:0000000000000000 $d
+     /tmp/ccfK243l.s:849    .bss.local_pcm_pointer:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_RCC_OscConfig
@@ -1485,11 +1525,14 @@ HAL_CRC_Init
 MX_PDM2PCM_Init
 arm_rfft_fast_init_f32
 HAL_I2S_Receive_IT
+arm_rfft_fast_f32
+arm_cmplx_mag_f32
+arm_max_f32
+ARM GAS  /tmp/ccfK243l.s 			page 27
+
+
 HAL_UART_Transmit
 HAL_Delay
 HAL_GPIO_TogglePin
-ARM GAS  /tmp/ccfRWPKQ.s 			page 26
-
-
 PDM_Filter
 PDM1_filter_handler

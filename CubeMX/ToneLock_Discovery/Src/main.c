@@ -136,10 +136,6 @@ int main(void) {
   MX_PDM2PCM_Init();
   /* USER CODE BEGIN 2 */
   arm_rfft_fast_init_f32(&S, PCM_BUF_SIZE * 2);
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
 
   LOCK_ENABLE();
   // SPI2_NVIC_INIT();
@@ -150,25 +146,30 @@ int main(void) {
   // uint8_t PDM_switch_prev = PDM_complete_flag;
   current_PCM_buffer = PCM_BUF_1;
   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
 
   while (1) {
     if (PCM_switch_flag != PCM_switch_prev) {
       PCM_switch_prev = PCM_switch_flag;
-      HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE * 2, 5000);
 
       for (uint16_t i = 0; i < PCM_BUF_SIZE; i++) {
         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
       }
 
-      // arm_rfft_fast_f32(&S, fft_input_buffer, fft_output_buffer, 0);
-      // arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
-      // volatile float32_t maxmag;
-      // volatile uint32_t index;
-      // arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE * 2, &maxmag, &index);
+      arm_rfft_fast_f32(&S, fft_input_buffer, fft_output_buffer, 0);
+      arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
+      volatile float32_t maxmag;
+      volatile uint32_t index;
+      arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE * 2, &maxmag, &index);
+      HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE * 2, 5000);
+      HAL_UART_Transmit(&huart2, &index, 4, 100);
     }
 
     if (RECORD_ENABLE == 0) {
-      HAL_Delay(200);
+      HAL_Delay(150);
       HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
     }
 
