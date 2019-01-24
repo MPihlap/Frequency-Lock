@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc9OsL9A.s 			page 1
+ARM GAS  /tmp/ccVn6PsV.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc9OsL9A.s 			page 1
   29:Src/pdm2pcm.c ****   *    microprocessor devices manufactured by or for STMicroelectronics.
   30:Src/pdm2pcm.c ****   * 5. Redistribution and use of this software other than as permitted under
   31:Src/pdm2pcm.c ****   *    this license is void and will automatically terminate your rights under
-ARM GAS  /tmp/cc9OsL9A.s 			page 2
+ARM GAS  /tmp/ccVn6PsV.s 			page 2
 
 
   32:Src/pdm2pcm.c ****   *    this license.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc9OsL9A.s 			page 1
   72:Src/pdm2pcm.c ****   PDM1_filter_handler.high_pass_tap = 2126008810;
   73:Src/pdm2pcm.c ****   PDM1_filter_handler.in_ptr_channels = 1;
   74:Src/pdm2pcm.c ****   PDM1_filter_handler.out_ptr_channels = 1;
-ARM GAS  /tmp/cc9OsL9A.s 			page 3
+ARM GAS  /tmp/ccVn6PsV.s 			page 3
 
 
   75:Src/pdm2pcm.c ****   PDM_Filter_Init(&PDM1_filter_handler);
@@ -143,13 +143,13 @@ ARM GAS  /tmp/cc9OsL9A.s 			page 1
   55              		.loc 1 78 0
   56 001c 1023     		movs	r3, #16
   57 001e 4B80     		strh	r3, [r1, #2]	@ movhi
-  79:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 0;
+  79:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 30;
   80:Src/pdm2pcm.c ****   PDM_Filter_setConfig(&PDM1_filter_handler, &PDM1_filter_config);
   58              		.loc 1 80 0
   59 0020 2046     		mov	r0, r4
-  79:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 0;
+  79:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 30;
   60              		.loc 1 79 0
-  61 0022 0023     		movs	r3, #0
+  61 0022 1E23     		movs	r3, #30
   81:Src/pdm2pcm.c **** 
   82:Src/pdm2pcm.c ****   /* USER CODE BEGIN 3 */
   83:Src/pdm2pcm.c ****   /* USER CODE END 3 */
@@ -160,7 +160,7 @@ ARM GAS  /tmp/cc9OsL9A.s 			page 1
   65              		.cfi_restore 14
   66              		.cfi_restore 4
   67              		.cfi_def_cfa_offset 0
-  79:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 0;
+  79:Src/pdm2pcm.c ****   PDM1_filter_config.mic_gain = 30;
   68              		.loc 1 79 0
   69 0028 8B80     		strh	r3, [r1, #4]	@ movhi
   80:Src/pdm2pcm.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc9OsL9A.s 			page 1
   82              		.section	.text.MX_PDM2PCM_Process,"ax",%progbits
   83              		.align	1
   84              		.global	MX_PDM2PCM_Process
-ARM GAS  /tmp/cc9OsL9A.s 			page 4
+ARM GAS  /tmp/ccVn6PsV.s 			page 4
 
 
   85              		.syntax unified
@@ -226,18 +226,18 @@ ARM GAS  /tmp/cc9OsL9A.s 			page 1
  110              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
  111              		.file 4 "Middlewares/ST/STM32_Audio/Addons/PDM/Inc/pdm2pcm_glo.h"
  112              		.file 5 "Inc/pdm2pcm.h"
-ARM GAS  /tmp/cc9OsL9A.s 			page 5
+ARM GAS  /tmp/ccVn6PsV.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 pdm2pcm.c
-     /tmp/cc9OsL9A.s:18     .text.MX_PDM2PCM_Init:0000000000000000 $t
-     /tmp/cc9OsL9A.s:25     .text.MX_PDM2PCM_Init:0000000000000000 MX_PDM2PCM_Init
-     /tmp/cc9OsL9A.s:76     .text.MX_PDM2PCM_Init:0000000000000030 $d
+     /tmp/ccVn6PsV.s:18     .text.MX_PDM2PCM_Init:0000000000000000 $t
+     /tmp/ccVn6PsV.s:25     .text.MX_PDM2PCM_Init:0000000000000000 MX_PDM2PCM_Init
+     /tmp/ccVn6PsV.s:76     .text.MX_PDM2PCM_Init:0000000000000030 $d
                             *COM*:000000000000004c PDM1_filter_handler
                             *COM*:0000000000000006 PDM1_filter_config
-     /tmp/cc9OsL9A.s:83     .text.MX_PDM2PCM_Process:0000000000000000 $t
-     /tmp/cc9OsL9A.s:90     .text.MX_PDM2PCM_Process:0000000000000000 MX_PDM2PCM_Process
+     /tmp/ccVn6PsV.s:83     .text.MX_PDM2PCM_Process:0000000000000000 $t
+     /tmp/ccVn6PsV.s:90     .text.MX_PDM2PCM_Process:0000000000000000 MX_PDM2PCM_Process
 
 UNDEFINED SYMBOLS
 PDM_Filter_Init
