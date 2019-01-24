@@ -93,6 +93,11 @@ uint32_t local_pcm_pointer = 0;  // Keeps track of PCM buffer
 uint8_t PCM_switch_flag = 0;
 uint16_t *current_PCM_buffer;  // Pointer to array to be recorded to
 uint8_t RECORD_ENABLE = 0;     // Recording control flag
+uint8_t open_lock_counter = 0;
+uint32_t sequence[] = {787, 884, 992, 1051, 992, 787, 884};
+// Desired index of maximum magnitude, initially 100 = 781.25 ... 789 Hz
+uint32_t desiredIndex = 100;
+uint8_t error = 2;  // How many neighbouring indexes will be considered legit
 arm_rfft_fast_instance_f32 S;
 
 /* USER CODE END 0 */
@@ -133,7 +138,7 @@ int main(void) {
   MX_PDM2PCM_Init();
   /* USER CODE BEGIN 2 */
   arm_rfft_fast_init_f32(&S, PCM_BUF_SIZE);
-
+  uint32_t desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
   LOCK_ENABLE();
   // SPI2_NVIC_INIT();
   HAL_GPIO_WritePin(GPIOE, SPI1_NCS_PIN, GPIO_PIN_SET);
@@ -142,22 +147,9 @@ int main(void) {
   uint8_t PCM_switch_prev = PCM_switch_flag;
 
   current_PCM_buffer = PCM_BUF_1;
-  uint8_t open_lock_flag = 0;
   volatile float32_t maxmag;
   volatile uint32_t index;
-  // float32_t testData[PCM_BUF_SIZE];
-  // float32_t sinval;
 
-  // for (uint32_t i = 0; i < PCM_BUF_SIZE; i++) {
-  //   sinval = arm_sin_f32(i * 3);
-  //   testData[i] = sinval;
-  // }
-
-  // arm_abs_f32(testData, testData, PCM_BUF_SIZE);
-  // arm_rfft_fast_f32(&S, testData, fft_output_buffer, 0);
-  // arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
-  // arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE - 1, &maxmag, &index);
-  HAL_Delay(2000);
   HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);  // ENABLE ME TO RECORD
   /* USER CODE END 2 */
 
@@ -165,6 +157,7 @@ int main(void) {
   /* USER CODE BEGIN WHILE */
   uint16_t handshake[4] = {1000, 1100, 1200, 1300};
   uint16_t window[4] = {0, 0, 0, 0};
+
   while (1) {
     if (PCM_switch_flag != PCM_switch_prev) {
       PCM_switch_prev = PCM_switch_flag;
@@ -187,16 +180,23 @@ int main(void) {
       // HAL_UART_Transmit(&huart2, &maxmag, 4, 100);
 
       if (maxmag > 50) {
-        if ((index > 98) && (index < 101)) {
+        if ((index > desiredIndex - error) && (index < desiredIndex + error)) {
           HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_SET);
-          open_lock_flag = 1;
+          open_lock_counter++;
+          desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
         }
       }
-      if (open_lock_flag == 0) {
+      if (open_lock_counter < LOCK_STAGES) {
         RECORD_ENABLE = 1;
         HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
         __HAL_I2S_CLEAR_OVRFLAG(&hi2s2);
         HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+      } else {
+        LOCK_DISABLE();
+        HAL_GPIO_WritePin(LED_PORT, LED1_PIN, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(LED_PORT, LED4_PIN, GPIO_PIN_SET);
       }
     }
     HAL_Delay(10);
@@ -416,7 +416,7 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
   //   fft_input_buffer[local_pcm_pointer + i] =
   //       (float32_t)current_PCM_buffer[local_pcm_pointer + i];
   // }
-
+  HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_RESET);
   local_pcm_pointer = local_pcm_pointer + 16;  // The filter returns 16 samples
   if (local_pcm_pointer == PCM_BUF_SIZE) {
     local_pcm_pointer = 0;
