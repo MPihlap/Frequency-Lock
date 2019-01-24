@@ -195,14 +195,15 @@ int main(void) {
       if (open_lock_flag == 0) {
         RECORD_ENABLE = 1;
         HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
+        __HAL_I2S_CLEAR_OVRFLAG(&hi2s2);
         HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
       }
     }
-
-    if (RECORD_ENABLE == 0) {
-      HAL_Delay(150);
-      HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
-    }
+    HAL_Delay(10);
+    // if (RECORD_ENABLE == 0) {
+    //   HAL_Delay(15);
+    //   HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
+    // }
 
     /* USER CODE END WHILE */
 
