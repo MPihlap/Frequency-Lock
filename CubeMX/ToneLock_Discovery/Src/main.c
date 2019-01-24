@@ -159,29 +159,27 @@ int main(void) {
   uint16_t window[4] = {0, 0, 0, 0};
 
   while (1) {
+    // Check if we have a full buffer of PCM data
     if (PCM_switch_flag != PCM_switch_prev) {
-      PCM_switch_prev = PCM_switch_flag;
-
+      PCM_switch_prev = PCM_switch_flag;  // Set flag to new value
+      // Convert data to float for signal processing
       for (uint16_t i = 0; i < PCM_BUF_SIZE; i++) {
         fft_input_buffer[i] = (float32_t)PCM_BUF_1[i];
       }
 
-      // arm_rfft_fast_f32(&S, testData, fft_output_buffer, 0);
-      // arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE * 2);
-      // arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE - 1, &maxmag, &index);
-
+      // Perform real fft
       arm_rfft_fast_f32(&S, fft_input_buffer, fft_output_buffer, 0);
+      // Find magnitudes of complex values
       arm_cmplx_mag_f32(fft_output_buffer, fft_mag_buffer, PCM_BUF_SIZE);
+      // Find maximum magnitude, ignoring first element
       arm_max_f32(&(fft_mag_buffer[1]), PCM_BUF_SIZE - 1, &maxmag, &index);
 
-      // HAL_UART_Transmit(&huart2, handshake, 4 * 2, 100);
-      // HAL_UART_Transmit(&huart2, PCM_BUF_1, PCM_BUF_SIZE * 2, 5000);
-      // HAL_UART_Transmit(&huart2, &index, 4, 100);
-      // HAL_UART_Transmit(&huart2, &maxmag, 4, 100);
-
+      // Only react to high enough magnitudes
       if (maxmag > 50) {
+        // Check if the highest magnitude corresponds to the desired frequency
         if ((index > desiredIndex - error) && (index < desiredIndex + error)) {
           HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_SET);
+          // Move to next stage
           open_lock_counter++;
           desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
         }
