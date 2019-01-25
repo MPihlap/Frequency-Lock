@@ -106,10 +106,17 @@
 /* #define USE_FULL_ASSERT    1U */
 
 /* USER CODE BEGIN Private defines */
+#define PCM_BUF_SIZE 2048
+#define PDM_BUF_SIZE 64
+#define DECIMATION_FACTOR 64
+
+#define SAMPLE_RATE 16000.0f
+#define LOCK_STAGES 7
 #define LOCK_PIN GPIO_PIN_2
 #define LOCK_ENABLE() HAL_GPIO_WritePin(GPIOE, LOCK_PIN, GPIO_PIN_SET)
 #define LOCK_DISABLE() HAL_GPIO_WritePin(GPIOE, LOCK_PIN, GPIO_PIN_RESET)
 #define LOCK_FLIP() HAL_GPIO_TogglePin(GPIOE, LOCK_PIN)
+#define GET_DESIRED_INDEX(FREQ) FREQ / (SAMPLE_RATE / PCM_BUF_SIZE)
 #define SPI1_NCS_PIN GPIO_PIN_8
 #define LED_PORT GPIOD
 #define LED1_PIN GPIO_PIN_12
@@ -117,10 +124,12 @@
 #define LED3_PIN GPIO_PIN_14
 #define LED4_PIN GPIO_PIN_15
 
-#define PCM_BUF_SIZE 2048
-#define PDM_BUF_SIZE 64
-#define DECIMATION_FACTOR 64
-
+// The permitted error between measurement and target in cents
+// http://hyperphysics.phy-astr.gsu.edu/hbase/Music/cents.html
+#define ERROR_CENT 100
+// The allowed error in units of indexes of fft output array
+#define ERROR_INDEX(freq) \
+  ((pow(2, ERROR_CENT / 1200) * freq) - freq) / (SAMPLE_RATE / PCM_BUF_SIZE)
 #define ARM_MATH_CM4
 /* USER CODE END Private defines */
 

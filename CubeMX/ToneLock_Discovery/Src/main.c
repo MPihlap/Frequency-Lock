@@ -53,6 +53,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "arm_math.h"
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -100,7 +101,7 @@ uint8_t open_lock_counter = 0;
 uint32_t sequence[] = {787, 884, 992, 1051, 992, 787, 884};
 // Desired index of maximum magnitude, initially 100 = 781.25 ... 789 Hz
 uint32_t desiredIndex = 100;
-uint8_t error = 3;  // How many neighbouring indexes will be considered legit
+uint16_t error = 3;  // How many neighbouring indexes will be considered legit
 arm_rfft_fast_instance_f32 S;
 
 /* USER CODE END 0 */
@@ -143,6 +144,7 @@ int main(void) {
   /* USER CODE BEGIN 2 */
   arm_rfft_fast_init_f32(&S, PCM_BUF_SIZE);
   desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
+  error = ERROR_INDEX(sequence[open_lock_counter]);
   LOCK_ENABLE();
   // SPI2_NVIC_INIT();
   HAL_GPIO_WritePin(GPIOE, SPI1_NCS_PIN, GPIO_PIN_SET);
@@ -190,6 +192,7 @@ int main(void) {
           // Move to next stage
           open_lock_counter++;
           desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
+          error = ERROR_INDEX(sequence[open_lock_counter]);
 
           // Success! open lock
           if (open_lock_counter >= LOCK_STAGES) {
