@@ -126,10 +126,10 @@
 
 // The permitted error between measurement and target in cents
 // http://hyperphysics.phy-astr.gsu.edu/hbase/Music/cents.html
-#define ERROR_CENT 100
+#define ERROR_CENT 100.0f
 // The allowed error in units of indexes of fft output array
 #define ERROR_INDEX(freq) \
-  ((pow(2, ERROR_CENT / 1200) * freq) - freq) / (SAMPLE_RATE / PCM_BUF_SIZE)
+  ((pow(2, ERROR_CENT / 1200.0f) * freq) - freq) / (SAMPLE_RATE / PCM_BUF_SIZE)
 #define ARM_MATH_CM4
 /* USER CODE END Private defines */
 
