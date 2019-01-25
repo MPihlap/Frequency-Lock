@@ -62,6 +62,8 @@ I2S_HandleTypeDef hi2s2;
 
 SPI_HandleTypeDef hspi1;
 
+TIM_HandleTypeDef htim6;
+
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
@@ -76,6 +78,7 @@ static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2S2_Init(void);
 static void MX_CRC_Init(void);
+static void MX_TIM6_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -97,7 +100,7 @@ uint8_t open_lock_counter = 0;
 uint32_t sequence[] = {787, 884, 992, 1051, 992, 787, 884};
 // Desired index of maximum magnitude, initially 100 = 781.25 ... 789 Hz
 uint32_t desiredIndex = 100;
-uint8_t error = 2;  // How many neighbouring indexes will be considered legit
+uint8_t error = 3;  // How many neighbouring indexes will be considered legit
 arm_rfft_fast_instance_f32 S;
 
 /* USER CODE END 0 */
@@ -136,9 +139,10 @@ int main(void) {
   MX_I2S2_Init();
   MX_CRC_Init();
   MX_PDM2PCM_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
   arm_rfft_fast_init_f32(&S, PCM_BUF_SIZE);
-  uint32_t desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
+  desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
   LOCK_ENABLE();
   // SPI2_NVIC_INIT();
   HAL_GPIO_WritePin(GPIOE, SPI1_NCS_PIN, GPIO_PIN_SET);
@@ -150,13 +154,13 @@ int main(void) {
   volatile float32_t maxmag;
   volatile uint32_t index;
 
-  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);  // ENABLE ME TO RECORD
+  HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   uint16_t handshake[4] = {1000, 1100, 1200, 1300};
-  uint16_t window[4] = {0, 0, 0, 0};
 
   while (1) {
     // Check if we have a full buffer of PCM data
@@ -178,30 +182,35 @@ int main(void) {
       if (maxmag > 50) {
         // Check if the highest magnitude corresponds to the desired frequency
         if ((index > desiredIndex - error) && (index < desiredIndex + error)) {
+          if (open_lock_counter == 0) {
+            HAL_TIM_Base_Start_IT(&htim6);
+            HAL_GPIO_WritePin(GPIOD, LED4_PIN, GPIO_PIN_SET);
+          }
           HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_SET);
           // Move to next stage
           open_lock_counter++;
           desiredIndex = GET_DESIRED_INDEX(sequence[open_lock_counter]);
+
+          // Success! open lock
+          if (open_lock_counter >= LOCK_STAGES) {
+            LOCK_DISABLE();
+            HAL_GPIO_WritePin(LED_PORT, LED1_PIN, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(LED_PORT, LED4_PIN, GPIO_PIN_SET);
+            // Start timer to keep lock open for 5 seconds
+            htim6.Instance->CNT = 0;
+            HAL_TIM_Base_Start_IT(&htim6);
+          }
         }
       }
-      if (open_lock_counter < LOCK_STAGES) {
-        RECORD_ENABLE = 1;
-        HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
-        __HAL_I2S_CLEAR_OVRFLAG(&hi2s2);
-        HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
-      } else {
-        LOCK_DISABLE();
-        HAL_GPIO_WritePin(LED_PORT, LED1_PIN, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(LED_PORT, LED4_PIN, GPIO_PIN_SET);
-      }
+
+      // Resume recording after signal processing
+      RECORD_ENABLE = 1;
+      __HAL_I2S_CLEAR_OVRFLAG(&hi2s2);
+      HAL_I2S_Receive_IT(&hi2s2, PDM_BUF_1, 64);
     }
     HAL_Delay(10);
-    // if (RECORD_ENABLE == 0) {
-    //   HAL_Delay(15);
-    //   HAL_GPIO_TogglePin(LED_PORT, LED4_PIN);
-    // }
 
     /* USER CODE END WHILE */
 
@@ -318,6 +327,26 @@ static void MX_SPI1_Init(void) {
   }
 }
 
+/* TIM6 init function */
+static void MX_TIM6_Init(void) {
+  TIM_MasterConfigTypeDef sMasterConfig;
+
+  htim6.Instance = TIM6;
+  htim6.Init.Prescaler = 2600 * 5;
+  htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim6.Init.Period = 32000;
+  if (HAL_TIM_Base_Init(&htim6) != HAL_OK) {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK) {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+  __HAL_TIM_CLEAR_FLAG(&htim6, TIM_SR_UIF);
+}
+
 /* USART2 init function */
 static void MX_USART2_UART_Init(void) {
   huart2.Instance = USART2;
@@ -407,25 +436,31 @@ static void MX_GPIO_Init(void) {
 
 /* USER CODE BEGIN 4 */
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+  // HAL_GPIO_WritePin(GPIOD, LED4_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_TogglePin(GPIOD, LED4_PIN);
+  HAL_GPIO_WritePin(LED_PORT, LED1_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_PORT, LED4_PIN, GPIO_PIN_RESET);
+  HAL_TIM_Base_Stop_IT(&htim6);
+  LOCK_ENABLE();
+  open_lock_counter = 0;
+  desiredIndex = GET_DESIRED_INDEX(sequence[0]);
+  // HAL_TIM_Base_Start_IT(&htim6);
+}
+
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
   PDM_Filter(PDM_BUF_1, &PCM_BUF_1[local_pcm_pointer], &PDM1_filter_handler);
 
-  // for (uint8_t i = 0; i < 16; i++) {
-  //   fft_input_buffer[local_pcm_pointer + i] =
-  //       (float32_t)current_PCM_buffer[local_pcm_pointer + i];
-  // }
   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_PORT, LED3_PIN, GPIO_PIN_RESET);
   local_pcm_pointer = local_pcm_pointer + 16;  // The filter returns 16 samples
   if (local_pcm_pointer == PCM_BUF_SIZE) {
     local_pcm_pointer = 0;
     RECORD_ENABLE = 0;
     HAL_GPIO_WritePin(GPIOD, LED2_PIN, GPIO_PIN_RESET);
     PCM_switch_flag ^= 1;
-    // if (PCM_switch_flag == 1) {
-    //   current_PCM_buffer = PCM_BUF_2;
-    // } else {
-    //   current_PCM_buffer = PCM_BUF_1;
-    // }
   }
   if (RECORD_ENABLE == 1) {
     HAL_StatusTypeDef result;
@@ -437,8 +472,6 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
       HAL_GPIO_WritePin(GPIOD, LED2_PIN, GPIO_PIN_RESET);
     }
   }
-  // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-  // HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_11);
 }
 
 /* USER CODE END 4 */
