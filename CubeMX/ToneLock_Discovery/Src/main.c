@@ -54,6 +54,7 @@
 /* USER CODE BEGIN Includes */
 #include "arm_math.h"
 #include <math.h>
+#include "note_freq.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -98,7 +99,7 @@ uint8_t PCM_switch_flag = 0;
 uint16_t *current_PCM_buffer;  // Pointer to array to be recorded to
 uint8_t RECORD_ENABLE = 0;     // Recording control flag
 uint8_t open_lock_counter = 0;
-uint32_t sequence[] = {787, 884, 992, 1051, 992, 787, 884};
+uint32_t sequence[] = MY_HEART_WILL_GO_ON;
 // Desired index of maximum magnitude, initially 100 = 781.25 ... 789 Hz
 uint32_t desiredIndex = 100;
 uint16_t error = 3;  // How many neighbouring indexes will be considered legit
@@ -335,7 +336,7 @@ static void MX_TIM6_Init(void) {
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 2600 * 5;
+  htim6.Init.Prescaler = 2600 * TIME_TO_UNLOCK;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim6.Init.Period = 32000;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK) {
@@ -440,7 +441,6 @@ static void MX_GPIO_Init(void) {
 /* USER CODE BEGIN 4 */
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-  // HAL_GPIO_WritePin(GPIOD, LED4_PIN, GPIO_PIN_RESET);
   HAL_GPIO_TogglePin(GPIOD, LED4_PIN);
   HAL_GPIO_WritePin(LED_PORT, LED1_PIN, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(LED_PORT, LED2_PIN, GPIO_PIN_RESET);
@@ -450,7 +450,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   LOCK_ENABLE();
   open_lock_counter = 0;
   desiredIndex = GET_DESIRED_INDEX(sequence[0]);
-  // HAL_TIM_Base_Start_IT(&htim6);
+  error = ERROR_INDEX(sequence[open_lock_counter]);
 }
 
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {

@@ -110,8 +110,9 @@
 #define PDM_BUF_SIZE 64
 #define DECIMATION_FACTOR 64
 
+// How much time does the user have to play the tune
+#define TIME_TO_UNLOCK 7
 #define SAMPLE_RATE 16000.0f
-#define LOCK_STAGES 7
 #define LOCK_PIN GPIO_PIN_2
 #define LOCK_ENABLE() HAL_GPIO_WritePin(GPIOE, LOCK_PIN, GPIO_PIN_SET)
 #define LOCK_DISABLE() HAL_GPIO_WritePin(GPIOE, LOCK_PIN, GPIO_PIN_RESET)
@@ -126,7 +127,7 @@
 
 // The permitted error between measurement and target in cents
 // http://hyperphysics.phy-astr.gsu.edu/hbase/Music/cents.html
-#define ERROR_CENT 100.0f
+#define ERROR_CENT 150.0f
 // The allowed error in units of indexes of fft output array
 #define ERROR_INDEX(freq) \
   ((pow(2, ERROR_CENT / 1200.0f) * freq) - freq) / (SAMPLE_RATE / PCM_BUF_SIZE)
