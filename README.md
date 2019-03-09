@@ -1,5 +1,4 @@
 # Frequency-Lock
-Hardware project, creating a lock you open by singing a tune to it.
 
 ## Demonstration video:
 https://www.youtube.com/watch?v=SHbAAHV13OE
